@@ -1,0 +1,2 @@
+date,image,vllm_version,python,torch,cuda,device,source_tag,source_commit,install_mode,smoke_model,smoke_status
+2026-07-10,vllm/vllm-openai:latest-aarch64,0.24.0,3.12.13,2.11.0+cu130,13.0,Orin CC8.7,v0.24.0,ee0da84ab9e04ac7610e28580af62c365e898389,editable+precompiled,/models/Qwen3.5-0.8B,pass

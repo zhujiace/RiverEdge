@@ -1,0 +1,36 @@
+Checkpoint:
+  /models/Smollm_8B_river_quant_copyinit_kvdistill_weight500/q_4bit_exit_bf16
+
+Key counts:
+  total keys: 4507
+  model.layers.*: 288
+  model.exit_modules.*: 4216
+  lm_head*: 1
+  model.norm*: 1
+
+Backbone layer indices:
+  model.layers: 0..31, count 32
+
+River PTQ tail indices:
+  model.exit_modules.0: 1..31, count 31
+  model.exit_modules.1: 0..30, count 31
+
+Representative FP backbone keys:
+  model.layers.0.self_attn.q_proj.weight
+  model.layers.0.self_attn.k_proj.weight
+  model.layers.0.self_attn.v_proj.weight
+  model.layers.0.self_attn.o_proj.weight
+  model.layers.0.mlp.gate_proj.weight
+  model.layers.0.mlp.up_proj.weight
+  model.layers.0.mlp.down_proj.weight
+
+Representative HQQ PTQ tail keys:
+  model.exit_modules.0.1.self_attn.q_proj.W_q
+  model.exit_modules.0.1.self_attn.q_proj.scale
+  model.exit_modules.0.1.self_attn.q_proj.zero
+  model.exit_modules.0.1.self_attn.q_proj.nbits
+  model.exit_modules.0.1.mlp.gate_proj.W_q
+  model.exit_modules.0.1.mlp.up_proj.W_q
+  model.exit_modules.0.1.mlp.down_proj.W_q
+  model.exit_modules.0.1.input_layernorm.weight
+  model.exit_modules.0.1.post_attention_layernorm.weight

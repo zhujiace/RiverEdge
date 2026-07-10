@@ -1,0 +1,306 @@
+{
+  "tasks": [
+    "mmlu_abstract_algebra"
+  ],
+  "split": "auto",
+  "num_samples": 8,
+  "model_path": "/models/Smollm_8B_river_quant_copyinit_kvdistill_weight500/q_4bit_exit_bf16",
+  "exit_layer": 3,
+  "route_threshold": 0.8,
+  "max_prompt_tokens": 512,
+  "max_new_tokens": 4,
+  "batch_sizes": [
+    1,
+    2,
+    4
+  ],
+  "modes": [
+    "auto",
+    "ptq",
+    "fp"
+  ],
+  "quant_backend": "t",
+  "dtype": "bfloat16",
+  "batch_results": {
+    "1": {
+      "mode_summary": {
+        "auto": {
+          "prefill_s": 1.0569504899904132,
+          "decode_s": 2.4139040350564755,
+          "decode_steps": 24,
+          "decode_tokens": 24,
+          "decode_step_tps": 9.942400216186927,
+          "decode_token_tps": 9.942400216186927,
+          "route_steps": {
+            "ptq": 3,
+            "fp": 21
+          },
+          "route_tokens": {
+            "ptq": 3,
+            "fp": 21
+          },
+          "ptq_route_token_ratio": 0.125,
+          "route_score": {
+            "mean": 0.78076171875,
+            "median": 0.78125,
+            "min": 0.734375,
+            "max": 0.80859375
+          }
+        },
+        "ptq": {
+          "prefill_s": 0.9759383230120875,
+          "decode_s": 1.9139695059275255,
+          "decode_steps": 24,
+          "decode_tokens": 24,
+          "decode_step_tps": 12.539384731926228,
+          "decode_token_tps": 12.539384731926228,
+          "route_steps": {
+            "ptq": 24,
+            "fp": 0
+          },
+          "route_tokens": {
+            "ptq": 24,
+            "fp": 0
+          },
+          "ptq_route_token_ratio": 1.0,
+          "route_score": {
+            "mean": 0.78076171875,
+            "median": 0.78125,
+            "min": 0.734375,
+            "max": 0.80859375
+          }
+        },
+        "fp": {
+          "prefill_s": 0.9775484549463727,
+          "decode_s": 2.4162320000468753,
+          "decode_steps": 24,
+          "decode_tokens": 24,
+          "decode_step_tps": 9.932821020305333,
+          "decode_token_tps": 9.932821020305333,
+          "route_steps": {
+            "ptq": 0,
+            "fp": 24
+          },
+          "route_tokens": {
+            "ptq": 0,
+            "fp": 24
+          },
+          "ptq_route_token_ratio": 0.0,
+          "route_score": {
+            "mean": 0.78076171875,
+            "median": 0.78125,
+            "min": 0.734375,
+            "max": 0.80859375
+          }
+        }
+      },
+      "token_match_vs_fp": {
+        "auto": {
+          "token_match_rate": {
+            "mean": 1.0,
+            "median": 1.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "exact_sequence_match_rate": 1.0
+        },
+        "ptq": {
+          "token_match_rate": {
+            "mean": 1.0,
+            "median": 1.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "exact_sequence_match_rate": 1.0
+        }
+      }
+    },
+    "2": {
+      "mode_summary": {
+        "auto": {
+          "prefill_s": 0.7294942820444703,
+          "decode_s": 1.2288013779907487,
+          "decode_steps": 12,
+          "decode_tokens": 24,
+          "decode_step_tps": 9.765614048725737,
+          "decode_token_tps": 19.531228097451475,
+          "route_steps": {
+            "ptq": 1,
+            "fp": 11
+          },
+          "route_tokens": {
+            "ptq": 2,
+            "fp": 22
+          },
+          "ptq_route_token_ratio": 0.08333333333333333,
+          "route_score": {
+            "mean": 0.78125,
+            "median": 0.78125,
+            "min": 0.7421875,
+            "max": 0.8046875
+          }
+        },
+        "ptq": {
+          "prefill_s": 0.7107314839377068,
+          "decode_s": 0.9627774470718578,
+          "decode_steps": 12,
+          "decode_tokens": 24,
+          "decode_step_tps": 12.46393965344347,
+          "decode_token_tps": 24.92787930688694,
+          "route_steps": {
+            "ptq": 12,
+            "fp": 0
+          },
+          "route_tokens": {
+            "ptq": 24,
+            "fp": 0
+          },
+          "ptq_route_token_ratio": 1.0,
+          "route_score": {
+            "mean": 0.78125,
+            "median": 0.78125,
+            "min": 0.7421875,
+            "max": 0.8046875
+          }
+        },
+        "fp": {
+          "prefill_s": 0.7110470090410672,
+          "decode_s": 1.2436127011314966,
+          "decode_steps": 12,
+          "decode_tokens": 24,
+          "decode_step_tps": 9.649306403096272,
+          "decode_token_tps": 19.298612806192544,
+          "route_steps": {
+            "ptq": 0,
+            "fp": 12
+          },
+          "route_tokens": {
+            "ptq": 0,
+            "fp": 24
+          },
+          "ptq_route_token_ratio": 0.0,
+          "route_score": {
+            "mean": 0.78125,
+            "median": 0.78125,
+            "min": 0.7421875,
+            "max": 0.8046875
+          }
+        }
+      },
+      "token_match_vs_fp": {
+        "auto": {
+          "token_match_rate": {
+            "mean": 1.0,
+            "median": 1.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "exact_sequence_match_rate": 1.0
+        },
+        "ptq": {
+          "token_match_rate": {
+            "mean": 1.0,
+            "median": 1.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "exact_sequence_match_rate": 1.0
+        }
+      }
+    },
+    "4": {
+      "mode_summary": {
+        "auto": {
+          "prefill_s": 0.6067611980251968,
+          "decode_s": 0.6421776489587501,
+          "decode_steps": 6,
+          "decode_tokens": 24,
+          "decode_step_tps": 9.343209016583831,
+          "decode_token_tps": 37.372836066335324,
+          "route_steps": {
+            "ptq": 0,
+            "fp": 6
+          },
+          "route_tokens": {
+            "ptq": 0,
+            "fp": 24
+          },
+          "ptq_route_token_ratio": 0.0,
+          "route_score": {
+            "mean": 0.78125,
+            "median": 0.783203125,
+            "min": 0.7734375,
+            "max": 0.78515625
+          }
+        },
+        "ptq": {
+          "prefill_s": 0.6053776600165293,
+          "decode_s": 0.4921214970527217,
+          "decode_steps": 6,
+          "decode_tokens": 24,
+          "decode_step_tps": 12.192111167533922,
+          "decode_token_tps": 48.768444670135686,
+          "route_steps": {
+            "ptq": 6,
+            "fp": 0
+          },
+          "route_tokens": {
+            "ptq": 24,
+            "fp": 0
+          },
+          "ptq_route_token_ratio": 1.0,
+          "route_score": {
+            "mean": 0.78125,
+            "median": 0.783203125,
+            "min": 0.7734375,
+            "max": 0.78515625
+          }
+        },
+        "fp": {
+          "prefill_s": 0.6106811839854345,
+          "decode_s": 0.6362926779547706,
+          "decode_steps": 6,
+          "decode_tokens": 24,
+          "decode_step_tps": 9.429622888771473,
+          "decode_token_tps": 37.71849155508589,
+          "route_steps": {
+            "ptq": 0,
+            "fp": 6
+          },
+          "route_tokens": {
+            "ptq": 0,
+            "fp": 24
+          },
+          "ptq_route_token_ratio": 0.0,
+          "route_score": {
+            "mean": 0.78125,
+            "median": 0.783203125,
+            "min": 0.7734375,
+            "max": 0.78515625
+          }
+        }
+      },
+      "token_match_vs_fp": {
+        "auto": {
+          "token_match_rate": {
+            "mean": 1.0,
+            "median": 1.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "exact_sequence_match_rate": 1.0
+        },
+        "ptq": {
+          "token_match_rate": {
+            "mean": 1.0,
+            "median": 1.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "exact_sequence_match_rate": 1.0
+        }
+      }
+    }
+  },
+  "total_wall_s": 19.003701883018948
+}

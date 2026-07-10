@@ -1,0 +1,23 @@
+SidewayLlamaForCausalLM
+  model: SidewayLlamaModel
+    embed_tokens
+    layers: ModuleList[32]
+      layers.0..31: FP SidewayLlamaDecoderLayer
+    exit_modules: ModuleList
+      exit_modules.0: ModuleList[32]
+        0: Identity
+        1..31: HQQ/PTQ SidewayLlamaDecoderLayer
+      exit_modules.1: ModuleList[31]
+        0..30: SidewayLlamaRMSNorm
+    norm: SidewayLlamaRMSNorm
+    rotary_emb
+  lm_head: shared output head
+
+Dual-tail interpretation for exit layer k:
+  shared prefix: model.layers[0:k]
+  FP tail:       model.layers[k:32] + model.norm
+  PTQ tail:      model.exit_modules.0[k:32] + model.exit_modules.1[k-1]
+
+Index note:
+  exit_layer k is 1-indexed. For k=3, prefix uses layers 0,1,2;
+  PTQ tail uses exit_modules.0 indices 3..31.

@@ -1,0 +1,99 @@
+{
+  "tasks": [
+    "mmlu_abstract_algebra"
+  ],
+  "split": "auto",
+  "num_samples": 3,
+  "model_path": "/models/Smollm_8B_river_quant_copyinit_kvdistill_weight500/q_4bit_exit_bf16",
+  "exit_layer": 3,
+  "route_threshold": 0.5,
+  "max_prompt_tokens": 512,
+  "max_new_tokens": 4,
+  "modes": [
+    "auto",
+    "ptq",
+    "fp"
+  ],
+  "quant_backend": "t",
+  "dtype": "bfloat16",
+  "total_wall_s": 3.548876304004807,
+  "prompt_tokens": {
+    "mean": 57,
+    "median": 59,
+    "min": 46,
+    "max": 66
+  },
+  "mode_summary": {
+    "auto": {
+      "prefill_s": 0.45727660501142964,
+      "decode_s": 0.7593258689739741,
+      "decode_steps": 9,
+      "decode_tps": 11.852618707908757,
+      "route_counts": {
+        "ptq": 9,
+        "fp": 0
+      },
+      "ptq_route_ratio": 1.0,
+      "route_score": {
+        "mean": 0.78125,
+        "median": 0.78515625,
+        "min": 0.734375,
+        "max": 0.80859375
+      }
+    },
+    "ptq": {
+      "prefill_s": 0.35376124602044,
+      "decode_s": 0.6956073470646515,
+      "decode_steps": 9,
+      "decode_tps": 12.938333728041426,
+      "route_counts": {
+        "ptq": 9,
+        "fp": 0
+      },
+      "ptq_route_ratio": 1.0,
+      "route_score": {
+        "mean": 0.78125,
+        "median": 0.78515625,
+        "min": 0.734375,
+        "max": 0.80859375
+      }
+    },
+    "fp": {
+      "prefill_s": 0.35334309993777424,
+      "decode_s": 0.907296686025802,
+      "decode_steps": 9,
+      "decode_tps": 9.919577728672596,
+      "route_counts": {
+        "ptq": 0,
+        "fp": 9
+      },
+      "ptq_route_ratio": 0.0,
+      "route_score": {
+        "mean": 0.78125,
+        "median": 0.78515625,
+        "min": 0.734375,
+        "max": 0.80859375
+      }
+    }
+  },
+  "token_match_vs_fp": {
+    "auto": {
+      "token_match_rate": {
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "exact_sequence_match_rate": 1.0
+    },
+    "ptq": {
+      "token_match_rate": {
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "exact_sequence_match_rate": 1.0
+    }
+  }
+}

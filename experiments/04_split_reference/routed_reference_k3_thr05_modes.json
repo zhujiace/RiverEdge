@@ -1,0 +1,71 @@
+{
+  "model_path": "/models/Smollm_8B_river_quant_copyinit_kvdistill_weight500/q_4bit_exit_bf16",
+  "exit_layer": 3,
+  "route_threshold": 0.5,
+  "modes": [
+    "auto",
+    "ptq",
+    "fp"
+  ],
+  "prompt_len": 64,
+  "batch_size": 1,
+  "max_new_tokens": 16,
+  "quant_backend": "t",
+  "dtype": "bfloat16",
+  "runs": [
+    {
+      "mode": "auto",
+      "generated_shape": [
+        1,
+        16
+      ],
+      "prefill_s": 0.23559813998872414,
+      "decode_s": 1.2644574539153837,
+      "decode_steps": 15,
+      "decode_tps": 11.862795346377693,
+      "route_counts": {
+        "ptq": 15,
+        "fp": 0
+      },
+      "avg_route_score": 0.7640625,
+      "min_route_score": 0.6875,
+      "max_route_score": 0.828125
+    },
+    {
+      "mode": "ptq",
+      "generated_shape": [
+        1,
+        16
+      ],
+      "prefill_s": 0.11981998401461169,
+      "decode_s": 1.1778746209456585,
+      "decode_steps": 15,
+      "decode_tps": 12.734801933296794,
+      "route_counts": {
+        "ptq": 15,
+        "fp": 0
+      },
+      "avg_route_score": 0.7640625,
+      "min_route_score": 0.6875,
+      "max_route_score": 0.828125
+    },
+    {
+      "mode": "fp",
+      "generated_shape": [
+        1,
+        16
+      ],
+      "prefill_s": 0.12011452304432169,
+      "decode_s": 1.5013757729320787,
+      "decode_steps": 15,
+      "decode_tps": 9.990836584971717,
+      "route_counts": {
+        "ptq": 0,
+        "fp": 15
+      },
+      "avg_route_score": 0.7677083333333333,
+      "min_route_score": 0.6875,
+      "max_route_score": 0.82421875
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "tasks": [
+    "mmlu_abstract_algebra"
+  ],
+  "split": "auto",
+  "num_samples": 100,
+  "model_path": "/models/Smollm_8B_river_quant_copyinit_kvdistill_weight500/q_4bit_exit_bf16",
+  "exit_layer": 3,
+  "route_threshold": 0.8,
+  "max_prompt_tokens": 512,
+  "max_new_tokens": 8,
+  "modes": [
+    "auto",
+    "ptq",
+    "fp"
+  ],
+  "quant_backend": "t",
+  "dtype": "bfloat16",
+  "total_wall_s": 226.36306122201495,
+  "prompt_tokens": {
+    "mean": 63.44,
+    "median": 62.0,
+    "min": 32,
+    "max": 110
+  },
+  "mode_summary": {
+    "auto": {
+      "prefill_s": 12.07499324035598,
+      "decode_s": 66.61699402256636,
+      "decode_steps": 700,
+      "decode_tps": 10.507829274957626,
+      "route_counts": {
+        "ptq": 157,
+        "fp": 543
+      },
+      "ptq_route_ratio": 0.22428571428571428,
+      "route_score": {
+        "mean": 0.7830524553571429,
+        "median": 0.78125,
+        "min": 0.65625,
+        "max": 0.89453125
+      }
+    },
+    "ptq": {
+      "prefill_s": 11.985202347161248,
+      "decode_s": 52.60601226374274,
+      "decode_steps": 700,
+      "decode_tps": 13.306463840872727,
+      "route_counts": {
+        "ptq": 700,
+        "fp": 0
+      },
+      "ptq_route_ratio": 1.0,
+      "route_score": {
+        "mean": 0.7824441964285714,
+        "median": 0.78125,
+        "min": 0.65625,
+        "max": 0.89453125
+      }
+    },
+    "fp": {
+      "prefill_s": 11.978155553108081,
+      "decode_s": 70.53964895533863,
+      "decode_steps": 700,
+      "decode_tps": 9.9234970738683,
+      "route_counts": {
+        "ptq": 0,
+        "fp": 700
+      },
+      "ptq_route_ratio": 0.0,
+      "route_score": {
+        "mean": 0.7832700892857143,
+        "median": 0.78125,
+        "min": 0.65625,
+        "max": 0.89453125
+      }
+    }
+  },
+  "token_match_vs_fp": {
+    "auto": {
+      "token_match_rate": {
+        "mean": 0.96875,
+        "median": 1.0,
+        "min": 0.375,
+        "max": 1.0
+      },
+      "exact_sequence_match_rate": 0.89
+    },
+    "ptq": {
+      "token_match_rate": {
+        "mean": 0.8925,
+        "median": 1.0,
+        "min": 0.25,
+        "max": 1.0
+      },
+      "exact_sequence_match_rate": 0.71
+    }
+  }
+}

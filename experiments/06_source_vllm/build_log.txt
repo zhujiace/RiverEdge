@@ -1,0 +1,91 @@
+# P5 vLLM Source Build Log
+
+Date: 2026-07-10
+
+## Source
+
+- Path: `/workspace/vllm/RiverEdge/river-vllm-edge/third_party/vllm`
+- Tag: `v0.24.0`
+- Branch: `riveredge-dev`
+- Commit: `ee0da84ab9e04ac7610e28580af62c365e898389`
+
+## Container
+
+- Name: `riveredge-vllm-src`
+- Image: `vllm/vllm-openai:latest-aarch64`
+- Python: `3.12.13`
+- PyTorch: `2.11.0+cu130`
+- CUDA: `13.0`
+- Device: `Orin`, CC `8.7`
+
+## Build Dependencies Added
+
+```bash
+apt-get update
+DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends git ca-certificates
+python3 -m pip install --no-cache-dir "cmake>=3.26.1" "setuptools-rust>=1.9.0" "setuptools>=77.0.3,<81.0.0" wheel build packaging jinja2
+git config --global --add safe.directory /workspace/vllm/RiverEdge/river-vllm-edge/third_party/vllm
+```
+
+## Editable Build Command
+
+```bash
+cd /workspace/vllm/RiverEdge/river-vllm-edge/third_party/vllm
+VLLM_VERSION_OVERRIDE=0.24.0 \
+VLLM_USE_PRECOMPILED=1 \
+VLLM_PRECOMPILED_WHEEL_COMMIT=ee0da84ab9e04ac7610e28580af62c365e898389 \
+VLLM_PRECOMPILED_WHEEL_VARIANT=cu130 \
+python3 -m pip install -e . --no-build-isolation
+```
+
+Result:
+
+```text
+Successfully built vllm
+Successfully installed vllm-0.24.0
+```
+
+Full successful pip output is stored in `build_precompiled_retry.log`.
+The first failed attempt, caused by missing `git` and missing source version metadata, is preserved in `build_first_attempt_failure.log`.
+
+## Import Verification
+
+```text
+vllm_file /workspace/vllm/RiverEdge/river-vllm-edge/third_party/vllm/vllm/__init__.py
+vllm_version 0.24.0
+torch 2.11.0+cu130
+cuda 13.0
+device Orin (8, 7)
+```
+
+Loaded extensions from source tree:
+
+- `vllm._C_stable_libtorch`
+- `vllm._moe_C_stable_libtorch`
+- `vllm.cumem_allocator`
+- `vllm.vllm_flash_attn._vllm_fa2_C`
+
+## Server Smoke Test
+
+Qwen3.5-0.8B contains `vision_config`; pure text smoke test should use `--language-model-only`.
+
+```bash
+vllm serve /models/Qwen3.5-0.8B \
+  --served-model-name qwen3.5-0.8b \
+  --host 0.0.0.0 \
+  --port 8000 \
+  --dtype float16 \
+  --max-model-len 512 \
+  --gpu-memory-utilization 0.50 \
+  --max-num-seqs 4 \
+  --enforce-eager \
+  --language-model-only
+```
+
+Health/model/completion checks passed. Completion response is stored in `completion_smoke_response.json`.
+
+Use `curl --noproxy '*' ...` on the host because `ALL_PROXY` is set.
+
+## Limitation
+
+This P5 baseline uses official precompiled native extensions with editable Python source. It is ready for Python-level vLLM modifications. If RiverEdge needs changes in C++/CUDA/Rust extensions, run a separate full local native build with `VLLM_USE_PRECOMPILED=0`.

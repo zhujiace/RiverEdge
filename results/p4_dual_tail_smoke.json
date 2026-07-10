@@ -1,0 +1,53 @@
+{
+  "model_path": "/models/Smollm_8B_river_quant_copyinit_kvdistill_weight500/q_4bit_exit_bf16",
+  "exit_layer": 3,
+  "seq_len": 16,
+  "batch_size": 1,
+  "dtype": "bfloat16",
+  "quant_backend": "t",
+  "attn_implementation": "sdpa",
+  "device": "Orin",
+  "torch": "2.8.0a0+34c6371d24.nv25.08",
+  "modes": {
+    "full_fp": {
+      "times_s": [
+        0.10205212095752358
+      ],
+      "mean_s": 0.10205212095752358,
+      "median_s": 0.10205212095752358,
+      "min_s": 0.10205212095752358,
+      "prefill_tokens": 16,
+      "mean_prefill_tps": 156.7826307760871,
+      "median_prefill_tps": 156.7826307760871
+    },
+    "fp_tail": {
+      "times_s": [
+        0.10188951704185456
+      ],
+      "mean_s": 0.10188951704185456,
+      "median_s": 0.10188951704185456,
+      "min_s": 0.10188951704185456,
+      "prefill_tokens": 16,
+      "mean_prefill_tps": 157.03283776904604,
+      "median_prefill_tps": 157.03283776904604
+    },
+    "ptq_tail": {
+      "times_s": [
+        0.10555414098780602
+      ],
+      "mean_s": 0.10555414098780602,
+      "median_s": 0.10555414098780602,
+      "min_s": 0.10555414098780602,
+      "prefill_tokens": 16,
+      "mean_prefill_tps": 151.5809787306059,
+      "median_prefill_tps": 151.5809787306059
+    }
+  },
+  "speedup_vs_full_fp_median": {
+    "fp_tail": 1.0015958846443667,
+    "ptq_tail": 0.9668225235172251
+  },
+  "speedup_vs_fp_tail_median": {
+    "ptq_tail": 0.9652820447245664
+  }
+}

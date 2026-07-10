@@ -1,0 +1,26 @@
+{
+  "model_path": "/models/Smollm_8B_river_quant_copyinit_kvdistill_weight500/q_4bit_exit_bf16",
+  "exit_layer": 3,
+  "route_threshold": 0.5,
+  "force_route": "auto",
+  "prompt_len": 16,
+  "batch_size": 1,
+  "max_new_tokens": 4,
+  "quant_backend": "t",
+  "dtype": "bfloat16",
+  "generated_shape": [
+    1,
+    4
+  ],
+  "prefill_s": 0.2651579270022921,
+  "decode_s": 0.26514458301244304,
+  "decode_steps": 3,
+  "decode_tps": 11.314581523467188,
+  "route_counts": {
+    "ptq": 3,
+    "fp": 0
+  },
+  "avg_route_score": 0.8216145833333334,
+  "min_route_score": 0.796875,
+  "max_route_score": 0.8671875
+}

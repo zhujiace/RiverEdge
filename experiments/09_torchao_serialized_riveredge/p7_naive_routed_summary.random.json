@@ -1,0 +1,64 @@
+{
+  "result": {
+    "policy": "random",
+    "num_prompts": 8,
+    "max_new_tokens": 16,
+    "total_output_tokens": 128,
+    "route_counts": {
+      "fp": 5,
+      "ptq": 3
+    },
+    "ptq_ratio": 0.375,
+    "load_s": 84.6363526880159,
+    "route_elapsed_s": {
+      "fp": 1.455352129007224,
+      "ptq": 0.880477499042172
+    },
+    "total_s": 2.335845085035544,
+    "output_tps": 54.798154560858755,
+    "gpu_memory_utilization": 0.32,
+    "dual_engine": true,
+    "routes": [
+      {
+        "prompt_index": 0,
+        "route": "fp",
+        "score": 0.32383276483316237
+      },
+      {
+        "prompt_index": 1,
+        "route": "fp",
+        "score": 0.15084917392450192
+      },
+      {
+        "prompt_index": 2,
+        "route": "ptq",
+        "score": 0.6509344730398537
+      },
+      {
+        "prompt_index": 3,
+        "route": "fp",
+        "score": 0.07243628666754276
+      },
+      {
+        "prompt_index": 4,
+        "route": "ptq",
+        "score": 0.5358820043066892
+      },
+      {
+        "prompt_index": 5,
+        "route": "fp",
+        "score": 0.36568891691258554
+      },
+      {
+        "prompt_index": 6,
+        "route": "fp",
+        "score": 0.057998924774706806
+      },
+      {
+        "prompt_index": 7,
+        "route": "ptq",
+        "score": 0.5074357331894203
+      }
+    ]
+  }
+}

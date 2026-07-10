@@ -1,0 +1,19 @@
+{
+  "result": {
+    "mode": "static_ptq_tail",
+    "model_path": "/workspace/vllm/RiverEdge/experiments/07_vllm_custom_model/model_adapters_container/static_ptq_tail_k3",
+    "iters": 3,
+    "warmup": 1,
+    "max_new_tokens": 16,
+    "total_output_tokens": 48,
+    "total_s": 43.48023581993766,
+    "mean_latency_s": 14.49341193997922,
+    "output_tps": 1.1039498543379525,
+    "latencies_s": [
+      14.494519812986255,
+      14.493788024003152,
+      14.491927982948255
+    ],
+    "last_text": "\u0435\u043d\u043d\u044b\u0445.MAX.MAX.MAX.MAX.MAX.MAX.MAX.MAX.MAX.MAX.MAX.MAX.MAX.MAX.MAX"
+  }
+}

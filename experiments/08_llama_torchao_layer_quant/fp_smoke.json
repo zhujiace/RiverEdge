@@ -1,0 +1,18 @@
+{
+  "mode": "fp",
+  "model_path": "/models/Llama-3.1-8B-Instruct",
+  "quantization": null,
+  "hf_overrides": null,
+  "load_s": 56.06257383397315,
+  "iters": 1,
+  "warmup": 0,
+  "max_new_tokens": 8,
+  "total_output_tokens": 8,
+  "total_s": 0.7396125299856067,
+  "mean_latency_s": 0.7396125299856067,
+  "output_tps": 10.816474404720651,
+  "latencies_s": [
+    0.7396125299856067
+  ],
+  "last_text": " LLM inference is the process of using"
+}

@@ -1,101 +1,43 @@
-# RiverEdge To-do List 2026-07-09
+# RiverEdge To-do List 2026-07-11
 
-## 0. 当前环境约定
+## 0. 当前研究路线
+
+当前 RiverEdge 不再沿用原始 River 的“训练/early-exit”主线，而是聚焦：
+
+```text
+fixed checkpoint routed continuation
+shared FP prefix -> route -> FP tail 或 PTQ tail
+```
+
+收益来源不是跳过层，而是让一部分请求在 decode 阶段走更快的 PTQ tail。当前采用 Llama-3.1-8B-Instruct + torchao serialized safetensors 路线，避免 HQQ wrapper 和运行时量化。
+
+环境约定：
 
 - 仓库根目录：`/home/orin/zjc/vllm`
 - RiverEdge 目录：`/home/orin/zjc/vllm/RiverEdge`
-- 模型目录：`/media/orin/Data/models`，容器内为 `/models`
-- HF cache：`/media/orin/Data/huggingface`，River 容器内为 `/disk/dataset/huggingface`
-- River 容器：`river-llama32-8b`、`river-bench-t`
-- River 权重：`/models/Smollm_8B_river_quant_copyinit_kvdistill_weight500/q_4bit_exit_bf16`
-- vLLM baseline image：`vllm/vllm-openai:latest-aarch64`
+- 模型目录：宿主机 `/media/orin/Data/models`，容器内 `/models`
+- vLLM source 容器：`riveredge-vllm-src`
+- vLLM 源码：`RiverEdge/river-vllm-edge/third_party/vllm`
 
-所有新增项目代码建议放在：
+## 1. Experiments 目录对齐
 
-```text
-/home/orin/zjc/vllm/RiverEdge/river-vllm-edge/
-```
+当前实际目录与阶段含义如下：
 
-不要直接修改 `rivier/` 的核心模型实现或 vLLM internals，除非前置 gate 已通过。
+| 目录 | 状态 | 含义 |
+|---|---|---|
+| `experiments/03_weight_structure` | 已完成 | 旧 River/HQQ checkpoint 双 tail 可行性检查 |
+| `experiments/04_split_reference` | 已完成/历史基线 | 旧 River/HQQ PyTorch split reference 与 lm-eval speed test |
+| `experiments/05_vllm_baseline` | 已完成 | 官方 vLLM image baseline |
+| `experiments/06_source_vllm` | 已完成 | source-based vLLM 环境与 smoke test |
+| `experiments/07_vllm_custom_model` | 已完成/已淘汰 | 早期 vLLM custom model + HQQ wrapper 原型 |
+| `experiments/08_llama_torchao_layer_quant` | 已完成/过渡 | Llama torchao online quant adapter 验证 |
+| `experiments/09_torchao_serialized_riveredge` | 当前主线 | torchao safetensors checkpoint、P4/P6/P7 新实验 |
 
-## 1. P0：先明确研究对象
+`00_problem_definition`、`01_env`、`02_river_original` 当前不再补建，避免与实际实验目录脱节。
 
-目标是判断 RiverEdge 应该走哪条路线：
+## 2. 已完成：P3-P7
 
-- 路线 A：真正 early exit，固定 checkpoint 后跳过后续层。
-- 路线 B：adaptive-precision routed continuation，固定 checkpoint 后继续执行 PTQ tail 或 FP tail。
-
-当前计划更接近路线 B。路线 B 的收益来自 PTQ tail 比 FP tail 更快，而不是来自跳过层。
-
-交付物：
-
-- `experiments/00_problem_definition/problem_statement.md`
-- `experiments/00_problem_definition/go_no_go_gates.md`
-
-## 2. P1：环境与基线记录
-
-在宿主机记录：
-
-```bash
-uname -a
-cat /etc/os-release
-df -h
-free -h
-docker ps
-docker images
-```
-
-在 River 容器内记录：
-
-```bash
-sudo docker exec -it river-llama32-8b bash
-python3 --version
-python3 -c "import torch; print(torch.__version__); print(torch.cuda.is_available()); print(torch.version.cuda)"
-python3 -c "import transformers; print(transformers.__version__)"
-cd /workspace/vllm/rivier/lm-evaluation
-python -m pip list | grep -E "torch|transformers|hqq|lm-eval|numpy"
-```
-
-交付物：
-
-- `experiments/01_env/env_report.md`
-- `experiments/01_env/docker_report.md`
-
-## 3. P2：River 原始行为验证
-
-先不接 vLLM，继续使用 River/lm-evaluation 环境。
-
-必须完成：
-
-- 完整 `mmlu_abstract_algebra` early-exit vs full model baseline。
-- 至少 2-3 个 MMLU 子任务。
-- 一个小样本 GSM8K，仅作为生成任务 sanity check。
-- 保存 exit layer histogram、avg exit layer、full model ratio、accuracy。
-
-建议命令模板：
-
-```bash
-sudo docker exec -it river-llama32-8b bash
-cd /workspace/vllm/rivier/lm-evaluation
-CUDA_VISIBLE_DEVICES=0 QUANT_BACKEND=n bash ./eval_8B.sh mmlu_abstract_algebra 0.5
-CUDA_VISIBLE_DEVICES=0 QUANT_BACKEND=n bash ./eval_8B.sh mmlu_abstract_algebra 1.01
-```
-
-交付物：
-
-- `experiments/02_river_original/accuracy_summary.csv`
-- `experiments/02_river_original/exit_distribution.csv`
-- `experiments/02_river_original/notes.md`
-
-## 4. P3：确认权重结构是否支持双 tail
-
-这是最关键的可行性检查。需要确认：
-
-- 当前 checkpoint 是否有完整 FP backbone。
-- 是否有可独立执行的 PTQ tail。
-- `exit_modules` 是否能被解释为 `layers k+1..L` 的 PTQ tail。
-- FP tail 与 PTQ tail 是否输出同 shape hidden states。
-- 两条 tail 是否都能写入兼容 KV。
+### P3：权重结构可行性
 
 交付物：
 
@@ -103,179 +45,197 @@ CUDA_VISIBLE_DEVICES=0 QUANT_BACKEND=n bash ./eval_8B.sh mmlu_abstract_algebra 1
 - `experiments/03_weight_structure/module_tree.txt`
 - `experiments/03_weight_structure/state_dict_keys.txt`
 
-Go/No-Go：
+结论：旧 River checkpoint 可构造 `shared + FP tail` 和 `shared + PTQ tail`，但 HQQ 权重不能被 vLLM 原生高效读取。
 
-- 如果不能构造 `shared + FP tail` 和 `shared + PTQ tail`，暂停 vLLM 集成。
+### P4：PyTorch Reference
 
-## 5. P4：PyTorch split model reference
+历史交付物：
 
-先在 PyTorch/River 内实现 reference，不进入 vLLM。
+- `experiments/04_split_reference/p4_summary.md`
+- `experiments/04_split_reference/*batch*`
+- `experiments/04_split_reference/*mmlu_abstract_algebra*`
 
-模式：
+新主线交付物：
 
-- `full_fp`
-- `shared_fp_plus_fp_tail`
-- `shared_fp_plus_ptq_tail`
-- `all_ptq_tail`
+- `river-vllm-edge/scripts/benchmark_torchao_fused_pytorch.py`
+- `experiments/09_torchao_serialized_riveredge/p4_pytorch_fused_summary.csv`
 
-验证：
+当前结论：torchao serialized PTQ tail 在 batch 1-4 有明显收益；batch 增大后优势收缩。
 
-- 单步 forward shape 一致。
-- 多步 decode 不报错。
-- `shared_fp_plus_fp_tail` 与 full model 输出接近。
-- batch size 1/2/4 下测 tail latency。
-
-交付物：
-
-- `river-vllm-edge/river_vllm_ext/models/split_model_reference.py`
-- `river-vllm-edge/scripts/test_split_forward.py`
-- `experiments/04_split_reference/tail_latency.csv`
-- `experiments/04_split_reference/quality_sanity.csv`
-
-Go/No-Go：
-
-- PTQ tail 在 AGX 上至少应比 FP tail 快 1.3x，否则不进入 scheduler 方向。
-
-## 6. P5：vLLM baseline 与 source build
-
-只有 P3/P4 通过后再做。
-
-先跑官方 image baseline：
-
-```bash
-sudo docker run --rm -it \
-  --runtime nvidia \
-  --network host \
-  --ipc=host \
-  --ulimit memlock=-1 \
-  --ulimit stack=67108864 \
-  -v /media/orin/Data/models:/models \
-  -v /home/orin/zjc/vllm:/workspace/vllm \
-  vllm/vllm-openai:latest-aarch64 \
-    --model /models/Qwen3.5-0.8B \
-    --served-model-name qwen3.5-0.8b \
-    --host 0.0.0.0 \
-    --port 8000 \
-    --dtype float16 \
-    --max-model-len 2048 \
-    --gpu-memory-utilization 0.80 \
-    --max-num-seqs 4
-```
-
-然后再建立 source-based vLLM 环境：
-
-```text
-RiverEdge/river-vllm-edge/third_party/vllm/
-```
+### P5：vLLM Baseline / Source Build
 
 交付物：
 
 - `experiments/05_vllm_baseline/official_image_summary.csv`
-- `experiments/06_source_vllm/source_selection.md`
+- `experiments/06_source_vllm/build_summary.md`
 - `experiments/06_source_vllm/build_log.txt`
 
-## 7. P6：vLLM custom model，先不改 scheduler
+结论：source-based vLLM 环境可用，可作为后续修改 vLLM 的基础。
 
-目标是让 vLLM 能跑 custom model 的三种静态模式：
+### P6：vLLM 静态模式
 
-- `full_fp`
-- `static_fp_tail`
-- `static_ptq_tail`
+历史交付物：
 
-暂不做 route-aware queue。
+- `experiments/07_vllm_custom_model/summary.md`
+
+新主线交付物：
+
+- `river-vllm-edge/scripts/export_llama_torchao_fused_checkpoint.py`
+- `river-vllm-edge/scripts/benchmark_vllm_torchao_static_modes.py`
+- `experiments/09_torchao_serialized_riveredge/p6_vllm_static_summary.csv`
+
+当前结论：`static_ptq_tail` 单请求约 `20.44 tok/s`，FP 约 `11.23 tok/s`，说明 vLLM 直接读取已量化 torchao checkpoint 有效。
+
+### P7：Naive Routed
 
 交付物：
 
-- `river-vllm-edge/river_vllm_ext/plugin.py`
-- `river-vllm-edge/river_vllm_ext/models/routed_llama.py`
-- `experiments/07_vllm_custom_model/summary.csv`
+- `river-vllm-edge/scripts/benchmark_vllm_naive_routed.py`
+- `experiments/09_torchao_serialized_riveredge/p7_naive_routed_summary.csv`
+- `experiments/09_torchao_serialized_riveredge/p7_naive_routed_routes.csv`
 
-Go/No-Go：
+结论：engine 外部 naive routing 会拆 batch 并顺序执行 FP/PTQ batch，random 与 PTQ-heavy 都显著慢于 all-FP/all-PTQ。因此 naive dual-engine 不是最终路线。
 
-- custom full-FP 相比 source-built native full-FP 性能损失小于 10%。
+## 3. 当前 Canonical Checkpoint
 
-## 8. P7：naive routed execution
+基础权重：
 
-实现同步版本：
+- `/models/Llama-3.1-8B-Instruct`
+
+已生成：
+
+- `/models/Llama-3.1-8B-Instruct-layer2-32-torchao-hqq-fused`
+- `/models/Llama-3.1-8B-Instruct-layer4-32-torchao-hqq-fused`
+
+后续默认使用 k=3：
 
 ```text
-shared layers 1-k
-  -> route decision
-  -> PTQ tail batch + FP tail batch
-  -> merge
-  -> sampler
+layers 1-3: FP shared prefix
+layers 4-32: PTQ tail candidate
+layers 4-32: FP tail candidate, 需要后续在同一 vLLM model 中保留
 ```
 
-route policy：
+## 4. P8：质量验证与质量校正速度
 
-- `all_ptq`
-- `all_fp`
-- `random`
-- `river_gate`
+目标：确认 torchao PTQ checkpoint 不是只快但质量不可用。
+
+任务：
+
+- 比较 FP base 与 layer4-32 PTQ checkpoint 的 lm-eval 准确率。
+- 至少覆盖 `mmlu_abstract_algebra`、2-3 个 MMLU 子任务、一个生成任务 smoke。
+- 记录 exact match / token match / perplexity-like sanity。
+- 建立 quality-corrected speedup 表。
 
 交付物：
 
-- `experiments/08_naive_routed/summary.csv`
-- `experiments/08_naive_routed/route_ratio.csv`
+- `experiments/10_quality_validation/summary.md`
+- `experiments/10_quality_validation/accuracy_summary.csv`
+- `experiments/10_quality_validation/sample_outputs.jsonl`
 
 Go/No-Go：
 
-- 如果 naive routed 在 PTQ-heavy workload 下仍无收益，暂停 microbatch runtime。
+- 如果 PTQ 质量下降不可接受，先调整量化配置或量化层范围，再进入 vLLM runtime 修改。
 
-## 9. P8：route-aware microbatch runtime
+## 5. P9：解释 batch 下 PTQ 收益衰减
 
-这是高风险阶段。只有 P7 有明确收益时进入。
+目标：用 profiler 解释为什么 PTQ 在 batch 增大后优势消失。
 
-实现：
+任务：
 
-- `Q_pre_decode`
-- `Q_ptq_decode`
-- `Q_fp_decode`
-- PTQ 完成后可先 sampling 并回到 pre-decode。
-- FP queue 有 fairness，避免 starvation。
-
-交付物：
-
-- `experiments/09_microbatch_runtime/summary.csv`
-- `experiments/09_microbatch_runtime/queue_trace.jsonl`
-- `experiments/09_microbatch_runtime/tpot_percentiles.csv`
-
-## 10. P9：scheduler / CUDA Graph instrumentation
-
-先做 instrumentation，再做优化。
-
-记录：
-
-- phase
-- batch size
-- graph used/eager used
-- latency
-- queue wait time
-- route ratio
+- 对 FP / PTQ 在 batch 1/2/4/8/16 下记录 prefill/decode TPS。
+- 使用 nsys 或轻量 torch profiler 记录 kernel 时间。
+- 分析 BF16 GEMM、torchao INT4 matmul、dequant/unpack、attention、norm 的占比。
+- 明确当前 Orin + torchao kernel 的适用 batch 区间。
 
 交付物：
 
-- `experiments/10_scheduler_graph/graph_trace.jsonl`
-- `experiments/10_scheduler_graph/summary.csv`
+- `experiments/11_ptq_batch_profile/summary.md`
+- `experiments/11_ptq_batch_profile/tps_matrix.csv`
+- `experiments/11_ptq_batch_profile/kernel_breakdown.csv`
 
-## 11. 投稿前结果组织
+## 6. P10：单 vLLM Model 内的 RiverEdge 静态双 tail
 
-至少需要以下对照：
+目标：停止使用双 engine，进入真正 RiverEdge 模型结构。
 
-- native vLLM FP baseline
-- custom full-FP overhead
-- static PTQ tail
-- naive routed
+设计：
+
+```text
+shared FP layers 1-k
+FP tail layers k+1-32
+PTQ tail layers k+1-32
+route decision
+selected tail forward
+```
+
+任务：
+
+- 设计可以同时持有 FP tail 和 torchao PTQ tail 的 vLLM custom model。
+- 解决权重加载：FP 权重来自 base checkpoint，PTQ 权重来自 serialized torchao checkpoint。
+- 先支持静态 `all_fp`、`all_ptq`，再支持 batch 内 mixed route。
+- 不修改 scheduler，先只在 model forward 内实现同步 routed tail。
+
+交付物：
+
+- `river-vllm-edge/river_vllm_ext/models/riveredge_llama.py`
+- `experiments/12_single_model_dual_tail/summary.md`
+- `experiments/12_single_model_dual_tail/static_summary.csv`
+- `experiments/12_single_model_dual_tail/routed_summary.csv`
+
+Go/No-Go：
+
+- `all_fp` overhead 相比 native FP < 10%。
+- `all_ptq` 能接近 P6 static PTQ-tail。
+- mixed route 不应低于 P7 naive dual-engine。
+
+## 7. P11：Route-aware Microbatch Runtime
+
+目标：解决 naive routed 拆 batch 后顺序执行的问题。
+
+任务：
+
+- 在 vLLM scheduler/runner 层定义 route-aware batch。
+- 将同一 step 内请求按 route 分组执行 tail。
+- 合并 logits 并进入统一 sampler。
+- 支持 PTQ-heavy workload 优先完成，不阻塞 FP-heavy workload。
+- 记录 queue wait、route ratio、TPOT percentiles。
+
+交付物：
+
+- `experiments/13_route_aware_runtime/summary.md`
+- `experiments/13_route_aware_runtime/queue_trace.jsonl`
+- `experiments/13_route_aware_runtime/tpot_percentiles.csv`
+
+## 8. P12：CUDA Graph / Compile / Scheduler 消融
+
+目标：让 routed runtime 能利用固定 shape/bucket，降低调度和 Python overhead。
+
+任务：
+
+- 对比 eager、CUDA Graph、torch.compile。
+- 记录 graph hit rate、fallback rate、batch bucket。
+- 消融 FCFS、PTQ priority、PTQ priority + FP fairness。
+
+交付物：
+
+- `experiments/14_scheduler_graph/summary.md`
+- `experiments/14_scheduler_graph/graph_trace.jsonl`
+- `experiments/14_scheduler_graph/scheduler_ablation.csv`
+
+## 9. 投稿前主表
+
+需要最终形成：
+
+- native vLLM FP
+- static PTQ-tail
+- single-model routed
 - route-aware microbatch
-- scheduler fairness ablation
-
-论文主指标：
-
-- TPS
-- mean TPOT
-- P50/P95/P99 TPOT
+- scheduler / CUDA Graph ablation
 - quality-corrected speedup
-- graph hit rate
-- queue wait time
+- TPOT P50/P95/P99
 - energy/token，如可测
 
+交付物：
+
+- `experiments/15_paper_results/main_table.csv`
+- `experiments/15_paper_results/ablation_table.csv`
+- `experiments/15_paper_results/figures/`

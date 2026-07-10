@@ -1,0 +1,20 @@
+{
+  "mode": "quant",
+  "model_path": "/models/Llama-3.1-8B-Instruct-layer2-32-torchao-hqq-online",
+  "quantization": "torchao",
+  "hf_overrides": {
+    "quantization_config_file": "/models/Llama-3.1-8B-Instruct-layer2-32-torchao-hqq-online/torchao_layer_quant_config.json"
+  },
+  "load_s": 105.11752886895556,
+  "iters": 1,
+  "warmup": 0,
+  "max_new_tokens": 8,
+  "total_output_tokens": 8,
+  "total_s": 0.43002308503491804,
+  "mean_latency_s": 0.43002308503491804,
+  "output_tps": 18.603652404731708,
+  "latencies_s": [
+    0.43002308503491804
+  ],
+  "last_text": " LLM inference is the process of using"
+}

@@ -1,0 +1,9 @@
+policy,prompt_index,route,score
+ptq_heavy,0,ptq,0.32383276483316237
+ptq_heavy,1,ptq,0.15084917392450192
+ptq_heavy,2,fp,0.6509344730398537
+ptq_heavy,3,ptq,0.07243628666754276
+ptq_heavy,4,ptq,0.5358820043066892
+ptq_heavy,5,ptq,0.36568891691258554
+ptq_heavy,6,ptq,0.057998924774706806
+ptq_heavy,7,ptq,0.5074357331894203

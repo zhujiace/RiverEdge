@@ -1,0 +1,17 @@
+{
+  "result": {
+    "mode": "static_ptq_tail",
+    "model_path": "/workspace/vllm/RiverEdge/experiments/07_vllm_custom_model/model_adapters_container/static_ptq_tail_k3",
+    "iters": 1,
+    "warmup": 0,
+    "max_new_tokens": 4,
+    "total_output_tokens": 4,
+    "total_s": 3.079124651965685,
+    "mean_latency_s": 3.079124651965685,
+    "output_tps": 1.2990704996130755,
+    "latencies_s": [
+      3.079124651965685
+    ],
+    "last_text": " spices \u044d \u044d \u044d"
+  }
+}

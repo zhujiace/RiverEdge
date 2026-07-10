@@ -1,0 +1,22 @@
+{
+  "result": {
+    "mode": "full_fp",
+    "exit_layer": 3,
+    "model_path": "/models/Llama-3.1-8B-Instruct",
+    "enforce_eager": true,
+    "iters": 3,
+    "warmup": 1,
+    "max_new_tokens": 16,
+    "total_output_tokens": 48,
+    "load_s": 56.76488084701123,
+    "total_s": 4.273992080008611,
+    "mean_latency_s": 1.424664026669537,
+    "output_tps": 11.230718050348678,
+    "latencies_s": [
+      1.4260418630437925,
+      1.4240947059588507,
+      1.4238555110059679
+    ],
+    "last_text": " The quick brown fox jumps over the lazy dog near the river edge. The quick"
+  }
+}

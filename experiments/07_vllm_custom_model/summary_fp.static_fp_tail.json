@@ -1,0 +1,19 @@
+{
+  "result": {
+    "mode": "static_fp_tail",
+    "model_path": "/workspace/vllm/RiverEdge/experiments/07_vllm_custom_model/model_adapters_container/static_fp_tail_k3",
+    "iters": 3,
+    "warmup": 1,
+    "max_new_tokens": 16,
+    "total_output_tokens": 48,
+    "total_s": 4.271800681948662,
+    "mean_latency_s": 1.423933560649554,
+    "output_tps": 11.236479314878498,
+    "latencies_s": [
+      1.4243009769706987,
+      1.4236688559758477,
+      1.4238308490021154
+    ],
+    "last_text": " The quick brown fox jumps over the lazy dog. The quick brown fox jumps over"
+  }
+}

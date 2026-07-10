@@ -1,0 +1,64 @@
+{
+  "result": {
+    "policy": "all_ptq",
+    "num_prompts": 8,
+    "max_new_tokens": 16,
+    "total_output_tokens": 128,
+    "route_counts": {
+      "fp": 0,
+      "ptq": 8
+    },
+    "ptq_ratio": 1.0,
+    "load_s": 97.49787012697197,
+    "route_elapsed_s": {
+      "fp": 0.0,
+      "ptq": 1.354509581986349
+    },
+    "total_s": 1.3545210380107164,
+    "output_tps": 94.49834768752208,
+    "gpu_memory_utilization": 0.75,
+    "dual_engine": false,
+    "routes": [
+      {
+        "prompt_index": 0,
+        "route": "ptq",
+        "score": 1.0
+      },
+      {
+        "prompt_index": 1,
+        "route": "ptq",
+        "score": 1.0
+      },
+      {
+        "prompt_index": 2,
+        "route": "ptq",
+        "score": 1.0
+      },
+      {
+        "prompt_index": 3,
+        "route": "ptq",
+        "score": 1.0
+      },
+      {
+        "prompt_index": 4,
+        "route": "ptq",
+        "score": 1.0
+      },
+      {
+        "prompt_index": 5,
+        "route": "ptq",
+        "score": 1.0
+      },
+      {
+        "prompt_index": 6,
+        "route": "ptq",
+        "score": 1.0
+      },
+      {
+        "prompt_index": 7,
+        "route": "ptq",
+        "score": 1.0
+      }
+    ]
+  }
+}

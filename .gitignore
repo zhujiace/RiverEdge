@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local model adapters contain machine-specific symlinks to /media model weights.
+experiments/**/model_adapters/
+experiments/**/model_adapters_container/

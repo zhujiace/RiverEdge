@@ -1,0 +1,2 @@
+mode,iters,warmup,max_new_tokens,total_output_tokens,total_s,mean_latency_s,output_tps,model_path
+static_ptq_tail,3,1,16,48,43.48023581993766,14.49341193997922,1.1039498543379525,/workspace/vllm/RiverEdge/experiments/07_vllm_custom_model/model_adapters_container/static_ptq_tail_k3

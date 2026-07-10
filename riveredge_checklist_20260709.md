@@ -1,214 +1,225 @@
-# RiverEdge Project Checklist 2026-07-09
+# RiverEdge Project Checklist 2026-07-11
 
-用于监督项目进度。每个阶段只有在通过 Go/No-Go 条件后，才建议进入下一阶段。
+该 checklist 与当前 `experiments/` 实际目录对齐。当前主线是 Llama-3.1-8B + torchao serialized safetensors + vLLM routed continuation。
 
-## A. 项目定义
+## A. 当前路线
 
-- [ ] 明确 RiverEdge 当前采用的路线：true early exit 或 routed continuation。
-- [ ] 写清楚本项目的系统问题：batch divergence、paged KV、CUDA Graph、TPOT。
-- [ ] 定义主要指标：TPS、TPOT、P95/P99、quality-corrected speedup。
-- [ ] 定义不可接受的质量下降阈值。
-- [ ] 完成 `experiments/00_problem_definition/problem_statement.md`。
-- [ ] 完成 `experiments/00_problem_definition/go_no_go_gates.md`。
-
-通过标准：
-
-- 项目贡献不再混淆 “跳过层 early exit” 与 “PTQ/FP tail routed continuation”。
-
-## B. 环境盘点
-
-- [ ] 记录宿主机 OS、磁盘、内存、Docker 状态。
-- [ ] 记录 `river-llama32-8b` 容器 Python/PyTorch/CUDA/Transformers 版本。
-- [ ] 记录 `river-bench-t` 容器用途和环境差异。
-- [ ] 记录 vLLM baseline image 信息：`vllm/vllm-openai:latest-aarch64`。
-- [ ] 确认模型路径 `/media/orin/Data/models` 与容器内 `/models` 一致。
-- [ ] 确认 HF cache 路径 `/media/orin/Data/huggingface` 可用。
-- [ ] 完成 `experiments/01_env/env_report.md`。
+- [x] 明确路线：adaptive-precision routed continuation，不是训练型 early exit。
+- [x] 明确收益来源：PTQ tail decode 加速，而不是跳过层。
+- [x] 确认 HQQ wrapper 路线不适合 vLLM 原生高效推理。
+- [x] 确认 torchao serialized safetensors 是当前主线。
+- [x] 当前报告：`experiments/09_torchao_serialized_riveredge/summary.md`。
 
 通过标准：
 
-- 任意实验结果都能追溯到 Docker image、模型路径、脚本路径和关键版本。
+- 后续实验都围绕 `shared FP prefix + FP/PTQ tail route` 组织。
 
-## C. River 原始行为
+## B. Experiments 目录状态
 
-- [x] 完整 `mmlu_abstract_algebra` early-exit vs full-model baseline 已跑通。
-- [x] 记录完整 `mmlu_abstract_algebra` accuracy。
-- [x] 记录完整 `mmlu_abstract_algebra` exit distribution。
-- [ ] 保存 per-sample 明细，用于判断 early-exit 与 baseline 是否逐样本一致。
-- [ ] 补 2-3 个 MMLU 子任务。
-- [ ] 补 HellaSwag 或 ARC 子任务。
-- [ ] GSM8K 小样本 sanity check。
-- [ ] 汇总 `experiments/02_river_original/accuracy_summary.csv`。
-- [ ] 汇总 `experiments/02_river_original/exit_distribution.csv`。
+- [x] `experiments/03_weight_structure`：旧 River/HQQ 权重结构检查完成。
+- [x] `experiments/04_split_reference`：旧 PyTorch split reference 与 dataset speed test 完成。
+- [x] `experiments/05_vllm_baseline`：官方 vLLM image baseline 已记录。
+- [x] `experiments/06_source_vllm`：source-based vLLM 环境完成。
+- [x] `experiments/07_vllm_custom_model`：早期 HQQ wrapper vLLM 原型完成，已标记为历史基线。
+- [x] `experiments/08_llama_torchao_layer_quant`：torchao online quant adapter 验证完成，已被 serialized checkpoint 替代。
+- [x] `experiments/09_torchao_serialized_riveredge`：当前主线结果完成。
 
-当前已知结果：
+说明：
 
-| Task | Setting | Samples | Threshold | Acc | Avg Exit Layer | Full Model |
-|---|---|---:|---:|---:|---:|---:|
-| mmlu_abstract_algebra | early exit | 100 | 0.5 | 0.3500 | 3.00 | 0.00% |
-| mmlu_abstract_algebra | baseline | 100 | 1.01 | 0.3500 | 32.00 | 100.00% |
+- 不再强制补建 `00_problem_definition`、`01_env`、`02_river_original`。
+- 后续新目录从 `10_quality_validation` 开始。
+
+## C. Checkpoint 与权重
+
+- [x] 下载并验证 `/models/Llama-3.1-8B-Instruct`。
+- [x] 生成 `/models/Llama-3.1-8B-Instruct-layer2-32-torchao-hqq-fused`。
+- [x] 生成 `/models/Llama-3.1-8B-Instruct-layer4-32-torchao-hqq-fused`。
+- [x] vLLM 可直接从 config.json 识别 `quantization=torchao`。
+- [x] vLLM 直接加载 serialized checkpoint 推理成功。
+- [x] 记录 checkpoint 大小与量化层范围。
+- [ ] 为未来不同 k 生成 checkpoint 配置表。
 
 通过标准：
 
-- 至少三个任务上确认 exit 分布与质量预算。
+- 不依赖 HQQ wrapper，不进行运行时量化，vLLM 直接读取已量化权重。
 
-## D. 权重结构可行性
+## D. P4 PyTorch Reference
 
-- [x] 导出 checkpoint module tree。
-- [x] 导出 state_dict keys。
-- [x] 确认是否存在完整 FP backbone。
-- [x] 确认是否存在可独立执行的 PTQ tail。
-- [x] 确认 `exit_modules` 是否能作为 `layers k+1..L` tail。
-- [x] 确认 PTQ tail 和 FP tail hidden state shape 一致。
-- [ ] 确认 PTQ tail 和 FP tail KV layout 一致或可转换。
-- [x] 完成 `experiments/03_weight_structure/model_structure_report.md`。
+- [x] 旧 River/HQQ split reference 已完成。
+- [x] 旧 lm-eval dataset speed test 已完成。
+- [x] 新 torchao fused PyTorch proxy 已完成。
+- [x] 记录 batch 1/2/4/8/16 下 FP/PTQ TPS。
+- [x] 发现 batch 增大后 PTQ 优势衰减。
+- [ ] 补完整语义生成路径的 PyTorch dual-tail quality sanity。
+
+当前关键结果：
+
+| mode | b1 tok/s | b4 tok/s | b8 tok/s | b16 tok/s |
+|---|---:|---:|---:|---:|
+| full_fp | 11.53 | 45.80 | 91.23 | 182.46 |
+| shared_fp_plus_ptq_tail | 21.71 | 85.77 | 135.13 | 170.49 |
+
+通过标准：
+
+- PTQ tail 在小 batch decode 场景有明确收益，但不能假设大 batch 下仍有收益。
+
+## E. P5 vLLM Baseline / Source Build
+
+- [x] 官方 image baseline 记录完成。
+- [x] source vLLM 路径确定。
+- [x] source vLLM import 成功。
+- [x] source vLLM smoke server / completion 验证完成。
+- [x] 记录 build log 与 source selection。
+- [ ] 后续新模型实验统一记录 vLLM commit/version、torchao version、dtype、CUDA Graph 设置。
+
+通过标准：
+
+- 当前环境足够支持 Python-level vLLM custom model 开发。
+
+## F. P6 vLLM 静态模式
+
+- [x] 旧 `experiments/07_vllm_custom_model` 三模式 smoke 完成。
+- [x] 新 serialized static PTQ-tail vLLM benchmark 完成。
+- [x] `full_fp` 单请求 TPS 已记录。
+- [x] `static_fp_tail` 单请求 TPS 已记录。
+- [x] `static_ptq_tail` 单请求 TPS 已记录。
+- [x] 证明 serialized PTQ-tail 在 vLLM 单请求下有效。
+- [ ] 补 CUDA Graph 非 eager 对比。
+- [ ] 补更长 decode token 的稳定 TPS。
+
+当前关键结果：
+
+| mode | TPS |
+|---|---:|
+| full_fp | 11.23 |
+| static_fp_tail | 11.23 |
+| static_ptq_tail | 20.44 |
+
+通过标准：
+
+- static PTQ-tail 相比 FP 单请求有明确收益，已通过。
+
+## G. P7 Naive Routed
+
+- [x] `all_fp` policy 已完成。
+- [x] `all_ptq` policy 已完成。
+- [x] `random` policy 已完成。
+- [x] `ptq_heavy` mixed policy 已完成。
+- [x] route ratio 已记录。
+- [x] TPS 已记录。
+- [x] 确认 naive dual-engine mixed route 会显著降速。
+- [ ] 不再将 dual-engine naive routed 作为最终系统方案。
+
+当前关键结果：
+
+| policy | FP | PTQ | TPS |
+|---|---:|---:|---:|
+| all_fp | 8 | 0 | 87.16 |
+| all_ptq | 0 | 8 | 94.50 |
+| random | 5 | 3 | 54.80 |
+| ptq_heavy | 1 | 7 | 48.15 |
+
+通过标准：
+
+- naive route 只作为反例基线；后续必须进入单模型或 scheduler 内 route-aware runtime。
+
+## H. P8 质量验证
+
+- [ ] 创建 `experiments/10_quality_validation/`。
+- [ ] FP base lm-eval baseline。
+- [ ] layer4-32 PTQ checkpoint lm-eval。
+- [ ] 至少 3 个 MMLU 子任务。
+- [ ] 一个生成任务 smoke。
+- [ ] 记录 accuracy / exact match / token match。
+- [ ] 输出 quality-corrected speedup。
 
 Go/No-Go：
 
-- 如果不能构造 `shared + FP tail` 和 `shared + PTQ tail`，暂停 vLLM 集成。
+- 如果质量下降不可接受，先调整量化层范围、group size 或保留更多 FP 层。
 
-## E. PyTorch Split Reference
+## I. P9 PTQ Batch Profile
 
-- [x] 实现 `full_fp` reference。
-- [x] 实现 `shared_fp_plus_fp_tail`。
-- [x] 实现 `shared_fp_plus_ptq_tail`。
-- [x] 单 token forward shape 测试通过。
-- [x] 多步 decode 测试通过。
-- [ ] 比较 `shared_fp_plus_fp_tail` 与 full model 输出差异。
-- [x] batch size 1/2/4 tail latency 测试完成。
-- [x] 记录 FP tail latency。
-- [x] 记录 PTQ tail latency。
-- [x] 完成 `experiments/04_split_reference/tail_latency.csv`。
-- [ ] 完成 `experiments/04_split_reference/quality_sanity.csv`。
+- [ ] 创建 `experiments/11_ptq_batch_profile/`。
+- [ ] batch 1/2/4/8/16 TPS matrix。
+- [ ] 区分 prefill 与 decode。
+- [ ] 记录 kernel-level breakdown。
+- [ ] 分析 BF16 GEMM 与 torchao INT4 matmul 的利用率。
+- [ ] 解释 PTQ 优势消失的 batch 阈值。
 
-Go/No-Go：
+通过标准：
 
-- PTQ tail 至少在目标 batch size 下稳定快于 FP tail。
-- 建议最低门槛：`speedup >= 1.3x`。
+- 能用 profiler 数据解释“PTQ 小 batch 快、大 batch 不快”。
 
-当前补充结果：
+## J. P10 单模型双 Tail vLLM
 
-- PyTorch routed reference 已实现：prefill full FP，decode shared FP prefix 后 route 到 PTQ/FP tail。
-- 默认 `k=3`、`threshold=0.5`，prompt 64、生成 16 token 的 auto route 全部选择 PTQ。
-- mixed-cache reference 中 force PTQ decode TPS 为 12.73，force FP decode TPS 为 9.99，约 1.27x。
-- 完整 `mmlu_abstract_algebra` 100 条样本测试已完成：auto route 全部选择 PTQ，auto decode TPS 12.44，force FP decode TPS 9.91。
-- `mmlu_abstract_algebra` 上 PTQ/auto 相对 force FP 的 token match mean 为 89.25%，exact sequence match 为 71%。
-- batch sweep 已完成，batch size 覆盖 1/2/4/8/16。threshold 0.8 下 force PTQ 在 batch 1-8 相比 force FP 约 1.32x-1.38x；auto 因 batch-level all-pass gate 在大 batch 下基本退化为 FP。
-
-## F. vLLM Baseline
-
-- [ ] 官方 aarch64 image FP baseline 启动成功。
-- [ ] benchmark harness 可记录 TTFT、TPOT、TPS、latency。
-- [ ] 官方 image baseline 矩阵完成。
-- [ ] source-based vLLM 源码 tag/commit 选择完成。
-- [ ] source-built vLLM import 成功。
-- [ ] source-built vLLM OpenAI server 启动成功。
-- [ ] source-built FP baseline 与官方 image 性能接近。
-- [ ] 完成 `experiments/05_vllm_baseline/official_image_summary.csv`。
-- [ ] 完成 `experiments/06_source_vllm/source_selection.md`。
-
-Go/No-Go：
-
-- 如果 source-built baseline 明显慢于官方 image，先解决构建/依赖问题。
-
-## G. vLLM Custom Model
-
-- [ ] out-of-tree plugin 可被 vLLM 发现。
-- [ ] custom full-FP mode 可启动 server。
-- [ ] custom full-FP 输出正确。
-- [ ] custom full-FP 性能 overhead 小于 10%。
-- [ ] static FP tail mode 可运行。
-- [ ] static PTQ tail mode 可运行。
+- [ ] 创建 `experiments/12_single_model_dual_tail/`。
+- [ ] 设计 `RiverEdgeLlama`，同时持有 FP tail 与 PTQ tail。
+- [ ] 解决 base FP checkpoint 与 PTQ safetensors 双源加载。
+- [ ] `all_fp` 静态模式可运行。
+- [ ] `all_ptq` 静态模式可运行。
+- [ ] mixed route forward 可运行。
+- [ ] 输出 logits merge 正确。
 - [ ] paged KV 多步 decode 不报错。
-- [ ] 完成 `experiments/07_vllm_custom_model/summary.csv`。
+- [ ] 对比 P6/P7 TPS。
 
 Go/No-Go：
 
-- custom full-FP overhead 不可接受时，不进入 routed execution。
+- mixed route 必须快于 P7 naive dual-engine，否则不进入 scheduler 改造。
 
-## H. Naive Routed Execution
+## K. P11 Route-aware Runtime
 
-- [ ] `route_policy=all_fp` 可运行。
-- [ ] `route_policy=all_ptq` 可运行。
-- [ ] `route_policy=random` 可运行。
-- [ ] `route_policy=river_gate` 可运行。
-- [ ] 同步 routed merge 输出正确。
-- [ ] 记录 route ratio。
-- [ ] 记录 TPOT/TPS。
-- [ ] 对比 static PTQ tail / full FP。
-- [ ] 完成 `experiments/08_naive_routed/summary.csv`。
-
-Go/No-Go：
-
-- 如果 `all_ptq` 或 PTQ-heavy workload 无收益，不进入 microbatch runtime。
-
-## I. Route-aware Microbatch Runtime
-
-- [ ] 定义 `Q_pre_decode` item 格式。
-- [ ] 定义 `Q_ptq_decode` item 格式。
-- [ ] 定义 `Q_fp_decode` item 格式。
-- [ ] PTQ microbatch 可独立 sampling。
-- [ ] FP microbatch 可独立 sampling。
-- [ ] PTQ 完成后不等待 FP。
-- [ ] FP fairness 机制生效。
-- [ ] 无 starvation。
-- [ ] 输出 token 数正确。
-- [ ] KV cache 管理稳定。
-- [ ] 完成 `experiments/09_microbatch_runtime/summary.csv`。
-- [ ] 完成 `experiments/09_microbatch_runtime/queue_trace.jsonl`。
+- [ ] 创建 `experiments/13_route_aware_runtime/`。
+- [ ] 定义 route-aware scheduler item。
+- [ ] 同 step 内按 route 分组 tail batch。
+- [ ] PTQ tail 与 FP tail logits merge。
+- [ ] sampler 输出顺序正确。
+- [ ] 记录 queue wait。
+- [ ] 记录 TPOT P50/P95/P99。
+- [ ] 记录 starvation/fairness。
 
 通过标准：
 
 - PTQ-heavy workload 下 mean TPOT 明显下降，P95/P99 不显著恶化。
 
-## J. Scheduler 与 CUDA Graph
+## L. P12 Scheduler / CUDA Graph 消融
 
-- [ ] 记录 phase-level latency。
-- [ ] 记录 graph/eager 命中情况。
-- [ ] 记录 batch size bucket。
-- [ ] 记录 queue wait time。
-- [ ] 实现 FCFS baseline。
-- [ ] 实现 PTQ priority。
-- [ ] 实现 PTQ priority + FP fairness。
-- [ ] 对比 graph instrumentation 前后 TPOT。
-- [ ] 完成 `experiments/10_scheduler_graph/summary.csv`。
+- [ ] 创建 `experiments/14_scheduler_graph/`。
+- [ ] eager vs CUDA Graph 对比。
+- [ ] graph hit rate 记录。
+- [ ] batch bucket 记录。
+- [ ] FCFS baseline。
+- [ ] PTQ priority。
+- [ ] PTQ priority + FP fairness。
+- [ ] 输出 scheduler ablation。
 
 通过标准：
 
 - 能证明 scheduler 或 graph pool 对 wall-clock 指标有独立贡献。
 
-## K. 论文实验材料
+## M. 论文结果
 
-- [ ] 所有实验都有 `config.yaml`。
-- [ ] 所有实验都有 `server.log`。
-- [ ] 所有实验都有 `result.jsonl`。
-- [ ] 所有实验都有 `summary.csv`。
-- [ ] 所有实验都有 `notes.md`。
-- [ ] 主表包含 TPS、TPOT、P95/P99、质量指标。
-- [ ] 消融表包含 checkpoint k、route policy、scheduler、graph。
-- [ ] 图包含 exit CDF、route ratio、queue wait、TPOT distribution。
-- [ ] 整理 limitations。
-- [ ] 整理 related work。
+- [ ] 创建 `experiments/15_paper_results/`。
+- [ ] 主表：TPS、TPOT、P50/P95/P99、quality。
+- [ ] 消融：k、route policy、batch size、scheduler、CUDA Graph。
+- [ ] 图：route ratio、TPOT distribution、queue wait、kernel breakdown。
+- [ ] limitations。
+- [ ] related work 对照。
 
 ## 当前建议状态
 
-当前项目应停留在 **E/F 之间**：
+当前项目应处于：
 
 ```text
-PyTorch split reference 的 KV/质量 sanity
-  -> vLLM baseline / custom model 准备
+P8 quality validation
+P9 PTQ batch profiling
 ```
 
-暂不建议进入：
+然后再进入：
 
 ```text
-vLLM scheduler 改造
-route-aware microbatch runtime
-CUDA Graph pool 自定义
+P10 single-model dual-tail vLLM
+P11 route-aware runtime
+P12 scheduler/CUDA Graph
 ```
 
-原因：
-
-- 当前 checkpoint 已证明可以拆成 FP/PTQ 双 tail。
-- PTQ tail 在 decode 型小矩阵上有效，但 prefill 长序列明显更慢。
-- KV cache 兼容性与 fixed checkpoint 的跨任务质量稳定性还没有完成验证。
+暂不建议继续扩展 dual-engine naive routed，因为实验已经证明它会破坏 batching 收益。

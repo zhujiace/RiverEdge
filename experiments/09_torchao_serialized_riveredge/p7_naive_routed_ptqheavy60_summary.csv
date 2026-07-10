@@ -1,0 +1,2 @@
+policy,num_prompts,max_new_tokens,total_output_tokens,fp_count,ptq_count,ptq_ratio,dual_engine,gpu_memory_utilization,load_s,fp_elapsed_s,ptq_elapsed_s,total_s,output_tps
+ptq_heavy,8,16,128,1,7,0.875,True,0.32,116.25759153696708,1.4263915359624662,1.2317951539880596,2.6582028180127963,48.1528343633649

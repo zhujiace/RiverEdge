@@ -1,0 +1,4 @@
+mode,exit_layer,enforce_eager,iters,warmup,max_new_tokens,total_output_tokens,load_s,total_s,mean_latency_s,output_tps,model_path
+full_fp,3,True,3,1,16,48,56.76488084701123,4.273992080008611,1.424664026669537,11.230718050348678,/models/Llama-3.1-8B-Instruct
+static_fp_tail,3,True,3,1,16,48,28.009673648979515,4.273630619980395,1.424543539993465,11.231667934890497,/models/Llama-3.1-8B-Instruct
+static_ptq_tail,3,True,3,1,16,48,61.69910013501067,2.3479784349910915,0.7826594783303639,20.443117911422434,/models/Llama-3.1-8B-Instruct-layer4-32-torchao-hqq-fused

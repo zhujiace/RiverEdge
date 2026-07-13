@@ -1,0 +1,99 @@
+{
+  "model": "/models/Llama-3.1-8B-Instruct-riveredge-fp-hqq",
+  "prefill_policy": "full_fp",
+  "baseline": {
+    "mode": "full_fp",
+    "token_ids": [
+      32541,
+      2065,
+      26338,
+      279
+    ],
+    "text": " Quantization reduces the",
+    "elapsed_s": 0.8174104689969681
+  },
+  "rows": [
+    {
+      "exit_layer": 1,
+      "token_ids": [
+        32541,
+        2065,
+        26338,
+        279
+      ],
+      "text": " Quantization reduces the",
+      "elapsed_s": 0.20314397796755657,
+      "phase_trace": [
+        "decode_ptq",
+        "prefill_fp"
+      ],
+      "first_token_matches_fp": true
+    },
+    {
+      "exit_layer": 3,
+      "token_ids": [
+        32541,
+        2065,
+        26338,
+        279
+      ],
+      "text": " Quantization reduces the",
+      "elapsed_s": 0.212494018021971,
+      "phase_trace": [
+        "decode_ptq",
+        "prefill_fp"
+      ],
+      "first_token_matches_fp": true
+    },
+    {
+      "exit_layer": 8,
+      "token_ids": [
+        32541,
+        2065,
+        26338,
+        279
+      ],
+      "text": " Quantization reduces the",
+      "elapsed_s": 0.2380406020092778,
+      "phase_trace": [
+        "decode_ptq",
+        "prefill_fp"
+      ],
+      "first_token_matches_fp": true
+    },
+    {
+      "exit_layer": 16,
+      "token_ids": [
+        32541,
+        2065,
+        26338,
+        279
+      ],
+      "text": " Quantization reduces the",
+      "elapsed_s": 0.2788379840203561,
+      "phase_trace": [
+        "decode_ptq",
+        "prefill_fp"
+      ],
+      "first_token_matches_fp": true
+    },
+    {
+      "exit_layer": 31,
+      "token_ids": [
+        32541,
+        2065,
+        26338,
+        279
+      ],
+      "text": " Quantization reduces the",
+      "elapsed_s": 0.35506870498647913,
+      "phase_trace": [
+        "decode_ptq",
+        "prefill_fp"
+      ],
+      "first_token_matches_fp": true
+    }
+  ],
+  "all_first_tokens_match_fp": true,
+  "all_ptq_phases_observed": true
+}

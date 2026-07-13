@@ -1,0 +1,46 @@
+{
+  "results": [
+    {
+      "mode": "static_ptq_tail",
+      "exit_layer": 3,
+      "model_path": "/models/Llama-3.1-8B-Instruct-riveredge-fp-hqq",
+      "enforce_eager": true,
+      "iters": 3,
+      "warmup": 1,
+      "max_new_tokens": 16,
+      "total_output_tokens": 48,
+      "load_s": 186.20111518300837,
+      "total_s": 2.406412149022799,
+      "mean_latency_s": 0.8021373830075996,
+      "output_tps": 19.94670780709445,
+      "latencies_s": [
+        0.8070218350039795,
+        0.7980730929994024,
+        0.801317221019417
+      ],
+      "last_text": " The quick brown fox jumps over the lazy dog near the river edge. The quick",
+      "last_token_ids": [
+        578,
+        4062,
+        14198,
+        39935,
+        35308,
+        927,
+        279,
+        16053,
+        5679,
+        3221,
+        279,
+        15140,
+        6964,
+        13,
+        578,
+        4062
+      ],
+      "phase_trace": [
+        "decode_ptq",
+        "prefill_fp"
+      ]
+    }
+  ]
+}

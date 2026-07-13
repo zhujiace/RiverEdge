@@ -31,7 +31,8 @@ shared FP prefix -> route -> FP tail 或 PTQ tail
 | `experiments/06_source_vllm` | 已完成 | source-based vLLM 环境与 smoke test |
 | `experiments/07_vllm_custom_model` | 已完成/已淘汰 | 早期 vLLM custom model + HQQ wrapper 原型 |
 | `experiments/08_llama_torchao_layer_quant` | 已完成/过渡 | Llama torchao online quant adapter 验证 |
-| `experiments/09_torchao_serialized_riveredge` | 当前主线 | torchao safetensors checkpoint、P4/P6/P7 新实验 |
+| `experiments/09_torchao_serialized_riveredge` | 已完成/历史基线 | 分离式 torchao checkpoint、P4/P6/P7 实验 |
+| `experiments/10_unified_fp_hqq_checkpoint` | 当前主线 | 单 checkpoint FP+HQQ、FP prefill、静态模式与多 k 验证 |
 
 `00_problem_definition`、`01_env`、`02_river_original` 当前不再补建，避免与实际实验目录脱节。
 
@@ -59,6 +60,7 @@ shared FP prefix -> route -> FP tail 或 PTQ tail
 
 - `river-vllm-edge/scripts/benchmark_torchao_fused_pytorch.py`
 - `experiments/09_torchao_serialized_riveredge/p4_pytorch_fused_summary.csv`
+- `experiments/10_unified_fp_hqq_checkpoint/p4_unified_smoke.json`
 
 当前结论：torchao serialized PTQ tail 在 batch 1-4 有明显收益；batch 增大后优势收缩。
 
@@ -80,11 +82,11 @@ shared FP prefix -> route -> FP tail 或 PTQ tail
 
 新主线交付物：
 
-- `river-vllm-edge/scripts/export_llama_torchao_fused_checkpoint.py`
+- `river-vllm-edge/scripts/export_riveredge_unified_checkpoint.py`
 - `river-vllm-edge/scripts/benchmark_vllm_torchao_static_modes.py`
-- `experiments/09_torchao_serialized_riveredge/p6_vllm_static_summary.csv`
+- `experiments/10_unified_fp_hqq_checkpoint/static_modes_k3.csv`
 
-当前结论：`static_ptq_tail` 单请求约 `20.44 tok/s`，FP 约 `11.23 tok/s`，说明 vLLM 直接读取已量化 torchao checkpoint 有效。
+当前结论：统一 checkpoint 下 `static_ptq_tail` 单请求约 `19.95 tok/s`，FP 约 `11.06 tok/s`；prefill 明确走完整 FP，decode 才切换 HQQ tail。
 
 ### P7：Naive Routed
 
@@ -98,22 +100,22 @@ shared FP prefix -> route -> FP tail 或 PTQ tail
 
 ## 3. 当前 Canonical Checkpoint
 
-基础权重：
+唯一保留的 canonical checkpoint：
 
-- `/models/Llama-3.1-8B-Instruct`
-
-已生成：
-
-- `/models/Llama-3.1-8B-Instruct-layer2-32-torchao-hqq-fused`
-- `/models/Llama-3.1-8B-Instruct-layer4-32-torchao-hqq-fused`
+- `/models/Llama-3.1-8B-Instruct-riveredge-fp-hqq`
+- 完整 FP 第 1-32 层：`model.layers.0..31`
+- HQQ 第 2-32 层：`model.ptq_layers.1..31`
+- tensor 数据共 18.50 GiB，无符号链接或外部权重依赖
 
 后续默认使用 k=3：
 
 ```text
 layers 1-3: FP shared prefix
 layers 4-32: PTQ tail candidate
-layers 4-32: FP tail candidate, 需要后续在同一 vLLM model 中保留
+layers 4-32: FP tail candidate
 ```
+
+同一 checkpoint 已验证 `k=1,3,8,16,31`，不再为不同 k 生成权重。
 
 ## 4. P8：质量验证与质量校正速度
 
@@ -121,16 +123,16 @@ layers 4-32: FP tail candidate, 需要后续在同一 vLLM model 中保留
 
 任务：
 
-- 比较 FP base 与 layer4-32 PTQ checkpoint 的 lm-eval 准确率。
+- 比较统一 checkpoint 的 `full_fp` 与 `static_ptq_tail` lm-eval 准确率。
 - 至少覆盖 `mmlu_abstract_algebra`、2-3 个 MMLU 子任务、一个生成任务 smoke。
 - 记录 exact match / token match / perplexity-like sanity。
 - 建立 quality-corrected speedup 表。
 
 交付物：
 
-- `experiments/10_quality_validation/summary.md`
-- `experiments/10_quality_validation/accuracy_summary.csv`
-- `experiments/10_quality_validation/sample_outputs.jsonl`
+- `experiments/11_quality_validation/summary.md`
+- `experiments/11_quality_validation/accuracy_summary.csv`
+- `experiments/11_quality_validation/sample_outputs.jsonl`
 
 Go/No-Go：
 
@@ -149,11 +151,11 @@ Go/No-Go：
 
 交付物：
 
-- `experiments/11_ptq_batch_profile/summary.md`
-- `experiments/11_ptq_batch_profile/tps_matrix.csv`
-- `experiments/11_ptq_batch_profile/kernel_breakdown.csv`
+- `experiments/12_ptq_batch_profile/summary.md`
+- `experiments/12_ptq_batch_profile/tps_matrix.csv`
+- `experiments/12_ptq_batch_profile/kernel_breakdown.csv`
 
-## 6. P10：单 vLLM Model 内的 RiverEdge 静态双 tail
+## 6. P10：单 vLLM Model 内的 RiverEdge 双 tail
 
 目标：停止使用双 engine，进入真正 RiverEdge 模型结构。
 
@@ -167,24 +169,30 @@ route decision
 selected tail forward
 ```
 
-任务：
+已完成基础：
 
-- 设计可以同时持有 FP tail 和 torchao PTQ tail 的 vLLM custom model。
-- 解决权重加载：FP 权重来自 base checkpoint，PTQ 权重来自 serialized torchao checkpoint。
-- 先支持静态 `all_fp`、`all_ptq`，再支持 batch 内 mixed route。
-- 不修改 scheduler，先只在 model forward 内实现同步 routed tail。
+- `RiverEdgeUnifiedForCausalLM` 同时持有完整 FP 和 HQQ tail。
+- 单 checkpoint loader、FP prefill、共享 paged KV cache 已跑通。
+- 静态 `full_fp`、`static_fp_tail`、`static_ptq_tail` 已回归。
+- 任意 `k>=1` 可直接选择 checkpoint 中对应 HQQ tail。
+
+剩余任务：
+
+- 在同一 forward 中加入按请求 route 的 FP/PTQ 选择。
+- 对 mixed batch 做 logits 顺序恢复和正确性验证。
+- 不修改 scheduler，先实现同步 routed tail baseline。
 
 交付物：
 
-- `river-vllm-edge/river_vllm_ext/models/riveredge_llama.py`
-- `experiments/12_single_model_dual_tail/summary.md`
-- `experiments/12_single_model_dual_tail/static_summary.csv`
-- `experiments/12_single_model_dual_tail/routed_summary.csv`
+- `river-vllm-edge/river_vllm_ext/models/unified_llama.py`
+- `experiments/10_unified_fp_hqq_checkpoint/summary.md`
+- `experiments/13_single_model_dual_tail/summary.md`
+- `experiments/13_single_model_dual_tail/routed_summary.csv`
 
 Go/No-Go：
 
-- `all_fp` overhead 相比 native FP < 10%。
-- `all_ptq` 能接近 P6 static PTQ-tail。
+- `all_fp` 与旧 native FP TPS 差异 < 2%，已满足。
+- `all_ptq` 接近旧 P6 static PTQ-tail，已满足。
 - mixed route 不应低于 P7 naive dual-engine。
 
 ## 7. P11：Route-aware Microbatch Runtime
@@ -201,9 +209,9 @@ Go/No-Go：
 
 交付物：
 
-- `experiments/13_route_aware_runtime/summary.md`
-- `experiments/13_route_aware_runtime/queue_trace.jsonl`
-- `experiments/13_route_aware_runtime/tpot_percentiles.csv`
+- `experiments/14_route_aware_runtime/summary.md`
+- `experiments/14_route_aware_runtime/queue_trace.jsonl`
+- `experiments/14_route_aware_runtime/tpot_percentiles.csv`
 
 ## 8. P12：CUDA Graph / Compile / Scheduler 消融
 
@@ -217,9 +225,9 @@ Go/No-Go：
 
 交付物：
 
-- `experiments/14_scheduler_graph/summary.md`
-- `experiments/14_scheduler_graph/graph_trace.jsonl`
-- `experiments/14_scheduler_graph/scheduler_ablation.csv`
+- `experiments/15_scheduler_graph/summary.md`
+- `experiments/15_scheduler_graph/graph_trace.jsonl`
+- `experiments/15_scheduler_graph/scheduler_ablation.csv`
 
 ## 9. 投稿前主表
 
@@ -236,6 +244,6 @@ Go/No-Go：
 
 交付物：
 
-- `experiments/15_paper_results/main_table.csv`
-- `experiments/15_paper_results/ablation_table.csv`
-- `experiments/15_paper_results/figures/`
+- `experiments/16_paper_results/main_table.csv`
+- `experiments/16_paper_results/ablation_table.csv`
+- `experiments/16_paper_results/figures/`

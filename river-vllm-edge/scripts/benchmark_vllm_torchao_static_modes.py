@@ -20,10 +20,9 @@ os.environ.setdefault("PYTORCH_NVML_BASED_CUDA_CHECK", "0")
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--fp-model", default="/models/Llama-3.1-8B-Instruct")
     parser.add_argument(
-        "--ptq-model",
-        default="/models/Llama-3.1-8B-Instruct-layer4-32-torchao-hqq-fused",
+        "--model",
+        default="/models/Llama-3.1-8B-Instruct-riveredge-fp-hqq",
     )
     parser.add_argument("--modes", default="full_fp,static_fp_tail,static_ptq_tail")
     parser.add_argument("--exit-layer", type=int, default=3)
@@ -55,19 +54,26 @@ def make_prompt(target_tokens: int) -> str:
     return (base * max(1, target_tokens // 12 + 1)).strip()
 
 
-def model_for_mode(args: argparse.Namespace, mode: str) -> str:
-    if mode in {"full_fp", "static_fp_tail"}:
-        return args.fp_model
-    if mode == "static_ptq_tail":
-        return args.ptq_model
-    raise ValueError(f"Unsupported mode: {mode}")
+def riveredge_phase_trace(llm) -> list[str]:
+    """Read phase markers from an in-process vLLM V1 model when available."""
+    try:
+        engine_core_client = llm.llm_engine.engine_core
+        engine_core = getattr(engine_core_client, "engine_core", engine_core_client)
+        model = engine_core.model_executor.driver_worker.model_runner.model
+    except AttributeError:
+        return []
+    while not hasattr(model, "_traced_phases") and hasattr(model, "model"):
+        model = model.model
+    return sorted(getattr(model, "_traced_phases", ()))
 
 
 def run_mode(args: argparse.Namespace, mode: str) -> dict:
     import torch
     from vllm import LLM, SamplingParams
 
-    model_path = model_for_mode(args, mode)
+    if mode not in {"full_fp", "static_fp_tail", "static_ptq_tail"}:
+        raise ValueError(f"Unsupported mode: {mode}")
+    model_path = args.model
     t0 = time.perf_counter()
     llm = LLM(
         model=model_path,
@@ -78,8 +84,13 @@ def run_mode(args: argparse.Namespace, mode: str) -> dict:
         max_num_seqs=args.max_num_seqs,
         max_num_batched_tokens=args.max_model_len * args.max_num_seqs,
         enable_chunked_prefill=False,
+        enable_prefix_caching=False,
         trust_remote_code=False,
         disable_log_stats=True,
+        hf_overrides={
+            "river_edge_mode": mode,
+            "river_edge_exit_layer": args.exit_layer,
+        },
     )
     load_s = time.perf_counter() - t0
     sampling = SamplingParams(max_tokens=args.max_new_tokens, temperature=0.0)
@@ -93,6 +104,7 @@ def run_mode(args: argparse.Namespace, mode: str) -> dict:
     latencies = []
     total_output_tokens = 0
     last_text = ""
+    last_token_ids: list[int] = []
     for _ in range(args.iters):
         start = time.perf_counter()
         outputs = llm.generate([prompt], sampling)
@@ -103,6 +115,9 @@ def run_mode(args: argparse.Namespace, mode: str) -> dict:
         total_output_tokens += len(out.token_ids)
         latencies.append(elapsed)
         last_text = out.text
+        last_token_ids = list(out.token_ids)
+
+    phase_trace = riveredge_phase_trace(llm)
 
     del llm
     gc.collect()
@@ -125,6 +140,8 @@ def run_mode(args: argparse.Namespace, mode: str) -> dict:
         "output_tps": total_output_tokens / total_s if total_s > 0 else 0.0,
         "latencies_s": latencies,
         "last_text": last_text,
+        "last_token_ids": last_token_ids,
+        "phase_trace": phase_trace,
     }
 
 
@@ -133,10 +150,8 @@ def run_mode_subprocess(args: argparse.Namespace, mode: str) -> dict:
     cmd = [
         sys.executable,
         str(Path(__file__).resolve()),
-        "--fp-model",
-        args.fp_model,
-        "--ptq-model",
-        args.ptq_model,
+        "--model",
+        args.model,
         "--modes",
         mode,
         "--exit-layer",

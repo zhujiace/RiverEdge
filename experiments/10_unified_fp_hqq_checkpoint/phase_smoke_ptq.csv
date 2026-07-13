@@ -1,0 +1,2 @@
+mode,exit_layer,enforce_eager,iters,warmup,max_new_tokens,total_output_tokens,load_s,total_s,mean_latency_s,output_tps,model_path
+static_ptq_tail,3,True,1,0,4,4,100.27924716100097,1.3282950540306047,1.3282950540306047,3.0113791268455916,/models/Llama-3.1-8B-Instruct-riveredge-fp-hqq

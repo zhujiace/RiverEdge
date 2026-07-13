@@ -1,0 +1,16 @@
+{
+  "checkpoint": "/models/Llama-3.1-8B-Instruct-riveredge-fp-hqq",
+  "note": "PyTorch fused-linear proxy; attention scores and KV cache are not modeled.",
+  "rows": [
+    {
+      "mode": "shared_fp_plus_ptq_tail",
+      "exit_layer": 3,
+      "batch_size": 1,
+      "iters": 1,
+      "tokens": 1,
+      "elapsed_s": 0.18330289900768548,
+      "tokens_per_s": 5.45545108895453,
+      "ms_per_token": 183.30289900768548
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+mode,prefill,decode,output_tps,mean_latency_s,phase_trace
+full_fp,FP 1-32,FP 1-32,11.061174746600924,1.4465009699730824,all_fp
+static_fp_tail,FP 1-32,FP 1-32,11.066907655517358,1.4457516496962246,all_fp
+static_ptq_tail,FP 1-32,FP 1-3 + HQQ 4-32,19.94670780709445,0.8021373830075996,prefill_fp+decode_ptq

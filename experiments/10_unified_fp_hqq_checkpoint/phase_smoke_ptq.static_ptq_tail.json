@@ -1,0 +1,27 @@
+{
+  "result": {
+    "mode": "static_ptq_tail",
+    "exit_layer": 3,
+    "model_path": "/models/Llama-3.1-8B-Instruct-riveredge-fp-hqq",
+    "enforce_eager": true,
+    "iters": 1,
+    "warmup": 0,
+    "max_new_tokens": 4,
+    "total_output_tokens": 4,
+    "load_s": 100.27924716100097,
+    "total_s": 1.3282950540306047,
+    "mean_latency_s": 1.3282950540306047,
+    "output_tps": 3.0113791268455916,
+    "latencies_s": [
+      1.3282950540306047
+    ],
+    "last_text": " The quick brown fox",
+    "last_token_ids": [
+      578,
+      4062,
+      14198,
+      39935
+    ],
+    "phase_trace": []
+  }
+}

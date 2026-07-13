@@ -8,7 +8,7 @@
 - [x] 明确收益来源：PTQ tail decode 加速，而不是跳过层。
 - [x] 确认 HQQ wrapper 路线不适合 vLLM 原生高效推理。
 - [x] 确认 torchao serialized safetensors 是当前主线。
-- [x] 当前报告：`experiments/09_torchao_serialized_riveredge/summary.md`。
+- [x] 当前报告：`experiments/10_unified_fp_hqq_checkpoint/summary.md`。
 
 通过标准：
 
@@ -22,22 +22,26 @@
 - [x] `experiments/06_source_vllm`：source-based vLLM 环境完成。
 - [x] `experiments/07_vllm_custom_model`：早期 HQQ wrapper vLLM 原型完成，已标记为历史基线。
 - [x] `experiments/08_llama_torchao_layer_quant`：torchao online quant adapter 验证完成，已被 serialized checkpoint 替代。
-- [x] `experiments/09_torchao_serialized_riveredge`：当前主线结果完成。
+- [x] `experiments/09_torchao_serialized_riveredge`：分离式 checkpoint 历史基线完成。
+- [x] `experiments/10_unified_fp_hqq_checkpoint`：统一 FP+HQQ checkpoint 和静态验证完成。
 
 说明：
 
 - 不再强制补建 `00_problem_definition`、`01_env`、`02_river_original`。
-- 后续新目录从 `10_quality_validation` 开始。
+- 后续质量实验从 `11_quality_validation` 开始。
 
 ## C. Checkpoint 与权重
 
-- [x] 下载并验证 `/models/Llama-3.1-8B-Instruct`。
-- [x] 生成 `/models/Llama-3.1-8B-Instruct-layer2-32-torchao-hqq-fused`。
-- [x] 生成 `/models/Llama-3.1-8B-Instruct-layer4-32-torchao-hqq-fused`。
+- [x] 下载并验证原始 `/models/Llama-3.1-8B-Instruct`。
+- [x] 生成统一 `/models/Llama-3.1-8B-Instruct-riveredge-fp-hqq`。
+- [x] 统一 checkpoint 保存完整 FP 1-32 层和 HQQ 2-32 层。
+- [x] FP shard 与 HQQ sidecar 均可由 TorchAO serialized loader 恢复。
+- [x] checkpoint 无符号链接和外部权重依赖。
 - [x] vLLM 可直接从 config.json 识别 `quantization=torchao`。
 - [x] vLLM 直接加载 serialized checkpoint 推理成功。
 - [x] 记录 checkpoint 大小与量化层范围。
-- [ ] 为未来不同 k 生成 checkpoint 配置表。
+- [x] 同一 checkpoint 验证 `k=1,3,8,16,31`，无需为不同 k 生成权重。
+- [x] 旧 base、online 和 k-specific fused checkpoint 在统一权重验证后清理。
 
 通过标准：
 
@@ -48,6 +52,7 @@
 - [x] 旧 River/HQQ split reference 已完成。
 - [x] 旧 lm-eval dataset speed test 已完成。
 - [x] 新 torchao fused PyTorch proxy 已完成。
+- [x] P4 proxy 已改为读取统一 checkpoint 并完成 smoke test。
 - [x] 记录 batch 1/2/4/8/16 下 FP/PTQ TPS。
 - [x] 发现 batch 增大后 PTQ 优势衰减。
 - [ ] 补完整语义生成路径的 PyTorch dual-tail quality sanity。
@@ -84,6 +89,9 @@
 - [x] `static_fp_tail` 单请求 TPS 已记录。
 - [x] `static_ptq_tail` 单请求 TPS 已记录。
 - [x] 证明 serialized PTQ-tail 在 vLLM 单请求下有效。
+- [x] 三种模式均改为读取同一 FP+HQQ checkpoint。
+- [x] 关闭 prefix cache 后验证 prefill 使用 FP、decode 使用 PTQ。
+- [x] 多 k phase trace 与首 token 一致性验证完成。
 - [ ] 补 CUDA Graph 非 eager 对比。
 - [ ] 补更长 decode token 的稳定 TPS。
 
@@ -91,9 +99,9 @@
 
 | mode | TPS |
 |---|---:|
-| full_fp | 11.23 |
-| static_fp_tail | 11.23 |
-| static_ptq_tail | 20.44 |
+| full_fp | 11.06 |
+| static_fp_tail | 11.07 |
+| static_ptq_tail | 19.95 |
 
 通过标准：
 
@@ -125,9 +133,9 @@
 
 ## H. P8 质量验证
 
-- [ ] 创建 `experiments/10_quality_validation/`。
-- [ ] FP base lm-eval baseline。
-- [ ] layer4-32 PTQ checkpoint lm-eval。
+- [ ] 创建 `experiments/11_quality_validation/`。
+- [ ] 统一 checkpoint `full_fp` lm-eval baseline。
+- [ ] 统一 checkpoint `static_ptq_tail` lm-eval。
 - [ ] 至少 3 个 MMLU 子任务。
 - [ ] 一个生成任务 smoke。
 - [ ] 记录 accuracy / exact match / token match。
@@ -139,7 +147,7 @@ Go/No-Go：
 
 ## I. P9 PTQ Batch Profile
 
-- [ ] 创建 `experiments/11_ptq_batch_profile/`。
+- [ ] 创建 `experiments/12_ptq_batch_profile/`。
 - [ ] batch 1/2/4/8/16 TPS matrix。
 - [ ] 区分 prefill 与 decode。
 - [ ] 记录 kernel-level breakdown。
@@ -152,14 +160,15 @@ Go/No-Go：
 
 ## J. P10 单模型双 Tail vLLM
 
-- [ ] 创建 `experiments/12_single_model_dual_tail/`。
-- [ ] 设计 `RiverEdgeLlama`，同时持有 FP tail 与 PTQ tail。
-- [ ] 解决 base FP checkpoint 与 PTQ safetensors 双源加载。
-- [ ] `all_fp` 静态模式可运行。
-- [ ] `all_ptq` 静态模式可运行。
+- [x] 创建统一 checkpoint 实验目录 `experiments/10_unified_fp_hqq_checkpoint/`。
+- [x] 设计 `RiverEdgeUnifiedForCausalLM`，同时持有 FP tail 与 PTQ tail。
+- [x] 解决单 checkpoint FP+HQQ 加载。
+- [x] `all_fp` 静态模式可运行。
+- [x] `all_ptq` 静态模式可运行。
+- [x] paged KV 由 FP/PTQ 路径共享，多步 decode 不报错。
+- [ ] 创建 mixed route 实验目录 `experiments/13_single_model_dual_tail/`。
 - [ ] mixed route forward 可运行。
 - [ ] 输出 logits merge 正确。
-- [ ] paged KV 多步 decode 不报错。
 - [ ] 对比 P6/P7 TPS。
 
 Go/No-Go：
@@ -168,7 +177,7 @@ Go/No-Go：
 
 ## K. P11 Route-aware Runtime
 
-- [ ] 创建 `experiments/13_route_aware_runtime/`。
+- [ ] 创建 `experiments/14_route_aware_runtime/`。
 - [ ] 定义 route-aware scheduler item。
 - [ ] 同 step 内按 route 分组 tail batch。
 - [ ] PTQ tail 与 FP tail logits merge。
@@ -183,7 +192,7 @@ Go/No-Go：
 
 ## L. P12 Scheduler / CUDA Graph 消融
 
-- [ ] 创建 `experiments/14_scheduler_graph/`。
+- [ ] 创建 `experiments/15_scheduler_graph/`。
 - [ ] eager vs CUDA Graph 对比。
 - [ ] graph hit rate 记录。
 - [ ] batch bucket 记录。
@@ -198,7 +207,7 @@ Go/No-Go：
 
 ## M. 论文结果
 
-- [ ] 创建 `experiments/15_paper_results/`。
+- [ ] 创建 `experiments/16_paper_results/`。
 - [ ] 主表：TPS、TPOT、P50/P95/P99、quality。
 - [ ] 消融：k、route policy、batch size、scheduler、CUDA Graph。
 - [ ] 图：route ratio、TPOT distribution、queue wait、kernel breakdown。
@@ -207,17 +216,17 @@ Go/No-Go：
 
 ## 当前建议状态
 
-当前项目应处于：
+当前项目状态：
 
 ```text
 P8 quality validation
 P9 PTQ batch profiling
+P10 single-model dual-tail 静态基础已完成，mixed route 待实现
 ```
 
-然后再进入：
+然后进入：
 
 ```text
-P10 single-model dual-tail vLLM
 P11 route-aware runtime
 P12 scheduler/CUDA Graph
 ```

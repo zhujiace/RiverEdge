@@ -1,0 +1,28 @@
+{
+  "result": {
+    "mode": "static_ptq_tail",
+    "exit_layer": 3,
+    "model_path": "/models/Llama-3.1-8B-Instruct-riveredge-fp-hqq",
+    "enforce_eager": true,
+    "iters": 1,
+    "warmup": 0,
+    "max_new_tokens": 2,
+    "total_output_tokens": 2,
+    "load_s": 59.25995383702684,
+    "total_s": 0.6167718830402009,
+    "mean_latency_s": 0.6167718830402009,
+    "output_tps": 3.242689971763257,
+    "latencies_s": [
+      0.6167718830402009
+    ],
+    "last_text": " The quick",
+    "last_token_ids": [
+      578,
+      4062
+    ],
+    "phase_trace": [
+      "decode_ptq",
+      "prefill_fp"
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "results": [
+    {
+      "mode": "static_ptq_tail",
+      "exit_layer": 3,
+      "model_path": "/models/Llama-3.1-8B-Instruct-riveredge-fp-hqq",
+      "enforce_eager": true,
+      "iters": 1,
+      "warmup": 0,
+      "max_new_tokens": 8,
+      "total_output_tokens": 8,
+      "load_s": 192.1661056149751,
+      "total_s": 33.13241500296863,
+      "mean_latency_s": 33.13241500296863,
+      "output_tps": 0.24145538438061967,
+      "latencies_s": [
+        33.13241500296863
+      ],
+      "last_text": " The quick brown fox jumps over the lazy",
+      "last_token_ids": [
+        578,
+        4062,
+        14198,
+        39935,
+        35308,
+        927,
+        279,
+        16053
+      ],
+      "phase_trace": [
+        "decode_ptq",
+        "prefill_fp"
+      ]
+    }
+  ]
+}

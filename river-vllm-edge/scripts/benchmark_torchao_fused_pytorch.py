@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """PyTorch-only fused-layer speed probe for serialized torchao Llama weights.
 
-This script does not use vLLM. It loads the exported vLLM-fused torchao
-safetensors checkpoint, restores tensor subclasses with torchao metadata, and
+This script does not use vLLM. It loads the unified RiverEdge checkpoint,
+restores the HQQ sidecar tensor subclasses with torchao metadata, and
 benchmarks a Llama-like per-token fused linear path. Attention score/KV work is
 not modeled here; the goal is to isolate whether serialized INT4 fused weights
 can accelerate the decode-dominant linear stack under PyTorch/torchao.
@@ -35,10 +35,9 @@ LINEAR_SUFFIXES = (
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--source", default="/models/Llama-3.1-8B-Instruct")
     parser.add_argument(
-        "--quant-checkpoint",
-        default="/models/Llama-3.1-8B-Instruct-layer2-32-torchao-hqq-fused",
+        "--checkpoint",
+        default="/models/Llama-3.1-8B-Instruct-riveredge-fp-hqq",
     )
     parser.add_argument("--exit-layer", type=int, default=3, help="1-indexed shared FP depth k")
     parser.add_argument("--modes", default="full_fp,shared_fp_plus_fp_tail,shared_fp_plus_ptq_tail,all_ptq_tail")
@@ -71,7 +70,11 @@ class IndexedSafetensorsReader:
 
 
 def load_quant_state(checkpoint_dir: Path) -> dict[str, torch.Tensor]:
-    with safe_open(checkpoint_dir / "model.safetensors", framework="pt", device="cpu") as handle:
+    with (checkpoint_dir / "riveredge_export_summary.json").open(
+        "r", encoding="utf-8"
+    ) as handle:
+        ptq_filename = json.load(handle)["ptq_file"]
+    with safe_open(checkpoint_dir / ptq_filename, framework="pt", device="cpu") as handle:
         flat = {name: handle.get_tensor(name) for name in handle.keys()}
         metadata = handle.metadata()
     state, leftover = unflatten_tensor_state_dict(flat, metadata)
@@ -130,14 +133,15 @@ def load_ptq_layer(
     device: str,
     dtype: torch.dtype,
 ) -> dict[str, torch.Tensor]:
-    prefix = f"model.layers.{layer_idx}"
+    fp_prefix = f"model.layers.{layer_idx}"
+    ptq_prefix = f"model.ptq_layers.{layer_idx}"
     return {
-        "input_layernorm": reader.get(f"{prefix}.input_layernorm.weight").to(device=device, dtype=dtype),
-        "post_attention_layernorm": reader.get(f"{prefix}.post_attention_layernorm.weight").to(device=device, dtype=dtype),
-        "qkv": quant_state[f"{prefix}.self_attn.qkv_proj.weight"].to(device),
-        "o": quant_state[f"{prefix}.self_attn.o_proj.weight"].to(device),
-        "gate_up": quant_state[f"{prefix}.mlp.gate_up_proj.weight"].to(device),
-        "down": quant_state[f"{prefix}.mlp.down_proj.weight"].to(device),
+        "input_layernorm": reader.get(f"{fp_prefix}.input_layernorm.weight").to(device=device, dtype=dtype),
+        "post_attention_layernorm": reader.get(f"{fp_prefix}.post_attention_layernorm.weight").to(device=device, dtype=dtype),
+        "qkv": quant_state[f"{ptq_prefix}.self_attn.qkv_proj.weight"].to(device),
+        "o": quant_state[f"{ptq_prefix}.self_attn.o_proj.weight"].to(device),
+        "gate_up": quant_state[f"{ptq_prefix}.mlp.gate_up_proj.weight"].to(device),
+        "down": quant_state[f"{ptq_prefix}.mlp.down_proj.weight"].to(device),
     }
 
 
@@ -249,17 +253,16 @@ def benchmark_mode(
 
 def main() -> None:
     args = parse_args()
-    source = Path(args.source)
-    quant_checkpoint = Path(args.quant_checkpoint)
-    cfg = load_config(source)
-    reader = IndexedSafetensorsReader(source)
+    checkpoint = Path(args.checkpoint)
+    cfg = load_config(checkpoint)
+    reader = IndexedSafetensorsReader(checkpoint)
     modes = [item for item in args.modes.replace(",", " ").split() if item]
     batch_sizes = [int(item) for item in args.batch_sizes.replace(",", " ").split() if item]
     dtype = torch.bfloat16 if args.dtype == "bfloat16" else torch.float16
 
     quant_state = None
     if any(mode in {"shared_fp_plus_ptq_tail", "all_ptq_tail"} for mode in modes):
-        quant_state = load_quant_state(quant_checkpoint)
+        quant_state = load_quant_state(checkpoint)
 
     rows: list[dict] = []
     for mode in modes:
@@ -272,8 +275,7 @@ def main() -> None:
     output_json.write_text(
         json.dumps(
             {
-                "source": str(source),
-                "quant_checkpoint": str(quant_checkpoint),
+                "checkpoint": str(checkpoint),
                 "note": "PyTorch fused-linear proxy; attention scores and KV cache are not modeled.",
                 "rows": rows,
             },

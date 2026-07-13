@@ -17,3 +17,8 @@ def register() -> None:
             "RiverEdgeHFStaticPTQForCausalLM",
             "river_vllm_ext.models.routed_llama:RiverEdgeHFStaticPTQForCausalLM",
         )
+    if "RiverEdgeUnifiedForCausalLM" not in supported:
+        ModelRegistry.register_model(
+            "RiverEdgeUnifiedForCausalLM",
+            "river_vllm_ext.models.unified_llama:RiverEdgeUnifiedForCausalLM",
+        )

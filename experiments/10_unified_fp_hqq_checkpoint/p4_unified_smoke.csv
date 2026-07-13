@@ -1,0 +1,2 @@
+mode,exit_layer,batch_size,iters,tokens,elapsed_s,tokens_per_s,ms_per_token
+shared_fp_plus_ptq_tail,3,1,1,1,0.18330289900768548,5.45545108895453,183.30289900768548

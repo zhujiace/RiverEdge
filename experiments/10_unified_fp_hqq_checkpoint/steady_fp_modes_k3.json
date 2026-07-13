@@ -1,0 +1,86 @@
+{
+  "results": [
+    {
+      "mode": "full_fp",
+      "exit_layer": 3,
+      "model_path": "/models/Llama-3.1-8B-Instruct-riveredge-fp-hqq",
+      "enforce_eager": true,
+      "iters": 3,
+      "warmup": 1,
+      "max_new_tokens": 16,
+      "total_output_tokens": 48,
+      "load_s": 59.951709601969924,
+      "total_s": 4.339502909919247,
+      "mean_latency_s": 1.4465009699730824,
+      "output_tps": 11.061174746600924,
+      "latencies_s": [
+        1.4464549899566919,
+        1.4465311900130473,
+        1.4465167299495079
+      ],
+      "last_text": " The quick brown fox jumps over the lazy dog near the river edge. The quick",
+      "last_token_ids": [
+        578,
+        4062,
+        14198,
+        39935,
+        35308,
+        927,
+        279,
+        16053,
+        5679,
+        3221,
+        279,
+        15140,
+        6964,
+        13,
+        578,
+        4062
+      ],
+      "phase_trace": [
+        "all_fp"
+      ]
+    },
+    {
+      "mode": "static_fp_tail",
+      "exit_layer": 3,
+      "model_path": "/models/Llama-3.1-8B-Instruct-riveredge-fp-hqq",
+      "enforce_eager": true,
+      "iters": 3,
+      "warmup": 1,
+      "max_new_tokens": 16,
+      "total_output_tokens": 48,
+      "load_s": 59.85040344996378,
+      "total_s": 4.337254949088674,
+      "mean_latency_s": 1.4457516496962246,
+      "output_tps": 11.066907655517358,
+      "latencies_s": [
+        1.4458050960092805,
+        1.4464651780435815,
+        1.444984675035812
+      ],
+      "last_text": " The quick brown fox jumps over the lazy dog near the river edge. The quick",
+      "last_token_ids": [
+        578,
+        4062,
+        14198,
+        39935,
+        35308,
+        927,
+        279,
+        16053,
+        5679,
+        3221,
+        279,
+        15140,
+        6964,
+        13,
+        578,
+        4062
+      ],
+      "phase_trace": [
+        "all_fp"
+      ]
+    }
+  ]
+}

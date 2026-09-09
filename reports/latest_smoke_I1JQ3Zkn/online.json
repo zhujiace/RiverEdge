@@ -1,0 +1,4493 @@
+{
+  "schema_version": 2,
+  "environment": {
+    "vllm": "0.24.0",
+    "torch": "2.11.0+cu130",
+    "torchao": "0.17.0",
+    "device": "Orin",
+    "argv": [
+      "/workspace/vllm/RiverEdge/river-vllm-edge/scripts/benchmark_riveredge_online.py",
+      "--output",
+      "/workspace/vllm/RiverEdge/reports/latest_smoke_I1JQ3Zkn/online.json",
+      "--policies",
+      "fp,ptq,mixed",
+      "--schedulers",
+      "native,grouped",
+      "--requests",
+      "4",
+      "--batch-size",
+      "2",
+      "--max-tokens",
+      "8",
+      "--max-model-len",
+      "128",
+      "--warmup",
+      "1",
+      "--repeats",
+      "1",
+      "--arrivals",
+      "simultaneous",
+      "--force-length",
+      "--kv-cache-bytes",
+      "134217728"
+    ],
+    "started_unix_s": 1788935409.5953217,
+    "source_sha256": {
+      "/workspace/vllm/RiverEdge/river-vllm-edge/scripts/benchmark_riveredge_online.py": "b55e639d8a47c682e25ae2f8e53b37ff0d396878f6ed740c96d13c4edc72b186",
+      "/workspace/vllm/RiverEdge/river-vllm-edge/river_vllm_ext/online_runtime.py": "dfbb7e0ea2501ccf25925dabb4e0dbe7d83260de1de29ca30c08f381e8c5c0b8",
+      "/workspace/vllm/RiverEdge/river-vllm-edge/river_vllm_ext/models/online_llama.py": "45dcbb1b52f1dd6b65e27ea17d20f7faf92d500f3fd12c1a5f7b0386f874e535",
+      "/workspace/vllm/RiverEdge/river-vllm-edge/river_vllm_ext/head_ablation.py": "65fbcadfaa7128efb909cd7a5b6b72a31da691ea21619741270f9cf2162a6978"
+    }
+  },
+  "config": {
+    "model": "/models/Llama-3.1-8B-Instruct-riveredge-fp-hqq",
+    "output": "/workspace/vllm/RiverEdge/reports/latest_smoke_I1JQ3Zkn/online.json",
+    "trace": null,
+    "chat_template": false,
+    "latency_probe": false,
+    "arrival_patterns": "",
+    "policies": "fp,ptq,mixed",
+    "schedulers": "native,grouped",
+    "exit_layers": "3",
+    "head_variants": "fp",
+    "arrivals": "simultaneous",
+    "requests": 4,
+    "batch_size": 2,
+    "rate": 2,
+    "max_tokens": 8,
+    "max_model_len": 128,
+    "memory_fraction": 0.36,
+    "kv_cache_bytes": 134217728,
+    "warmup": 1,
+    "repeats": 1,
+    "seed": 7,
+    "low_batch": 8,
+    "high_batch": 16,
+    "ttft_slo": 1,
+    "tpot_slo": 0.1,
+    "force_length": true,
+    "power_label": "VDD_GPU_SOC"
+  },
+  "cases": [
+    {
+      "summary": {
+        "requests": 4,
+        "elapsed_s": 1.881578842177987,
+        "output_tokens": 32,
+        "ttft_s": {
+          "p50": 0.5720530156977475,
+          "p90": 1.0417573852464557,
+          "p95": 1.0417573852464557,
+          "p99": 1.0417573852464557
+        },
+        "tpot_s": {
+          "p50": 0.12002589433853114,
+          "p90": 0.12007987765329224,
+          "p95": 0.12007987765329224,
+          "p99": 0.12007987765329224
+        },
+        "e2e_s": {
+          "p50": 1.4122342760674655,
+          "p90": 1.881560762412846,
+          "p95": 1.881560762412846,
+          "p99": 1.881560762412846
+        },
+        "admission_lag_s": {
+          "p50": 0.0010220818221569061,
+          "p90": 0.0014691445976495743,
+          "p95": 0.0015212814323604107,
+          "p99": 0.0015629909001290798
+        },
+        "output_tps": 17.0069939577759,
+        "slo_requests_per_s": 0.0,
+        "slo_tokens_per_s": 0.0,
+        "quality": {},
+        "quality_slo_requests_per_s": null
+      },
+      "expected_request_ids": [
+        "request-0",
+        "request-1",
+        "request-2",
+        "request-3"
+      ],
+      "requests": [
+        {
+          "arrival_s": 0.0,
+          "prompt": "Explain why the sky is blue in simple terms.",
+          "allow_ptq": true,
+          "max_tokens": 8,
+          "request_id": "request-0",
+          "token_times_s": [
+            0.10234864614903927,
+            0.22289249394088984,
+            0.3428651811555028,
+            0.4627937087789178,
+            0.5826107505708933,
+            0.7025906061753631,
+            0.8225158080458641,
+            0.942907789722085
+          ],
+          "token_ids": [
+            52050,
+            791,
+            13180,
+            8111,
+            6437,
+            1606,
+            315,
+            264
+          ],
+          "text": "\u00a0\nThe sky appears blue because of a",
+          "admission_lag_s": 4.287809133529663e-06,
+          "finished_s": 0.942907789722085,
+          "ttft_s": 0.10234864614903927,
+          "tpot_s": 0.12007987765329224,
+          "e2e_s": 0.942907789722085,
+          "slo_pass": false
+        },
+        {
+          "arrival_s": 0.0,
+          "prompt": "Explain why the sky is blue in simple terms.",
+          "allow_ptq": false,
+          "max_tokens": 8,
+          "request_id": "request-1",
+          "token_times_s": [
+            0.10234864614903927,
+            0.22289249394088984,
+            0.3428651811555028,
+            0.4627937087789178,
+            0.5826107505708933,
+            0.7025906061753631,
+            0.8225158080458641,
+            0.942907789722085
+          ],
+          "token_ids": [
+            52050,
+            791,
+            13180,
+            8111,
+            6437,
+            1606,
+            315,
+            264
+          ],
+          "text": "\u00a0\nThe sky appears blue because of a",
+          "admission_lag_s": 0.0008183242753148079,
+          "finished_s": 0.942907789722085,
+          "ttft_s": 0.10234864614903927,
+          "tpot_s": 0.12007987765329224,
+          "e2e_s": 0.942907789722085,
+          "slo_pass": false
+        },
+        {
+          "arrival_s": 0.0,
+          "prompt": "Explain why the sky is blue in simple terms.",
+          "allow_ptq": true,
+          "max_tokens": 8,
+          "request_id": "request-2",
+          "token_times_s": [
+            1.0417573852464557,
+            1.1617037737742066,
+            1.2815467081964016,
+            1.4014198165386915,
+            1.5212530549615622,
+            1.641276178881526,
+            1.7614064691588283,
+            1.881560762412846
+          ],
+          "token_ids": [
+            52050,
+            791,
+            13180,
+            8111,
+            6437,
+            1606,
+            315,
+            264
+          ],
+          "text": "\u00a0\nThe sky appears blue because of a",
+          "admission_lag_s": 0.0012258393689990044,
+          "finished_s": 1.881560762412846,
+          "ttft_s": 1.0417573852464557,
+          "tpot_s": 0.11997191102377006,
+          "e2e_s": 1.881560762412846,
+          "slo_pass": false
+        },
+        {
+          "arrival_s": 0.0,
+          "prompt": "Explain why the sky is blue in simple terms.",
+          "allow_ptq": false,
+          "max_tokens": 8,
+          "request_id": "request-3",
+          "token_times_s": [
+            1.0417573852464557,
+            1.1617037737742066,
+            1.2815467081964016,
+            1.4014198165386915,
+            1.5212530549615622,
+            1.641276178881526,
+            1.7614064691588283,
+            1.881560762412846
+          ],
+          "token_ids": [
+            52050,
+            791,
+            13180,
+            8111,
+            6437,
+            1606,
+            315,
+            264
+          ],
+          "text": "\u00a0\nThe sky appears blue because of a",
+          "admission_lag_s": 0.001573418267071247,
+          "finished_s": 1.881560762412846,
+          "ttft_s": 1.0417573852464557,
+          "tpot_s": 0.11997191102377006,
+          "e2e_s": 1.881560762412846,
+          "slo_pass": false
+        }
+      ],
+      "steps": [
+        {
+          "step": 4,
+          "time_s": 4233646.267631512,
+          "selected_group": "native",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-0-aeea86b3": 12,
+            "request-1-b61ec71b": 12
+          },
+          "service_gap_s": {
+            "request-0-aeea86b3": 0.0,
+            "request-1-b61ec71b": 0.0
+          },
+          "routes": {
+            "request-0-aeea86b3": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 12
+            },
+            "request-1-b61ec71b": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 12
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 5,
+          "time_s": 4233646.368088473,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-aeea86b3": 1,
+            "request-1-b61ec71b": 1
+          },
+          "service_gap_s": {
+            "request-0-aeea86b3": 0.10045696049928665,
+            "request-1-b61ec71b": 0.10045696049928665
+          },
+          "routes": {
+            "request-0-aeea86b3": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-b61ec71b": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 6,
+          "time_s": 4233646.488630592,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-aeea86b3": 1,
+            "request-1-b61ec71b": 1
+          },
+          "service_gap_s": {
+            "request-0-aeea86b3": 0.12054211925715208,
+            "request-1-b61ec71b": 0.12054211925715208
+          },
+          "routes": {
+            "request-0-aeea86b3": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-b61ec71b": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 7,
+          "time_s": 4233646.608600944,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-aeea86b3": 1,
+            "request-1-b61ec71b": 1
+          },
+          "service_gap_s": {
+            "request-0-aeea86b3": 0.1199703523889184,
+            "request-1-b61ec71b": 0.1199703523889184
+          },
+          "routes": {
+            "request-0-aeea86b3": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-b61ec71b": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 8,
+          "time_s": 4233646.72852944,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-aeea86b3": 1,
+            "request-1-b61ec71b": 1
+          },
+          "service_gap_s": {
+            "request-0-aeea86b3": 0.11992849595844746,
+            "request-1-b61ec71b": 0.11992849595844746
+          },
+          "routes": {
+            "request-0-aeea86b3": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-b61ec71b": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 9,
+          "time_s": 4233646.848348145,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-aeea86b3": 1,
+            "request-1-b61ec71b": 1
+          },
+          "service_gap_s": {
+            "request-0-aeea86b3": 0.11981870513409376,
+            "request-1-b61ec71b": 0.11981870513409376
+          },
+          "routes": {
+            "request-0-aeea86b3": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-b61ec71b": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 10,
+          "time_s": 4233646.968326305,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-aeea86b3": 1,
+            "request-1-b61ec71b": 1
+          },
+          "service_gap_s": {
+            "request-0-aeea86b3": 0.1199781596660614,
+            "request-1-b61ec71b": 0.1199781596660614
+          },
+          "routes": {
+            "request-0-aeea86b3": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-b61ec71b": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 11,
+          "time_s": 4233647.088255442,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-aeea86b3": 1,
+            "request-1-b61ec71b": 1
+          },
+          "service_gap_s": {
+            "request-0-aeea86b3": 0.11992913670837879,
+            "request-1-b61ec71b": 0.11992913670837879
+          },
+          "routes": {
+            "request-0-aeea86b3": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-b61ec71b": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 12,
+          "time_s": 4233647.208640577,
+          "selected_group": "native",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-2-93e88b2f": 12,
+            "request-3-910db9b7": 12
+          },
+          "service_gap_s": {
+            "request-2-93e88b2f": 0.9410090651363134,
+            "request-3-910db9b7": 0.9410090651363134
+          },
+          "routes": {
+            "request-2-93e88b2f": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 12
+            },
+            "request-3-910db9b7": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 12
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 13,
+          "time_s": 4233647.307495228,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-93e88b2f": 1,
+            "request-3-910db9b7": 1
+          },
+          "service_gap_s": {
+            "request-2-93e88b2f": 0.09885465074330568,
+            "request-3-910db9b7": 0.09885465074330568
+          },
+          "routes": {
+            "request-2-93e88b2f": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-910db9b7": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 14,
+          "time_s": 4233647.4274396,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-93e88b2f": 1,
+            "request-3-910db9b7": 1
+          },
+          "service_gap_s": {
+            "request-2-93e88b2f": 0.11994437221437693,
+            "request-3-910db9b7": 0.11994437221437693
+          },
+          "routes": {
+            "request-2-93e88b2f": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-910db9b7": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 15,
+          "time_s": 4233647.547285446,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-93e88b2f": 1,
+            "request-3-910db9b7": 1
+          },
+          "service_gap_s": {
+            "request-2-93e88b2f": 0.1198458457365632,
+            "request-3-910db9b7": 0.1198458457365632
+          },
+          "routes": {
+            "request-2-93e88b2f": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-910db9b7": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 16,
+          "time_s": 4233647.667157436,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-93e88b2f": 1,
+            "request-3-910db9b7": 1
+          },
+          "service_gap_s": {
+            "request-2-93e88b2f": 0.11987198982387781,
+            "request-3-910db9b7": 0.11987198982387781
+          },
+          "routes": {
+            "request-2-93e88b2f": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-910db9b7": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 17,
+          "time_s": 4233647.78699093,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-93e88b2f": 1,
+            "request-3-910db9b7": 1
+          },
+          "service_gap_s": {
+            "request-2-93e88b2f": 0.11983349453657866,
+            "request-3-910db9b7": 0.11983349453657866
+          },
+          "routes": {
+            "request-2-93e88b2f": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-910db9b7": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 18,
+          "time_s": 4233647.907016549,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-93e88b2f": 1,
+            "request-3-910db9b7": 1
+          },
+          "service_gap_s": {
+            "request-2-93e88b2f": 0.12002561893314123,
+            "request-3-910db9b7": 0.12002561893314123
+          },
+          "routes": {
+            "request-2-93e88b2f": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-910db9b7": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 19,
+          "time_s": 4233648.027142871,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-93e88b2f": 1,
+            "request-3-910db9b7": 1
+          },
+          "service_gap_s": {
+            "request-2-93e88b2f": 0.12012632191181183,
+            "request-3-910db9b7": 0.12012632191181183
+          },
+          "routes": {
+            "request-2-93e88b2f": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-910db9b7": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        }
+      ],
+      "energy": {
+        "sensor": [
+          "/sys/bus/i2c/drivers/ina3221/1-0040/hwmon/hwmon6/in1_input",
+          "/sys/bus/i2c/drivers/ina3221/1-0040/hwmon/hwmon6/curr1_input"
+        ],
+        "error": null,
+        "samples": [
+          [
+            4233646.265378679,
+            19.15392
+          ],
+          [
+            4233646.268391629,
+            18.75488
+          ],
+          [
+            4233646.370302746,
+            21.54816
+          ],
+          [
+            4233646.471958122,
+            23.14432
+          ],
+          [
+            4233646.57390159,
+            24.34144
+          ],
+          [
+            4233646.675960992,
+            25.13952
+          ],
+          [
+            4233646.77760424,
+            25.948
+          ],
+          [
+            4233646.87939923,
+            26.3472
+          ],
+          [
+            4233646.981274027,
+            26.7464
+          ],
+          [
+            4233647.08282643,
+            27.5448
+          ],
+          [
+            4233647.184367092,
+            27.5448
+          ],
+          [
+            4233647.285939721,
+            28.3432
+          ],
+          [
+            4233647.387700827,
+            28.3432
+          ],
+          [
+            4233647.489512109,
+            28.3432
+          ],
+          [
+            4233647.591193089,
+            28.3432
+          ],
+          [
+            4233647.69289458,
+            28.3432
+          ],
+          [
+            4233647.794671271,
+            28.3432
+          ],
+          [
+            4233647.896217212,
+            28.7424
+          ],
+          [
+            4233647.997726226,
+            28.7424
+          ],
+          [
+            4233648.099609765,
+            28.7424
+          ],
+          [
+            4233648.148941622,
+            28.3432
+          ]
+        ],
+        "sampled_joules": 50.20052655926162,
+        "sample_coverage_fraction": 1.0,
+        "sampled_joules_per_output_token": 1.5687664549769256,
+        "scope": "whole rail, shared-device load included, no idle subtraction"
+      },
+      "exit_layer": 3,
+      "policy": "mixed",
+      "scheduler": "native",
+      "repeat": 0,
+      "head": "fp",
+      "workload": "simultaneous",
+      "force_length": true
+    },
+    {
+      "summary": {
+        "requests": 4,
+        "elapsed_s": 1.505614746361971,
+        "output_tokens": 32,
+        "ttft_s": {
+          "p50": 0.47702561831101775,
+          "p90": 0.8528909496963024,
+          "p95": 0.8528909496963024,
+          "p99": 0.8528909496963024
+        },
+        "tpot_s": {
+          "p50": 0.09323585113244398,
+          "p90": 0.09324453784418958,
+          "p95": 0.09324453784418958,
+          "p99": 0.09324453784418958
+        },
+        "e2e_s": {
+          "p50": 1.1296765762381256,
+          "p90": 1.5056027146056294,
+          "p95": 1.5056027146056294,
+          "p99": 1.5056027146056294
+        },
+        "admission_lag_s": {
+          "p50": 0.0010812180116772652,
+          "p90": 0.0016084451228380204,
+          "p95": 0.001667138561606407,
+          "p99": 0.0017140933126211166
+        },
+        "output_tps": 21.253776955440866,
+        "slo_requests_per_s": 2.6567221194301083,
+        "slo_tokens_per_s": 21.253776955440866,
+        "quality": {},
+        "quality_slo_requests_per_s": null
+      },
+      "expected_request_ids": [
+        "request-0",
+        "request-1",
+        "request-2",
+        "request-3"
+      ],
+      "requests": [
+        {
+          "arrival_s": 0.0,
+          "prompt": "Explain why the sky is blue in simple terms.",
+          "allow_ptq": true,
+          "max_tokens": 8,
+          "request_id": "request-0",
+          "token_times_s": [
+            0.10116028692573309,
+            0.19475645571947098,
+            0.2879122458398342,
+            0.38098022900521755,
+            0.474008085206151,
+            0.5672590769827366,
+            0.6604941338300705,
+            0.7537504378706217
+          ],
+          "token_ids": [
+            52050,
+            791,
+            13180,
+            8111,
+            6437,
+            1606,
+            315,
+            264
+          ],
+          "text": "\u00a0\nThe sky appears blue because of a",
+          "admission_lag_s": 3.1366944313049316e-06,
+          "finished_s": 0.7537504378706217,
+          "ttft_s": 0.10116028692573309,
+          "tpot_s": 0.09322716442069837,
+          "e2e_s": 0.7537504378706217,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0.0,
+          "prompt": "Explain why the sky is blue in simple terms.",
+          "allow_ptq": false,
+          "max_tokens": 8,
+          "request_id": "request-1",
+          "token_times_s": [
+            0.10116028692573309,
+            0.19475645571947098,
+            0.2879122458398342,
+            0.38098022900521755,
+            0.474008085206151,
+            0.5672590769827366,
+            0.6604941338300705,
+            0.7537504378706217
+          ],
+          "token_ids": [
+            52050,
+            791,
+            13180,
+            8111,
+            6437,
+            1606,
+            315,
+            264
+          ],
+          "text": "\u00a0\nThe sky appears blue because of a",
+          "admission_lag_s": 0.0008278936147689819,
+          "finished_s": 0.7537504378706217,
+          "ttft_s": 0.10116028692573309,
+          "tpot_s": 0.09322716442069837,
+          "e2e_s": 0.7537504378706217,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0.0,
+          "prompt": "Explain why the sky is blue in simple terms.",
+          "allow_ptq": true,
+          "max_tokens": 8,
+          "request_id": "request-2",
+          "token_times_s": [
+            0.8528909496963024,
+            0.9461187422275543,
+            1.039454821497202,
+            1.132633239030838,
+            1.2258900869637728,
+            1.3193214610219002,
+            1.4124533841386437,
+            1.5056027146056294
+          ],
+          "token_ids": [
+            52050,
+            791,
+            13180,
+            8111,
+            6437,
+            1606,
+            315,
+            264
+          ],
+          "text": "\u00a0\nThe sky appears blue because of a",
+          "admission_lag_s": 0.0013345424085855484,
+          "finished_s": 1.5056027146056294,
+          "ttft_s": 0.8528909496963024,
+          "tpot_s": 0.09324453784418958,
+          "e2e_s": 1.5056027146056294,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0.0,
+          "prompt": "Explain why the sky is blue in simple terms.",
+          "allow_ptq": false,
+          "max_tokens": 8,
+          "request_id": "request-3",
+          "token_times_s": [
+            0.8528909496963024,
+            0.9461187422275543,
+            1.039454821497202,
+            1.132633239030838,
+            1.2258900869637728,
+            1.3193214610219002,
+            1.4124533841386437,
+            1.5056027146056294
+          ],
+          "token_ids": [
+            52050,
+            791,
+            13180,
+            8111,
+            6437,
+            1606,
+            315,
+            264
+          ],
+          "text": "\u00a0\nThe sky appears blue because of a",
+          "admission_lag_s": 0.001725832000374794,
+          "finished_s": 1.5056027146056294,
+          "ttft_s": 0.8528909496963024,
+          "tpot_s": 0.09324453784418958,
+          "e2e_s": 1.5056027146056294,
+          "slo_pass": true
+        }
+      ],
+      "steps": [
+        {
+          "step": 4,
+          "time_s": 4233648.550981749,
+          "selected_group": "native",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-0-a735213f": 12,
+            "request-1-b12980ac": 12
+          },
+          "service_gap_s": {
+            "request-0-a735213f": 0.0,
+            "request-1-b12980ac": 0.0
+          },
+          "routes": {
+            "request-0-a735213f": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 12
+            },
+            "request-1-b12980ac": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 12
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 5,
+          "time_s": 4233648.650073009,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-a735213f": 1,
+            "request-1-b12980ac": 1
+          },
+          "service_gap_s": {
+            "request-0-a735213f": 0.09909125976264477,
+            "request-1-b12980ac": 0.09909125976264477
+          },
+          "routes": {
+            "request-0-a735213f": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-b12980ac": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 6,
+          "time_s": 4233648.743671129,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-a735213f": 1,
+            "request-1-b12980ac": 1
+          },
+          "service_gap_s": {
+            "request-0-a735213f": 0.09359812084585428,
+            "request-1-b12980ac": 0.09359812084585428
+          },
+          "routes": {
+            "request-0-a735213f": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-b12980ac": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 7,
+          "time_s": 4233648.836828327,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-a735213f": 1,
+            "request-1-b12980ac": 1
+          },
+          "service_gap_s": {
+            "request-0-a735213f": 0.09315719734877348,
+            "request-1-b12980ac": 0.09315719734877348
+          },
+          "routes": {
+            "request-0-a735213f": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-b12980ac": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 8,
+          "time_s": 4233648.929895255,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-a735213f": 1,
+            "request-1-b12980ac": 1
+          },
+          "service_gap_s": {
+            "request-0-a735213f": 0.0930669279769063,
+            "request-1-b12980ac": 0.0930669279769063
+          },
+          "routes": {
+            "request-0-a735213f": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-b12980ac": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 9,
+          "time_s": 4233649.022924999,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-a735213f": 1,
+            "request-1-b12980ac": 1
+          },
+          "service_gap_s": {
+            "request-0-a735213f": 0.0930297439917922,
+            "request-1-b12980ac": 0.0930297439917922
+          },
+          "routes": {
+            "request-0-a735213f": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-b12980ac": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 10,
+          "time_s": 4233649.116173846,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-a735213f": 1,
+            "request-1-b12980ac": 1
+          },
+          "service_gap_s": {
+            "request-0-a735213f": 0.09324884694069624,
+            "request-1-b12980ac": 0.09324884694069624
+          },
+          "routes": {
+            "request-0-a735213f": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-b12980ac": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 11,
+          "time_s": 4233649.209411687,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-a735213f": 1,
+            "request-1-b12980ac": 1
+          },
+          "service_gap_s": {
+            "request-0-a735213f": 0.09323784150183201,
+            "request-1-b12980ac": 0.09323784150183201
+          },
+          "routes": {
+            "request-0-a735213f": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-b12980ac": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 12,
+          "time_s": 4233649.302664984,
+          "selected_group": "native",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-2-885ffe74": 12,
+            "request-3-86c3f89d": 12
+          },
+          "service_gap_s": {
+            "request-2-885ffe74": 0.751683235168457,
+            "request-3-86c3f89d": 0.751683235168457
+          },
+          "routes": {
+            "request-2-885ffe74": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 12
+            },
+            "request-3-86c3f89d": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 12
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 13,
+          "time_s": 4233649.401807286,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-885ffe74": 1,
+            "request-3-86c3f89d": 1
+          },
+          "service_gap_s": {
+            "request-2-885ffe74": 0.09914230182766914,
+            "request-3-86c3f89d": 0.09914230182766914
+          },
+          "routes": {
+            "request-2-885ffe74": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-86c3f89d": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 14,
+          "time_s": 4233649.495032519,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-885ffe74": 1,
+            "request-3-86c3f89d": 1
+          },
+          "service_gap_s": {
+            "request-2-885ffe74": 0.09322523325681686,
+            "request-3-86c3f89d": 0.09322523325681686
+          },
+          "routes": {
+            "request-2-885ffe74": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-86c3f89d": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 15,
+          "time_s": 4233649.588367767,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-885ffe74": 1,
+            "request-3-86c3f89d": 1
+          },
+          "service_gap_s": {
+            "request-2-885ffe74": 0.09333524759858847,
+            "request-3-86c3f89d": 0.09333524759858847
+          },
+          "routes": {
+            "request-2-885ffe74": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-86c3f89d": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 16,
+          "time_s": 4233649.681546248,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-885ffe74": 1,
+            "request-3-86c3f89d": 1
+          },
+          "service_gap_s": {
+            "request-2-885ffe74": 0.09317848086357117,
+            "request-3-86c3f89d": 0.09317848086357117
+          },
+          "routes": {
+            "request-2-885ffe74": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-86c3f89d": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 17,
+          "time_s": 4233649.774804921,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-885ffe74": 1,
+            "request-3-86c3f89d": 1
+          },
+          "service_gap_s": {
+            "request-2-885ffe74": 0.09325867332518101,
+            "request-3-86c3f89d": 0.09325867332518101
+          },
+          "routes": {
+            "request-2-885ffe74": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-86c3f89d": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 18,
+          "time_s": 4233649.868233927,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-885ffe74": 1,
+            "request-3-86c3f89d": 1
+          },
+          "service_gap_s": {
+            "request-2-885ffe74": 0.09342900570482016,
+            "request-3-86c3f89d": 0.09342900570482016
+          },
+          "routes": {
+            "request-2-885ffe74": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-86c3f89d": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 19,
+          "time_s": 4233649.961366041,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-885ffe74": 1,
+            "request-3-86c3f89d": 1
+          },
+          "service_gap_s": {
+            "request-2-885ffe74": 0.09313211403787136,
+            "request-3-86c3f89d": 0.09313211403787136
+          },
+          "routes": {
+            "request-2-885ffe74": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-86c3f89d": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        }
+      ],
+      "energy": {
+        "sensor": [
+          "/sys/bus/i2c/drivers/ina3221/1-0040/hwmon/hwmon6/in1_input",
+          "/sys/bus/i2c/drivers/ina3221/1-0040/hwmon/hwmon6/curr1_input"
+        ],
+        "error": null,
+        "samples": [
+          [
+            4233648.548551287,
+            27.1456
+          ],
+          [
+            4233648.550717849,
+            27.1456
+          ],
+          [
+            4233648.652785547,
+            27.944
+          ],
+          [
+            4233648.755053338,
+            27.5448
+          ],
+          [
+            4233648.857105741,
+            27.1456
+          ],
+          [
+            4233648.959237182,
+            27.1456
+          ],
+          [
+            4233649.061600269,
+            26.7464
+          ],
+          [
+            4233649.163705762,
+            26.7464
+          ],
+          [
+            4233649.265841367,
+            26.7464
+          ],
+          [
+            4233649.368027532,
+            27.5448
+          ],
+          [
+            4233649.470280447,
+            27.5448
+          ],
+          [
+            4233649.572120441,
+            27.1456
+          ],
+          [
+            4233649.673916562,
+            27.1456
+          ],
+          [
+            4233649.776108647,
+            26.7464
+          ],
+          [
+            4233649.877753123,
+            26.7464
+          ],
+          [
+            4233649.979621212,
+            26.7464
+          ],
+          [
+            4233650.056471472,
+            26.7464
+          ]
+        ],
+        "sampled_joules": 40.8208227957584,
+        "sample_coverage_fraction": 1.0,
+        "sampled_joules_per_output_token": 1.27565071236745,
+        "scope": "whole rail, shared-device load included, no idle subtraction"
+      },
+      "exit_layer": 3,
+      "policy": "fp",
+      "scheduler": "native",
+      "repeat": 0,
+      "head": "fp",
+      "workload": "simultaneous",
+      "force_length": true
+    },
+    {
+      "summary": {
+        "requests": 4,
+        "elapsed_s": 2.3690746817737818,
+        "output_tokens": 32,
+        "ttft_s": {
+          "p50": 0.622053827624768,
+          "p90": 1.27298214007169,
+          "p95": 1.3008374031633139,
+          "p99": 1.3231216136366128
+        },
+        "tpot_s": {
+          "p50": 0.15529261615925602,
+          "p90": 0.16203412458832775,
+          "p95": 0.1620498001841562,
+          "p99": 0.16206234066081898
+        },
+        "e2e_s": {
+          "p50": 1.7561463941819966,
+          "p90": 2.3413590573705734,
+          "p95": 2.355210773600265,
+          "p99": 2.366292146584019
+        },
+        "admission_lag_s": {
+          "p50": 0.0010618092492222786,
+          "p90": 0.0015614759176969528,
+          "p95": 0.001617510337382555,
+          "p99": 0.0016623378731310367
+        },
+        "output_tps": 13.507383387357317,
+        "slo_requests_per_s": 0.0,
+        "slo_tokens_per_s": 0.0,
+        "quality": {},
+        "quality_slo_requests_per_s": null
+      },
+      "expected_request_ids": [
+        "request-0",
+        "request-1",
+        "request-2",
+        "request-3"
+      ],
+      "requests": [
+        {
+          "arrival_s": 0.0,
+          "prompt": "Explain why the sky is blue in simple terms.",
+          "allow_ptq": true,
+          "max_tokens": 8,
+          "request_id": "request-0",
+          "token_times_s": [
+            0.10111674293875694,
+            0.15803627483546734,
+            0.30680195800960064,
+            0.45575547870248556,
+            0.6049606818705797,
+            0.753527108579874,
+            0.9017010619863868,
+            1.0499176066368818
+          ],
+          "token_ids": [
+            52050,
+            791,
+            13180,
+            8111,
+            6437,
+            1606,
+            315,
+            264
+          ],
+          "text": "\u00a0\nThe sky appears blue because of a",
+          "admission_lag_s": 2.687796950340271e-06,
+          "finished_s": 1.0499176066368818,
+          "ttft_s": 0.10111674293875694,
+          "tpot_s": 0.13554298052830355,
+          "e2e_s": 1.0499176066368818,
+          "slo_pass": false
+        },
+        {
+          "arrival_s": 0.0,
+          "prompt": "Explain why the sky is blue in simple terms.",
+          "allow_ptq": false,
+          "max_tokens": 8,
+          "request_id": "request-1",
+          "token_times_s": [
+            0.10111674293875694,
+            0.25041813030838966,
+            0.39911661483347416,
+            0.5481133386492729,
+            0.697423211298883,
+            0.8456578040495515,
+            0.9938668608665466,
+            1.2355750733986497
+          ],
+          "token_ids": [
+            52050,
+            791,
+            13180,
+            8111,
+            6437,
+            1606,
+            315,
+            264
+          ],
+          "text": "\u00a0\nThe sky appears blue because of a",
+          "admission_lag_s": 0.0008236365392804146,
+          "finished_s": 1.2355750733986497,
+          "ttft_s": 0.10111674293875694,
+          "tpot_s": 0.16206547577998467,
+          "e2e_s": 1.2355750733986497,
+          "slo_pass": false
+        },
+        {
+          "arrival_s": 0.0,
+          "prompt": "Explain why the sky is blue in simple terms.",
+          "allow_ptq": true,
+          "max_tokens": 8,
+          "request_id": "request-2",
+          "token_times_s": [
+            1.142990912310779,
+            1.3848048839718103,
+            1.5338085889816284,
+            1.6826004916802049,
+            1.8303610160946846,
+            1.9792841160669923,
+            2.127794325351715,
+            2.2767177149653435
+          ],
+          "token_ids": [
+            52050,
+            791,
+            13180,
+            8111,
+            6437,
+            1606,
+            315,
+            264
+          ],
+          "text": "\u00a0\nThe sky appears blue because of a",
+          "admission_lag_s": 0.0012999819591641426,
+          "finished_s": 2.2767177149653435,
+          "ttft_s": 1.142990912310779,
+          "tpot_s": 0.16196097180779492,
+          "e2e_s": 2.2767177149653435,
+          "slo_pass": false
+        },
+        {
+          "arrival_s": 0.0,
+          "prompt": "Explain why the sky is blue in simple terms.",
+          "allow_ptq": false,
+          "max_tokens": 8,
+          "request_id": "request-3",
+          "token_times_s": [
+            1.3286926662549376,
+            1.476965757086873,
+            1.6260759895667434,
+            1.774730165489018,
+            1.922848734073341,
+            2.0716302674263716,
+            2.2201001904904842,
+            2.3690624898299575
+          ],
+          "token_ids": [
+            52050,
+            791,
+            13180,
+            8111,
+            6437,
+            1606,
+            315,
+            264
+          ],
+          "text": "\u00a0\nThe sky appears blue because of a",
+          "admission_lag_s": 0.0016735447570681572,
+          "finished_s": 2.3690624898299575,
+          "ttft_s": 1.3286926662549376,
+          "tpot_s": 0.14862426051071712,
+          "e2e_s": 2.3690624898299575,
+          "slo_pass": false
+        }
+      ],
+      "steps": [
+        {
+          "step": 7,
+          "time_s": 4233650.616969436,
+          "selected_group": "prefill",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-0-b0b8efcf": 12,
+            "request-1-8f1a5e05": 12
+          },
+          "service_gap_s": {
+            "request-0-b0b8efcf": 0.0,
+            "request-1-8f1a5e05": 0.0
+          },
+          "routes": {
+            "request-0-b0b8efcf": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 12
+            },
+            "request-1-8f1a5e05": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 12
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 8,
+          "time_s": 4233650.716074399,
+          "selected_group": "ptq",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-b0b8efcf": 1
+          },
+          "service_gap_s": {
+            "request-0-b0b8efcf": 0.09910496231168509
+          },
+          "routes": {
+            "request-0-b0b8efcf": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 9,
+          "time_s": 4233650.772987978,
+          "selected_group": "fp",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-1-8f1a5e05": 1
+          },
+          "service_gap_s": {
+            "request-1-8f1a5e05": 0.15601854119449854
+          },
+          "routes": {
+            "request-1-8f1a5e05": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 10,
+          "time_s": 4233650.86537233,
+          "selected_group": "ptq",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-b0b8efcf": 1
+          },
+          "service_gap_s": {
+            "request-0-b0b8efcf": 0.14929793123155832
+          },
+          "routes": {
+            "request-0-b0b8efcf": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 11,
+          "time_s": 4233650.921753693,
+          "selected_group": "fp",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-1-8f1a5e05": 1
+          },
+          "service_gap_s": {
+            "request-1-8f1a5e05": 0.1487657157704234
+          },
+          "routes": {
+            "request-1-8f1a5e05": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 12,
+          "time_s": 4233651.014072894,
+          "selected_group": "ptq",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-b0b8efcf": 1
+          },
+          "service_gap_s": {
+            "request-0-b0b8efcf": 0.1487005641683936
+          },
+          "routes": {
+            "request-0-b0b8efcf": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 13,
+          "time_s": 4233651.070708943,
+          "selected_group": "fp",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-1-8f1a5e05": 1
+          },
+          "service_gap_s": {
+            "request-1-8f1a5e05": 0.1489552492275834
+          },
+          "routes": {
+            "request-1-8f1a5e05": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 14,
+          "time_s": 4233651.163069363,
+          "selected_group": "ptq",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-b0b8efcf": 1
+          },
+          "service_gap_s": {
+            "request-0-b0b8efcf": 0.14899646863341331
+          },
+          "routes": {
+            "request-0-b0b8efcf": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 15,
+          "time_s": 4233651.219915457,
+          "selected_group": "fp",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-1-8f1a5e05": 1
+          },
+          "service_gap_s": {
+            "request-1-8f1a5e05": 0.14920651447027922
+          },
+          "routes": {
+            "request-1-8f1a5e05": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 16,
+          "time_s": 4233651.312378692,
+          "selected_group": "ptq",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-b0b8efcf": 1
+          },
+          "service_gap_s": {
+            "request-0-b0b8efcf": 0.14930932968854904
+          },
+          "routes": {
+            "request-0-b0b8efcf": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 17,
+          "time_s": 4233651.368479165,
+          "selected_group": "fp",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-1-8f1a5e05": 1
+          },
+          "service_gap_s": {
+            "request-1-8f1a5e05": 0.14856370817869902
+          },
+          "routes": {
+            "request-1-8f1a5e05": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 18,
+          "time_s": 4233651.46061114,
+          "selected_group": "ptq",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-b0b8efcf": 1
+          },
+          "service_gap_s": {
+            "request-0-b0b8efcf": 0.1482324479147792
+          },
+          "routes": {
+            "request-0-b0b8efcf": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 19,
+          "time_s": 4233651.516653502,
+          "selected_group": "fp",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-1-8f1a5e05": 1
+          },
+          "service_gap_s": {
+            "request-1-8f1a5e05": 0.14817433711141348
+          },
+          "routes": {
+            "request-1-8f1a5e05": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 20,
+          "time_s": 4233651.60882026,
+          "selected_group": "ptq",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-b0b8efcf": 1
+          },
+          "service_gap_s": {
+            "request-0-b0b8efcf": 0.14820911921560764
+          },
+          "routes": {
+            "request-0-b0b8efcf": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 21,
+          "time_s": 4233651.664871038,
+          "selected_group": "prefill",
+          "active_decode": 1,
+          "scheduled_tokens": {
+            "request-2-8b286092": 12
+          },
+          "service_gap_s": {
+            "request-2-8b286092": 1.0479016015306115
+          },
+          "routes": {
+            "request-2-8b286092": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 12
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 22,
+          "time_s": 4233651.757947128,
+          "selected_group": "fp",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-1-8f1a5e05": 1
+          },
+          "service_gap_s": {
+            "request-1-8f1a5e05": 0.2412936259061098
+          },
+          "routes": {
+            "request-1-8f1a5e05": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 23,
+          "time_s": 4233651.850526329,
+          "selected_group": "prefill",
+          "active_decode": 1,
+          "scheduled_tokens": {
+            "request-3-aeeb604b": 12
+          },
+          "service_gap_s": {
+            "request-3-aeeb604b": 1.233556892722845
+          },
+          "routes": {
+            "request-3-aeeb604b": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 12
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 24,
+          "time_s": 4233651.943649587,
+          "selected_group": "ptq",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-8b286092": 1
+          },
+          "service_gap_s": {
+            "request-2-8b286092": 0.2787785492837429
+          },
+          "routes": {
+            "request-2-8b286092": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 25,
+          "time_s": 4233651.999758412,
+          "selected_group": "fp",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-3-aeeb604b": 1
+          },
+          "service_gap_s": {
+            "request-3-aeeb604b": 0.1492320830002427
+          },
+          "routes": {
+            "request-3-aeeb604b": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 26,
+          "time_s": 4233652.091924852,
+          "selected_group": "ptq",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-8b286092": 1
+          },
+          "service_gap_s": {
+            "request-2-8b286092": 0.14827526453882456
+          },
+          "routes": {
+            "request-2-8b286092": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 27,
+          "time_s": 4233652.148761413,
+          "selected_group": "fp",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-3-aeeb604b": 1
+          },
+          "service_gap_s": {
+            "request-3-aeeb604b": 0.14900300092995167
+          },
+          "routes": {
+            "request-3-aeeb604b": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 28,
+          "time_s": 4233652.24103323,
+          "selected_group": "ptq",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-8b286092": 1
+          },
+          "service_gap_s": {
+            "request-2-8b286092": 0.14910837821662426
+          },
+          "routes": {
+            "request-2-8b286092": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 29,
+          "time_s": 4233652.297552419,
+          "selected_group": "fp",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-3-aeeb604b": 1
+          },
+          "service_gap_s": {
+            "request-3-aeeb604b": 0.1487910058349371
+          },
+          "routes": {
+            "request-3-aeeb604b": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 30,
+          "time_s": 4233652.389683342,
+          "selected_group": "ptq",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-8b286092": 1
+          },
+          "service_gap_s": {
+            "request-2-8b286092": 0.14865011163055897
+          },
+          "routes": {
+            "request-2-8b286092": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 31,
+          "time_s": 4233652.445312783,
+          "selected_group": "fp",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-3-aeeb604b": 1
+          },
+          "service_gap_s": {
+            "request-3-aeeb604b": 0.1477603642269969
+          },
+          "routes": {
+            "request-3-aeeb604b": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 32,
+          "time_s": 4233652.537804117,
+          "selected_group": "ptq",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-8b286092": 1
+          },
+          "service_gap_s": {
+            "request-2-8b286092": 0.14812077581882477
+          },
+          "routes": {
+            "request-2-8b286092": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 33,
+          "time_s": 4233652.594236812,
+          "selected_group": "fp",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-3-aeeb604b": 1
+          },
+          "service_gap_s": {
+            "request-3-aeeb604b": 0.14892402850091457
+          },
+          "routes": {
+            "request-3-aeeb604b": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 34,
+          "time_s": 4233652.686586419,
+          "selected_group": "ptq",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-8b286092": 1
+          },
+          "service_gap_s": {
+            "request-2-8b286092": 0.14878230169415474
+          },
+          "routes": {
+            "request-2-8b286092": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 35,
+          "time_s": 4233652.74274459,
+          "selected_group": "fp",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-3-aeeb604b": 1
+          },
+          "service_gap_s": {
+            "request-3-aeeb604b": 0.14850777853280306
+          },
+          "routes": {
+            "request-3-aeeb604b": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 36,
+          "time_s": 4233652.835054454,
+          "selected_group": "ptq",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-8b286092": 1
+          },
+          "service_gap_s": {
+            "request-2-8b286092": 0.14846803527325392
+          },
+          "routes": {
+            "request-2-8b286092": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 37,
+          "time_s": 4233652.891671338,
+          "selected_group": "fp",
+          "active_decode": 1,
+          "scheduled_tokens": {
+            "request-3-aeeb604b": 1
+          },
+          "service_gap_s": {
+            "request-3-aeeb604b": 0.14892674796283245
+          },
+          "routes": {
+            "request-3-aeeb604b": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        }
+      ],
+      "energy": {
+        "sensor": [
+          "/sys/bus/i2c/drivers/ina3221/1-0040/hwmon/hwmon6/in1_input",
+          "/sys/bus/i2c/drivers/ina3221/1-0040/hwmon/hwmon6/curr1_input"
+        ],
+        "error": null,
+        "samples": [
+          [
+            4233650.61462006,
+            26.3472
+          ],
+          [
+            4233650.616701631,
+            26.3472
+          ],
+          [
+            4233650.718434462,
+            27.1456
+          ],
+          [
+            4233650.820176828,
+            27.1456
+          ],
+          [
+            4233650.92227055,
+            26.7464
+          ],
+          [
+            4233651.024105331,
+            26.7464
+          ],
+          [
+            4233651.125627352,
+            26.7464
+          ],
+          [
+            4233651.227333659,
+            26.3472
+          ],
+          [
+            4233651.329037278,
+            26.3472
+          ],
+          [
+            4233651.430502948,
+            26.3472
+          ],
+          [
+            4233651.532157864,
+            26.3472
+          ],
+          [
+            4233651.633967753,
+            26.3472
+          ],
+          [
+            4233651.735416912,
+            26.7464
+          ],
+          [
+            4233651.837137266,
+            26.7464
+          ],
+          [
+            4233651.938640984,
+            26.7464
+          ],
+          [
+            4233652.040132702,
+            26.7464
+          ],
+          [
+            4233652.142439196,
+            26.7464
+          ],
+          [
+            4233652.244795002,
+            26.3472
+          ],
+          [
+            4233652.346475201,
+            26.3472
+          ],
+          [
+            4233652.448724992,
+            26.3472
+          ],
+          [
+            4233652.550717059,
+            26.3472
+          ],
+          [
+            4233652.65256724,
+            26.3472
+          ],
+          [
+            4233652.754830023,
+            25.948
+          ],
+          [
+            4233652.857036807,
+            26.3472
+          ],
+          [
+            4233652.958853676,
+            26.3472
+          ],
+          [
+            4233652.985660539,
+            26.3472
+          ]
+        ],
+        "sampled_joules": 62.865292283268275,
+        "sample_coverage_fraction": 1.0,
+        "sampled_joules_per_output_token": 1.9645403838521336,
+        "scope": "whole rail, shared-device load included, no idle subtraction"
+      },
+      "exit_layer": 3,
+      "policy": "mixed",
+      "scheduler": "grouped",
+      "repeat": 0,
+      "head": "fp",
+      "workload": "simultaneous",
+      "force_length": true
+    },
+    {
+      "summary": {
+        "requests": 4,
+        "elapsed_s": 1.0100153172388673,
+        "output_tokens": 32,
+        "ttft_s": {
+          "p50": 0.3526388518512249,
+          "p90": 0.60457927826792,
+          "p95": 0.60457927826792,
+          "p99": 0.60457927826792
+        },
+        "tpot_s": {
+          "p50": 0.057897180052740235,
+          "p90": 0.057917715316372256,
+          "p95": 0.057917715316372256,
+          "p99": 0.057917715316372256
+        },
+        "e2e_s": {
+          "p50": 0.7579191122204065,
+          "p90": 1.0100032854825258,
+          "p95": 1.0100032854825258,
+          "p99": 1.0100032854825258
+        },
+        "admission_lag_s": {
+          "p50": 0.0009650103747844696,
+          "p90": 0.001401167642325163,
+          "p95": 0.0014541732612997293,
+          "p99": 0.0014965777564793824
+        },
+        "output_tps": 31.68268783039856,
+        "slo_requests_per_s": 3.96033597879982,
+        "slo_tokens_per_s": 31.68268783039856,
+        "quality": {},
+        "quality_slo_requests_per_s": null
+      },
+      "expected_request_ids": [
+        "request-0",
+        "request-1",
+        "request-2",
+        "request-3"
+      ],
+      "requests": [
+        {
+          "arrival_s": 0.0,
+          "prompt": "Explain why the sky is blue in simple terms.",
+          "allow_ptq": true,
+          "max_tokens": 8,
+          "request_id": "request-0",
+          "token_times_s": [
+            0.10069842543452978,
+            0.15905103087425232,
+            0.21721749566495419,
+            0.27545845601707697,
+            0.33317660726606846,
+            0.3904299000278115,
+            0.44817595556378365,
+            0.5058349389582872
+          ],
+          "token_ids": [
+            52050,
+            791,
+            13180,
+            8111,
+            6437,
+            1606,
+            315,
+            264
+          ],
+          "text": "\u00a0\nThe sky appears blue because of a",
+          "admission_lag_s": 2.9122456908226013e-06,
+          "finished_s": 0.5058349389582872,
+          "ttft_s": 0.10069842543452978,
+          "tpot_s": 0.05787664478910821,
+          "e2e_s": 0.5058349389582872,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0.0,
+          "prompt": "Explain why the sky is blue in simple terms.",
+          "allow_ptq": false,
+          "max_tokens": 8,
+          "request_id": "request-1",
+          "token_times_s": [
+            0.10069842543452978,
+            0.15905103087425232,
+            0.21721749566495419,
+            0.27545845601707697,
+            0.33317660726606846,
+            0.3904299000278115,
+            0.44817595556378365,
+            0.5058349389582872
+          ],
+          "token_ids": [
+            52050,
+            791,
+            13180,
+            8111,
+            6437,
+            1606,
+            315,
+            264
+          ],
+          "text": "\u00a0\nThe sky appears blue because of a",
+          "admission_lag_s": 0.0007762126624584198,
+          "finished_s": 0.5058349389582872,
+          "ttft_s": 0.10069842543452978,
+          "tpot_s": 0.05787664478910821,
+          "e2e_s": 0.5058349389582872,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0.0,
+          "prompt": "Explain why the sky is blue in simple terms.",
+          "allow_ptq": true,
+          "max_tokens": 8,
+          "request_id": "request-2",
+          "token_times_s": [
+            0.60457927826792,
+            0.6630761697888374,
+            0.7202480575069785,
+            0.7777142431586981,
+            0.8353293258696795,
+            0.89272181969136,
+            0.9514354793354869,
+            1.0100032854825258
+          ],
+          "token_ids": [
+            52050,
+            791,
+            13180,
+            8111,
+            6437,
+            1606,
+            315,
+            264
+          ],
+          "text": "\u00a0\nThe sky appears blue because of a",
+          "admission_lag_s": 0.0011538080871105194,
+          "finished_s": 1.0100032854825258,
+          "ttft_s": 0.60457927826792,
+          "tpot_s": 0.057917715316372256,
+          "e2e_s": 1.0100032854825258,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0.0,
+          "prompt": "Explain why the sky is blue in simple terms.",
+          "allow_ptq": false,
+          "max_tokens": 8,
+          "request_id": "request-3",
+          "token_times_s": [
+            0.60457927826792,
+            0.6630761697888374,
+            0.7202480575069785,
+            0.7777142431586981,
+            0.8353293258696795,
+            0.89272181969136,
+            0.9514354793354869,
+            1.0100032854825258
+          ],
+          "token_ids": [
+            52050,
+            791,
+            13180,
+            8111,
+            6437,
+            1606,
+            315,
+            264
+          ],
+          "text": "\u00a0\nThe sky appears blue because of a",
+          "admission_lag_s": 0.0015071788802742958,
+          "finished_s": 1.0100032854825258,
+          "ttft_s": 0.60457927826792,
+          "tpot_s": 0.057917715316372256,
+          "e2e_s": 1.0100032854825258,
+          "slo_pass": true
+        }
+      ],
+      "steps": [
+        {
+          "step": 4,
+          "time_s": 4233653.272111257,
+          "selected_group": "prefill",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-0-a0b8b80e": 12,
+            "request-1-9a880e8c": 12
+          },
+          "service_gap_s": {
+            "request-0-a0b8b80e": 0.0,
+            "request-1-9a880e8c": 0.0
+          },
+          "routes": {
+            "request-0-a0b8b80e": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 12
+            },
+            "request-1-9a880e8c": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 12
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 5,
+          "time_s": 4233653.370978539,
+          "selected_group": "ptq",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-a0b8b80e": 1,
+            "request-1-9a880e8c": 1
+          },
+          "service_gap_s": {
+            "request-0-a0b8b80e": 0.09886728227138519,
+            "request-1-9a880e8c": 0.09886728227138519
+          },
+          "routes": {
+            "request-0-a0b8b80e": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-9a880e8c": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 6,
+          "time_s": 4233653.429328649,
+          "selected_group": "ptq",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-a0b8b80e": 1,
+            "request-1-9a880e8c": 1
+          },
+          "service_gap_s": {
+            "request-0-a0b8b80e": 0.05835011042654514,
+            "request-1-9a880e8c": 0.05835011042654514
+          },
+          "routes": {
+            "request-0-a0b8b80e": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-9a880e8c": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 7,
+          "time_s": 4233653.487500618,
+          "selected_group": "ptq",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-a0b8b80e": 1,
+            "request-1-9a880e8c": 1
+          },
+          "service_gap_s": {
+            "request-0-a0b8b80e": 0.058171968907117844,
+            "request-1-9a880e8c": 0.058171968907117844
+          },
+          "routes": {
+            "request-0-a0b8b80e": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-9a880e8c": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 8,
+          "time_s": 4233653.54573521,
+          "selected_group": "ptq",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-a0b8b80e": 1,
+            "request-1-9a880e8c": 1
+          },
+          "service_gap_s": {
+            "request-0-a0b8b80e": 0.05823459196835756,
+            "request-1-9a880e8c": 0.05823459196835756
+          },
+          "routes": {
+            "request-0-a0b8b80e": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-9a880e8c": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 9,
+          "time_s": 4233653.603453969,
+          "selected_group": "ptq",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-a0b8b80e": 1,
+            "request-1-9a880e8c": 1
+          },
+          "service_gap_s": {
+            "request-0-a0b8b80e": 0.05771875847131014,
+            "request-1-9a880e8c": 0.05771875847131014
+          },
+          "routes": {
+            "request-0-a0b8b80e": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-9a880e8c": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 10,
+          "time_s": 4233653.660706207,
+          "selected_group": "ptq",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-a0b8b80e": 1,
+            "request-1-9a880e8c": 1
+          },
+          "service_gap_s": {
+            "request-0-a0b8b80e": 0.057252238504588604,
+            "request-1-9a880e8c": 0.057252238504588604
+          },
+          "routes": {
+            "request-0-a0b8b80e": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-9a880e8c": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 11,
+          "time_s": 4233653.718451877,
+          "selected_group": "ptq",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-a0b8b80e": 1,
+            "request-1-9a880e8c": 1
+          },
+          "service_gap_s": {
+            "request-0-a0b8b80e": 0.05774566996842623,
+            "request-1-9a880e8c": 0.05774566996842623
+          },
+          "routes": {
+            "request-0-a0b8b80e": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-9a880e8c": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 12,
+          "time_s": 4233653.776110445,
+          "selected_group": "prefill",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-2-9d1ebe76": 12,
+            "request-3-b2be748c": 12
+          },
+          "service_gap_s": {
+            "request-2-9d1ebe76": 0.503999188542366,
+            "request-3-b2be748c": 0.503999188542366
+          },
+          "routes": {
+            "request-2-9d1ebe76": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 12
+            },
+            "request-3-b2be748c": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 12
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 13,
+          "time_s": 4233653.87485936,
+          "selected_group": "ptq",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-9d1ebe76": 1,
+            "request-3-b2be748c": 1
+          },
+          "service_gap_s": {
+            "request-2-9d1ebe76": 0.09874891489744186,
+            "request-3-b2be748c": 0.09874891489744186
+          },
+          "routes": {
+            "request-2-9d1ebe76": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-b2be748c": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 14,
+          "time_s": 4233653.933350365,
+          "selected_group": "ptq",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-9d1ebe76": 1,
+            "request-3-b2be748c": 1
+          },
+          "service_gap_s": {
+            "request-2-9d1ebe76": 0.05849100463092327,
+            "request-3-b2be748c": 0.05849100463092327
+          },
+          "routes": {
+            "request-2-9d1ebe76": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-b2be748c": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 15,
+          "time_s": 4233653.990521963,
+          "selected_group": "ptq",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-9d1ebe76": 1,
+            "request-3-b2be748c": 1
+          },
+          "service_gap_s": {
+            "request-2-9d1ebe76": 0.057171598076820374,
+            "request-3-b2be748c": 0.057171598076820374
+          },
+          "routes": {
+            "request-2-9d1ebe76": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-b2be748c": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 16,
+          "time_s": 4233654.04799055,
+          "selected_group": "ptq",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-9d1ebe76": 1,
+            "request-3-b2be748c": 1
+          },
+          "service_gap_s": {
+            "request-2-9d1ebe76": 0.057468587532639503,
+            "request-3-b2be748c": 0.057468587532639503
+          },
+          "routes": {
+            "request-2-9d1ebe76": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-b2be748c": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 17,
+          "time_s": 4233654.10560528,
+          "selected_group": "ptq",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-9d1ebe76": 1,
+            "request-3-b2be748c": 1
+          },
+          "service_gap_s": {
+            "request-2-9d1ebe76": 0.05761472973972559,
+            "request-3-b2be748c": 0.05761472973972559
+          },
+          "routes": {
+            "request-2-9d1ebe76": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-b2be748c": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 18,
+          "time_s": 4233654.162997294,
+          "selected_group": "ptq",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-9d1ebe76": 1,
+            "request-3-b2be748c": 1
+          },
+          "service_gap_s": {
+            "request-2-9d1ebe76": 0.05739201419055462,
+            "request-3-b2be748c": 0.05739201419055462
+          },
+          "routes": {
+            "request-2-9d1ebe76": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-b2be748c": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 19,
+          "time_s": 4233654.221716138,
+          "selected_group": "ptq",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-9d1ebe76": 1,
+            "request-3-b2be748c": 1
+          },
+          "service_gap_s": {
+            "request-2-9d1ebe76": 0.0587188433855772,
+            "request-3-b2be748c": 0.0587188433855772
+          },
+          "routes": {
+            "request-2-9d1ebe76": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-b2be748c": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        }
+      ],
+      "energy": {
+        "sensor": [
+          "/sys/bus/i2c/drivers/ina3221/1-0040/hwmon/hwmon6/in1_input",
+          "/sys/bus/i2c/drivers/ina3221/1-0040/hwmon/hwmon6/curr1_input"
+        ],
+        "error": null,
+        "samples": [
+          [
+            4233653.269823001,
+            26.3472
+          ],
+          [
+            4233653.272781584,
+            26.3472
+          ],
+          [
+            4233653.375119794,
+            27.13472
+          ],
+          [
+            4233653.47746578,
+            27.1456
+          ],
+          [
+            4233653.579504794,
+            26.73568
+          ],
+          [
+            4233653.681814589,
+            26.73568
+          ],
+          [
+            4233653.784177246,
+            26.3472
+          ],
+          [
+            4233653.886500608,
+            27.53376
+          ],
+          [
+            4233653.988335465,
+            27.1456
+          ],
+          [
+            4233654.090466544,
+            27.1456
+          ],
+          [
+            4233654.192677912,
+            26.7464
+          ],
+          [
+            4233654.282014896,
+            26.7464
+          ]
+        ],
+        "sampled_joules": 27.19219418100245,
+        "sample_coverage_fraction": 1.0,
+        "sampled_joules_per_output_token": 0.8497560681563265,
+        "scope": "whole rail, shared-device load included, no idle subtraction"
+      },
+      "exit_layer": 3,
+      "policy": "ptq",
+      "scheduler": "grouped",
+      "repeat": 0,
+      "head": "fp",
+      "workload": "simultaneous",
+      "force_length": true
+    },
+    {
+      "summary": {
+        "requests": 4,
+        "elapsed_s": 1.5037626782432199,
+        "output_tokens": 32,
+        "ttft_s": {
+          "p50": 0.476400010753423,
+          "p90": 0.8516501421108842,
+          "p95": 0.8516501421108842,
+          "p99": 0.8516501421108842
+        },
+        "tpot_s": {
+          "p50": 0.09311220861439193,
+          "p90": 0.09315712803176471,
+          "p95": 0.09315712803176471,
+          "p99": 0.09315712803176471
+        },
+        "e2e_s": {
+          "p50": 1.1281854710541666,
+          "p90": 1.5037500383332372,
+          "p95": 1.5037500383332372,
+          "p99": 1.5037500383332372
+        },
+        "admission_lag_s": {
+          "p50": 0.0010902099311351776,
+          "p90": 0.0016303816810250282,
+          "p95": 0.0016910191625356672,
+          "p99": 0.0017395291477441787
+        },
+        "output_tps": 21.279953587745773,
+        "slo_requests_per_s": 2.6599941984682216,
+        "slo_tokens_per_s": 21.279953587745773,
+        "quality": {},
+        "quality_slo_requests_per_s": null
+      },
+      "expected_request_ids": [
+        "request-0",
+        "request-1",
+        "request-2",
+        "request-3"
+      ],
+      "requests": [
+        {
+          "arrival_s": 0.0,
+          "prompt": "Explain why the sky is blue in simple terms.",
+          "allow_ptq": true,
+          "max_tokens": 8,
+          "request_id": "request-0",
+          "token_times_s": [
+            0.10114987939596176,
+            0.19471944496035576,
+            0.2877920577302575,
+            0.380988541059196,
+            0.4739350797608495,
+            0.5668405620381236,
+            0.6595700792968273,
+            0.7526209037750959
+          ],
+          "token_ids": [
+            52050,
+            791,
+            13180,
+            8111,
+            6437,
+            1606,
+            315,
+            264
+          ],
+          "text": "\u00a0\nThe sky appears blue because of a",
+          "admission_lag_s": 3.2959505915641785e-06,
+          "finished_s": 0.7526209037750959,
+          "ttft_s": 0.10114987939596176,
+          "tpot_s": 0.09306728919701916,
+          "e2e_s": 0.7526209037750959,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0.0,
+          "prompt": "Explain why the sky is blue in simple terms.",
+          "allow_ptq": false,
+          "max_tokens": 8,
+          "request_id": "request-1",
+          "token_times_s": [
+            0.10114987939596176,
+            0.19471944496035576,
+            0.2877920577302575,
+            0.380988541059196,
+            0.4739350797608495,
+            0.5668405620381236,
+            0.6595700792968273,
+            0.7526209037750959
+          ],
+          "token_ids": [
+            52050,
+            791,
+            13180,
+            8111,
+            6437,
+            1606,
+            315,
+            264
+          ],
+          "text": "\u00a0\nThe sky appears blue because of a",
+          "admission_lag_s": 0.0008330130949616432,
+          "finished_s": 0.7526209037750959,
+          "ttft_s": 0.10114987939596176,
+          "tpot_s": 0.09306728919701916,
+          "e2e_s": 0.7526209037750959,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0.0,
+          "prompt": "Explain why the sky is blue in simple terms.",
+          "allow_ptq": true,
+          "max_tokens": 8,
+          "request_id": "request-2",
+          "token_times_s": [
+            0.8516501421108842,
+            0.9446625364944339,
+            1.0377124967053533,
+            1.1308475444093347,
+            1.223941664211452,
+            1.3174886740744114,
+            1.4103119829669595,
+            1.5037500383332372
+          ],
+          "token_ids": [
+            52050,
+            791,
+            13180,
+            8111,
+            6437,
+            1606,
+            315,
+            264
+          ],
+          "text": "\u00a0\nThe sky appears blue because of a",
+          "admission_lag_s": 0.001347406767308712,
+          "finished_s": 1.5037500383332372,
+          "ttft_s": 0.8516501421108842,
+          "tpot_s": 0.09315712803176471,
+          "e2e_s": 1.5037500383332372,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0.0,
+          "prompt": "Explain why the sky is blue in simple terms.",
+          "allow_ptq": false,
+          "max_tokens": 8,
+          "request_id": "request-3",
+          "token_times_s": [
+            0.8516501421108842,
+            0.9446625364944339,
+            1.0377124967053533,
+            1.1308475444093347,
+            1.223941664211452,
+            1.3174886740744114,
+            1.4103119829669595,
+            1.5037500383332372
+          ],
+          "token_ids": [
+            52050,
+            791,
+            13180,
+            8111,
+            6437,
+            1606,
+            315,
+            264
+          ],
+          "text": "\u00a0\nThe sky appears blue because of a",
+          "admission_lag_s": 0.0017516566440463066,
+          "finished_s": 1.5037500383332372,
+          "ttft_s": 0.8516501421108842,
+          "tpot_s": 0.09315712803176471,
+          "e2e_s": 1.5037500383332372,
+          "slo_pass": true
+        }
+      ],
+      "steps": [
+        {
+          "step": 4,
+          "time_s": 4233654.67640834,
+          "selected_group": "prefill",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-0-b99387de": 12,
+            "request-1-9fb2a46e": 12
+          },
+          "service_gap_s": {
+            "request-0-b99387de": 0.0,
+            "request-1-9fb2a46e": 0.0
+          },
+          "routes": {
+            "request-0-b99387de": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 12
+            },
+            "request-1-9fb2a46e": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 12
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 5,
+          "time_s": 4233654.775460455,
+          "selected_group": "fp",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-b99387de": 1,
+            "request-1-9fb2a46e": 1
+          },
+          "service_gap_s": {
+            "request-0-b99387de": 0.09905211441218853,
+            "request-1-9fb2a46e": 0.09905211441218853
+          },
+          "routes": {
+            "request-0-b99387de": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-9fb2a46e": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 6,
+          "time_s": 4233654.869030213,
+          "selected_group": "fp",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-b99387de": 1,
+            "request-1-9fb2a46e": 1
+          },
+          "service_gap_s": {
+            "request-0-b99387de": 0.09356975834816694,
+            "request-1-9fb2a46e": 0.09356975834816694
+          },
+          "routes": {
+            "request-0-b99387de": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-9fb2a46e": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 7,
+          "time_s": 4233654.962104874,
+          "selected_group": "fp",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-b99387de": 1,
+            "request-1-9fb2a46e": 1
+          },
+          "service_gap_s": {
+            "request-0-b99387de": 0.09307466074824333,
+            "request-1-9fb2a46e": 0.09307466074824333
+          },
+          "routes": {
+            "request-0-b99387de": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-9fb2a46e": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 8,
+          "time_s": 4233655.055300941,
+          "selected_group": "fp",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-b99387de": 1,
+            "request-1-9fb2a46e": 1
+          },
+          "service_gap_s": {
+            "request-0-b99387de": 0.09319606702774763,
+            "request-1-9fb2a46e": 0.09319606702774763
+          },
+          "routes": {
+            "request-0-b99387de": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-9fb2a46e": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 9,
+          "time_s": 4233655.148244504,
+          "selected_group": "fp",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-b99387de": 1,
+            "request-1-9fb2a46e": 1
+          },
+          "service_gap_s": {
+            "request-0-b99387de": 0.09294356312602758,
+            "request-1-9fb2a46e": 0.09294356312602758
+          },
+          "routes": {
+            "request-0-b99387de": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-9fb2a46e": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 10,
+          "time_s": 4233655.241146946,
+          "selected_group": "fp",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-b99387de": 1,
+            "request-1-9fb2a46e": 1
+          },
+          "service_gap_s": {
+            "request-0-b99387de": 0.09290244244039059,
+            "request-1-9fb2a46e": 0.09290244244039059
+          },
+          "routes": {
+            "request-0-b99387de": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-9fb2a46e": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 11,
+          "time_s": 4233655.333880335,
+          "selected_group": "fp",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-b99387de": 1,
+            "request-1-9fb2a46e": 1
+          },
+          "service_gap_s": {
+            "request-0-b99387de": 0.09273338876664639,
+            "request-1-9fb2a46e": 0.09273338876664639
+          },
+          "routes": {
+            "request-0-b99387de": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-9fb2a46e": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 12,
+          "time_s": 4233655.426928248,
+          "selected_group": "prefill",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-2-b353dc13": 12,
+            "request-3-9c096d7b": 12
+          },
+          "service_gap_s": {
+            "request-2-b353dc13": 0.7505199080333114,
+            "request-3-9c096d7b": 0.7505199080333114
+          },
+          "routes": {
+            "request-2-b353dc13": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 12
+            },
+            "request-3-9c096d7b": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 12
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 13,
+          "time_s": 4233655.525962415,
+          "selected_group": "fp",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-b353dc13": 1,
+            "request-3-9c096d7b": 1
+          },
+          "service_gap_s": {
+            "request-2-b353dc13": 0.09903416689485312,
+            "request-3-9c096d7b": 0.09903416689485312
+          },
+          "routes": {
+            "request-2-b353dc13": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-9c096d7b": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 14,
+          "time_s": 4233655.61897084,
+          "selected_group": "fp",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-b353dc13": 1,
+            "request-3-9c096d7b": 1
+          },
+          "service_gap_s": {
+            "request-2-b353dc13": 0.09300842508673668,
+            "request-3-9c096d7b": 0.09300842508673668
+          },
+          "routes": {
+            "request-2-b353dc13": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-9c096d7b": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 15,
+          "time_s": 4233655.712039361,
+          "selected_group": "fp",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-b353dc13": 1,
+            "request-3-9c096d7b": 1
+          },
+          "service_gap_s": {
+            "request-2-b353dc13": 0.09306852053850889,
+            "request-3-9c096d7b": 0.09306852053850889
+          },
+          "routes": {
+            "request-2-b353dc13": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-9c096d7b": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 16,
+          "time_s": 4233655.805157416,
+          "selected_group": "fp",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-b353dc13": 1,
+            "request-3-9c096d7b": 1
+          },
+          "service_gap_s": {
+            "request-2-b353dc13": 0.09311805479228497,
+            "request-3-9c096d7b": 0.09311805479228497
+          },
+          "routes": {
+            "request-2-b353dc13": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-9c096d7b": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 17,
+          "time_s": 4233655.898252561,
+          "selected_group": "fp",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-b353dc13": 1,
+            "request-3-9c096d7b": 1
+          },
+          "service_gap_s": {
+            "request-2-b353dc13": 0.093095145188272,
+            "request-3-9c096d7b": 0.093095145188272
+          },
+          "routes": {
+            "request-2-b353dc13": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-9c096d7b": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 18,
+          "time_s": 4233655.991798162,
+          "selected_group": "fp",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-b353dc13": 1,
+            "request-3-9c096d7b": 1
+          },
+          "service_gap_s": {
+            "request-2-b353dc13": 0.09354560170322657,
+            "request-3-9c096d7b": 0.09354560170322657
+          },
+          "routes": {
+            "request-2-b353dc13": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-9c096d7b": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 19,
+          "time_s": 4233656.084625696,
+          "selected_group": "fp",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-b353dc13": 1,
+            "request-3-9c096d7b": 1
+          },
+          "service_gap_s": {
+            "request-2-b353dc13": 0.09282753337174654,
+            "request-3-9c096d7b": 0.09282753337174654
+          },
+          "routes": {
+            "request-2-b353dc13": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-9c096d7b": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        }
+      ],
+      "energy": {
+        "sensor": [
+          "/sys/bus/i2c/drivers/ina3221/1-0040/hwmon/hwmon6/in1_input",
+          "/sys/bus/i2c/drivers/ina3221/1-0040/hwmon/hwmon6/curr1_input"
+        ],
+        "error": null,
+        "samples": [
+          [
+            4233654.673950198,
+            26.7464
+          ],
+          [
+            4233654.676143704,
+            26.7464
+          ],
+          [
+            4233654.778536765,
+            27.53376
+          ],
+          [
+            4233654.880824388,
+            27.1456
+          ],
+          [
+            4233654.98294094,
+            27.1456
+          ],
+          [
+            4233655.085199413,
+            26.7464
+          ],
+          [
+            4233655.187404576,
+            26.7464
+          ],
+          [
+            4233655.289360112,
+            26.7464
+          ],
+          [
+            4233655.391134337,
+            26.7464
+          ],
+          [
+            4233655.49291765,
+            27.53376
+          ],
+          [
+            4233655.59469818,
+            27.5448
+          ],
+          [
+            4233655.696488853,
+            27.1456
+          ],
+          [
+            4233655.798342182,
+            27.1456
+          ],
+          [
+            4233655.901523364,
+            26.7464
+          ],
+          [
+            4233656.003665136,
+            26.7464
+          ],
+          [
+            4233656.105496931,
+            26.7464
+          ],
+          [
+            4233656.179765423,
+            26.7464
+          ]
+        ],
+        "sampled_joules": 40.625385986582494,
+        "sample_coverage_fraction": 1.0,
+        "sampled_joules_per_output_token": 1.269543312080703,
+        "scope": "whole rail, shared-device load included, no idle subtraction"
+      },
+      "exit_layer": 3,
+      "policy": "fp",
+      "scheduler": "grouped",
+      "repeat": 0,
+      "head": "fp",
+      "workload": "simultaneous",
+      "force_length": true
+    },
+    {
+      "summary": {
+        "requests": 4,
+        "elapsed_s": 1.013896250165999,
+        "output_tokens": 32,
+        "ttft_s": {
+          "p50": 0.35391769045963883,
+          "p90": 0.6070409780368209,
+          "p95": 0.6070409780368209,
+          "p99": 0.6070409780368209
+        },
+        "tpot_s": {
+          "p50": 0.058155608762587824,
+          "p90": 0.058190658555499146,
+          "p95": 0.058190658555499146,
+          "p99": 0.058190658555499146
+        },
+        "e2e_s": {
+          "p50": 0.7610069517977536,
+          "p90": 1.0138848908245564,
+          "p95": 1.0138848908245564,
+          "p99": 1.0138848908245564
+        },
+        "admission_lag_s": {
+          "p50": 0.001034801360219717,
+          "p90": 0.001534603163599968,
+          "p95": 0.001590282469987869,
+          "p99": 0.0016348259150981903
+        },
+        "output_tps": 31.561414685931464,
+        "slo_requests_per_s": 3.945176835741433,
+        "slo_tokens_per_s": 31.561414685931464,
+        "quality": {},
+        "quality_slo_requests_per_s": null
+      },
+      "expected_request_ids": [
+        "request-0",
+        "request-1",
+        "request-2",
+        "request-3"
+      ],
+      "requests": [
+        {
+          "arrival_s": 0.0,
+          "prompt": "Explain why the sky is blue in simple terms.",
+          "allow_ptq": true,
+          "max_tokens": 8,
+          "request_id": "request-0",
+          "token_times_s": [
+            0.10079440288245678,
+            0.15947382617741823,
+            0.21779607236385345,
+            0.27558334823697805,
+            0.33443381171673536,
+            0.39265564177185297,
+            0.45073014684021473,
+            0.5081290127709508
+          ],
+          "token_ids": [
+            52050,
+            791,
+            13180,
+            8111,
+            6437,
+            1606,
+            315,
+            264
+          ],
+          "text": "\u00a0\nThe sky appears blue because of a",
+          "admission_lag_s": 3.5837292671203613e-06,
+          "finished_s": 0.5081290127709508,
+          "ttft_s": 0.10079440288245678,
+          "tpot_s": 0.058190658555499146,
+          "e2e_s": 0.5081290127709508,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0.0,
+          "prompt": "Explain why the sky is blue in simple terms.",
+          "allow_ptq": false,
+          "max_tokens": 8,
+          "request_id": "request-1",
+          "token_times_s": [
+            0.10079440288245678,
+            0.15947382617741823,
+            0.21779607236385345,
+            0.27558334823697805,
+            0.33443381171673536,
+            0.39265564177185297,
+            0.45073014684021473,
+            0.5081290127709508
+          ],
+          "token_ids": [
+            52050,
+            791,
+            13180,
+            8111,
+            6437,
+            1606,
+            315,
+            264
+          ],
+          "text": "\u00a0\nThe sky appears blue because of a",
+          "admission_lag_s": 0.0007948363199830055,
+          "finished_s": 0.5081290127709508,
+          "ttft_s": 0.10079440288245678,
+          "tpot_s": 0.058190658555499146,
+          "e2e_s": 0.5081290127709508,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0.0,
+          "prompt": "Explain why the sky is blue in simple terms.",
+          "allow_ptq": true,
+          "max_tokens": 8,
+          "request_id": "request-2",
+          "token_times_s": [
+            0.6070409780368209,
+            0.6658196672797203,
+            0.7238975986838341,
+            0.781217971816659,
+            0.8401577463373542,
+            0.8982393573969603,
+            0.9563237521797419,
+            1.0138848908245564
+          ],
+          "token_ids": [
+            52050,
+            791,
+            13180,
+            8111,
+            6437,
+            1606,
+            315,
+            264
+          ],
+          "text": "\u00a0\nThe sky appears blue because of a",
+          "admission_lag_s": 0.0012747664004564285,
+          "finished_s": 1.0138848908245564,
+          "ttft_s": 0.6070409780368209,
+          "tpot_s": 0.058120558969676495,
+          "e2e_s": 1.0138848908245564,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0.0,
+          "prompt": "Explain why the sky is blue in simple terms.",
+          "allow_ptq": false,
+          "max_tokens": 8,
+          "request_id": "request-3",
+          "token_times_s": [
+            0.6070409780368209,
+            0.6658196672797203,
+            0.7238975986838341,
+            0.781217971816659,
+            0.8401577463373542,
+            0.8982393573969603,
+            0.9563237521797419,
+            1.0138848908245564
+          ],
+          "token_ids": [
+            52050,
+            791,
+            13180,
+            8111,
+            6437,
+            1606,
+            315,
+            264
+          ],
+          "text": "\u00a0\nThe sky appears blue because of a",
+          "admission_lag_s": 0.0016459617763757706,
+          "finished_s": 1.0138848908245564,
+          "ttft_s": 0.6070409780368209,
+          "tpot_s": 0.058120558969676495,
+          "e2e_s": 1.0138848908245564,
+          "slo_pass": true
+        }
+      ],
+      "steps": [
+        {
+          "step": 4,
+          "time_s": 4233656.467817307,
+          "selected_group": "native",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-0-abf93c43": 12,
+            "request-1-92e9295f": 12
+          },
+          "service_gap_s": {
+            "request-0-abf93c43": 0.0,
+            "request-1-92e9295f": 0.0
+          },
+          "routes": {
+            "request-0-abf93c43": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 12
+            },
+            "request-1-92e9295f": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 12
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 5,
+          "time_s": 4233656.566637016,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-abf93c43": 1,
+            "request-1-92e9295f": 1
+          },
+          "service_gap_s": {
+            "request-0-abf93c43": 0.09881970845162868,
+            "request-1-92e9295f": 0.09881970845162868
+          },
+          "routes": {
+            "request-0-abf93c43": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-92e9295f": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 6,
+          "time_s": 4233656.625312025,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-abf93c43": 1,
+            "request-1-92e9295f": 1
+          },
+          "service_gap_s": {
+            "request-0-abf93c43": 0.058675008825957775,
+            "request-1-92e9295f": 0.058675008825957775
+          },
+          "routes": {
+            "request-0-abf93c43": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-92e9295f": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 7,
+          "time_s": 4233656.683635614,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-abf93c43": 1,
+            "request-1-92e9295f": 1
+          },
+          "service_gap_s": {
+            "request-0-abf93c43": 0.05832358915358782,
+            "request-1-92e9295f": 0.05832358915358782
+          },
+          "routes": {
+            "request-0-abf93c43": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-92e9295f": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 8,
+          "time_s": 4233656.741427915,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-abf93c43": 1,
+            "request-1-92e9295f": 1
+          },
+          "service_gap_s": {
+            "request-0-abf93c43": 0.057792301289737225,
+            "request-1-92e9295f": 0.057792301289737225
+          },
+          "routes": {
+            "request-0-abf93c43": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-92e9295f": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 9,
+          "time_s": 4233656.800274473,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-abf93c43": 1,
+            "request-1-92e9295f": 1
+          },
+          "service_gap_s": {
+            "request-0-abf93c43": 0.05884655751287937,
+            "request-1-92e9295f": 0.05884655751287937
+          },
+          "routes": {
+            "request-0-abf93c43": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-92e9295f": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 10,
+          "time_s": 4233656.858497808,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-abf93c43": 1,
+            "request-1-92e9295f": 1
+          },
+          "service_gap_s": {
+            "request-0-abf93c43": 0.058223335072398186,
+            "request-1-92e9295f": 0.058223335072398186
+          },
+          "routes": {
+            "request-0-abf93c43": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-92e9295f": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 11,
+          "time_s": 4233656.916571033,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-abf93c43": 1,
+            "request-1-92e9295f": 1
+          },
+          "service_gap_s": {
+            "request-0-abf93c43": 0.05807322543114424,
+            "request-1-92e9295f": 0.05807322543114424
+          },
+          "routes": {
+            "request-0-abf93c43": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-92e9295f": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 12,
+          "time_s": 4233656.973966283,
+          "selected_group": "native",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-2-9300e372": 12,
+            "request-3-a39d33e9": 12
+          },
+          "service_gap_s": {
+            "request-2-9300e372": 0.5061489753425121,
+            "request-3-a39d33e9": 0.5061489753425121
+          },
+          "routes": {
+            "request-2-9300e372": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 12
+            },
+            "request-3-a39d33e9": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 12
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 13,
+          "time_s": 4233657.072885864,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-9300e372": 1,
+            "request-3-a39d33e9": 1
+          },
+          "service_gap_s": {
+            "request-2-9300e372": 0.0989195816218853,
+            "request-3-a39d33e9": 0.0989195816218853
+          },
+          "routes": {
+            "request-2-9300e372": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-a39d33e9": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 14,
+          "time_s": 4233657.131659977,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-9300e372": 1,
+            "request-3-a39d33e9": 1
+          },
+          "service_gap_s": {
+            "request-2-9300e372": 0.05877411272376776,
+            "request-3-a39d33e9": 0.05877411272376776
+          },
+          "routes": {
+            "request-2-9300e372": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-a39d33e9": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 15,
+          "time_s": 4233657.189739028,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-9300e372": 1,
+            "request-3-a39d33e9": 1
+          },
+          "service_gap_s": {
+            "request-2-9300e372": 0.05807905085384846,
+            "request-3-a39d33e9": 0.05807905085384846
+          },
+          "routes": {
+            "request-2-9300e372": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-a39d33e9": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 16,
+          "time_s": 4233657.247059721,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-9300e372": 1,
+            "request-3-a39d33e9": 1
+          },
+          "service_gap_s": {
+            "request-2-9300e372": 0.05732069257646799,
+            "request-3-a39d33e9": 0.05732069257646799
+          },
+          "routes": {
+            "request-2-9300e372": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-a39d33e9": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 17,
+          "time_s": 4233657.305999849,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-9300e372": 1,
+            "request-3-a39d33e9": 1
+          },
+          "service_gap_s": {
+            "request-2-9300e372": 0.05894012842327356,
+            "request-3-a39d33e9": 0.05894012842327356
+          },
+          "routes": {
+            "request-2-9300e372": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-a39d33e9": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 18,
+          "time_s": 4233657.36408098,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-9300e372": 1,
+            "request-3-a39d33e9": 1
+          },
+          "service_gap_s": {
+            "request-2-9300e372": 0.05808113142848015,
+            "request-3-a39d33e9": 0.05808113142848015
+          },
+          "routes": {
+            "request-2-9300e372": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-a39d33e9": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 19,
+          "time_s": 4233657.422164158,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-9300e372": 1,
+            "request-3-a39d33e9": 1
+          },
+          "service_gap_s": {
+            "request-2-9300e372": 0.05808317754417658,
+            "request-3-a39d33e9": 0.05808317754417658
+          },
+          "routes": {
+            "request-2-9300e372": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-a39d33e9": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        }
+      ],
+      "energy": {
+        "sensor": [
+          "/sys/bus/i2c/drivers/ina3221/1-0040/hwmon/hwmon6/in1_input",
+          "/sys/bus/i2c/drivers/ina3221/1-0040/hwmon/hwmon6/curr1_input"
+        ],
+        "error": null,
+        "samples": [
+          [
+            4233656.465521274,
+            26.7464
+          ],
+          [
+            4233656.467559998,
+            26.7464
+          ],
+          [
+            4233656.570424581,
+            27.53376
+          ],
+          [
+            4233656.672624116,
+            27.1456
+          ],
+          [
+            4233656.774766501,
+            27.1456
+          ],
+          [
+            4233656.876821846,
+            26.7464
+          ],
+          [
+            4233656.97869953,
+            26.3472
+          ],
+          [
+            4233657.080566016,
+            27.53376
+          ],
+          [
+            4233657.182663604,
+            27.1456
+          ],
+          [
+            4233657.284575532,
+            26.7464
+          ],
+          [
+            4233657.386703488,
+            26.7464
+          ],
+          [
+            4233657.481387162,
+            26.7464
+          ]
+        ],
+        "sampled_joules": 27.360698361275873,
+        "sample_coverage_fraction": 1.0,
+        "sampled_joules_per_output_token": 0.855021823789871,
+        "scope": "whole rail, shared-device load included, no idle subtraction"
+      },
+      "exit_layer": 3,
+      "policy": "ptq",
+      "scheduler": "native",
+      "repeat": 0,
+      "head": "fp",
+      "workload": "simultaneous",
+      "force_length": true
+    }
+  ],
+  "timing_scope": "in-process delivery; excludes HTTP/SSE"
+}

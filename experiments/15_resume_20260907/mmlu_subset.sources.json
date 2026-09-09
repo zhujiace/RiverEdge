@@ -1,0 +1,20 @@
+{
+  "downloaded_unix_s": 1788771763.8497586,
+  "sources": [
+    {
+      "task": "college_mathematics",
+      "url": "https://datasets-server.huggingface.co/rows?dataset=cais%2Fmmlu&config=college_mathematics&split=test&offset=0&length=16",
+      "response_sha256": "541b3a01b1b531b610f52c883353317c711d5c2fe79bbdd365ae2cfba3b0e09e"
+    },
+    {
+      "task": "high_school_computer_science",
+      "url": "https://datasets-server.huggingface.co/rows?dataset=cais%2Fmmlu&config=high_school_computer_science&split=test&offset=0&length=16",
+      "response_sha256": "6791a730b1e8bd15d804882644ec84efbafe9825af0ce30844911fbe84f4470c"
+    },
+    {
+      "task": "world_religions",
+      "url": "https://datasets-server.huggingface.co/rows?dataset=cais%2Fmmlu&config=world_religions&split=test&offset=0&length=16",
+      "response_sha256": "fa60828e9e830a6254975fd629bb14da27ac061ba4501ee05f7a900f741a2966"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{"arrival_s":0,"prompt":"Answer with only the number: 17 + 25 =","answer":"42","task":"arithmetic","allow_ptq":true,"max_tokens":16}
+{"arrival_s":0,"prompt":"Answer with only the city name. What is the capital of France?","answer":"Paris","task":"knowledge","allow_ptq":false,"max_tokens":16}
+{"arrival_s":0.3,"prompt":"What does Python print for len([1, 2, 3])? Answer with only the number.","answer":"3","task":"code","allow_ptq":true,"max_tokens":16}
+{"arrival_s":0.3,"prompt":"Answer with only the number: 9 multiplied by 7 =","answer":"63","task":"arithmetic","allow_ptq":false,"max_tokens":16}
+{"arrival_s":0.6,"prompt":"Answer with only the chemical symbol for oxygen.","answer":"O","task":"knowledge","allow_ptq":true,"max_tokens":16}
+{"arrival_s":0.6,"prompt":"What does Python print for sum([2, 3, 4])? Answer with only the number.","answer":"9","task":"code","allow_ptq":false,"max_tokens":16}

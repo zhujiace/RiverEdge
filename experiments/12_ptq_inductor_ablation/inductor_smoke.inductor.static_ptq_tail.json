@@ -1,0 +1,59 @@
+{
+  "result": {
+    "model_path": "/models/Llama-3.1-8B-Instruct-riveredge-fp-hqq",
+    "mode": "static_ptq_tail",
+    "execution_mode": "inductor",
+    "enforce_eager": false,
+    "compilation": "mode=VLLM_COMPILE,cudagraph_mode=NONE",
+    "cudagraph_capture_sizes": [],
+    "load_s": 68.20373654807918,
+    "phase_trace": [
+      "decode_ptq",
+      "prefill_fp"
+    ],
+    "compile_status": {
+      "class": "RiverEdgeUnifiedModel",
+      "do_not_compile": false,
+      "compiled": true
+    },
+    "rows": [
+      {
+        "mode": "static_ptq_tail",
+        "execution_mode": "inductor",
+        "enforce_eager": false,
+        "exit_layer": 3,
+        "batch_size": 1,
+        "prompt_tokens": 85,
+        "max_new_tokens": 16,
+        "warmup": 1,
+        "iters": 2,
+        "total_output_tokens": 32,
+        "total_s": 1.427274757064879,
+        "mean_batch_latency_s": 0.7136373785324395,
+        "output_tps": 22.420350280562968,
+        "latencies_s": [
+          0.7135181130142882,
+          0.7137566440505907
+        ],
+        "last_first_token_ids": [
+          578,
+          4062,
+          14198,
+          39935,
+          35308,
+          927,
+          279,
+          16053,
+          5679,
+          3221,
+          279,
+          15140,
+          6964,
+          13,
+          578,
+          4062
+        ]
+      }
+    ]
+  }
+}

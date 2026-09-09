@@ -1,0 +1,687 @@
+{
+  "checks": [
+    {
+      "case": "k3/fp/native/0/int4/trace",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/native/0/int4/trace",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k1/ptq/native/0/int4/trace",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k1/ptq/native/0/int4/trace",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/0/fp/trace",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/0/fp/trace",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k1/mixed/native/0/fp/trace",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k1/mixed/native/0/fp/trace",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/0/int4/trace",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/0/int4/trace",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k1/fp/native/0/int4/trace",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k1/fp/native/0/int4/trace",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k1/fp/native/0/fp/trace",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k1/fp/native/0/fp/trace",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/native/0/fp/trace",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/native/0/fp/trace",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k1/ptq/native/0/fp/trace",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k1/ptq/native/0/fp/trace",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k1/mixed/native/0/int4/trace",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k1/mixed/native/0/int4/trace",
+      "check": "all_requests_finished",
+      "pass": true
+    }
+  ],
+  "all_contracts_pass": true,
+  "mixed_static_pairs": [
+    {
+      "request_id": "request-0",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-1",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-2",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-3",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-4",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-5",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-0",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-1",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-2",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-3",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-4",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-5",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-0",
+      "scheduler": "native",
+      "exit_layer": 1,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-1",
+      "scheduler": "native",
+      "exit_layer": 1,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-2",
+      "scheduler": "native",
+      "exit_layer": 1,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-3",
+      "scheduler": "native",
+      "exit_layer": 1,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-4",
+      "scheduler": "native",
+      "exit_layer": 1,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-5",
+      "scheduler": "native",
+      "exit_layer": 1,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-0",
+      "scheduler": "native",
+      "exit_layer": 1,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-1",
+      "scheduler": "native",
+      "exit_layer": 1,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-2",
+      "scheduler": "native",
+      "exit_layer": 1,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-3",
+      "scheduler": "native",
+      "exit_layer": 1,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-4",
+      "scheduler": "native",
+      "exit_layer": 1,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-5",
+      "scheduler": "native",
+      "exit_layer": 1,
+      "route": "fp",
+      "token_equal": true
+    }
+  ],
+  "table": [
+    {
+      "case": "k3/fp/native/0/int4/trace",
+      "output_tps": 14.625906911463131,
+      "ttft_s": {
+        "p50": 0.12601017793640495,
+        "p90": 0.12737573366612198,
+        "p95": 0.12737573366612198,
+        "p99": 0.12737573366612198
+      },
+      "tpot_s": {
+        "p50": 0.09322793781757355,
+        "p90": 0.09337926702573895,
+        "p95": 0.09337926702573895,
+        "p99": 0.09337926702573895
+      },
+      "goodput_requests_s": 7.312953455731566,
+      "quality": {
+        "arithmetic": {
+          "count": 2,
+          "accuracy": 1.0
+        },
+        "code": {
+          "count": 2,
+          "accuracy": 1.0
+        },
+        "knowledge": {
+          "count": 2,
+          "accuracy": 1.0
+        }
+      },
+      "rail_joules_token": 1.4933209163116754
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "output_tps": 14.136836103077693,
+      "ttft_s": {
+        "p50": 0.1242098920978606,
+        "p90": 0.12511491011828185,
+        "p95": 0.12511491011828185,
+        "p99": 0.12511491011828185
+      },
+      "tpot_s": {
+        "p50": 0.12447489472106099,
+        "p90": 0.12459700787439942,
+        "p95": 0.12459700787439942,
+        "p99": 0.12459700787439942
+      },
+      "goodput_requests_s": 0.0,
+      "quality": {
+        "arithmetic": {
+          "count": 2,
+          "accuracy": 1.0
+        },
+        "code": {
+          "count": 2,
+          "accuracy": 1.0
+        },
+        "knowledge": {
+          "count": 2,
+          "accuracy": 1.0
+        }
+      },
+      "rail_joules_token": 2.031533575173427
+    },
+    {
+      "case": "k1/ptq/native/0/int4/trace",
+      "output_tps": 15.350705910922242,
+      "ttft_s": {
+        "p50": 0.12636398859322073,
+        "p90": 0.1272425100207329,
+        "p95": 0.1272425100207329,
+        "p99": 0.1272425100207329
+      },
+      "tpot_s": {
+        "p50": 0.055022760294377804,
+        "p90": 0.05530407419428229,
+        "p95": 0.05530407419428229,
+        "p99": 0.05530407419428229
+      },
+      "goodput_requests_s": 7.675352955461121,
+      "quality": {
+        "arithmetic": {
+          "count": 2,
+          "accuracy": 1.0
+        },
+        "code": {
+          "count": 2,
+          "accuracy": 1.0
+        },
+        "knowledge": {
+          "count": 2,
+          "accuracy": 1.0
+        }
+      },
+      "rail_joules_token": 1.7550484756982037
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "output_tps": 14.270186555275862,
+      "ttft_s": {
+        "p50": 0.12179967761039734,
+        "p90": 0.124071803689003,
+        "p95": 0.124071803689003,
+        "p99": 0.124071803689003
+      },
+      "tpot_s": {
+        "p50": 0.12016347516328096,
+        "p90": 0.12022152403369546,
+        "p95": 0.12022152403369546,
+        "p99": 0.12022152403369546
+      },
+      "goodput_requests_s": 0.0,
+      "quality": {
+        "arithmetic": {
+          "count": 2,
+          "accuracy": 1.0
+        },
+        "code": {
+          "count": 2,
+          "accuracy": 1.0
+        },
+        "knowledge": {
+          "count": 2,
+          "accuracy": 1.0
+        }
+      },
+      "rail_joules_token": 1.9801002144173878
+    },
+    {
+      "case": "k3/ptq/native/0/fp/trace",
+      "output_tps": 15.332486560318722,
+      "ttft_s": {
+        "p50": 0.12585733607411387,
+        "p90": 0.12729352228343488,
+        "p95": 0.12729352228343488,
+        "p99": 0.12729352228343488
+      },
+      "tpot_s": {
+        "p50": 0.056587954983115196,
+        "p90": 0.05674411589279771,
+        "p95": 0.05674411589279771,
+        "p99": 0.05674411589279771
+      },
+      "goodput_requests_s": 7.666243280159361,
+      "quality": {
+        "arithmetic": {
+          "count": 2,
+          "accuracy": 1.0
+        },
+        "code": {
+          "count": 2,
+          "accuracy": 1.0
+        },
+        "knowledge": {
+          "count": 2,
+          "accuracy": 1.0
+        }
+      },
+      "rail_joules_token": 1.7863485515664665
+    },
+    {
+      "case": "k1/mixed/native/0/fp/trace",
+      "output_tps": 14.208545278828215,
+      "ttft_s": {
+        "p50": 0.12230328312143685,
+        "p90": 0.12266128612682226,
+        "p95": 0.12266128612682226,
+        "p99": 0.12266128612682226
+      },
+      "tpot_s": {
+        "p50": 0.12184585584327579,
+        "p90": 0.12194137601181865,
+        "p95": 0.12194137601181865,
+        "p99": 0.12194137601181865
+      },
+      "goodput_requests_s": 0.0,
+      "quality": {
+        "arithmetic": {
+          "count": 2,
+          "accuracy": 1.0
+        },
+        "code": {
+          "count": 2,
+          "accuracy": 1.0
+        },
+        "knowledge": {
+          "count": 2,
+          "accuracy": 1.0
+        }
+      },
+      "rail_joules_token": 2.0314293544075794
+    },
+    {
+      "case": "k3/ptq/native/0/int4/trace",
+      "output_tps": 15.371501431042505,
+      "ttft_s": {
+        "p50": 0.12641126485541465,
+        "p90": 0.1270785157568753,
+        "p95": 0.1270785157568753,
+        "p99": 0.1270785157568753
+      },
+      "tpot_s": {
+        "p50": 0.054176002740859985,
+        "p90": 0.05434045288711786,
+        "p95": 0.05434045288711786,
+        "p99": 0.05434045288711786
+      },
+      "goodput_requests_s": 7.6857507155212526,
+      "quality": {
+        "arithmetic": {
+          "count": 2,
+          "accuracy": 1.0
+        },
+        "code": {
+          "count": 2,
+          "accuracy": 1.0
+        },
+        "knowledge": {
+          "count": 2,
+          "accuracy": 1.0
+        }
+      },
+      "rail_joules_token": 1.7725915885798986
+    },
+    {
+      "case": "k1/fp/native/0/int4/trace",
+      "output_tps": 14.667081349629388,
+      "ttft_s": {
+        "p50": 0.12449581203982235,
+        "p90": 0.12536213975399735,
+        "p95": 0.12536213975399735,
+        "p99": 0.12536213975399735
+      },
+      "tpot_s": {
+        "p50": 0.09291785908862948,
+        "p90": 0.09317449992522597,
+        "p95": 0.09317449992522597,
+        "p99": 0.09317449992522597
+      },
+      "goodput_requests_s": 7.333540674814694,
+      "quality": {
+        "arithmetic": {
+          "count": 2,
+          "accuracy": 1.0
+        },
+        "code": {
+          "count": 2,
+          "accuracy": 1.0
+        },
+        "knowledge": {
+          "count": 2,
+          "accuracy": 1.0
+        }
+      },
+      "rail_joules_token": 1.859520539003502
+    },
+    {
+      "case": "k1/fp/native/0/fp/trace",
+      "output_tps": 14.664031726282216,
+      "ttft_s": {
+        "p50": 0.124984073266387,
+        "p90": 0.12548896120861175,
+        "p95": 0.12548896120861175,
+        "p99": 0.12548896120861175
+      },
+      "tpot_s": {
+        "p50": 0.09294592309743166,
+        "p90": 0.09297958668321371,
+        "p95": 0.09297958668321371,
+        "p99": 0.09297958668321371
+      },
+      "goodput_requests_s": 7.332015863141108,
+      "quality": {
+        "arithmetic": {
+          "count": 2,
+          "accuracy": 1.0
+        },
+        "code": {
+          "count": 2,
+          "accuracy": 1.0
+        },
+        "knowledge": {
+          "count": 2,
+          "accuracy": 1.0
+        }
+      },
+      "rail_joules_token": 1.9041674616998494
+    },
+    {
+      "case": "k3/fp/native/0/fp/trace",
+      "output_tps": 14.65975973170558,
+      "ttft_s": {
+        "p50": 0.12407328402623535,
+        "p90": 0.12567053278908136,
+        "p95": 0.12567053278908136,
+        "p99": 0.12567053278908136
+      },
+      "tpot_s": {
+        "p50": 0.09284195397049189,
+        "p90": 0.09296509204432368,
+        "p95": 0.09296509204432368,
+        "p99": 0.09296509204432368
+      },
+      "goodput_requests_s": 7.32987986585279,
+      "quality": {
+        "arithmetic": {
+          "count": 2,
+          "accuracy": 1.0
+        },
+        "code": {
+          "count": 2,
+          "accuracy": 1.0
+        },
+        "knowledge": {
+          "count": 2,
+          "accuracy": 1.0
+        }
+      },
+      "rail_joules_token": 1.91143544551368
+    },
+    {
+      "case": "k1/ptq/native/0/fp/trace",
+      "output_tps": 15.309350418614532,
+      "ttft_s": {
+        "p50": 0.12620977088809016,
+        "p90": 0.12729388270527126,
+        "p95": 0.12729388270527126,
+        "p99": 0.12729388270527126
+      },
+      "tpot_s": {
+        "p50": 0.057529082987457514,
+        "p90": 0.05756927467882633,
+        "p95": 0.05756927467882633,
+        "p99": 0.05756927467882633
+      },
+      "goodput_requests_s": 7.654675209307266,
+      "quality": {
+        "arithmetic": {
+          "count": 2,
+          "accuracy": 1.0
+        },
+        "code": {
+          "count": 2,
+          "accuracy": 1.0
+        },
+        "knowledge": {
+          "count": 2,
+          "accuracy": 1.0
+        }
+      },
+      "rail_joules_token": 1.7487205590652504
+    },
+    {
+      "case": "k1/mixed/native/0/int4/trace",
+      "output_tps": 14.110940746594315,
+      "ttft_s": {
+        "p50": 0.123868221975863,
+        "p90": 0.12483316501602532,
+        "p95": 0.12483316501602532,
+        "p99": 0.12483316501602532
+      },
+      "tpot_s": {
+        "p50": 0.12647718470543623,
+        "p90": 0.12681542662903666,
+        "p95": 0.12681542662903666,
+        "p99": 0.12681542662903666
+      },
+      "goodput_requests_s": 0.0,
+      "quality": {
+        "arithmetic": {
+          "count": 2,
+          "accuracy": 1.0
+        },
+        "code": {
+          "count": 2,
+          "accuracy": 1.0
+        },
+        "knowledge": {
+          "count": 2,
+          "accuracy": 1.0
+        }
+      },
+      "rail_joules_token": 2.040688872649153
+    }
+  ],
+  "limits": [
+    "Shared device; eager experimental runtime, not production latency.",
+    "Externally assigned PTQ eligibility is not a confidence gate.",
+    "Small hand-written quality smoke is not a benchmark-quality claim.",
+    "Power is the named rail including other workloads, not isolated board energy."
+  ]
+}

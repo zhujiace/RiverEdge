@@ -1,0 +1,9 @@
+profile,operation,total_time_ms,count,avg_us
+full_fp_cudagraph,[CUDA memcpy Device-to-Device],1.373792,1087,1.2638
+full_fp_cudagraph,[CUDA memcpy Host-to-Device],0.235968,227,1.0395
+full_fp_cudagraph,[CUDA memset],0.042624,64,0.666
+full_fp_cudagraph,[CUDA memcpy Device-to-Host],0.028384,32,0.887
+static_ptq_tail_cudagraph,[CUDA memcpy Device-to-Device],5.832704,4683,1.2455
+static_ptq_tail_cudagraph,[CUDA memcpy Host-to-Device],0.240704,227,1.0604
+static_ptq_tail_cudagraph,[CUDA memset],0.044224,64,0.691
+static_ptq_tail_cudagraph,[CUDA memcpy Device-to-Host],0.029152,32,0.911

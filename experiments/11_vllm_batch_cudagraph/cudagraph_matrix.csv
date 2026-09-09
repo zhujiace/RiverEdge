@@ -1,0 +1,11 @@
+mode,execution_mode,enforce_eager,exit_layer,batch_size,prompt_tokens,max_new_tokens,warmup,iters,total_output_tokens,total_s,mean_batch_latency_s,output_tps,load_s,phase_trace,model_path
+full_fp,cudagraph,False,3,1,85,32,1,3,96,8.492537444923073,2.830845814974358,11.304042004241005,65.78881213697605,all_fp,/models/Llama-3.1-8B-Instruct-riveredge-fp-hqq
+full_fp,cudagraph,False,3,2,85,32,1,3,192,8.680633142124861,2.893544380708287,22.118202308109737,65.78881213697605,all_fp,/models/Llama-3.1-8B-Instruct-riveredge-fp-hqq
+full_fp,cudagraph,False,3,4,85,32,1,3,384,9.126687765936367,3.0422292553121224,42.07440967063727,65.78881213697605,all_fp,/models/Llama-3.1-8B-Instruct-riveredge-fp-hqq
+full_fp,cudagraph,False,3,8,85,32,1,3,768,10.679975328966975,3.559991776322325,71.91027847386283,65.78881213697605,all_fp,/models/Llama-3.1-8B-Instruct-riveredge-fp-hqq
+full_fp,cudagraph,False,3,16,85,32,1,3,1536,11.755757240927778,3.918585746975926,130.65938403801005,65.78881213697605,all_fp,/models/Llama-3.1-8B-Instruct-riveredge-fp-hqq
+static_ptq_tail,cudagraph,False,3,1,85,32,1,3,96,3.894535416155122,1.2981784720517073,24.64992348041758,65.14831083000172,"decode_ptq,prefill_fp",/models/Llama-3.1-8B-Instruct-riveredge-fp-hqq
+static_ptq_tail,cudagraph,False,3,2,85,32,1,3,192,4.098173483042046,1.366057827680682,46.850139652331094,65.14831083000172,"decode_ptq,prefill_fp",/models/Llama-3.1-8B-Instruct-riveredge-fp-hqq
+static_ptq_tail,cudagraph,False,3,4,85,32,1,3,384,4.928718545008451,1.6429061816694837,77.9107178657818,65.14831083000172,"decode_ptq,prefill_fp",/models/Llama-3.1-8B-Instruct-riveredge-fp-hqq
+static_ptq_tail,cudagraph,False,3,8,85,32,1,3,768,8.237957210978493,2.745985736992831,93.2269955197762,65.14831083000172,"decode_ptq,prefill_fp",/models/Llama-3.1-8B-Instruct-riveredge-fp-hqq
+static_ptq_tail,cudagraph,False,3,16,85,32,1,3,1536,12.450277269002981,4.150092423000994,123.37074643503124,65.14831083000172,"decode_ptq,prefill_fp",/models/Llama-3.1-8B-Instruct-riveredge-fp-hqq

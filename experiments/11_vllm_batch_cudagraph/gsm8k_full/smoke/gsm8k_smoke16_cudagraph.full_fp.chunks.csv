@@ -1,0 +1,2 @@
+chunk_index,start_index,end_index,batch_size,input_tokens,output_tokens,latency_s,output_tps,total_token_tps,strict_accuracy,flexible_accuracy,min_output_tokens,max_output_tokens,finish_reasons
+0,0,16,16,18691,2346,49.505189810995944,47.388970913084215,424.94534573680846,0.6875,0.6875,53,381,"{""stop"": 16}"

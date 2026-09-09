@@ -1,0 +1,1354 @@
+{
+  "schema_version": 3,
+  "checks": [
+    {
+      "case": "run",
+      "check": "nonempty_unique_cases",
+      "pass": true
+    },
+    {
+      "case": "run",
+      "check": "expected_case_matrix",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/0/int4/trace",
+      "check": "request_set_complete",
+      "pass": true,
+      "expected_source": "legacy_summary_only"
+    },
+    {
+      "case": "k3/ptq/native/0/int4/trace",
+      "check": "delivery_records_valid",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/0/int4/trace",
+      "check": "output_token_count_matches",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/0/int4/trace",
+      "check": "scheduler_trace_complete",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/0/int4/trace",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/0/int4/trace",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/3/int4/latency_probe",
+      "check": "request_set_complete",
+      "pass": true,
+      "expected_source": "latency_probe_protocol"
+    },
+    {
+      "case": "k3/ptq/native/3/int4/latency_probe",
+      "check": "delivery_records_valid",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/3/int4/latency_probe",
+      "check": "output_token_count_matches",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/3/int4/latency_probe",
+      "check": "scheduler_trace_complete",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/3/int4/latency_probe",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/3/int4/latency_probe",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/1/fp/latency_probe",
+      "check": "request_set_complete",
+      "pass": true,
+      "expected_source": "latency_probe_protocol"
+    },
+    {
+      "case": "k3/ptq/native/1/fp/latency_probe",
+      "check": "delivery_records_valid",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/1/fp/latency_probe",
+      "check": "output_token_count_matches",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/1/fp/latency_probe",
+      "check": "scheduler_trace_complete",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/1/fp/latency_probe",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/1/fp/latency_probe",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/3/fp/latency_probe",
+      "check": "request_set_complete",
+      "pass": true,
+      "expected_source": "latency_probe_protocol"
+    },
+    {
+      "case": "k3/ptq/native/3/fp/latency_probe",
+      "check": "delivery_records_valid",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/3/fp/latency_probe",
+      "check": "output_token_count_matches",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/3/fp/latency_probe",
+      "check": "scheduler_trace_complete",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/3/fp/latency_probe",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/3/fp/latency_probe",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/2/int4/latency_probe",
+      "check": "request_set_complete",
+      "pass": true,
+      "expected_source": "latency_probe_protocol"
+    },
+    {
+      "case": "k3/ptq/native/2/int4/latency_probe",
+      "check": "delivery_records_valid",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/2/int4/latency_probe",
+      "check": "output_token_count_matches",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/2/int4/latency_probe",
+      "check": "scheduler_trace_complete",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/2/int4/latency_probe",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/2/int4/latency_probe",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/0/int4/latency_probe",
+      "check": "request_set_complete",
+      "pass": true,
+      "expected_source": "latency_probe_protocol"
+    },
+    {
+      "case": "k3/ptq/native/0/int4/latency_probe",
+      "check": "delivery_records_valid",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/0/int4/latency_probe",
+      "check": "output_token_count_matches",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/0/int4/latency_probe",
+      "check": "scheduler_trace_complete",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/0/int4/latency_probe",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/0/int4/latency_probe",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "check": "request_set_complete",
+      "pass": true,
+      "expected_source": "legacy_summary_only"
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "check": "delivery_records_valid",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "check": "output_token_count_matches",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "check": "scheduler_trace_complete",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "check": "request_set_complete",
+      "pass": true,
+      "expected_source": "legacy_summary_only"
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "check": "delivery_records_valid",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "check": "output_token_count_matches",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "check": "scheduler_trace_complete",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/1/int4/latency_probe",
+      "check": "request_set_complete",
+      "pass": true,
+      "expected_source": "latency_probe_protocol"
+    },
+    {
+      "case": "k3/ptq/native/1/int4/latency_probe",
+      "check": "delivery_records_valid",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/1/int4/latency_probe",
+      "check": "output_token_count_matches",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/1/int4/latency_probe",
+      "check": "scheduler_trace_complete",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/1/int4/latency_probe",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/1/int4/latency_probe",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/2/fp/latency_probe",
+      "check": "request_set_complete",
+      "pass": true,
+      "expected_source": "latency_probe_protocol"
+    },
+    {
+      "case": "k3/ptq/native/2/fp/latency_probe",
+      "check": "delivery_records_valid",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/2/fp/latency_probe",
+      "check": "output_token_count_matches",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/2/fp/latency_probe",
+      "check": "scheduler_trace_complete",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/2/fp/latency_probe",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/2/fp/latency_probe",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/native/0/int4/trace",
+      "check": "request_set_complete",
+      "pass": true,
+      "expected_source": "legacy_summary_only"
+    },
+    {
+      "case": "k3/fp/native/0/int4/trace",
+      "check": "delivery_records_valid",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/native/0/int4/trace",
+      "check": "output_token_count_matches",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/native/0/int4/trace",
+      "check": "scheduler_trace_complete",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/native/0/int4/trace",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/native/0/int4/trace",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/native/0/fp/trace",
+      "check": "request_set_complete",
+      "pass": true,
+      "expected_source": "legacy_summary_only"
+    },
+    {
+      "case": "k3/fp/native/0/fp/trace",
+      "check": "delivery_records_valid",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/native/0/fp/trace",
+      "check": "output_token_count_matches",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/native/0/fp/trace",
+      "check": "scheduler_trace_complete",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/native/0/fp/trace",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/native/0/fp/trace",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/4/int4/latency_probe",
+      "check": "request_set_complete",
+      "pass": true,
+      "expected_source": "latency_probe_protocol"
+    },
+    {
+      "case": "k3/ptq/native/4/int4/latency_probe",
+      "check": "delivery_records_valid",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/4/int4/latency_probe",
+      "check": "output_token_count_matches",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/4/int4/latency_probe",
+      "check": "scheduler_trace_complete",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/4/int4/latency_probe",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/4/int4/latency_probe",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/0/fp/latency_probe",
+      "check": "request_set_complete",
+      "pass": true,
+      "expected_source": "latency_probe_protocol"
+    },
+    {
+      "case": "k3/ptq/native/0/fp/latency_probe",
+      "check": "delivery_records_valid",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/0/fp/latency_probe",
+      "check": "output_token_count_matches",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/0/fp/latency_probe",
+      "check": "scheduler_trace_complete",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/0/fp/latency_probe",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/0/fp/latency_probe",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/0/fp/trace",
+      "check": "request_set_complete",
+      "pass": true,
+      "expected_source": "legacy_summary_only"
+    },
+    {
+      "case": "k3/ptq/native/0/fp/trace",
+      "check": "delivery_records_valid",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/0/fp/trace",
+      "check": "output_token_count_matches",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/0/fp/trace",
+      "check": "scheduler_trace_complete",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/0/fp/trace",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/0/fp/trace",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/4/fp/latency_probe",
+      "check": "request_set_complete",
+      "pass": true,
+      "expected_source": "latency_probe_protocol"
+    },
+    {
+      "case": "k3/ptq/native/4/fp/latency_probe",
+      "check": "delivery_records_valid",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/4/fp/latency_probe",
+      "check": "output_token_count_matches",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/4/fp/latency_probe",
+      "check": "scheduler_trace_complete",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/4/fp/latency_probe",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/4/fp/latency_probe",
+      "check": "all_requests_finished",
+      "pass": true
+    }
+  ],
+  "all_contracts_pass": true,
+  "structural_checks_pass": true,
+  "analysis_pass": true,
+  "warnings": [
+    "k3/ptq/native/0/int4/trace: no request manifest; trace completeness checked against summary only.",
+    "k3/mixed/native/0/fp/trace: no request manifest; trace completeness checked against summary only.",
+    "k3/mixed/native/0/int4/trace: no request manifest; trace completeness checked against summary only.",
+    "k3/fp/native/0/int4/trace: no request manifest; trace completeness checked against summary only.",
+    "k3/fp/native/0/fp/trace: no request manifest; trace completeness checked against summary only.",
+    "k3/ptq/native/0/fp/trace: no request manifest; trace completeness checked against summary only."
+  ],
+  "output_comparison": {
+    "status": "mismatch",
+    "expected_pairs": 48,
+    "compared_pairs": 48,
+    "unequal_pairs": 6,
+    "pairing_complete": true,
+    "errors": []
+  },
+  "mixed_static_pairs": [
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-0",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-1",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-2",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-3",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-4",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-5",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-6",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-7",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-8",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-9",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-10",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-11",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-12",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-13",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-14",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": false
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-15",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": false
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-16",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-17",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": false
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-18",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-19",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-20",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-21",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-22",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-23",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-0",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-1",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-2",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-3",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-4",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-5",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-6",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-7",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": false
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-8",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-9",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": false
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-10",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-11",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": false
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-12",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-13",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-14",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-15",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-16",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-17",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-18",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-19",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-20",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-21",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-22",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-23",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    }
+  ],
+  "table": [
+    {
+      "case": "k3/ptq/native/0/int4/trace",
+      "output_tps": 57.9993292621381,
+      "ttft_s": {
+        "p50": 11.827975902333856,
+        "p90": 19.73256037743762,
+        "p95": 21.314619479472746,
+        "p99": 22.325698097828777
+      },
+      "tpot_s": {
+        "p50": 0.061606540353222876,
+        "p90": 0.06744224896681615,
+        "p95": 0.06784241259569841,
+        "p99": 0.07072663017228478
+      },
+      "goodput_requests_s": 0.14391893117155855,
+      "quality": {
+        "college_mathematics": {
+          "count": 8,
+          "accuracy": 0.125
+        },
+        "high_school_computer_science": {
+          "count": 8,
+          "accuracy": 0.625
+        },
+        "world_religions": {
+          "count": 8,
+          "accuracy": 0.75
+        }
+      },
+      "rail_joules_token": 0.514265724539671
+    },
+    {
+      "case": "k3/ptq/native/3/int4/latency_probe",
+      "output_tps": 18.57042520962871,
+      "ttft_s": {
+        "p50": 0.09398016799241304,
+        "p90": 0.09398016799241304,
+        "p95": 0.09398016799241304,
+        "p99": 0.09398016799241304
+      },
+      "tpot_s": {
+        "p50": 0.053211904034787226,
+        "p90": 0.053211904034787226,
+        "p95": 0.053211904034787226,
+        "p99": 0.053211904034787226
+      },
+      "goodput_requests_s": 0.2901628939004486,
+      "quality": {},
+      "rail_joules_token": 1.403087392017477
+    },
+    {
+      "case": "k3/ptq/native/1/fp/latency_probe",
+      "output_tps": 17.83606664845624,
+      "ttft_s": {
+        "p50": 0.09392650192603469,
+        "p90": 0.09392650192603469,
+        "p95": 0.09392650192603469,
+        "p99": 0.09392650192603469
+      },
+      "tpot_s": {
+        "p50": 0.05546507682089531,
+        "p90": 0.05546507682089531,
+        "p95": 0.05546507682089531,
+        "p99": 0.05546507682089531
+      },
+      "goodput_requests_s": 0.27868854138212873,
+      "quality": {},
+      "rail_joules_token": 1.4823377624935064
+    },
+    {
+      "case": "k3/ptq/native/3/fp/latency_probe",
+      "output_tps": 17.962987935098653,
+      "ttft_s": {
+        "p50": 0.09383241971954703,
+        "p90": 0.09383241971954703,
+        "p95": 0.09383241971954703,
+        "p99": 0.09383241971954703
+      },
+      "tpot_s": {
+        "p50": 0.05506412357476259,
+        "p90": 0.05506412357476259,
+        "p95": 0.05506412357476259,
+        "p99": 0.05506412357476259
+      },
+      "goodput_requests_s": 0.28067168648591645,
+      "quality": {},
+      "rail_joules_token": 1.484585381205916
+    },
+    {
+      "case": "k3/ptq/native/2/int4/latency_probe",
+      "output_tps": 18.708356523169382,
+      "ttft_s": {
+        "p50": 0.09396233968436718,
+        "p90": 0.09396233968436718,
+        "p95": 0.09396233968436718,
+        "p99": 0.09396233968436718
+      },
+      "tpot_s": {
+        "p50": 0.052808886349555995,
+        "p90": 0.052808886349555995,
+        "p95": 0.052808886349555995,
+        "p99": 0.052808886349555995
+      },
+      "goodput_requests_s": 0.2923180706745216,
+      "quality": {},
+      "rail_joules_token": 1.40551120596305
+    },
+    {
+      "case": "k3/ptq/native/0/int4/latency_probe",
+      "output_tps": 18.660572596809754,
+      "ttft_s": {
+        "p50": 0.09397862711921334,
+        "p90": 0.09397862711921334,
+        "p95": 0.09397862711921334,
+        "p99": 0.09397862711921334
+      },
+      "tpot_s": {
+        "p50": 0.052947668898259366,
+        "p90": 0.052947668898259366,
+        "p95": 0.052947668898259366,
+        "p99": 0.052947668898259366
+      },
+      "goodput_requests_s": 0.2915714468251524,
+      "quality": {},
+      "rail_joules_token": 1.4073015741823842
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "output_tps": 30.21843128405,
+      "ttft_s": {
+        "p50": 23.15750245526433,
+        "p90": 39.181115586925294,
+        "p95": 41.52711774502415,
+        "p99": 42.494719332862644
+      },
+      "tpot_s": {
+        "p50": 0.1234438815955865,
+        "p90": 0.12903040598474363,
+        "p95": 0.12932765233106655,
+        "p99": 0.13059521735564245
+      },
+      "goodput_requests_s": 0.0,
+      "quality": {
+        "college_mathematics": {
+          "count": 8,
+          "accuracy": 0.125
+        },
+        "high_school_computer_science": {
+          "count": 8,
+          "accuracy": 0.875
+        },
+        "world_religions": {
+          "count": 8,
+          "accuracy": 0.875
+        }
+      },
+      "rail_joules_token": 1.0036045407507534
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "output_tps": 28.87168899918876,
+      "ttft_s": {
+        "p50": 24.08680737284012,
+        "p90": 40.986117382729425,
+        "p95": 43.917681094380086,
+        "p99": 45.97037316573876
+      },
+      "tpot_s": {
+        "p50": 0.12777765343819145,
+        "p90": 0.13240510479065237,
+        "p95": 0.13303079208987154,
+        "p99": 0.1333668514269105
+      },
+      "goodput_requests_s": 0.0,
+      "quality": {
+        "college_mathematics": {
+          "count": 8,
+          "accuracy": 0.0
+        },
+        "high_school_computer_science": {
+          "count": 8,
+          "accuracy": 0.625
+        },
+        "world_religions": {
+          "count": 8,
+          "accuracy": 0.75
+        }
+      },
+      "rail_joules_token": 1.0401679013036476
+    },
+    {
+      "case": "k3/ptq/native/1/int4/latency_probe",
+      "output_tps": 18.426242847702145,
+      "ttft_s": {
+        "p50": 0.0943365409038961,
+        "p90": 0.0943365409038961,
+        "p95": 0.0943365409038961,
+        "p99": 0.0943365409038961
+      },
+      "tpot_s": {
+        "p50": 0.05363430387325703,
+        "p90": 0.05363430387325703,
+        "p95": 0.05363430387325703,
+        "p99": 0.05363430387325703
+      },
+      "goodput_requests_s": 0.287910044495346,
+      "quality": {},
+      "rail_joules_token": 1.4146480247985789
+    },
+    {
+      "case": "k3/ptq/native/2/fp/latency_probe",
+      "output_tps": 17.739406657503903,
+      "ttft_s": {
+        "p50": 0.0939268390648067,
+        "p90": 0.0939268390648067,
+        "p95": 0.0939268390648067,
+        "p99": 0.0939268390648067
+      },
+      "tpot_s": {
+        "p50": 0.05577537612546058,
+        "p90": 0.05577537612546058,
+        "p95": 0.05577537612546058,
+        "p99": 0.05577537612546058
+      },
+      "goodput_requests_s": 0.2771782290234985,
+      "quality": {},
+      "rail_joules_token": 1.5004905105307167
+    },
+    {
+      "case": "k3/fp/native/0/int4/trace",
+      "output_tps": 38.6717526259163,
+      "ttft_s": {
+        "p50": 17.368265483621506,
+        "p90": 30.024956835489718,
+        "p95": 31.908162821764122,
+        "p99": 32.51748833444062
+      },
+      "tpot_s": {
+        "p50": 0.09655429591319342,
+        "p90": 0.101276022686105,
+        "p95": 0.10196991078222968,
+        "p99": 0.1026482159430726
+      },
+      "goodput_requests_s": 0.0990948177473832,
+      "quality": {
+        "college_mathematics": {
+          "count": 8,
+          "accuracy": 0.0
+        },
+        "high_school_computer_science": {
+          "count": 8,
+          "accuracy": 0.5
+        },
+        "world_religions": {
+          "count": 8,
+          "accuracy": 0.75
+        }
+      },
+      "rail_joules_token": 0.7347976799214605
+    },
+    {
+      "case": "k3/fp/native/0/fp/trace",
+      "output_tps": 38.65186367056038,
+      "ttft_s": {
+        "p50": 17.372417703131212,
+        "p90": 30.03376789294183,
+        "p95": 31.918641691054216,
+        "p99": 32.52868969407025
+      },
+      "tpot_s": {
+        "p50": 0.09656023716909251,
+        "p90": 0.101265647489787,
+        "p95": 0.10194610838246132,
+        "p99": 0.10264467895777643
+      },
+      "goodput_requests_s": 0.07428288982170476,
+      "quality": {
+        "college_mathematics": {
+          "count": 8,
+          "accuracy": 0.0
+        },
+        "high_school_computer_science": {
+          "count": 8,
+          "accuracy": 0.5
+        },
+        "world_religions": {
+          "count": 8,
+          "accuracy": 0.75
+        }
+      },
+      "rail_joules_token": 0.7354262305891552
+    },
+    {
+      "case": "k3/ptq/native/4/int4/latency_probe",
+      "output_tps": 18.5012770038985,
+      "ttft_s": {
+        "p50": 0.09404542716220021,
+        "p90": 0.09404542716220021,
+        "p95": 0.09404542716220021,
+        "p99": 0.09404542716220021
+      },
+      "tpot_s": {
+        "p50": 0.05341531206218023,
+        "p90": 0.05341531206218023,
+        "p95": 0.05341531206218023,
+        "p99": 0.05341531206218023
+      },
+      "goodput_requests_s": 0.2890824531859141,
+      "quality": {},
+      "rail_joules_token": 1.4206283774583681
+    },
+    {
+      "case": "k3/ptq/native/0/fp/latency_probe",
+      "output_tps": 17.799812750268394,
+      "ttft_s": {
+        "p50": 0.09412229061126709,
+        "p90": 0.09412229061126709,
+        "p95": 0.09412229061126709,
+        "p99": 0.09412229061126709
+      },
+      "tpot_s": {
+        "p50": 0.05557793675227061,
+        "p90": 0.05557793675227061,
+        "p95": 0.05557793675227061,
+        "p99": 0.05557793675227061
+      },
+      "goodput_requests_s": 0.27812207422294366,
+      "quality": {},
+      "rail_joules_token": 1.498671995687248
+    },
+    {
+      "case": "k3/ptq/native/0/fp/trace",
+      "output_tps": 57.0549930098132,
+      "ttft_s": {
+        "p50": 12.010189816448838,
+        "p90": 20.15565140993334,
+        "p95": 21.596592464395798,
+        "p99": 22.04226626555994
+      },
+      "tpot_s": {
+        "p50": 0.06405449679591928,
+        "p90": 0.06994179977053429,
+        "p95": 0.07072223174855173,
+        "p99": 0.072534650023945
+      },
+      "goodput_requests_s": 0.14536303951544766,
+      "quality": {
+        "college_mathematics": {
+          "count": 8,
+          "accuracy": 0.125
+        },
+        "high_school_computer_science": {
+          "count": 8,
+          "accuracy": 0.875
+        },
+        "world_religions": {
+          "count": 8,
+          "accuracy": 0.75
+        }
+      },
+      "rail_joules_token": 0.5310552675087032
+    },
+    {
+      "case": "k3/ptq/native/4/fp/latency_probe",
+      "output_tps": 17.39257420300932,
+      "ttft_s": {
+        "p50": 0.09415912115946412,
+        "p90": 0.09415912115946412,
+        "p95": 0.09415912115946412,
+        "p99": 0.09415912115946412
+      },
+      "tpot_s": {
+        "p50": 0.056913693014177535,
+        "p90": 0.056913693014177535,
+        "p95": 0.056913693014177535,
+        "p99": 0.056913693014177535
+      },
+      "goodput_requests_s": 0.27175897192202064,
+      "quality": {},
+      "rail_joules_token": 1.5091329923267909
+    }
+  ],
+  "limits": [
+    "Shared device; eager experimental runtime, not production latency.",
+    "Externally assigned PTQ eligibility is not a confidence gate.",
+    "Quality applies only to the supplied trace and scoring protocol, not a full benchmark.",
+    "Power is the named rail including other workloads, not isolated board energy."
+  ]
+}

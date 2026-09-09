@@ -1,0 +1,10 @@
+{
+  "source": "RiverEdge/experiments/15_resume_20260907/mmlu_subset.jsonl",
+  "source_sha256": "f1dc6305e354fc79cb2b00a6211b54cd20c7df067e7bfe2d5ab9cdfdf1288128",
+  "counts": {
+    "college_mathematics": 8,
+    "high_school_computer_science": 8,
+    "world_religions": 8
+  },
+  "protocol": "zero-shot short reasoning; final-answer extraction; subset only"
+}

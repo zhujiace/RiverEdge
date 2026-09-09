@@ -1,0 +1,5 @@
+mode,batch_size,output_tps,sample_interval_ms,steady_samples,trim_samples_each_side,emc_util_mean_pct,emc_util_median_pct,emc_util_p5_pct,emc_util_p95_pct,emc_clock_mhz,gr3d_util_mean_pct
+full_fp,1,11.131972,100,94,10,79.6596,82.0,63,83,3199.0,99.117
+full_fp,4,41.540381,100,52,10,80.9423,81.0,78,83,3199.0,99.1346
+static_ptq_tail,1,24.335057,100,31,10,74.5806,75,73,76,3199,99
+static_ptq_tail,4,76.956487,100,46,10,60.8696,63.5,48,66,3199.0,99.1087

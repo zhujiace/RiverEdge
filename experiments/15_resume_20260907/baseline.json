@@ -1,0 +1,95 @@
+{
+  "results": [
+    {
+      "model_path": "/models/Llama-3.1-8B-Instruct-riveredge-fp-hqq",
+      "mode": "full_fp",
+      "execution_mode": "cudagraph",
+      "enforce_eager": false,
+      "compilation": "mode=NONE,cudagraph_mode=FULL_DECODE_ONLY",
+      "cudagraph_capture_sizes": [
+        1
+      ],
+      "load_s": 241.47768848203123,
+      "phase_trace": [
+        "all_fp"
+      ],
+      "rows": [
+        {
+          "mode": "full_fp",
+          "execution_mode": "cudagraph",
+          "enforce_eager": false,
+          "exit_layer": 3,
+          "batch_size": 1,
+          "prompt_tokens": 85,
+          "max_new_tokens": 8,
+          "warmup": 1,
+          "iters": 2,
+          "total_output_tokens": 16,
+          "total_s": 1.4638148774392903,
+          "mean_batch_latency_s": 0.7319074387196451,
+          "output_tps": 10.930343888832061,
+          "latencies_s": [
+            0.7322027091868222,
+            0.7316121682524681
+          ],
+          "last_first_token_ids": [
+            578,
+            4062,
+            14198,
+            39935,
+            35308,
+            927,
+            279,
+            16053
+          ]
+        }
+      ]
+    },
+    {
+      "model_path": "/models/Llama-3.1-8B-Instruct-riveredge-fp-hqq",
+      "mode": "static_ptq_tail",
+      "execution_mode": "cudagraph",
+      "enforce_eager": false,
+      "compilation": "mode=NONE,cudagraph_mode=FULL_DECODE_ONLY",
+      "cudagraph_capture_sizes": [
+        1
+      ],
+      "load_s": 307.16334738908336,
+      "phase_trace": [
+        "decode_ptq",
+        "prefill_fp"
+      ],
+      "rows": [
+        {
+          "mode": "static_ptq_tail",
+          "execution_mode": "cudagraph",
+          "enforce_eager": false,
+          "exit_layer": 3,
+          "batch_size": 1,
+          "prompt_tokens": 85,
+          "max_new_tokens": 8,
+          "warmup": 1,
+          "iters": 2,
+          "total_output_tokens": 16,
+          "total_s": 0.760562997777015,
+          "mean_batch_latency_s": 0.3802814988885075,
+          "output_tps": 21.037047617048216,
+          "latencies_s": [
+            0.38035348057746887,
+            0.3802095171995461
+          ],
+          "last_first_token_ids": [
+            578,
+            4062,
+            14198,
+            39935,
+            35308,
+            927,
+            279,
+            16053
+          ]
+        }
+      ]
+    }
+  ]
+}

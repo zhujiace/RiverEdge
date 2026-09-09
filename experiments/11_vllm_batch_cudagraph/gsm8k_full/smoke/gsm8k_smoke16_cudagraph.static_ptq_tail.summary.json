@@ -1,0 +1,113 @@
+{
+  "complete": true,
+  "result": {
+    "model_path": "/models/Llama-3.1-8B-Instruct-riveredge-fp-hqq",
+    "dataset": "gsm8k/main/test",
+    "task": "gsm8k_cot_llama",
+    "mode": "static_ptq_tail",
+    "execution_mode": "cudagraph",
+    "compilation": "mode=NONE,cudagraph_mode=FULL_DECODE_ONLY",
+    "exit_layer": 3,
+    "batch_size": 16,
+    "num_samples": 16,
+    "num_chunks": 1,
+    "fewshot": 8,
+    "max_model_len": 2048,
+    "max_tokens_safety_cap": 512,
+    "natural_eos_enabled": true,
+    "ignore_eos": false,
+    "min_tokens": 0,
+    "prefix_caching": false,
+    "chunked_prefill": false,
+    "inductor": false,
+    "cudagraph_capture_sizes": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "gpu_memory_utilization": 0.5,
+    "load_s": 85.21765521995258,
+    "warmup_s": 17.096878351061605,
+    "benchmark_s": 43.86988280492369,
+    "total_input_tokens": 18691,
+    "total_output_tokens": 2683,
+    "output_tps": 61.15813009874,
+    "total_token_tps": 487.21351946718926,
+    "requests_per_s": 0.36471490181879984,
+    "input_output_token_ratio": 6.966455460305628,
+    "strict_correct": 11,
+    "strict_accuracy": 0.6875,
+    "flexible_correct": 11,
+    "flexible_accuracy": 0.6875,
+    "strict_extract_failures": 2,
+    "flexible_extract_failures": 0,
+    "finish_reasons": {
+      "stop": 14,
+      "length": 2
+    },
+    "max_tokens_cap_hits": 2,
+    "max_tokens_cap_hit_rate": 0.125,
+    "prompt_tokens": {
+      "count": 16,
+      "mean": 1168.1875,
+      "min": 1133,
+      "p50": 1164.5,
+      "p90": 1202.5,
+      "max": 1215
+    },
+    "output_tokens": {
+      "count": 16,
+      "mean": 167.6875,
+      "min": 58,
+      "p50": 113.5,
+      "p90": 357.5,
+      "max": 512
+    },
+    "request_e2e_s": {
+      "count": 0,
+      "mean": null,
+      "min": null,
+      "p50": null,
+      "p90": null,
+      "max": null
+    },
+    "request_ttft_s": {
+      "count": 0,
+      "mean": null,
+      "min": null,
+      "p50": null,
+      "p90": null,
+      "max": null
+    },
+    "request_tpot_s": {
+      "count": 0,
+      "mean": null,
+      "min": null,
+      "p50": null,
+      "p90": null,
+      "max": null
+    },
+    "chunk_latency_s": {
+      "count": 1,
+      "mean": 43.86988280492369,
+      "min": 43.86988280492369,
+      "p50": 43.86988280492369,
+      "p90": 43.86988280492369,
+      "max": 43.86988280492369
+    },
+    "chunk_output_tps": {
+      "count": 1,
+      "mean": 61.15813009874,
+      "min": 61.15813009874,
+      "p50": 61.15813009874,
+      "p90": 61.15813009874,
+      "max": 61.15813009874
+    },
+    "phase_trace": [
+      "decode_ptq",
+      "prefill_fp"
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "model": "/models/Llama-3.1-8B-Instruct-riveredge-fp-hqq",
+  "prefill_policy": "full_fp",
+  "baseline": {
+    "mode": "full_fp",
+    "token_ids": [
+      32541,
+      2065
+    ],
+    "text": " Quantization",
+    "elapsed_s": 2.0393520679990615
+  },
+  "rows": [
+    {
+      "exit_layer": 3,
+      "token_ids": [
+        32541,
+        2065
+      ],
+      "text": " Quantization",
+      "elapsed_s": 0.13541701799840666,
+      "phase_trace": [
+        "decode_ptq",
+        "prefill_fp"
+      ],
+      "first_token_matches_fp": true
+    }
+  ],
+  "all_first_tokens_match_fp": true,
+  "all_ptq_phases_observed": true
+}

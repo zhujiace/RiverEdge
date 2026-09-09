@@ -1,0 +1,7 @@
+mode,operation,count,total_bytes,max_bytes
+full_fp,host_to_device,59,2228,680
+full_fp,device_to_host,8,32,4
+full_fp,device_to_device,247,1835804,8192
+static_ptq_tail,host_to_device,59,2228,680
+static_ptq_tail,device_to_host,8,32,4
+static_ptq_tail,device_to_device,1059,12645148,28672

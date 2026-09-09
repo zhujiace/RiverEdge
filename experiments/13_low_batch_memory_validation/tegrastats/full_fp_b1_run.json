@@ -1,0 +1,67 @@
+{
+  "model": "/models/Llama-3.1-8B-Instruct-riveredge-fp-hqq",
+  "mode": "full_fp",
+  "execution_mode": "cudagraph",
+  "batch_sizes": [
+    1
+  ],
+  "exit_layer": 3,
+  "prompt_tokens": 85,
+  "max_new_tokens": 32,
+  "warmup": 2,
+  "profile_iters": 5,
+  "rows": [
+    {
+      "batch_size": 1,
+      "total_output_tokens": 160,
+      "latencies_s": [
+        3.035622040999442,
+        2.835487551998085,
+        2.8334822870019707,
+        2.834452749000775,
+        2.8339700040014577
+      ],
+      "total_s": 14.37301463300173,
+      "output_tps": 11.131972246979117,
+      "first_output_token_ids": [
+        578,
+        4062,
+        14198,
+        39935,
+        35308,
+        927,
+        279,
+        16053,
+        5679,
+        3221,
+        279,
+        15140,
+        6964,
+        13,
+        578,
+        4062,
+        14198,
+        39935,
+        35308,
+        927,
+        279,
+        16053,
+        5679,
+        3221,
+        279,
+        15140,
+        6964,
+        13,
+        578,
+        4062,
+        14198,
+        39935
+      ],
+      "nvtx_range": "riveredge_full_fp_cudagraph_batch1"
+    }
+  ],
+  "phase_trace": [
+    "all_fp"
+  ],
+  "cuda_profiler_api": false
+}

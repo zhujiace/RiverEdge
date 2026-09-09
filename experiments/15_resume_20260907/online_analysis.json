@@ -1,0 +1,351 @@
+{
+  "checks": [
+    {
+      "case": "k3/batch/native/0/fp",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/batch/native/0/fp",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/batch/grouped/0/fp",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/batch/grouped/0/fp",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/batch/grouped/0/fp",
+      "check": "homogeneous_phase_route_steps",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/0/fp",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/0/fp",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/native/0/fp",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/native/0/fp",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/grouped/0/fp",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/grouped/0/fp",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/grouped/0/fp",
+      "check": "homogeneous_phase_route_steps",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/grouped/0/fp",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/grouped/0/fp",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/grouped/0/fp",
+      "check": "homogeneous_phase_route_steps",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp",
+      "check": "homogeneous_phase_route_steps",
+      "pass": true
+    }
+  ],
+  "all_contracts_pass": true,
+  "mixed_static_pairs": [
+    {
+      "request_id": "request-0",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-1",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-2",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-3",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-4",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-5",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-0",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-1",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-2",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-3",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-4",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-5",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    }
+  ],
+  "table": [
+    {
+      "case": "k3/batch/native/0/fp",
+      "output_tps": 27.84297934983296,
+      "ttft_s": {
+        "p50": 0.13181034987792373,
+        "p90": 0.38394152792170644,
+        "p95": 0.38394152792170644,
+        "p99": 0.38394152792170644
+      },
+      "tpot_s": {
+        "p50": 0.09310262330940791,
+        "p90": 0.11999926503215518,
+        "p95": 0.11999926503215518,
+        "p99": 0.11999926503215518
+      },
+      "goodput_requests_s": 2.3202482791527466,
+      "quality": {},
+      "rail_joules_token": 0.7994035114436534
+    },
+    {
+      "case": "k3/batch/grouped/0/fp",
+      "output_tps": 25.41837151295962,
+      "ttft_s": {
+        "p50": 0.10657794820144773,
+        "p90": 0.35716795921325684,
+        "p95": 0.35716795921325684,
+        "p99": 0.35716795921325684
+      },
+      "tpot_s": {
+        "p50": 0.09310295040320073,
+        "p90": 0.1209193134148206,
+        "p95": 0.13411816735086696,
+        "p99": 0.14467725049970406
+      },
+      "goodput_requests_s": 2.6477470325999604,
+      "quality": {},
+      "rail_joules_token": 1.042616395855292
+    },
+    {
+      "case": "k3/ptq/native/0/fp",
+      "output_tps": 47.58981321839001,
+      "ttft_s": {
+        "p50": 0.1068725767545402,
+        "p90": 0.11096096783876419,
+        "p95": 0.11096096783876419,
+        "p99": 0.11096096783876419
+      },
+      "tpot_s": {
+        "p50": 0.05762391583994031,
+        "p90": 0.05762391583994031,
+        "p95": 0.05762391583994031,
+        "p99": 0.05762391583994031
+      },
+      "goodput_requests_s": 5.948726652298752,
+      "quality": {},
+      "rail_joules_token": 0.5438113784540731
+    },
+    {
+      "case": "k3/mixed/native/0/fp",
+      "output_tps": 25.403701281806594,
+      "ttft_s": {
+        "p50": 0.10699312295764685,
+        "p90": 0.5487658455967903,
+        "p95": 0.5487658455967903,
+        "p99": 0.5487658455967903
+      },
+      "tpot_s": {
+        "p50": 0.1203892433882824,
+        "p90": 0.1203892433882824,
+        "p95": 0.1203892433882824,
+        "p99": 0.1203892433882824
+      },
+      "goodput_requests_s": 0.0,
+      "quality": {},
+      "rail_joules_token": 1.1133441861277547
+    },
+    {
+      "case": "k3/fp/native/0/fp",
+      "output_tps": 31.851595983198017,
+      "ttft_s": {
+        "p50": 0.10682454938068986,
+        "p90": 0.35774533497169614,
+        "p95": 0.35774533497169614,
+        "p99": 0.35774533497169614
+      },
+      "tpot_s": {
+        "p50": 0.0931485479564539,
+        "p90": 0.0931485479564539,
+        "p95": 0.0931485479564539,
+        "p99": 0.0931485479564539
+      },
+      "goodput_requests_s": 3.981449497899752,
+      "quality": {},
+      "rail_joules_token": 0.8202188590600706
+    },
+    {
+      "case": "k3/ptq/grouped/0/fp",
+      "output_tps": 47.77171643768416,
+      "ttft_s": {
+        "p50": 0.10679715918377042,
+        "p90": 0.10770103195682168,
+        "p95": 0.10770103195682168,
+        "p99": 0.10770103195682168
+      },
+      "tpot_s": {
+        "p50": 0.05723013110192759,
+        "p90": 0.05723013110192759,
+        "p95": 0.05723013110192759,
+        "p99": 0.05723013110192759
+      },
+      "goodput_requests_s": 5.97146455471052,
+      "quality": {},
+      "rail_joules_token": 0.545751099384389
+    },
+    {
+      "case": "k3/fp/grouped/0/fp",
+      "output_tps": 31.83840526018048,
+      "ttft_s": {
+        "p50": 0.10663376888260245,
+        "p90": 0.35744671197608113,
+        "p95": 0.35744671197608113,
+        "p99": 0.35744671197608113
+      },
+      "tpot_s": {
+        "p50": 0.09313239170504468,
+        "p90": 0.09313239170504468,
+        "p95": 0.09313239170504468,
+        "p99": 0.09313239170504468
+      },
+      "goodput_requests_s": 3.97980065752256,
+      "quality": {},
+      "rail_joules_token": 0.8161643227504077
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp",
+      "output_tps": 24.97962140740494,
+      "ttft_s": {
+        "p50": 0.10684526059776545,
+        "p90": 0.38512180279940367,
+        "p95": 0.38512180279940367,
+        "p99": 0.38512180279940367
+      },
+      "tpot_s": {
+        "p50": 0.12823529378511012,
+        "p90": 0.21164532072309936,
+        "p95": 0.21164532072309936,
+        "p99": 0.21164532072309936
+      },
+      "goodput_requests_s": 1.0408175586418726,
+      "quality": {},
+      "rail_joules_token": 1.0377199455331299
+    }
+  ],
+  "limits": [
+    "Shared device; eager experimental runtime, not production latency.",
+    "Externally assigned PTQ eligibility is not a confidence gate.",
+    "Small hand-written quality smoke is not a benchmark-quality claim.",
+    "Power is the named rail including other workloads, not isolated board energy."
+  ]
+}

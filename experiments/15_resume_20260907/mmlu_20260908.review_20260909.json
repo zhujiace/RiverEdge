@@ -1,0 +1,2830 @@
+{
+  "schema_version": 3,
+  "checks": [
+    {
+      "case": "run",
+      "check": "nonempty_unique_cases",
+      "pass": true
+    },
+    {
+      "case": "run",
+      "check": "expected_case_matrix",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/grouped/0/int4/trace",
+      "check": "request_set_complete",
+      "pass": true,
+      "expected_source": "legacy_summary_only"
+    },
+    {
+      "case": "k3/fp/grouped/0/int4/trace",
+      "check": "delivery_records_valid",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/grouped/0/int4/trace",
+      "check": "output_token_count_matches",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/grouped/0/int4/trace",
+      "check": "scheduler_trace_complete",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/grouped/0/int4/trace",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/grouped/0/int4/trace",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/grouped/0/int4/trace",
+      "check": "homogeneous_phase_route_steps",
+      "pass": true
+    },
+    {
+      "case": "k3/conservative/grouped/0/fp/trace",
+      "check": "request_set_complete",
+      "pass": true,
+      "expected_source": "legacy_summary_only"
+    },
+    {
+      "case": "k3/conservative/grouped/0/fp/trace",
+      "check": "delivery_records_valid",
+      "pass": true
+    },
+    {
+      "case": "k3/conservative/grouped/0/fp/trace",
+      "check": "output_token_count_matches",
+      "pass": true
+    },
+    {
+      "case": "k3/conservative/grouped/0/fp/trace",
+      "check": "scheduler_trace_complete",
+      "pass": true
+    },
+    {
+      "case": "k3/conservative/grouped/0/fp/trace",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/conservative/grouped/0/fp/trace",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/conservative/grouped/0/fp/trace",
+      "check": "homogeneous_phase_route_steps",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/grouped/0/int4/trace",
+      "check": "request_set_complete",
+      "pass": true,
+      "expected_source": "legacy_summary_only"
+    },
+    {
+      "case": "k3/ptq/grouped/0/int4/trace",
+      "check": "delivery_records_valid",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/grouped/0/int4/trace",
+      "check": "output_token_count_matches",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/grouped/0/int4/trace",
+      "check": "scheduler_trace_complete",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/grouped/0/int4/trace",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/grouped/0/int4/trace",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/grouped/0/int4/trace",
+      "check": "homogeneous_phase_route_steps",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "check": "request_set_complete",
+      "pass": true,
+      "expected_source": "legacy_summary_only"
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "check": "delivery_records_valid",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "check": "output_token_count_matches",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "check": "scheduler_trace_complete",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/conservative/native/0/int4/trace",
+      "check": "request_set_complete",
+      "pass": true,
+      "expected_source": "legacy_summary_only"
+    },
+    {
+      "case": "k3/conservative/native/0/int4/trace",
+      "check": "delivery_records_valid",
+      "pass": true
+    },
+    {
+      "case": "k3/conservative/native/0/int4/trace",
+      "check": "output_token_count_matches",
+      "pass": true
+    },
+    {
+      "case": "k3/conservative/native/0/int4/trace",
+      "check": "scheduler_trace_complete",
+      "pass": true
+    },
+    {
+      "case": "k3/conservative/native/0/int4/trace",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/conservative/native/0/int4/trace",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "check": "request_set_complete",
+      "pass": true,
+      "expected_source": "legacy_summary_only"
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "check": "delivery_records_valid",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "check": "output_token_count_matches",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "check": "scheduler_trace_complete",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "check": "homogeneous_phase_route_steps",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/0/fp/trace",
+      "check": "request_set_complete",
+      "pass": true,
+      "expected_source": "legacy_summary_only"
+    },
+    {
+      "case": "k3/ptq/native/0/fp/trace",
+      "check": "delivery_records_valid",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/0/fp/trace",
+      "check": "output_token_count_matches",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/0/fp/trace",
+      "check": "scheduler_trace_complete",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/0/fp/trace",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/0/fp/trace",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/0/int4/trace",
+      "check": "request_set_complete",
+      "pass": true,
+      "expected_source": "legacy_summary_only"
+    },
+    {
+      "case": "k3/ptq/native/0/int4/trace",
+      "check": "delivery_records_valid",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/0/int4/trace",
+      "check": "output_token_count_matches",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/0/int4/trace",
+      "check": "scheduler_trace_complete",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/0/int4/trace",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/0/int4/trace",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/conservative/native/0/fp/trace",
+      "check": "request_set_complete",
+      "pass": true,
+      "expected_source": "legacy_summary_only"
+    },
+    {
+      "case": "k3/conservative/native/0/fp/trace",
+      "check": "delivery_records_valid",
+      "pass": true
+    },
+    {
+      "case": "k3/conservative/native/0/fp/trace",
+      "check": "output_token_count_matches",
+      "pass": true
+    },
+    {
+      "case": "k3/conservative/native/0/fp/trace",
+      "check": "scheduler_trace_complete",
+      "pass": true
+    },
+    {
+      "case": "k3/conservative/native/0/fp/trace",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/conservative/native/0/fp/trace",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "check": "request_set_complete",
+      "pass": true,
+      "expected_source": "legacy_summary_only"
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "check": "delivery_records_valid",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "check": "output_token_count_matches",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "check": "scheduler_trace_complete",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/native/0/int4/trace",
+      "check": "request_set_complete",
+      "pass": true,
+      "expected_source": "legacy_summary_only"
+    },
+    {
+      "case": "k3/fp/native/0/int4/trace",
+      "check": "delivery_records_valid",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/native/0/int4/trace",
+      "check": "output_token_count_matches",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/native/0/int4/trace",
+      "check": "scheduler_trace_complete",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/native/0/int4/trace",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/native/0/int4/trace",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/native/0/fp/trace",
+      "check": "request_set_complete",
+      "pass": true,
+      "expected_source": "legacy_summary_only"
+    },
+    {
+      "case": "k3/fp/native/0/fp/trace",
+      "check": "delivery_records_valid",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/native/0/fp/trace",
+      "check": "output_token_count_matches",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/native/0/fp/trace",
+      "check": "scheduler_trace_complete",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/native/0/fp/trace",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/native/0/fp/trace",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/conservative/grouped/0/int4/trace",
+      "check": "request_set_complete",
+      "pass": true,
+      "expected_source": "legacy_summary_only"
+    },
+    {
+      "case": "k3/conservative/grouped/0/int4/trace",
+      "check": "delivery_records_valid",
+      "pass": true
+    },
+    {
+      "case": "k3/conservative/grouped/0/int4/trace",
+      "check": "output_token_count_matches",
+      "pass": true
+    },
+    {
+      "case": "k3/conservative/grouped/0/int4/trace",
+      "check": "scheduler_trace_complete",
+      "pass": true
+    },
+    {
+      "case": "k3/conservative/grouped/0/int4/trace",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/conservative/grouped/0/int4/trace",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/conservative/grouped/0/int4/trace",
+      "check": "homogeneous_phase_route_steps",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/grouped/0/fp/trace",
+      "check": "request_set_complete",
+      "pass": true,
+      "expected_source": "legacy_summary_only"
+    },
+    {
+      "case": "k3/ptq/grouped/0/fp/trace",
+      "check": "delivery_records_valid",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/grouped/0/fp/trace",
+      "check": "output_token_count_matches",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/grouped/0/fp/trace",
+      "check": "scheduler_trace_complete",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/grouped/0/fp/trace",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/grouped/0/fp/trace",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/grouped/0/fp/trace",
+      "check": "homogeneous_phase_route_steps",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/grouped/0/fp/trace",
+      "check": "request_set_complete",
+      "pass": true,
+      "expected_source": "legacy_summary_only"
+    },
+    {
+      "case": "k3/fp/grouped/0/fp/trace",
+      "check": "delivery_records_valid",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/grouped/0/fp/trace",
+      "check": "output_token_count_matches",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/grouped/0/fp/trace",
+      "check": "scheduler_trace_complete",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/grouped/0/fp/trace",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/grouped/0/fp/trace",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/grouped/0/fp/trace",
+      "check": "homogeneous_phase_route_steps",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "check": "request_set_complete",
+      "pass": true,
+      "expected_source": "legacy_summary_only"
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "check": "delivery_records_valid",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "check": "output_token_count_matches",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "check": "scheduler_trace_complete",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "check": "homogeneous_phase_route_steps",
+      "pass": true
+    }
+  ],
+  "all_contracts_pass": true,
+  "structural_checks_pass": true,
+  "analysis_pass": true,
+  "warnings": [
+    "k3/fp/grouped/0/int4/trace: no request manifest; trace completeness checked against summary only.",
+    "k3/conservative/grouped/0/fp/trace: no request manifest; trace completeness checked against summary only.",
+    "k3/ptq/grouped/0/int4/trace: no request manifest; trace completeness checked against summary only.",
+    "k3/mixed/native/0/int4/trace: no request manifest; trace completeness checked against summary only.",
+    "k3/conservative/native/0/int4/trace: no request manifest; trace completeness checked against summary only.",
+    "k3/mixed/grouped/0/int4/trace: no request manifest; trace completeness checked against summary only.",
+    "k3/ptq/native/0/fp/trace: no request manifest; trace completeness checked against summary only.",
+    "k3/ptq/native/0/int4/trace: no request manifest; trace completeness checked against summary only.",
+    "k3/conservative/native/0/fp/trace: no request manifest; trace completeness checked against summary only.",
+    "k3/mixed/native/0/fp/trace: no request manifest; trace completeness checked against summary only.",
+    "k3/fp/native/0/int4/trace: no request manifest; trace completeness checked against summary only.",
+    "k3/fp/native/0/fp/trace: no request manifest; trace completeness checked against summary only.",
+    "k3/conservative/grouped/0/int4/trace: no request manifest; trace completeness checked against summary only.",
+    "k3/ptq/grouped/0/fp/trace: no request manifest; trace completeness checked against summary only.",
+    "k3/fp/grouped/0/fp/trace: no request manifest; trace completeness checked against summary only.",
+    "k3/mixed/grouped/0/fp/trace: no request manifest; trace completeness checked against summary only."
+  ],
+  "output_comparison": {
+    "status": "mismatch",
+    "expected_pairs": 192,
+    "compared_pairs": 192,
+    "unequal_pairs": 6,
+    "pairing_complete": true,
+    "errors": []
+  },
+  "mixed_static_pairs": [
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-0",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-1",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-2",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-3",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-4",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-5",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-6",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-7",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-8",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-9",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-10",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-11",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-12",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-13",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-14",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-15",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-16",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-17",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-18",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-19",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-20",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-21",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-22",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-23",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-24",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-25",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-26",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": false
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-27",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-28",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-29",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-30",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-31",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-32",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-33",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-34",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-35",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": false
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-36",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-37",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-38",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-39",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-40",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-41",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-42",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-43",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-44",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-45",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-46",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-47",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-0",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-1",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-2",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-3",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-4",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-5",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-6",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-7",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-8",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-9",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-10",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-11",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-12",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-13",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-14",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-15",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-16",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-17",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-18",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-19",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-20",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-21",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-22",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-23",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-24",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-25",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-26",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": false
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-27",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-28",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-29",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-30",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-31",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-32",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-33",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-34",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-35",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-36",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-37",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-38",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-39",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-40",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-41",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-42",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-43",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-44",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-45",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/ptq/native/0/int4/trace",
+      "request_id": "request-46",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "baseline_case": "3/fp/native/0/int4/trace",
+      "request_id": "request-47",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-0",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-1",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-2",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-3",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-4",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-5",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-6",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-7",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-8",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-9",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-10",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-11",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-12",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-13",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-14",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-15",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-16",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-17",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-18",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-19",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-20",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-21",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-22",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-23",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-24",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-25",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-26",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": false
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-27",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-28",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-29",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-30",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-31",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-32",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-33",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-34",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-35",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": false
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-36",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-37",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-38",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-39",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-40",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-41",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-42",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-43",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-44",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-45",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-46",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-47",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-0",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-1",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-2",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-3",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-4",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-5",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-6",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-7",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-8",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-9",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-10",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": false
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-11",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-12",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-13",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-14",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-15",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-16",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-17",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-18",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-19",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-20",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-21",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-22",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-23",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-24",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-25",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-26",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-27",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-28",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-29",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-30",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-31",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-32",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-33",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-34",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-35",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-36",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-37",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-38",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-39",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-40",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-41",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-42",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-43",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-44",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-45",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/ptq/native/0/fp/trace",
+      "request_id": "request-46",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "baseline_case": "3/fp/native/0/fp/trace",
+      "request_id": "request-47",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    }
+  ],
+  "table": [
+    {
+      "case": "k3/fp/grouped/0/int4/trace",
+      "output_tps": 16.295556188857603,
+      "ttft_s": {
+        "p50": 4.94851248995401,
+        "p90": 7.243738373089583,
+        "p95": 7.47582387689501,
+        "p99": 7.585413847059011
+      },
+      "tpot_s": {
+        "p50": 0.0945522109977901,
+        "p90": 0.27927491192240267,
+        "p95": 0.2866272080456838,
+        "p99": 0.4229079701698253
+      },
+      "goodput_requests_s": 0.09997273735495463,
+      "quality": {
+        "college_mathematics": {
+          "count": 16,
+          "accuracy": 0.125
+        },
+        "high_school_computer_science": {
+          "count": 16,
+          "accuracy": 0.625
+        },
+        "world_religions": {
+          "count": 16,
+          "accuracy": 0.6875
+        }
+      },
+      "rail_joules_token": 2.0296791592675847
+    },
+    {
+      "case": "k3/conservative/grouped/0/fp/trace",
+      "output_tps": 18.70719447740447,
+      "ttft_s": {
+        "p50": 4.416334925964474,
+        "p90": 6.06215145601891,
+        "p95": 6.182846471904777,
+        "p99": 6.29266549892351
+      },
+      "tpot_s": {
+        "p50": 0.0942993420176208,
+        "p90": 0.1843115315506501,
+        "p95": 0.26328093416855786,
+        "p99": 0.35692133413627747
+      },
+      "goodput_requests_s": 0.11547650911978069,
+      "quality": {
+        "college_mathematics": {
+          "count": 16,
+          "accuracy": 0.125
+        },
+        "high_school_computer_science": {
+          "count": 16,
+          "accuracy": 0.625
+        },
+        "world_religions": {
+          "count": 16,
+          "accuracy": 0.6875
+        }
+      },
+      "rail_joules_token": 1.8606899623530528
+    },
+    {
+      "case": "k3/ptq/grouped/0/int4/trace",
+      "output_tps": 18.994222546873175,
+      "ttft_s": {
+        "p50": 4.220256603695452,
+        "p90": 6.483618879383432,
+        "p95": 6.759305745344609,
+        "p99": 6.832672492075711
+      },
+      "tpot_s": {
+        "p50": 0.13777000294066966,
+        "p90": 0.24715389492921533,
+        "p95": 0.2861057544110475,
+        "p99": 0.3586452585994267
+      },
+      "goodput_requests_s": 0.108538414553561,
+      "quality": {
+        "college_mathematics": {
+          "count": 16,
+          "accuracy": 0.0625
+        },
+        "high_school_computer_science": {
+          "count": 16,
+          "accuracy": 0.25
+        },
+        "world_religions": {
+          "count": 16,
+          "accuracy": 0.1875
+        }
+      },
+      "rail_joules_token": 1.830062184158062
+    },
+    {
+      "case": "k3/mixed/native/0/int4/trace",
+      "output_tps": 17.928925900801758,
+      "ttft_s": {
+        "p50": 4.633198783081024,
+        "p90": 6.799707032479347,
+        "p95": 7.0647465442121025,
+        "p99": 7.248759707376361
+      },
+      "tpot_s": {
+        "p50": 0.16870814455407007,
+        "p90": 0.2852109880652279,
+        "p95": 0.3053909589553119,
+        "p99": 0.36785293636610744
+      },
+      "goodput_requests_s": 0.0,
+      "quality": {
+        "college_mathematics": {
+          "count": 16,
+          "accuracy": 0.0625
+        },
+        "high_school_computer_science": {
+          "count": 16,
+          "accuracy": 0.4375
+        },
+        "world_religions": {
+          "count": 16,
+          "accuracy": 0.3125
+        }
+      },
+      "rail_joules_token": 1.9679581461486921
+    },
+    {
+      "case": "k3/conservative/native/0/int4/trace",
+      "output_tps": 18.59662837193403,
+      "ttft_s": {
+        "p50": 3.904797951970249,
+        "p90": 6.198648885879666,
+        "p95": 6.272516720150597,
+        "p99": 6.347577474020421
+      },
+      "tpot_s": {
+        "p50": 0.12054769787937403,
+        "p90": 0.28743864542671616,
+        "p95": 0.3738132333382964,
+        "p99": 0.39908649756573145
+      },
+      "goodput_requests_s": 0.0,
+      "quality": {
+        "college_mathematics": {
+          "count": 16,
+          "accuracy": 0.125
+        },
+        "high_school_computer_science": {
+          "count": 16,
+          "accuracy": 0.625
+        },
+        "world_religions": {
+          "count": 16,
+          "accuracy": 0.625
+        }
+      },
+      "rail_joules_token": 1.879461787930688
+    },
+    {
+      "case": "k3/mixed/grouped/0/int4/trace",
+      "output_tps": 15.87989203781204,
+      "ttft_s": {
+        "p50": 5.413812301633879,
+        "p90": 8.013532281378284,
+        "p95": 8.29706367224455,
+        "p99": 8.421112264912574
+      },
+      "tpot_s": {
+        "p50": 0.22846509015653282,
+        "p90": 0.37778237168677153,
+        "p95": 0.4179930077799196,
+        "p99": 0.5029115717718378
+      },
+      "goodput_requests_s": 0.0,
+      "quality": {
+        "college_mathematics": {
+          "count": 16,
+          "accuracy": 0.0625
+        },
+        "high_school_computer_science": {
+          "count": 16,
+          "accuracy": 0.4375
+        },
+        "world_religions": {
+          "count": 16,
+          "accuracy": 0.375
+        }
+      },
+      "rail_joules_token": 2.1143527146940237
+    },
+    {
+      "case": "k3/ptq/native/0/fp/trace",
+      "output_tps": 20.01976362384887,
+      "ttft_s": {
+        "p50": 3.8892138338647784,
+        "p90": 5.868006962593645,
+        "p95": 5.993810272784903,
+        "p99": 6.100587562679314
+      },
+      "tpot_s": {
+        "p50": 0.1305069054942578,
+        "p90": 0.2373135450296104,
+        "p95": 0.2793248407309874,
+        "p99": 0.3511449617729523
+      },
+      "goodput_requests_s": 0.35122392322541873,
+      "quality": {
+        "college_mathematics": {
+          "count": 16,
+          "accuracy": 0.125
+        },
+        "high_school_computer_science": {
+          "count": 16,
+          "accuracy": 0.25
+        },
+        "world_religions": {
+          "count": 16,
+          "accuracy": 0.25
+        }
+      },
+      "rail_joules_token": 1.8275387151969948
+    },
+    {
+      "case": "k3/ptq/native/0/int4/trace",
+      "output_tps": 19.541191720381136,
+      "ttft_s": {
+        "p50": 3.8805460254196076,
+        "p90": 6.23763233457692,
+        "p95": 6.445660476181656,
+        "p99": 6.555302531907335
+      },
+      "tpot_s": {
+        "p50": 0.15349915984552354,
+        "p90": 0.2524770862888545,
+        "p95": 0.25856092129833996,
+        "p99": 0.2938519147667103
+      },
+      "goodput_requests_s": 0.3330884952337693,
+      "quality": {
+        "college_mathematics": {
+          "count": 16,
+          "accuracy": 0.0625
+        },
+        "high_school_computer_science": {
+          "count": 16,
+          "accuracy": 0.1875
+        },
+        "world_religions": {
+          "count": 16,
+          "accuracy": 0.1875
+        }
+      },
+      "rail_joules_token": 1.8077400833011688
+    },
+    {
+      "case": "k3/conservative/native/0/fp/trace",
+      "output_tps": 18.652993127397462,
+      "ttft_s": {
+        "p50": 3.903267040662467,
+        "p90": 6.1732266257144515,
+        "p95": 6.247117327260785,
+        "p99": 6.321155495882034
+      },
+      "tpot_s": {
+        "p50": 0.11825914727523923,
+        "p90": 0.2870113374731903,
+        "p95": 0.37382033513858914,
+        "p99": 0.3944989637564868
+      },
+      "goodput_requests_s": 0.11443554065888012,
+      "quality": {
+        "college_mathematics": {
+          "count": 16,
+          "accuracy": 0.125
+        },
+        "high_school_computer_science": {
+          "count": 16,
+          "accuracy": 0.625
+        },
+        "world_religions": {
+          "count": 16,
+          "accuracy": 0.625
+        }
+      },
+      "rail_joules_token": 1.8800889111135974
+    },
+    {
+      "case": "k3/mixed/native/0/fp/trace",
+      "output_tps": 17.886744795959792,
+      "ttft_s": {
+        "p50": 4.536952821351587,
+        "p90": 6.877150988681242,
+        "p95": 7.078676205854863,
+        "p99": 7.171388355955481
+      },
+      "tpot_s": {
+        "p50": 0.1705058057559654,
+        "p90": 0.26626095320098103,
+        "p95": 0.27248316022866803,
+        "p99": 0.37541753811761747
+      },
+      "goodput_requests_s": 0.0,
+      "quality": {
+        "college_mathematics": {
+          "count": 16,
+          "accuracy": 0.125
+        },
+        "high_school_computer_science": {
+          "count": 16,
+          "accuracy": 0.4375
+        },
+        "world_religions": {
+          "count": 16,
+          "accuracy": 0.3125
+        }
+      },
+      "rail_joules_token": 1.9999985091172923
+    },
+    {
+      "case": "k3/fp/native/0/int4/trace",
+      "output_tps": 19.177398380772015,
+      "ttft_s": {
+        "p50": 3.8557468706741926,
+        "p90": 5.838786373101175,
+        "p95": 5.928403779575601,
+        "p99": 6.029809313766658
+      },
+      "tpot_s": {
+        "p50": 0.11789260897785425,
+        "p90": 0.31683037187904156,
+        "p95": 0.3736207652837038,
+        "p99": 0.37706276031211017
+      },
+      "goodput_requests_s": 0.11837900235044453,
+      "quality": {
+        "college_mathematics": {
+          "count": 16,
+          "accuracy": 0.125
+        },
+        "high_school_computer_science": {
+          "count": 16,
+          "accuracy": 0.625
+        },
+        "world_religions": {
+          "count": 16,
+          "accuracy": 0.6875
+        }
+      },
+      "rail_joules_token": 1.8423667369367125
+    },
+    {
+      "case": "k3/fp/native/0/fp/trace",
+      "output_tps": 19.16968502680761,
+      "ttft_s": {
+        "p50": 3.8618617642670867,
+        "p90": 5.843199563678354,
+        "p95": 5.932838538186624,
+        "p99": 6.033781078118831
+      },
+      "tpot_s": {
+        "p50": 0.11804585717618465,
+        "p90": 0.31657873708754813,
+        "p95": 0.373500884976238,
+        "p99": 0.3769011555565521
+      },
+      "goodput_requests_s": 0.11833138905436798,
+      "quality": {
+        "college_mathematics": {
+          "count": 16,
+          "accuracy": 0.125
+        },
+        "high_school_computer_science": {
+          "count": 16,
+          "accuracy": 0.625
+        },
+        "world_religions": {
+          "count": 16,
+          "accuracy": 0.6875
+        }
+      },
+      "rail_joules_token": 1.8435054924373604
+    },
+    {
+      "case": "k3/conservative/grouped/0/int4/trace",
+      "output_tps": 18.714859098294795,
+      "ttft_s": {
+        "p50": 4.411224099155515,
+        "p90": 6.057146650459617,
+        "p95": 6.17868009335827,
+        "p99": 6.288640944879502
+      },
+      "tpot_s": {
+        "p50": 0.09437608742155135,
+        "p90": 0.1846199594970261,
+        "p95": 0.263122344943362,
+        "p99": 0.3567766308298867
+      },
+      "goodput_requests_s": 0.11552382159441232,
+      "quality": {
+        "college_mathematics": {
+          "count": 16,
+          "accuracy": 0.125
+        },
+        "high_school_computer_science": {
+          "count": 16,
+          "accuracy": 0.625
+        },
+        "world_religions": {
+          "count": 16,
+          "accuracy": 0.6875
+        }
+      },
+      "rail_joules_token": 1.878979881614619
+    },
+    {
+      "case": "k3/ptq/grouped/0/fp/trace",
+      "output_tps": 19.920513571976404,
+      "ttft_s": {
+        "p50": 3.918626984208822,
+        "p90": 5.881799050476403,
+        "p95": 6.124426898062229,
+        "p99": 6.200453495081514
+      },
+      "tpot_s": {
+        "p50": 0.12224941462877073,
+        "p90": 0.24376485380344093,
+        "p95": 0.2455685476423241,
+        "p99": 0.2830447650823876
+      },
+      "goodput_requests_s": 0.11649423141506669,
+      "quality": {
+        "college_mathematics": {
+          "count": 16,
+          "accuracy": 0.125
+        },
+        "high_school_computer_science": {
+          "count": 16,
+          "accuracy": 0.25
+        },
+        "world_religions": {
+          "count": 16,
+          "accuracy": 0.25
+        }
+      },
+      "rail_joules_token": 1.7813181891836174
+    },
+    {
+      "case": "k3/fp/grouped/0/fp/trace",
+      "output_tps": 16.29123491660079,
+      "ttft_s": {
+        "p50": 4.94806889728643,
+        "p90": 7.247612949414179,
+        "p95": 7.479831703919917,
+        "p99": 7.588317611660808
+      },
+      "tpot_s": {
+        "p50": 0.09449006989598274,
+        "p90": 0.2792694943258539,
+        "p95": 0.28666837024502456,
+        "p99": 0.4229810954098191
+      },
+      "goodput_requests_s": 0.09994622648221343,
+      "quality": {
+        "college_mathematics": {
+          "count": 16,
+          "accuracy": 0.125
+        },
+        "high_school_computer_science": {
+          "count": 16,
+          "accuracy": 0.625
+        },
+        "world_religions": {
+          "count": 16,
+          "accuracy": 0.6875
+        }
+      },
+      "rail_joules_token": 2.08098028519373
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/trace",
+      "output_tps": 15.422337729921523,
+      "ttft_s": {
+        "p50": 5.680446000723168,
+        "p90": 8.266819495139645,
+        "p95": 8.551816222984344,
+        "p99": 8.676528938055037
+      },
+      "tpot_s": {
+        "p50": 0.25087673298548907,
+        "p90": 0.397044335305691,
+        "p95": 0.47153621069155627,
+        "p99": 0.5208788789622486
+      },
+      "goodput_requests_s": 0.0,
+      "quality": {
+        "college_mathematics": {
+          "count": 16,
+          "accuracy": 0.125
+        },
+        "high_school_computer_science": {
+          "count": 16,
+          "accuracy": 0.4375
+        },
+        "world_religions": {
+          "count": 16,
+          "accuracy": 0.375
+        }
+      },
+      "rail_joules_token": 2.187679014761711
+    }
+  ],
+  "limits": [
+    "Shared device; eager experimental runtime, not production latency.",
+    "Externally assigned PTQ eligibility is not a confidence gate.",
+    "Quality applies only to the supplied trace and scoring protocol, not a full benchmark.",
+    "Power is the named rail including other workloads, not isolated board energy."
+  ]
+}

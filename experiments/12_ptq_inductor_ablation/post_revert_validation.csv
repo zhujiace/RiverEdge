@@ -1,0 +1,11 @@
+mode,execution_mode,enforce_eager,exit_layer,batch_size,prompt_tokens,max_new_tokens,warmup,iters,total_output_tokens,total_s,mean_batch_latency_s,output_tps,load_s,phase_trace,model_path
+static_ptq_tail,eager,True,3,1,85,32,1,3,96,4.768486652057618,1.5894955506858726,20.132173371729095,93.14934472599998,"decode_ptq,prefill_fp",/models/Llama-3.1-8B-Instruct-riveredge-fp-hqq
+static_ptq_tail,eager,True,3,2,85,32,1,3,192,5.18299241096247,1.7276641369874899,37.04423714646073,93.14934472599998,"decode_ptq,prefill_fp",/models/Llama-3.1-8B-Instruct-riveredge-fp-hqq
+static_ptq_tail,eager,True,3,4,85,32,1,3,384,5.5955917509272695,1.86519725030909,68.62544965621656,93.14934472599998,"decode_ptq,prefill_fp",/models/Llama-3.1-8B-Instruct-riveredge-fp-hqq
+static_ptq_tail,eager,True,3,8,85,32,1,3,768,8.373953788890503,2.791317929630168,91.71294938585459,93.14934472599998,"decode_ptq,prefill_fp",/models/Llama-3.1-8B-Instruct-riveredge-fp-hqq
+static_ptq_tail,eager,True,3,16,85,32,1,3,1536,12.600319686927833,4.200106562309277,121.90166901824873,93.14934472599998,"decode_ptq,prefill_fp",/models/Llama-3.1-8B-Instruct-riveredge-fp-hqq
+static_ptq_tail,cudagraph,False,3,1,85,32,1,3,96,3.890544481924735,1.2968481606415783,24.67520945873025,65.25593539699912,"decode_ptq,prefill_fp",/models/Llama-3.1-8B-Instruct-riveredge-fp-hqq
+static_ptq_tail,cudagraph,False,3,2,85,32,1,3,192,4.102927539031953,1.3676425130106509,46.79585446573609,65.25593539699912,"decode_ptq,prefill_fp",/models/Llama-3.1-8B-Instruct-riveredge-fp-hqq
+static_ptq_tail,cudagraph,False,3,4,85,32,1,3,384,4.928046597051434,1.6426821990171447,77.92134113134324,65.25593539699912,"decode_ptq,prefill_fp",/models/Llama-3.1-8B-Instruct-riveredge-fp-hqq
+static_ptq_tail,cudagraph,False,3,8,85,32,1,3,768,8.232861622120254,2.744287207373418,93.28469677378263,65.25593539699912,"decode_ptq,prefill_fp",/models/Llama-3.1-8B-Instruct-riveredge-fp-hqq
+static_ptq_tail,cudagraph,False,3,16,85,32,1,3,1536,12.444661830901168,4.148220610300389,123.426415347501,65.25593539699912,"decode_ptq,prefill_fp",/models/Llama-3.1-8B-Instruct-riveredge-fp-hqq

@@ -1,0 +1,4 @@
+# Preserve experiment bytes/hashes; CSV writers intentionally emit CRLF.
+experiments/**/*.csv -text whitespace=cr-at-eol linguist-generated=true
+experiments/**/*.json -text linguist-generated=true
+experiments/**/*.jsonl -text linguist-generated=true

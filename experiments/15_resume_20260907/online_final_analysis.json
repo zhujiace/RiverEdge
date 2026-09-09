@@ -1,0 +1,1611 @@
+{
+  "checks": [
+    {
+      "case": "k3/fp/grouped/0/fp/bursty",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/grouped/0/fp/bursty",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/grouped/0/fp/bursty",
+      "check": "homogeneous_phase_route_steps",
+      "pass": true
+    },
+    {
+      "case": "k3/conservative/native/1/fp/bursty",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/conservative/native/1/fp/bursty",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/grouped/0/fp/poisson",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/grouped/0/fp/poisson",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/grouped/0/fp/poisson",
+      "check": "homogeneous_phase_route_steps",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/native/1/fp/bursty",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/native/1/fp/bursty",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/grouped/1/fp/bursty",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/grouped/1/fp/bursty",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/grouped/1/fp/bursty",
+      "check": "homogeneous_phase_route_steps",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/1/fp/poisson",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/1/fp/poisson",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/batch/grouped/1/fp/poisson",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/batch/grouped/1/fp/poisson",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/batch/grouped/1/fp/poisson",
+      "check": "homogeneous_phase_route_steps",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/bursty",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/bursty",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/bursty",
+      "check": "homogeneous_phase_route_steps",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/0/fp/poisson",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/0/fp/poisson",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/1/fp/bursty",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/1/fp/bursty",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/conservative/grouped/1/fp/bursty",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/conservative/grouped/1/fp/bursty",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/conservative/grouped/1/fp/bursty",
+      "check": "homogeneous_phase_route_steps",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/native/0/fp/poisson",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/native/0/fp/poisson",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/batch/grouped/0/fp/poisson",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/batch/grouped/0/fp/poisson",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/batch/grouped/0/fp/poisson",
+      "check": "homogeneous_phase_route_steps",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/grouped/1/fp/poisson",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/grouped/1/fp/poisson",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/grouped/1/fp/poisson",
+      "check": "homogeneous_phase_route_steps",
+      "pass": true
+    },
+    {
+      "case": "k3/conservative/grouped/1/fp/poisson",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/conservative/grouped/1/fp/poisson",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/conservative/grouped/1/fp/poisson",
+      "check": "homogeneous_phase_route_steps",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/native/1/fp/poisson",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/native/1/fp/poisson",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/grouped/1/fp/poisson",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/grouped/1/fp/poisson",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/grouped/1/fp/poisson",
+      "check": "homogeneous_phase_route_steps",
+      "pass": true
+    },
+    {
+      "case": "k3/batch/grouped/1/fp/bursty",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/batch/grouped/1/fp/bursty",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/batch/grouped/1/fp/bursty",
+      "check": "homogeneous_phase_route_steps",
+      "pass": true
+    },
+    {
+      "case": "k3/batch/native/1/fp/bursty",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/batch/native/1/fp/bursty",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/batch/native/0/fp/poisson",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/batch/native/0/fp/poisson",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/bursty",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/bursty",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/conservative/native/0/fp/poisson",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/conservative/native/0/fp/poisson",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/grouped/1/fp/bursty",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/grouped/1/fp/bursty",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/grouped/1/fp/bursty",
+      "check": "homogeneous_phase_route_steps",
+      "pass": true
+    },
+    {
+      "case": "k3/batch/native/1/fp/poisson",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/batch/native/1/fp/poisson",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/conservative/grouped/0/fp/bursty",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/conservative/grouped/0/fp/bursty",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/conservative/grouped/0/fp/bursty",
+      "check": "homogeneous_phase_route_steps",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/grouped/0/fp/bursty",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/grouped/0/fp/bursty",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/grouped/0/fp/bursty",
+      "check": "homogeneous_phase_route_steps",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/native/1/fp/poisson",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/native/1/fp/poisson",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/native/0/fp/bursty",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/native/0/fp/bursty",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/conservative/native/0/fp/bursty",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/conservative/native/0/fp/bursty",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/poisson",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/poisson",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/batch/grouped/0/fp/bursty",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/batch/grouped/0/fp/bursty",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/batch/grouped/0/fp/bursty",
+      "check": "homogeneous_phase_route_steps",
+      "pass": true
+    },
+    {
+      "case": "k3/conservative/grouped/0/fp/poisson",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/conservative/grouped/0/fp/poisson",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/conservative/grouped/0/fp/poisson",
+      "check": "homogeneous_phase_route_steps",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/grouped/1/fp/bursty",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/grouped/1/fp/bursty",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/grouped/1/fp/bursty",
+      "check": "homogeneous_phase_route_steps",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/grouped/1/fp/poisson",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/grouped/1/fp/poisson",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/grouped/1/fp/poisson",
+      "check": "homogeneous_phase_route_steps",
+      "pass": true
+    },
+    {
+      "case": "k3/conservative/native/1/fp/poisson",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/conservative/native/1/fp/poisson",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/grouped/0/fp/poisson",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/grouped/0/fp/poisson",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/grouped/0/fp/poisson",
+      "check": "homogeneous_phase_route_steps",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/native/1/fp/bursty",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/native/1/fp/bursty",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/batch/native/0/fp/bursty",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/batch/native/0/fp/bursty",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/0/fp/bursty",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/0/fp/bursty",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/poisson",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/poisson",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/poisson",
+      "check": "homogeneous_phase_route_steps",
+      "pass": true
+    }
+  ],
+  "all_contracts_pass": true,
+  "mixed_static_pairs": [
+    {
+      "request_id": "request-0",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-1",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-2",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-3",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-4",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-5",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-0",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-1",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-2",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-3",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-4",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-5",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-0",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-1",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-2",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-3",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-4",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-5",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-0",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-1",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-2",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-3",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-4",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-5",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-0",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-1",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-2",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-3",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-4",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-5",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-0",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-1",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-2",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-3",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-4",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-5",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-0",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-1",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-2",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-3",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-4",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-5",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-0",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-1",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-2",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-3",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-4",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "request_id": "request-5",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    }
+  ],
+  "table": [
+    {
+      "case": "k3/fp/grouped/0/fp/bursty",
+      "output_tps": 31.699006935709733,
+      "ttft_s": {
+        "p50": 0.10876120207831264,
+        "p90": 0.3633849979378283,
+        "p95": 0.3633849979378283,
+        "p99": 0.3633849979378283
+      },
+      "tpot_s": {
+        "p50": 0.09361788883273091,
+        "p90": 0.09361788883273091,
+        "p95": 0.09361788883273091,
+        "p99": 0.09361788883273091
+      },
+      "goodput_requests_s": 3.9623758669637166,
+      "quality": {},
+      "rail_joules_token": 0.7720673417374287
+    },
+    {
+      "case": "k3/conservative/native/1/fp/bursty",
+      "output_tps": 31.763091777101625,
+      "ttft_s": {
+        "p50": 0.10727143194526434,
+        "p90": 0.3602236029691994,
+        "p95": 0.3602236029691994,
+        "p99": 0.3602236029691994
+      },
+      "tpot_s": {
+        "p50": 0.09342214831018023,
+        "p90": 0.09342214831018023,
+        "p95": 0.09342214831018023,
+        "p99": 0.09342214831018023
+      },
+      "goodput_requests_s": 3.970386472137703,
+      "quality": {},
+      "rail_joules_token": 0.8582257105940473
+    },
+    {
+      "case": "k3/ptq/grouped/0/fp/poisson",
+      "output_tps": 27.634112005771374,
+      "ttft_s": {
+        "p50": 0.13247488470423008,
+        "p90": 0.2515560182517774,
+        "p95": 0.2977475819322279,
+        "p99": 0.3347008328765883
+      },
+      "tpot_s": {
+        "p50": 0.07218038131083761,
+        "p90": 0.07798449635239585,
+        "p95": 0.08084355474316648,
+        "p99": 0.083130801455783
+      },
+      "goodput_requests_s": 3.454264000721422,
+      "quality": {},
+      "rail_joules_token": 0.9815116500189839
+    },
+    {
+      "case": "k3/mixed/native/1/fp/bursty",
+      "output_tps": 25.391626364817885,
+      "ttft_s": {
+        "p50": 0.10716311261057854,
+        "p90": 0.54858900886029,
+        "p95": 0.54858900886029,
+        "p99": 0.54858900886029
+      },
+      "tpot_s": {
+        "p50": 0.12036122900566884,
+        "p90": 0.12036122900566884,
+        "p95": 0.12036122900566884,
+        "p99": 0.12036122900566884
+      },
+      "goodput_requests_s": 0.0,
+      "quality": {},
+      "rail_joules_token": 1.1433820361973663
+    },
+    {
+      "case": "k3/ptq/grouped/1/fp/bursty",
+      "output_tps": 47.16636926789123,
+      "ttft_s": {
+        "p50": 0.10674077412113547,
+        "p90": 0.11284697288647294,
+        "p95": 0.11284697288647294,
+        "p99": 0.11284697288647294
+      },
+      "tpot_s": {
+        "p50": 0.05803366883524826,
+        "p90": 0.05803366883524826,
+        "p95": 0.05803366883524826,
+        "p99": 0.05803366883524826
+      },
+      "goodput_requests_s": 5.895796158486403,
+      "quality": {},
+      "rail_joules_token": 0.6057228714555527
+    },
+    {
+      "case": "k3/ptq/native/1/fp/poisson",
+      "output_tps": 27.342161885249585,
+      "ttft_s": {
+        "p50": 0.1363983045630741,
+        "p90": 0.1604343546836523,
+        "p95": 0.16616081804290722,
+        "p99": 0.17074198873031116
+      },
+      "tpot_s": {
+        "p50": 0.06716019483948392,
+        "p90": 0.07150489604100585,
+        "p95": 0.07361873874573835,
+        "p99": 0.07530981290952436
+      },
+      "goodput_requests_s": 3.417770235656198,
+      "quality": {},
+      "rail_joules_token": 1.0100966595325886
+    },
+    {
+      "case": "k3/batch/grouped/1/fp/poisson",
+      "output_tps": 22.365655637579067,
+      "ttft_s": {
+        "p50": 0.21422112903749824,
+        "p90": 0.3264433799344611,
+        "p95": 0.3505830921971761,
+        "p99": 0.36989486200734817
+      },
+      "tpot_s": {
+        "p50": 0.11373499980462448,
+        "p90": 0.14175460886742386,
+        "p95": 0.1457374778110534,
+        "p99": 0.148923772965957
+      },
+      "goodput_requests_s": 0.4659511591162306,
+      "quality": {},
+      "rail_joules_token": 1.201349594810116
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/bursty",
+      "output_tps": 21.749136512669597,
+      "ttft_s": {
+        "p50": 0.10692727286368608,
+        "p90": 0.6702955132350326,
+        "p95": 0.6702955132350326,
+        "p99": 0.6702955132350326
+      },
+      "tpot_s": {
+        "p50": 0.14409983617120556,
+        "p90": 0.16525200328656606,
+        "p95": 0.16525200328656606,
+        "p99": 0.16525200328656606
+      },
+      "goodput_requests_s": 0.0,
+      "quality": {},
+      "rail_joules_token": 1.238922944488653
+    },
+    {
+      "case": "k3/ptq/native/0/fp/poisson",
+      "output_tps": 27.465095173006688,
+      "ttft_s": {
+        "p50": 0.1315483472608614,
+        "p90": 0.15845241642583885,
+        "p95": 0.16490365899421583,
+        "p99": 0.1700646530489174
+      },
+      "tpot_s": {
+        "p50": 0.06646673274891716,
+        "p90": 0.07102148574111716,
+        "p95": 0.07319526151487869,
+        "p99": 0.07493428213388792
+      },
+      "goodput_requests_s": 3.433136896625836,
+      "quality": {},
+      "rail_joules_token": 1.0116791664993194
+    },
+    {
+      "case": "k3/ptq/native/1/fp/bursty",
+      "output_tps": 47.44970630893889,
+      "ttft_s": {
+        "p50": 0.1068439781665802,
+        "p90": 0.11009493609890342,
+        "p95": 0.11009493609890342,
+        "p99": 0.11009493609890342
+      },
+      "tpot_s": {
+        "p50": 0.05756481657070773,
+        "p90": 0.05756481657070773,
+        "p95": 0.05756481657070773,
+        "p99": 0.05756481657070773
+      },
+      "goodput_requests_s": 5.931213288617362,
+      "quality": {},
+      "rail_joules_token": 0.6029569606509851
+    },
+    {
+      "case": "k3/conservative/grouped/1/fp/bursty",
+      "output_tps": 31.7790970370972,
+      "ttft_s": {
+        "p50": 0.10697012301534414,
+        "p90": 0.3603029348887503,
+        "p95": 0.3603029348887503,
+        "p99": 0.3603029348887503
+      },
+      "tpot_s": {
+        "p50": 0.0935010280060981,
+        "p90": 0.0935010280060981,
+        "p95": 0.0935010280060981,
+        "p99": 0.0935010280060981
+      },
+      "goodput_requests_s": 3.97238712963715,
+      "quality": {},
+      "rail_joules_token": 0.8668828412601187
+    },
+    {
+      "case": "k3/fp/native/0/fp/poisson",
+      "output_tps": 23.284270815474272,
+      "ttft_s": {
+        "p50": 0.12312974038411134,
+        "p90": 0.18558547187788665,
+        "p95": 0.1864622563820637,
+        "p99": 0.18716368398540534
+      },
+      "tpot_s": {
+        "p50": 0.09360994368658535,
+        "p90": 0.0941815088902201,
+        "p95": 0.0941815088902201,
+        "p99": 0.0941815088902201
+      },
+      "goodput_requests_s": 2.910533851934284,
+      "quality": {},
+      "rail_joules_token": 1.174543226916758
+    },
+    {
+      "case": "k3/batch/grouped/0/fp/poisson",
+      "output_tps": 22.387004657835085,
+      "ttft_s": {
+        "p50": 0.2138745464217502,
+        "p90": 0.3267343360498112,
+        "p95": 0.35065273917685824,
+        "p99": 0.3697874616784959
+      },
+      "tpot_s": {
+        "p50": 0.11344455292315356,
+        "p90": 0.14155569266793983,
+        "p95": 0.1455200415636812,
+        "p99": 0.14869152068027428
+      },
+      "goodput_requests_s": 0.4663959303715643,
+      "quality": {},
+      "rail_joules_token": 1.2116465588197387
+    },
+    {
+      "case": "k3/ptq/grouped/1/fp/poisson",
+      "output_tps": 27.887282131259138,
+      "ttft_s": {
+        "p50": 0.1259025382145142,
+        "p90": 0.2504290762598075,
+        "p95": 0.2963623933871275,
+        "p99": 0.33310904708898353
+      },
+      "tpot_s": {
+        "p50": 0.07098272595820683,
+        "p90": 0.07745542899439377,
+        "p95": 0.0803917441350807,
+        "p99": 0.08274079624763024
+      },
+      "goodput_requests_s": 3.485910266407392,
+      "quality": {},
+      "rail_joules_token": 0.9847921289919076
+    },
+    {
+      "case": "k3/conservative/grouped/1/fp/poisson",
+      "output_tps": 23.604257453379322,
+      "ttft_s": {
+        "p50": 0.15786070617107928,
+        "p90": 0.2621610895297986,
+        "p95": 0.2629375704604723,
+        "p99": 0.26355875520501126
+      },
+      "tpot_s": {
+        "p50": 0.11340674561714487,
+        "p90": 0.13352326742772547,
+        "p95": 0.13353445949698134,
+        "p99": 0.13354341315238605
+      },
+      "goodput_requests_s": 0.49175536361206923,
+      "quality": {},
+      "rail_joules_token": 1.1496405609098634
+    },
+    {
+      "case": "k3/mixed/native/1/fp/poisson",
+      "output_tps": 22.09123198569035,
+      "ttft_s": {
+        "p50": 0.15113291575186028,
+        "p90": 0.20117676272967383,
+        "p95": 0.2066936153041771,
+        "p99": 0.21110709736377972
+      },
+      "tpot_s": {
+        "p50": 0.12047119571694306,
+        "p90": 0.12082427696857069,
+        "p95": 0.12088640425021627,
+        "p99": 0.12093610607553273
+      },
+      "goodput_requests_s": 0.0,
+      "quality": {},
+      "rail_joules_token": 1.3110417025665055
+    },
+    {
+      "case": "k3/mixed/grouped/1/fp/poisson",
+      "output_tps": 18.31802416719915,
+      "ttft_s": {
+        "p50": 0.3661375864907664,
+        "p90": 0.4294177420311698,
+        "p95": 0.4460686329072865,
+        "p99": 0.4593893456081799
+      },
+      "tpot_s": {
+        "p50": 0.15937380103527435,
+        "p90": 0.17765284648963384,
+        "p95": 0.1778679840998458,
+        "p99": 0.1780400941880154
+      },
+      "goodput_requests_s": 0.0,
+      "quality": {},
+      "rail_joules_token": 1.4719723454441958
+    },
+    {
+      "case": "k3/batch/grouped/1/fp/bursty",
+      "output_tps": 25.385364884525444,
+      "ttft_s": {
+        "p50": 0.10684209410101175,
+        "p90": 0.3586220908910036,
+        "p95": 0.3586220908910036,
+        "p99": 0.3586220908910036
+      },
+      "tpot_s": {
+        "p50": 0.09329844272828527,
+        "p90": 0.1408777900173196,
+        "p95": 0.14416886323929898,
+        "p99": 0.14680172181688247
+      },
+      "goodput_requests_s": 2.115447073710454,
+      "quality": {},
+      "rail_joules_token": 1.0747457981742319
+    },
+    {
+      "case": "k3/batch/native/1/fp/bursty",
+      "output_tps": 28.261608301084294,
+      "ttft_s": {
+        "p50": 0.1067332299426198,
+        "p90": 0.3581894198432565,
+        "p95": 0.3581894198432565,
+        "p99": 0.3581894198432565
+      },
+      "tpot_s": {
+        "p50": 0.0932639422826469,
+        "p90": 0.12003079914887037,
+        "p95": 0.12003079914887037,
+        "p99": 0.12003079914887037
+      },
+      "goodput_requests_s": 2.355134025090358,
+      "quality": {},
+      "rail_joules_token": 0.9910876030162795
+    },
+    {
+      "case": "k3/batch/native/0/fp/poisson",
+      "output_tps": 23.620320415926706,
+      "ttft_s": {
+        "p50": 0.14430923837429166,
+        "p90": 0.1696314571458411,
+        "p95": 0.17019485275201132,
+        "p99": 0.1706455692369475
+      },
+      "tpot_s": {
+        "p50": 0.09337746149062046,
+        "p90": 0.09558466838539711,
+        "p95": 0.09661002671678684,
+        "p99": 0.09743031338189861
+      },
+      "goodput_requests_s": 2.9525400519908382,
+      "quality": {},
+      "rail_joules_token": 1.1687583043795784
+    },
+    {
+      "case": "k3/mixed/native/0/fp/bursty",
+      "output_tps": 25.41775274514467,
+      "ttft_s": {
+        "p50": 0.10711585683748126,
+        "p90": 0.5471177571453154,
+        "p95": 0.5471177571453154,
+        "p99": 0.5471177571453154
+      },
+      "tpot_s": {
+        "p50": 0.12016668669613344,
+        "p90": 0.12018770199002964,
+        "p95": 0.12018770199002964,
+        "p99": 0.12018770199002964
+      },
+      "goodput_requests_s": 0.0,
+      "quality": {},
+      "rail_joules_token": 1.153983225984835
+    },
+    {
+      "case": "k3/conservative/native/0/fp/poisson",
+      "output_tps": 23.870957395922552,
+      "ttft_s": {
+        "p50": 0.14041004773357957,
+        "p90": 0.16572984636638516,
+        "p95": 0.17512907052137835,
+        "p99": 0.18264844984537293
+      },
+      "tpot_s": {
+        "p50": 0.09331220009231142,
+        "p90": 0.09439362060012563,
+        "p95": 0.0944382129569671,
+        "p99": 0.09447388684244028
+      },
+      "goodput_requests_s": 2.983869674490319,
+      "quality": {},
+      "rail_joules_token": 1.1552865383251243
+    },
+    {
+      "case": "k3/fp/grouped/1/fp/bursty",
+      "output_tps": 31.79925303726224,
+      "ttft_s": {
+        "p50": 0.10698056221008301,
+        "p90": 0.3590612509287894,
+        "p95": 0.3590612509287894,
+        "p99": 0.3590612509287894
+      },
+      "tpot_s": {
+        "p50": 0.09331262557368193,
+        "p90": 0.09331262557368193,
+        "p95": 0.09331262557368193,
+        "p99": 0.09331262557368193
+      },
+      "goodput_requests_s": 3.97490662965778,
+      "quality": {},
+      "rail_joules_token": 0.86417608837128
+    },
+    {
+      "case": "k3/batch/native/1/fp/poisson",
+      "output_tps": 23.558255652976243,
+      "ttft_s": {
+        "p50": 0.14653440665645778,
+        "p90": 0.1710301849092853,
+        "p95": 0.1714012867563874,
+        "p99": 0.1716981682340691
+      },
+      "tpot_s": {
+        "p50": 0.09367524599656463,
+        "p90": 0.09612208900840155,
+        "p95": 0.09712823921082807,
+        "p99": 0.0979331593727693
+      },
+      "goodput_requests_s": 2.9447819566220303,
+      "quality": {},
+      "rail_joules_token": 1.1674945733348072
+    },
+    {
+      "case": "k3/conservative/grouped/0/fp/bursty",
+      "output_tps": 31.761741748250063,
+      "ttft_s": {
+        "p50": 0.1071259081363678,
+        "p90": 0.3599706422537565,
+        "p95": 0.3599706422537565,
+        "p99": 0.3599706422537565
+      },
+      "tpot_s": {
+        "p50": 0.09342460899746843,
+        "p90": 0.09342460899746843,
+        "p95": 0.09342460899746843,
+        "p99": 0.09342460899746843
+      },
+      "goodput_requests_s": 3.970217718531258,
+      "quality": {},
+      "rail_joules_token": 0.865191907744823
+    },
+    {
+      "case": "k3/ptq/grouped/0/fp/bursty",
+      "output_tps": 47.2703822250211,
+      "ttft_s": {
+        "p50": 0.10665159998461604,
+        "p90": 0.1124327601864934,
+        "p95": 0.1124327601864934,
+        "p99": 0.1124327601864934
+      },
+      "tpot_s": {
+        "p50": 0.0579879327145006,
+        "p90": 0.0579879327145006,
+        "p95": 0.0579879327145006,
+        "p99": 0.0579879327145006
+      },
+      "goodput_requests_s": 5.908797778127638,
+      "quality": {},
+      "rail_joules_token": 0.5992075668527681
+    },
+    {
+      "case": "k3/fp/native/1/fp/poisson",
+      "output_tps": 23.303923493287716,
+      "ttft_s": {
+        "p50": 0.1227374859421348,
+        "p90": 0.1851197412070471,
+        "p95": 0.186007312522114,
+        "p99": 0.1867173695741675
+      },
+      "tpot_s": {
+        "p50": 0.0935759869004999,
+        "p90": 0.09420255358730044,
+        "p95": 0.09420255358730044,
+        "p99": 0.09420255358730044
+      },
+      "goodput_requests_s": 2.9129904366609645,
+      "quality": {},
+      "rail_joules_token": 1.1706288350708849
+    },
+    {
+      "case": "k3/fp/native/0/fp/bursty",
+      "output_tps": 31.752213645779005,
+      "ttft_s": {
+        "p50": 0.10694011487066746,
+        "p90": 0.36126438807696104,
+        "p95": 0.36126438807696104,
+        "p99": 0.36126438807696104
+      },
+      "tpot_s": {
+        "p50": 0.09363784587809018,
+        "p90": 0.09363784587809018,
+        "p95": 0.09363784587809018,
+        "p99": 0.09363784587809018
+      },
+      "goodput_requests_s": 3.9690267057223756,
+      "quality": {},
+      "rail_joules_token": 0.8617838721968001
+    },
+    {
+      "case": "k3/conservative/native/0/fp/bursty",
+      "output_tps": 31.73984086274545,
+      "ttft_s": {
+        "p50": 0.1070564049296081,
+        "p90": 0.35974585311487317,
+        "p95": 0.35974585311487317,
+        "p99": 0.35974585311487317
+      },
+      "tpot_s": {
+        "p50": 0.09339315417621817,
+        "p90": 0.09339315417621817,
+        "p95": 0.09339315417621817,
+        "p99": 0.09339315417621817
+      },
+      "goodput_requests_s": 3.967480107843181,
+      "quality": {},
+      "rail_joules_token": 0.8629288817838091
+    },
+    {
+      "case": "k3/mixed/native/0/fp/poisson",
+      "output_tps": 22.07105738447443,
+      "ttft_s": {
+        "p50": 0.15186875488221718,
+        "p90": 0.20258512572364434,
+        "p95": 0.20794869924975692,
+        "p99": 0.21223955807064698
+      },
+      "tpot_s": {
+        "p50": 0.12060558629621351,
+        "p90": 0.12092665127212449,
+        "p95": 0.12098525971772947,
+        "p99": 0.12103214647421347
+      },
+      "goodput_requests_s": 0.0,
+      "quality": {},
+      "rail_joules_token": 1.3091869578079025
+    },
+    {
+      "case": "k3/batch/grouped/0/fp/bursty",
+      "output_tps": 25.25315098676481,
+      "ttft_s": {
+        "p50": 0.10727586317807436,
+        "p90": 0.35929542500525713,
+        "p95": 0.35929542500525713,
+        "p99": 0.35929542500525713
+      },
+      "tpot_s": {
+        "p50": 0.09333421529403754,
+        "p90": 0.14217542377965792,
+        "p95": 0.14547667209990323,
+        "p99": 0.14811767075609947
+      },
+      "goodput_requests_s": 2.1044292488970675,
+      "quality": {},
+      "rail_joules_token": 1.0796365606325287
+    },
+    {
+      "case": "k3/conservative/grouped/0/fp/poisson",
+      "output_tps": 23.543143870071138,
+      "ttft_s": {
+        "p50": 0.16175688415026546,
+        "p90": 0.2658427345599544,
+        "p95": 0.2662391135276817,
+        "p99": 0.26655621670186364
+      },
+      "tpot_s": {
+        "p50": 0.113530353443431,
+        "p90": 0.13378738522130462,
+        "p95": 0.13380402418053045,
+        "p99": 0.13381733534791107
+      },
+      "goodput_requests_s": 0.49048216395981536,
+      "quality": {},
+      "rail_joules_token": 1.1465290494954952
+    },
+    {
+      "case": "k3/mixed/grouped/1/fp/bursty",
+      "output_tps": 21.62839515222974,
+      "ttft_s": {
+        "p50": 0.10683730058372021,
+        "p90": 0.6772053348831832,
+        "p95": 0.6772053348831832,
+        "p99": 0.6772053348831832
+      },
+      "tpot_s": {
+        "p50": 0.14482968257341,
+        "p90": 0.1662782978798662,
+        "p95": 0.1662782978798662,
+        "p99": 0.1662782978798662
+      },
+      "goodput_requests_s": 0.0,
+      "quality": {},
+      "rail_joules_token": 1.2458500767267702
+    },
+    {
+      "case": "k3/fp/grouped/1/fp/poisson",
+      "output_tps": 23.27839352469292,
+      "ttft_s": {
+        "p50": 0.12273239766124838,
+        "p90": 0.18478426414734006,
+        "p95": 0.18551901881567456,
+        "p99": 0.18610682255034217
+      },
+      "tpot_s": {
+        "p50": 0.10691779595799744,
+        "p90": 0.10751806997827121,
+        "p95": 0.10751806997827121,
+        "p99": 0.10751806997827121
+      },
+      "goodput_requests_s": 0.4849665317644358,
+      "quality": {},
+      "rail_joules_token": 1.1679725235012552
+    },
+    {
+      "case": "k3/conservative/native/1/fp/poisson",
+      "output_tps": 23.878415060466967,
+      "ttft_s": {
+        "p50": 0.142041696711798,
+        "p90": 0.16774950318847054,
+        "p95": 0.17714872734346374,
+        "p99": 0.1846681066674583
+      },
+      "tpot_s": {
+        "p50": 0.0930311111068087,
+        "p90": 0.09432977195163923,
+        "p95": 0.09439816327566015,
+        "p99": 0.0944528763348769
+      },
+      "goodput_requests_s": 2.984801882558371,
+      "quality": {},
+      "rail_joules_token": 1.1416181852810077
+    },
+    {
+      "case": "k3/fp/grouped/0/fp/poisson",
+      "output_tps": 23.33773166377546,
+      "ttft_s": {
+        "p50": 0.12103594702545756,
+        "p90": 0.18363212033367038,
+        "p95": 0.18407982764750042,
+        "p99": 0.18443799349856443
+      },
+      "tpot_s": {
+        "p50": 0.10673687686877592,
+        "p90": 0.10736253172425288,
+        "p95": 0.10736253172425288,
+        "p99": 0.10736253172425288
+      },
+      "goodput_requests_s": 0.4862027429953221,
+      "quality": {},
+      "rail_joules_token": 1.1681671113132082
+    },
+    {
+      "case": "k3/fp/native/1/fp/bursty",
+      "output_tps": 31.858532696965195,
+      "ttft_s": {
+        "p50": 0.10676571866497397,
+        "p90": 0.35790596902370453,
+        "p95": 0.35790596902370453,
+        "p99": 0.35790596902370453
+      },
+      "tpot_s": {
+        "p50": 0.0932129509081798,
+        "p90": 0.0932129509081798,
+        "p95": 0.0932129509081798,
+        "p99": 0.0932129509081798
+      },
+      "goodput_requests_s": 3.9823165871206494,
+      "quality": {},
+      "rail_joules_token": 0.8596134391182536
+    },
+    {
+      "case": "k3/batch/native/0/fp/bursty",
+      "output_tps": 28.247403144841044,
+      "ttft_s": {
+        "p50": 0.10684002423658967,
+        "p90": 0.35927628725767136,
+        "p95": 0.35927628725767136,
+        "p99": 0.35927628725767136
+      },
+      "tpot_s": {
+        "p50": 0.09339038329198956,
+        "p90": 0.11999755672046117,
+        "p95": 0.11999755672046117,
+        "p99": 0.11999755672046117
+      },
+      "goodput_requests_s": 2.353950262070087,
+      "quality": {},
+      "rail_joules_token": 0.9883666288241654
+    },
+    {
+      "case": "k3/ptq/native/0/fp/bursty",
+      "output_tps": 47.47929692007535,
+      "ttft_s": {
+        "p50": 0.10661851800978184,
+        "p90": 0.11041889293119311,
+        "p95": 0.11041889293119311,
+        "p99": 0.11041889293119311
+      },
+      "tpot_s": {
+        "p50": 0.05764779654730644,
+        "p90": 0.05764779654730644,
+        "p95": 0.05764779654730644,
+        "p99": 0.05764779654730644
+      },
+      "goodput_requests_s": 5.934912115009419,
+      "quality": {},
+      "rail_joules_token": 0.6013035722247703
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/poisson",
+      "output_tps": 18.33625685378274,
+      "ttft_s": {
+        "p50": 0.36750022131349264,
+        "p90": 0.43052260492603267,
+        "p95": 0.4471547883255931,
+        "p99": 0.4604605350452414
+      },
+      "tpot_s": {
+        "p50": 0.15899805950799156,
+        "p90": 0.17757397085162147,
+        "p95": 0.17770197871141136,
+        "p99": 0.17780438499924328
+      },
+      "goodput_requests_s": 0.0,
+      "quality": {},
+      "rail_joules_token": 1.4675300559652023
+    }
+  ],
+  "limits": [
+    "Shared device; eager experimental runtime, not production latency.",
+    "Externally assigned PTQ eligibility is not a confidence gate.",
+    "Small hand-written quality smoke is not a benchmark-quality claim.",
+    "Power is the named rail including other workloads, not isolated board energy."
+  ]
+}

@@ -1,0 +1,6 @@
+Range,Style,Total Proj Time (ns),Total Range Time (ns),Range Instances,Proj Avg (ns),Proj Med (ns),Proj Min (ns),Proj Max (ns),Proj StdDev (ns),Total GPU Ops,Avg GPU Ops,Avg Range Lvl,Avg Num Child
+:riveredge_static_ptq_tail_cudagraph,PushPop,4156565312,13055471488,1,4156565312.0,4156565312.0,4156565312,4156565312,0.0,3951,3951.0,0.0,1.0
+:riveredge_static_ptq_tail_cudagraph_batch2,PushPop,4156565312,4159082784,1,4156565312.0,4156565312.0,4156565312,4156565312,0.0,3951,3951.0,1.0,3.0
+:riveredge_static_ptq_tail_cudagraph_batch2_iter2,PushPop,1384303200,1386783200,1,1384303200.0,1384303200.0,1384303200,1384303200,0.0,1317,1317.0,2.0,0.0
+:riveredge_static_ptq_tail_cudagraph_batch2_iter1,PushPop,1384108224,1386436512,1,1384108224.0,1384108224.0,1384108224,1384108224,0.0,1317,1317.0,2.0,0.0
+:riveredge_static_ptq_tail_cudagraph_batch2_iter0,PushPop,1383414592,1385784288,1,1383414592.0,1383414592.0,1383414592,1383414592,0.0,1317,1317.0,2.0,0.0

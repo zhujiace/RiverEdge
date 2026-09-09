@@ -1,0 +1,952 @@
+{
+  "schema_version": 1,
+  "model": "/models/Llama-3.1-8B-Instruct-riveredge-fp-hqq",
+  "mode": "full_fp",
+  "execution_mode": "cudagraph",
+  "detail": "runtime",
+  "exit_layer": 3,
+  "dtype": "bfloat16",
+  "prompt_tokens": 85,
+  "max_new_tokens": 4,
+  "warmup": 1,
+  "initialization_s": 65.37967887206469,
+  "cuda_profiler_api": false,
+  "baseline": {
+    "summary": {
+      "requests": 1,
+      "add_request_ms": {
+        "mean": 1.320767,
+        "median": 1.320767,
+        "min": 1.320767,
+        "max": 1.320767
+      },
+      "e2e_ms": {
+        "mean": 379.484917,
+        "median": 379.484917,
+        "min": 379.484917,
+        "max": 379.484917
+      },
+      "ttft_ms": {
+        "mean": 115.870339,
+        "median": 115.870339,
+        "min": 115.870339,
+        "max": 115.870339
+      },
+      "strict_tpot_ms": {
+        "mean": 87.871526,
+        "median": 87.871526,
+        "min": 87.871526,
+        "max": 87.871526
+      },
+      "inter_token_p99_ms": {
+        "mean": 87.96487207999999,
+        "median": 87.96487207999999,
+        "min": 87.96487207999999,
+        "max": 87.96487207999999
+      },
+      "end_to_end_output_tps": {
+        "mean": 10.54060338319059,
+        "median": 10.54060338319059,
+        "min": 10.54060338319059,
+        "max": 10.54060338319059
+      }
+    },
+    "requests": [
+      {
+        "request_index": 0,
+        "request_id": "baseline-0",
+        "add_request_ms": 1.320767,
+        "e2e_ms": 379.484917,
+        "ttft_ms": 115.870339,
+        "strict_tpot_ms": 87.871526,
+        "inter_token_p50_ms": 87.885937,
+        "inter_token_p90_ms": 87.9503738,
+        "inter_token_p99_ms": 87.96487207999999,
+        "finalization_after_last_token_ms": 0.0,
+        "output_tokens": 4,
+        "end_to_end_output_tps": 10.54060338319059,
+        "token_ids": [
+          578,
+          4062,
+          14198,
+          39935
+        ],
+        "text": " The quick brown fox",
+        "step_rows": [
+          {
+            "step_index": 0,
+            "phase": "prefill",
+            "wall_ms": 38.862449,
+            "emitted_tokens": 0,
+            "finished": false
+          },
+          {
+            "step_index": 1,
+            "phase": "decode",
+            "wall_ms": 75.674002,
+            "emitted_tokens": 1,
+            "finished": false
+          },
+          {
+            "step_index": 2,
+            "phase": "decode",
+            "wall_ms": 87.871505,
+            "emitted_tokens": 1,
+            "finished": false
+          },
+          {
+            "step_index": 3,
+            "phase": "decode",
+            "wall_ms": 87.740142,
+            "emitted_tokens": 1,
+            "finished": false
+          },
+          {
+            "step_index": 4,
+            "phase": "decode",
+            "wall_ms": 87.951443,
+            "emitted_tokens": 1,
+            "finished": true
+          }
+        ],
+        "token_arrival_ms": [
+          115.870339,
+          203.756276,
+          291.518434,
+          379.484917
+        ]
+      }
+    ]
+  },
+  "profiled": {
+    "summary": {
+      "requests": 1,
+      "add_request_ms": {
+        "mean": 1.012984,
+        "median": 1.012984,
+        "min": 1.012984,
+        "max": 1.012984
+      },
+      "e2e_ms": {
+        "mean": 381.251902,
+        "median": 381.251902,
+        "min": 381.251902,
+        "max": 381.251902
+      },
+      "ttft_ms": {
+        "mean": 117.627244,
+        "median": 117.627244,
+        "min": 117.627244,
+        "max": 117.627244
+      },
+      "strict_tpot_ms": {
+        "mean": 87.874886,
+        "median": 87.874886,
+        "min": 87.874886,
+        "max": 87.874886
+      },
+      "inter_token_p99_ms": {
+        "mean": 87.93898118000001,
+        "median": 87.93898118000001,
+        "min": 87.93898118000001,
+        "max": 87.93898118000001
+      },
+      "end_to_end_output_tps": {
+        "mean": 10.491750936891064,
+        "median": 10.491750936891064,
+        "min": 10.491750936891064,
+        "max": 10.491750936891064
+      }
+    },
+    "requests": [
+      {
+        "request_index": 0,
+        "request_id": "profile-0",
+        "add_request_ms": 1.012984,
+        "e2e_ms": 381.251902,
+        "ttft_ms": 117.627244,
+        "strict_tpot_ms": 87.874886,
+        "inter_token_p50_ms": 87.874065,
+        "inter_token_p90_ms": 87.9270578,
+        "inter_token_p99_ms": 87.93898118000001,
+        "finalization_after_last_token_ms": 0.0,
+        "output_tokens": 4,
+        "end_to_end_output_tps": 10.491750936891064,
+        "token_ids": [
+          578,
+          4062,
+          14198,
+          39935
+        ],
+        "text": " The quick brown fox",
+        "step_rows": [
+          {
+            "step_index": 0,
+            "phase": "prefill",
+            "wall_ms": 39.931594,
+            "emitted_tokens": 0,
+            "finished": false
+          },
+          {
+            "step_index": 1,
+            "phase": "decode",
+            "wall_ms": 75.23108,
+            "emitted_tokens": 1,
+            "finished": false
+          },
+          {
+            "step_index": 2,
+            "phase": "decode",
+            "wall_ms": 87.792303,
+            "emitted_tokens": 1,
+            "finished": false
+          },
+          {
+            "step_index": 3,
+            "phase": "decode",
+            "wall_ms": 87.922705,
+            "emitted_tokens": 1,
+            "finished": false
+          },
+          {
+            "step_index": 4,
+            "phase": "idle",
+            "wall_ms": 87.856016,
+            "emitted_tokens": 1,
+            "finished": true
+          }
+        ],
+        "token_arrival_ms": [
+          117.627244,
+          205.437531,
+          293.377837,
+          381.251902
+        ]
+      }
+    ],
+    "cpu_events": [
+      {
+        "request_index": 0,
+        "step_index": -1,
+        "phase": "request",
+        "stage": "cpu.request.input_processing",
+        "start_ms": 1.727208,
+        "duration_ms": 0.825748
+      },
+      {
+        "request_index": 0,
+        "step_index": -1,
+        "phase": "request",
+        "stage": "cpu.request.engine_preprocess",
+        "start_ms": 2.665694,
+        "duration_ms": 0.039745
+      },
+      {
+        "request_index": 0,
+        "step_index": 0,
+        "phase": "unknown",
+        "stage": "cpu.scheduler.schedule",
+        "start_ms": 2.740032,
+        "duration_ms": 0.148484
+      },
+      {
+        "request_index": 0,
+        "step_index": 0,
+        "phase": "prefill",
+        "stage": "cpu.runner.update_states",
+        "start_ms": 2.954629,
+        "duration_ms": 0.505484
+      },
+      {
+        "request_index": 0,
+        "step_index": 0,
+        "phase": "prefill",
+        "stage": "runtime.prepare_inputs",
+        "start_ms": 3.501106,
+        "duration_ms": 1.488675
+      },
+      {
+        "request_index": 0,
+        "step_index": 0,
+        "phase": "prefill",
+        "stage": "cpu.runner.select_execution_shape",
+        "start_ms": 4.999989,
+        "duration_ms": 0.039105
+      },
+      {
+        "request_index": 0,
+        "step_index": 0,
+        "phase": "prefill",
+        "stage": "runtime.slot_mappings",
+        "start_ms": 5.068439,
+        "duration_ms": 0.055297
+      },
+      {
+        "request_index": 0,
+        "step_index": 0,
+        "phase": "prefill",
+        "stage": "runtime.prepare_attn_metadata",
+        "start_ms": 5.13244,
+        "duration_ms": 0.273639
+      },
+      {
+        "request_index": 0,
+        "step_index": 0,
+        "phase": "prefill",
+        "stage": "runtime.preprocess_model_inputs",
+        "start_ms": 5.412703,
+        "duration_ms": 0.034049
+      },
+      {
+        "request_index": 0,
+        "step_index": 0,
+        "phase": "prefill",
+        "stage": "gpu.model_forward",
+        "start_ms": 5.506977,
+        "duration_ms": 35.620645
+      },
+      {
+        "request_index": 0,
+        "step_index": 0,
+        "phase": "prefill",
+        "stage": "gpu.compute_logits",
+        "start_ms": 41.30257,
+        "duration_ms": 0.245318
+      },
+      {
+        "request_index": 0,
+        "step_index": 0,
+        "phase": "prefill",
+        "stage": "cpu.executor.submit_model",
+        "start_ms": 2.899076,
+        "duration_ms": 38.74603
+      },
+      {
+        "request_index": 0,
+        "step_index": 0,
+        "phase": "prefill",
+        "stage": "cpu.scheduler.grammar_mask",
+        "start_ms": 41.65797,
+        "duration_ms": 0.003777
+      },
+      {
+        "request_index": 0,
+        "step_index": 0,
+        "phase": "prefill",
+        "stage": "gpu.sampler",
+        "start_ms": 41.706772,
+        "duration_ms": 0.441642
+      },
+      {
+        "request_index": 0,
+        "step_index": 0,
+        "phase": "prefill",
+        "stage": "gpu.sample_postprocess",
+        "start_ms": 42.157438,
+        "duration_ms": 0.054241
+      },
+      {
+        "request_index": 0,
+        "step_index": 0,
+        "phase": "prefill",
+        "stage": "cpu.executor.sample_and_sync",
+        "start_ms": 41.666163,
+        "duration_ms": 0.896405
+      },
+      {
+        "request_index": 0,
+        "step_index": 0,
+        "phase": "prefill",
+        "stage": "cpu.scheduler.update_output",
+        "start_ms": 42.601609,
+        "duration_ms": 0.017312
+      },
+      {
+        "request_index": 0,
+        "step_index": 0,
+        "phase": "prefill",
+        "stage": "cpu.output.process_and_detokenize",
+        "start_ms": 42.64481,
+        "duration_ms": 0.006464
+      },
+      {
+        "request_index": 0,
+        "step_index": 1,
+        "phase": "unknown",
+        "stage": "cpu.scheduler.schedule",
+        "start_ms": 42.692107,
+        "duration_ms": 0.116226
+      },
+      {
+        "request_index": 0,
+        "step_index": 1,
+        "phase": "decode",
+        "stage": "cpu.runner.update_states",
+        "start_ms": 42.866127,
+        "duration_ms": 0.047969
+      },
+      {
+        "request_index": 0,
+        "step_index": 1,
+        "phase": "decode",
+        "stage": "runtime.prepare_inputs",
+        "start_ms": 43.028403,
+        "duration_ms": 1.486307
+      },
+      {
+        "request_index": 0,
+        "step_index": 1,
+        "phase": "decode",
+        "stage": "cpu.runner.select_execution_shape",
+        "start_ms": 44.526774,
+        "duration_ms": 0.066209
+      },
+      {
+        "request_index": 0,
+        "step_index": 1,
+        "phase": "decode",
+        "stage": "runtime.slot_mappings",
+        "start_ms": 44.639577,
+        "duration_ms": 0.063073
+      },
+      {
+        "request_index": 0,
+        "step_index": 1,
+        "phase": "decode",
+        "stage": "runtime.prepare_attn_metadata",
+        "start_ms": 44.711354,
+        "duration_ms": 0.252454
+      },
+      {
+        "request_index": 0,
+        "step_index": 1,
+        "phase": "decode",
+        "stage": "runtime.preprocess_model_inputs",
+        "start_ms": 44.970432,
+        "duration_ms": 0.029121
+      },
+      {
+        "request_index": 0,
+        "step_index": 1,
+        "phase": "decode",
+        "stage": "gpu.model_forward",
+        "start_ms": 45.059106,
+        "duration_ms": 0.16698
+      },
+      {
+        "request_index": 0,
+        "step_index": 1,
+        "phase": "decode",
+        "stage": "gpu.compute_logits",
+        "start_ms": 45.359881,
+        "duration_ms": 0.251622
+      },
+      {
+        "request_index": 0,
+        "step_index": 1,
+        "phase": "decode",
+        "stage": "cpu.executor.submit_model",
+        "start_ms": 42.817198,
+        "duration_ms": 2.871235
+      },
+      {
+        "request_index": 0,
+        "step_index": 1,
+        "phase": "decode",
+        "stage": "cpu.scheduler.grammar_mask",
+        "start_ms": 45.698993,
+        "duration_ms": 0.00368
+      },
+      {
+        "request_index": 0,
+        "step_index": 1,
+        "phase": "decode",
+        "stage": "gpu.sampler",
+        "start_ms": 45.736146,
+        "duration_ms": 0.407882
+      },
+      {
+        "request_index": 0,
+        "step_index": 1,
+        "phase": "decode",
+        "stage": "gpu.sample_postprocess",
+        "start_ms": 46.152476,
+        "duration_ms": 0.051777
+      },
+      {
+        "request_index": 0,
+        "step_index": 1,
+        "phase": "decode",
+        "stage": "cpu.executor.sample_and_sync",
+        "start_ms": 45.70693,
+        "duration_ms": 0.77957
+      },
+      {
+        "request_index": 0,
+        "step_index": 1,
+        "phase": "decode",
+        "stage": "cpu.scheduler.update_output",
+        "start_ms": 117.565994,
+        "duration_ms": 0.089698
+      },
+      {
+        "request_index": 0,
+        "step_index": 1,
+        "phase": "decode",
+        "stage": "cpu.output.process_and_detokenize",
+        "start_ms": 117.72443,
+        "duration_ms": 0.166916
+      },
+      {
+        "request_index": 0,
+        "step_index": 2,
+        "phase": "unknown",
+        "stage": "cpu.scheduler.schedule",
+        "start_ms": 117.941875,
+        "duration_ms": 0.116035
+      },
+      {
+        "request_index": 0,
+        "step_index": 2,
+        "phase": "decode",
+        "stage": "cpu.runner.update_states",
+        "start_ms": 118.137815,
+        "duration_ms": 0.052258
+      },
+      {
+        "request_index": 0,
+        "step_index": 2,
+        "phase": "decode",
+        "stage": "runtime.prepare_inputs",
+        "start_ms": 118.258394,
+        "duration_ms": 1.659751
+      },
+      {
+        "request_index": 0,
+        "step_index": 2,
+        "phase": "decode",
+        "stage": "cpu.runner.select_execution_shape",
+        "start_ms": 119.929218,
+        "duration_ms": 0.056673
+      },
+      {
+        "request_index": 0,
+        "step_index": 2,
+        "phase": "decode",
+        "stage": "runtime.slot_mappings",
+        "start_ms": 120.017444,
+        "duration_ms": 0.058881
+      },
+      {
+        "request_index": 0,
+        "step_index": 2,
+        "phase": "decode",
+        "stage": "runtime.prepare_attn_metadata",
+        "start_ms": 120.085701,
+        "duration_ms": 0.253126
+      },
+      {
+        "request_index": 0,
+        "step_index": 2,
+        "phase": "decode",
+        "stage": "runtime.preprocess_model_inputs",
+        "start_ms": 120.345579,
+        "duration_ms": 0.031201
+      },
+      {
+        "request_index": 0,
+        "step_index": 2,
+        "phase": "decode",
+        "stage": "gpu.model_forward",
+        "start_ms": 120.436525,
+        "duration_ms": 0.158692
+      },
+      {
+        "request_index": 0,
+        "step_index": 2,
+        "phase": "decode",
+        "stage": "gpu.compute_logits",
+        "start_ms": 120.714516,
+        "duration_ms": 0.27511
+      },
+      {
+        "request_index": 0,
+        "step_index": 2,
+        "phase": "decode",
+        "stage": "cpu.executor.submit_model",
+        "start_ms": 118.067734,
+        "duration_ms": 2.990022
+      },
+      {
+        "request_index": 0,
+        "step_index": 2,
+        "phase": "decode",
+        "stage": "cpu.scheduler.grammar_mask",
+        "start_ms": 121.067356,
+        "duration_ms": 0.003328
+      },
+      {
+        "request_index": 0,
+        "step_index": 2,
+        "phase": "decode",
+        "stage": "gpu.sampler",
+        "start_ms": 121.102397,
+        "duration_ms": 0.442891
+      },
+      {
+        "request_index": 0,
+        "step_index": 2,
+        "phase": "decode",
+        "stage": "gpu.sample_postprocess",
+        "start_ms": 121.553672,
+        "duration_ms": 0.055137
+      },
+      {
+        "request_index": 0,
+        "step_index": 2,
+        "phase": "decode",
+        "stage": "cpu.executor.sample_and_sync",
+        "start_ms": 121.073884,
+        "duration_ms": 0.824564
+      },
+      {
+        "request_index": 0,
+        "step_index": 2,
+        "phase": "decode",
+        "stage": "cpu.scheduler.update_output",
+        "start_ms": 205.486268,
+        "duration_ms": 0.076962
+      },
+      {
+        "request_index": 0,
+        "step_index": 2,
+        "phase": "decode",
+        "stage": "cpu.output.process_and_detokenize",
+        "start_ms": 205.627007,
+        "duration_ms": 0.075842
+      },
+      {
+        "request_index": 0,
+        "step_index": 3,
+        "phase": "unknown",
+        "stage": "cpu.scheduler.schedule",
+        "start_ms": 205.751234,
+        "duration_ms": 0.112483
+      },
+      {
+        "request_index": 0,
+        "step_index": 3,
+        "phase": "decode",
+        "stage": "cpu.runner.update_states",
+        "start_ms": 205.936518,
+        "duration_ms": 0.051042
+      },
+      {
+        "request_index": 0,
+        "step_index": 3,
+        "phase": "decode",
+        "stage": "runtime.prepare_inputs",
+        "start_ms": 206.050473,
+        "duration_ms": 1.581381
+      },
+      {
+        "request_index": 0,
+        "step_index": 3,
+        "phase": "decode",
+        "stage": "cpu.runner.select_execution_shape",
+        "start_ms": 207.643855,
+        "duration_ms": 0.052545
+      },
+      {
+        "request_index": 0,
+        "step_index": 3,
+        "phase": "decode",
+        "stage": "runtime.slot_mappings",
+        "start_ms": 207.725648,
+        "duration_ms": 0.055746
+      },
+      {
+        "request_index": 0,
+        "step_index": 3,
+        "phase": "decode",
+        "stage": "runtime.prepare_attn_metadata",
+        "start_ms": 207.790514,
+        "duration_ms": 0.241894
+      },
+      {
+        "request_index": 0,
+        "step_index": 3,
+        "phase": "decode",
+        "stage": "runtime.preprocess_model_inputs",
+        "start_ms": 208.03948,
+        "duration_ms": 0.032481
+      },
+      {
+        "request_index": 0,
+        "step_index": 3,
+        "phase": "decode",
+        "stage": "gpu.model_forward",
+        "start_ms": 208.153178,
+        "duration_ms": 0.147716
+      },
+      {
+        "request_index": 0,
+        "step_index": 3,
+        "phase": "decode",
+        "stage": "gpu.compute_logits",
+        "start_ms": 208.415137,
+        "duration_ms": 0.277798
+      },
+      {
+        "request_index": 0,
+        "step_index": 3,
+        "phase": "decode",
+        "stage": "cpu.executor.submit_model",
+        "start_ms": 205.873253,
+        "duration_ms": 2.885348
+      },
+      {
+        "request_index": 0,
+        "step_index": 3,
+        "phase": "decode",
+        "stage": "cpu.scheduler.grammar_mask",
+        "start_ms": 208.767913,
+        "duration_ms": 0.00336
+      },
+      {
+        "request_index": 0,
+        "step_index": 3,
+        "phase": "decode",
+        "stage": "gpu.sampler",
+        "start_ms": 208.804266,
+        "duration_ms": 0.418282
+      },
+      {
+        "request_index": 0,
+        "step_index": 3,
+        "phase": "decode",
+        "stage": "gpu.sample_postprocess",
+        "start_ms": 209.23154,
+        "duration_ms": 0.054145
+      },
+      {
+        "request_index": 0,
+        "step_index": 3,
+        "phase": "decode",
+        "stage": "cpu.executor.sample_and_sync",
+        "start_ms": 208.774729,
+        "duration_ms": 0.839348
+      },
+      {
+        "request_index": 0,
+        "step_index": 3,
+        "phase": "decode",
+        "stage": "cpu.scheduler.update_output",
+        "start_ms": 293.422062,
+        "duration_ms": 0.076386
+      },
+      {
+        "request_index": 0,
+        "step_index": 3,
+        "phase": "decode",
+        "stage": "cpu.output.process_and_detokenize",
+        "start_ms": 293.567985,
+        "duration_ms": 0.074786
+      },
+      {
+        "request_index": 0,
+        "step_index": 4,
+        "phase": "unknown",
+        "stage": "cpu.scheduler.schedule",
+        "start_ms": 293.68866,
+        "duration_ms": 0.054818
+      },
+      {
+        "request_index": 0,
+        "step_index": 4,
+        "phase": "idle",
+        "stage": "cpu.runner.update_states",
+        "start_ms": 293.812439,
+        "duration_ms": 0.345384
+      },
+      {
+        "request_index": 0,
+        "step_index": 4,
+        "phase": "idle",
+        "stage": "cpu.executor.submit_model",
+        "start_ms": 293.753014,
+        "duration_ms": 0.467563
+      },
+      {
+        "request_index": 0,
+        "step_index": 4,
+        "phase": "idle",
+        "stage": "cpu.scheduler.update_output",
+        "start_ms": 381.287903,
+        "duration_ms": 0.111714
+      },
+      {
+        "request_index": 0,
+        "step_index": 4,
+        "phase": "idle",
+        "stage": "cpu.output.process_and_detokenize",
+        "start_ms": 381.451266,
+        "duration_ms": 0.06733
+      }
+    ],
+    "gpu_events": [
+      {
+        "request_index": 0,
+        "step_index": 0,
+        "phase": "prefill",
+        "stage": "runtime.prepare_inputs",
+        "duration_ms": 1.2581759691238403
+      },
+      {
+        "request_index": 0,
+        "step_index": 0,
+        "phase": "prefill",
+        "stage": "gpu.model_forward",
+        "duration_ms": 105.92880249023438
+      },
+      {
+        "request_index": 0,
+        "step_index": 0,
+        "phase": "prefill",
+        "stage": "gpu.compute_logits",
+        "duration_ms": 5.8908162117004395
+      },
+      {
+        "request_index": 0,
+        "step_index": 0,
+        "phase": "prefill",
+        "stage": "gpu.sampler",
+        "duration_ms": 0.08265600353479385
+      },
+      {
+        "request_index": 0,
+        "step_index": 0,
+        "phase": "prefill",
+        "stage": "gpu.sample_postprocess",
+        "duration_ms": 0.0007680000271648169
+      },
+      {
+        "request_index": 0,
+        "step_index": 1,
+        "phase": "decode",
+        "stage": "runtime.prepare_inputs",
+        "duration_ms": 0.05567999929189682
+      },
+      {
+        "request_index": 0,
+        "step_index": 1,
+        "phase": "decode",
+        "stage": "gpu.model_forward",
+        "duration_ms": 81.86988830566406
+      },
+      {
+        "request_index": 0,
+        "step_index": 1,
+        "phase": "decode",
+        "stage": "gpu.compute_logits",
+        "duration_ms": 5.8895039558410645
+      },
+      {
+        "request_index": 0,
+        "step_index": 1,
+        "phase": "decode",
+        "stage": "gpu.sampler",
+        "duration_ms": 0.0830719992518425
+      },
+      {
+        "request_index": 0,
+        "step_index": 1,
+        "phase": "decode",
+        "stage": "gpu.sample_postprocess",
+        "duration_ms": 0.0007999999797903001
+      },
+      {
+        "request_index": 0,
+        "step_index": 2,
+        "phase": "decode",
+        "stage": "runtime.prepare_inputs",
+        "duration_ms": 0.055296000093221664
+      },
+      {
+        "request_index": 0,
+        "step_index": 2,
+        "phase": "decode",
+        "stage": "gpu.model_forward",
+        "duration_ms": 81.8752670288086
+      },
+      {
+        "request_index": 0,
+        "step_index": 2,
+        "phase": "decode",
+        "stage": "gpu.compute_logits",
+        "duration_ms": 5.885248184204102
+      },
+      {
+        "request_index": 0,
+        "step_index": 2,
+        "phase": "decode",
+        "stage": "gpu.sampler",
+        "duration_ms": 0.08284799754619598
+      },
+      {
+        "request_index": 0,
+        "step_index": 2,
+        "phase": "decode",
+        "stage": "gpu.sample_postprocess",
+        "duration_ms": 0.0009919999865815043
+      },
+      {
+        "request_index": 0,
+        "step_index": 3,
+        "phase": "decode",
+        "stage": "runtime.prepare_inputs",
+        "duration_ms": 0.0737600028514862
+      },
+      {
+        "request_index": 0,
+        "step_index": 3,
+        "phase": "decode",
+        "stage": "gpu.model_forward",
+        "duration_ms": 81.8447036743164
+      },
+      {
+        "request_index": 0,
+        "step_index": 3,
+        "phase": "decode",
+        "stage": "gpu.compute_logits",
+        "duration_ms": 5.878176212310791
+      },
+      {
+        "request_index": 0,
+        "step_index": 3,
+        "phase": "decode",
+        "stage": "gpu.sampler",
+        "duration_ms": 0.08320000022649765
+      },
+      {
+        "request_index": 0,
+        "step_index": 3,
+        "phase": "decode",
+        "stage": "gpu.sample_postprocess",
+        "duration_ms": 0.0008960000122897327
+      }
+    ],
+    "warnings": [
+      "missing stage target: cpu.runner.update_pp",
+      "missing stage target: cpu.runner.finish_requests",
+      "missing stage target: cpu.runner.free_states",
+      "missing stage target: cpu.runner.add_requests",
+      "missing stage target: cpu.runner.update_requests",
+      "missing stage target: runtime.block_table_writes",
+      "missing stage target: runtime.prepare_inputs",
+      "missing stage target: runtime.prepare_attn_metadata",
+      "missing stage target: runtime.model_attention_metadata",
+      "missing stage target: gpu.sample_postprocess"
+    ]
+  }
+}

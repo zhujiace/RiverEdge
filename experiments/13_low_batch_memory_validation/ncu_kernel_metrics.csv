@@ -1,0 +1,3 @@
+mode,kernel,grid_size,block_size,compute_memory_throughput_pct,duration_ns,device_fill_sectors,l2_bytes,l2_bytes_per_s,sm_throughput_pct,sm_issue_pct,tensor_cycles_pct,warps_active_pct,duration_ms,l2_traffic_mb,l2_throughput_gb_s
+full_fp,ampere_bf16_s16816gemm_bf16_64x64_sliced1x2_ldg8_f2f_stages_64x5_tn,"(448, 1, 1)","(128, 1, 1)",91.42,3843296.0,0.0,238652320.0,62095742820.75,39.1,14.94,39.1,16.5,3.843296,238.65232,62.095743
+static_ptq_tail,"void tinygemm_m16n8k16_chunk_kernel<ALayout_RM<0>, BLayout_TC_int4<8, 64>, ALayout_RM<0>, 8, 8>(const void *, const void *, const void *, void *, int, int, int, int, int, int)","(1, 3584, 1)","(32, 8, 1)",70.37,1480672.0,0.0,66810304.0,45121609647.51,78.61,79.19,25.31,62.98,1.480672,66.810304,45.12161

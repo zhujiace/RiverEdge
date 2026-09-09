@@ -1,0 +1,424 @@
+{
+  "schema_version": 3,
+  "checks": [
+    {
+      "case": "run",
+      "check": "nonempty_unique_cases",
+      "pass": true
+    },
+    {
+      "case": "run",
+      "check": "expected_case_matrix",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/simultaneous",
+      "check": "request_set_complete",
+      "pass": true,
+      "expected_source": "case_manifest"
+    },
+    {
+      "case": "k3/mixed/native/0/fp/simultaneous",
+      "check": "delivery_records_valid",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/simultaneous",
+      "check": "output_token_count_matches",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/simultaneous",
+      "check": "scheduler_trace_complete",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/simultaneous",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/simultaneous",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/native/0/fp/simultaneous",
+      "check": "request_set_complete",
+      "pass": true,
+      "expected_source": "case_manifest"
+    },
+    {
+      "case": "k3/fp/native/0/fp/simultaneous",
+      "check": "delivery_records_valid",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/native/0/fp/simultaneous",
+      "check": "output_token_count_matches",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/native/0/fp/simultaneous",
+      "check": "scheduler_trace_complete",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/native/0/fp/simultaneous",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/native/0/fp/simultaneous",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/simultaneous",
+      "check": "request_set_complete",
+      "pass": true,
+      "expected_source": "case_manifest"
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/simultaneous",
+      "check": "delivery_records_valid",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/simultaneous",
+      "check": "output_token_count_matches",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/simultaneous",
+      "check": "scheduler_trace_complete",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/simultaneous",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/simultaneous",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/simultaneous",
+      "check": "homogeneous_phase_route_steps",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/grouped/0/fp/simultaneous",
+      "check": "request_set_complete",
+      "pass": true,
+      "expected_source": "case_manifest"
+    },
+    {
+      "case": "k3/ptq/grouped/0/fp/simultaneous",
+      "check": "delivery_records_valid",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/grouped/0/fp/simultaneous",
+      "check": "output_token_count_matches",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/grouped/0/fp/simultaneous",
+      "check": "scheduler_trace_complete",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/grouped/0/fp/simultaneous",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/grouped/0/fp/simultaneous",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/grouped/0/fp/simultaneous",
+      "check": "homogeneous_phase_route_steps",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/grouped/0/fp/simultaneous",
+      "check": "request_set_complete",
+      "pass": true,
+      "expected_source": "case_manifest"
+    },
+    {
+      "case": "k3/fp/grouped/0/fp/simultaneous",
+      "check": "delivery_records_valid",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/grouped/0/fp/simultaneous",
+      "check": "output_token_count_matches",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/grouped/0/fp/simultaneous",
+      "check": "scheduler_trace_complete",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/grouped/0/fp/simultaneous",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/grouped/0/fp/simultaneous",
+      "check": "all_requests_finished",
+      "pass": true
+    },
+    {
+      "case": "k3/fp/grouped/0/fp/simultaneous",
+      "check": "homogeneous_phase_route_steps",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/0/fp/simultaneous",
+      "check": "request_set_complete",
+      "pass": true,
+      "expected_source": "case_manifest"
+    },
+    {
+      "case": "k3/ptq/native/0/fp/simultaneous",
+      "check": "delivery_records_valid",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/0/fp/simultaneous",
+      "check": "output_token_count_matches",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/0/fp/simultaneous",
+      "check": "scheduler_trace_complete",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/0/fp/simultaneous",
+      "check": "prefill_always_fp",
+      "pass": true
+    },
+    {
+      "case": "k3/ptq/native/0/fp/simultaneous",
+      "check": "all_requests_finished",
+      "pass": true
+    }
+  ],
+  "all_contracts_pass": true,
+  "structural_checks_pass": true,
+  "analysis_pass": true,
+  "warnings": [],
+  "output_comparison": {
+    "status": "exact_match",
+    "expected_pairs": 8,
+    "compared_pairs": 8,
+    "unequal_pairs": 0,
+    "pairing_complete": true,
+    "errors": []
+  },
+  "mixed_static_pairs": [
+    {
+      "case": "k3/mixed/native/0/fp/simultaneous",
+      "baseline_case": "3/ptq/native/0/fp/simultaneous",
+      "request_id": "request-0",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/simultaneous",
+      "baseline_case": "3/fp/native/0/fp/simultaneous",
+      "request_id": "request-1",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/simultaneous",
+      "baseline_case": "3/ptq/native/0/fp/simultaneous",
+      "request_id": "request-2",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/native/0/fp/simultaneous",
+      "baseline_case": "3/fp/native/0/fp/simultaneous",
+      "request_id": "request-3",
+      "scheduler": "native",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/simultaneous",
+      "baseline_case": "3/ptq/native/0/fp/simultaneous",
+      "request_id": "request-0",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/simultaneous",
+      "baseline_case": "3/fp/native/0/fp/simultaneous",
+      "request_id": "request-1",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/simultaneous",
+      "baseline_case": "3/ptq/native/0/fp/simultaneous",
+      "request_id": "request-2",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "ptq",
+      "token_equal": true
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/simultaneous",
+      "baseline_case": "3/fp/native/0/fp/simultaneous",
+      "request_id": "request-3",
+      "scheduler": "grouped",
+      "exit_layer": 3,
+      "route": "fp",
+      "token_equal": true
+    }
+  ],
+  "table": [
+    {
+      "case": "k3/mixed/native/0/fp/simultaneous",
+      "output_tps": 17.0069939577759,
+      "ttft_s": {
+        "p50": 0.5720530156977475,
+        "p90": 1.0417573852464557,
+        "p95": 1.0417573852464557,
+        "p99": 1.0417573852464557
+      },
+      "tpot_s": {
+        "p50": 0.12002589433853114,
+        "p90": 0.12007987765329224,
+        "p95": 0.12007987765329224,
+        "p99": 0.12007987765329224
+      },
+      "goodput_requests_s": 0.0,
+      "quality": {},
+      "rail_joules_token": 1.5687664549769256
+    },
+    {
+      "case": "k3/fp/native/0/fp/simultaneous",
+      "output_tps": 21.253776955440866,
+      "ttft_s": {
+        "p50": 0.47702561831101775,
+        "p90": 0.8528909496963024,
+        "p95": 0.8528909496963024,
+        "p99": 0.8528909496963024
+      },
+      "tpot_s": {
+        "p50": 0.09323585113244398,
+        "p90": 0.09324453784418958,
+        "p95": 0.09324453784418958,
+        "p99": 0.09324453784418958
+      },
+      "goodput_requests_s": 2.6567221194301083,
+      "quality": {},
+      "rail_joules_token": 1.27565071236745
+    },
+    {
+      "case": "k3/mixed/grouped/0/fp/simultaneous",
+      "output_tps": 13.507383387357317,
+      "ttft_s": {
+        "p50": 0.622053827624768,
+        "p90": 1.27298214007169,
+        "p95": 1.3008374031633139,
+        "p99": 1.3231216136366128
+      },
+      "tpot_s": {
+        "p50": 0.15529261615925602,
+        "p90": 0.16203412458832775,
+        "p95": 0.1620498001841562,
+        "p99": 0.16206234066081898
+      },
+      "goodput_requests_s": 0.0,
+      "quality": {},
+      "rail_joules_token": 1.9645403838521336
+    },
+    {
+      "case": "k3/ptq/grouped/0/fp/simultaneous",
+      "output_tps": 31.68268783039856,
+      "ttft_s": {
+        "p50": 0.3526388518512249,
+        "p90": 0.60457927826792,
+        "p95": 0.60457927826792,
+        "p99": 0.60457927826792
+      },
+      "tpot_s": {
+        "p50": 0.057897180052740235,
+        "p90": 0.057917715316372256,
+        "p95": 0.057917715316372256,
+        "p99": 0.057917715316372256
+      },
+      "goodput_requests_s": 3.96033597879982,
+      "quality": {},
+      "rail_joules_token": 0.8497560681563265
+    },
+    {
+      "case": "k3/fp/grouped/0/fp/simultaneous",
+      "output_tps": 21.279953587745773,
+      "ttft_s": {
+        "p50": 0.476400010753423,
+        "p90": 0.8516501421108842,
+        "p95": 0.8516501421108842,
+        "p99": 0.8516501421108842
+      },
+      "tpot_s": {
+        "p50": 0.09311220861439193,
+        "p90": 0.09315712803176471,
+        "p95": 0.09315712803176471,
+        "p99": 0.09315712803176471
+      },
+      "goodput_requests_s": 2.6599941984682216,
+      "quality": {},
+      "rail_joules_token": 1.269543312080703
+    },
+    {
+      "case": "k3/ptq/native/0/fp/simultaneous",
+      "output_tps": 31.561414685931464,
+      "ttft_s": {
+        "p50": 0.35391769045963883,
+        "p90": 0.6070409780368209,
+        "p95": 0.6070409780368209,
+        "p99": 0.6070409780368209
+      },
+      "tpot_s": {
+        "p50": 0.058155608762587824,
+        "p90": 0.058190658555499146,
+        "p95": 0.058190658555499146,
+        "p99": 0.058190658555499146
+      },
+      "goodput_requests_s": 3.945176835741433,
+      "quality": {},
+      "rail_joules_token": 0.855021823789871
+    }
+  ],
+  "limits": [
+    "Shared device; eager experimental runtime, not production latency.",
+    "Externally assigned PTQ eligibility is not a confidence gate.",
+    "Quality applies only to the supplied trace and scoring protocol, not a full benchmark.",
+    "Power is the named rail including other workloads, not isolated board energy."
+  ]
+}

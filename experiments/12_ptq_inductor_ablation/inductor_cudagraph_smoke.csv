@@ -1,0 +1,2 @@
+mode,execution_mode,enforce_eager,exit_layer,batch_size,prompt_tokens,max_new_tokens,warmup,iters,total_output_tokens,total_s,mean_batch_latency_s,output_tps,load_s,phase_trace,model_path
+static_ptq_tail,inductor_cudagraph,False,3,1,85,16,1,2,32,1.3908953899517655,0.6954476949758828,23.006762572640145,109.45890682097524,"decode_ptq,prefill_fp",/models/Llama-3.1-8B-Instruct-riveredge-fp-hqq

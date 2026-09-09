@@ -1,0 +1,37 @@
+profile,stage,phase,timing_domain,mean_ms,note
+full_fp_cudagraph,request_admission,request,wall,0.968214,Raw prompt admission including input processing
+full_fp_cudagraph,input_processing,request,cpu,0.831283,Tokenize and validate request
+full_fp_cudagraph,engine_preprocess,request,cpu,0.043329,Build engine request state
+full_fp_cudagraph,scheduler,unknown,cpu,0.10058733333333333,Scheduler decision; phase is assigned after this call
+full_fp_cudagraph,runner_update_state,decode,cpu,0.04330325806451613,Update persistent request state
+full_fp_cudagraph,prepare_inputs_cpu,decode,cpu,1.5519472580645162,CPU launch/preparation wall time
+full_fp_cudagraph,select_execution_shape,decode,cpu,0.049820354838709675,Select batch shape and graph
+full_fp_cudagraph,slot_mapping,decode,cpu,0.04968838709677419,Build KV-cache slot mapping
+full_fp_cudagraph,attention_metadata,decode,cpu,0.23376451612903226,Build attention metadata
+full_fp_cudagraph,model_input_preprocess,decode,cpu,0.029517709677419356,Final model input preprocessing
+full_fp_cudagraph,executor_submit,decode,cpu,2.7646505483870967,Parent range containing CPU preparation and model launch
+full_fp_cudagraph,prepare_inputs_gpu,decode,gpu,0.06667664538948767,GPU input preparation
+full_fp_cudagraph,model_forward_gpu,decode,gpu,81.79314373385522,Transformer forward
+full_fp_cudagraph,logits_gpu,decode,gpu,5.877833335630355,LM-head vocabulary projection
+full_fp_cudagraph,sampler_gpu,decode,gpu,0.08239793609226903,Greedy sampler
+full_fp_cudagraph,gpu_to_cpu_wait,decode,cpu,83.46494148387097,Blocking wait that overlaps GPU execution
+full_fp_cudagraph,scheduler_update,decode,cpu,0.04821709677419355,Commit sampled output to scheduler state
+full_fp_cudagraph,detokenize_output,decode,cpu,0.06575370967741935,Detokenize and build delta output
+static_ptq_tail_cudagraph,request_admission,request,wall,0.939966,Raw prompt admission including input processing
+static_ptq_tail_cudagraph,input_processing,request,cpu,0.815011,Tokenize and validate request
+static_ptq_tail_cudagraph,engine_preprocess,request,cpu,0.036479,Build engine request state
+static_ptq_tail_cudagraph,scheduler,unknown,cpu,0.09997130303030304,Scheduler decision; phase is assigned after this call
+static_ptq_tail_cudagraph,runner_update_state,decode,cpu,0.04620841935483871,Update persistent request state
+static_ptq_tail_cudagraph,prepare_inputs_cpu,decode,cpu,1.606008064516129,CPU launch/preparation wall time
+static_ptq_tail_cudagraph,select_execution_shape,decode,cpu,0.05005025806451613,Select batch shape and graph
+static_ptq_tail_cudagraph,slot_mapping,decode,cpu,0.05030532258064516,Build KV-cache slot mapping
+static_ptq_tail_cudagraph,attention_metadata,decode,cpu,0.24299929032258064,Build attention metadata
+static_ptq_tail_cudagraph,model_input_preprocess,decode,cpu,0.032668709677419354,Final model input preprocessing
+static_ptq_tail_cudagraph,executor_submit,decode,cpu,2.862748935483871,Parent range containing CPU preparation and model launch
+static_ptq_tail_cudagraph,prepare_inputs_gpu,decode,gpu,0.06914993543778697,GPU input preparation
+static_ptq_tail_cudagraph,model_forward_gpu,decode,gpu,32.037173732634514,Transformer forward
+static_ptq_tail_cudagraph,logits_gpu,decode,gpu,5.82979614503922,LM-head vocabulary projection
+static_ptq_tail_cudagraph,sampler_gpu,decode,gpu,0.08281290314851268,Greedy sampler
+static_ptq_tail_cudagraph,gpu_to_cpu_wait,decode,cpu,35.13630125806451,Blocking wait that overlaps GPU execution
+static_ptq_tail_cudagraph,scheduler_update,decode,cpu,0.050074193548387096,Commit sampled output to scheduler state
+static_ptq_tail_cudagraph,detokenize_output,decode,cpu,0.06778087096774194,Detokenize and build delta output

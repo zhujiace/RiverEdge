@@ -1,0 +1,5225 @@
+{
+  "config": {
+    "model": "/models/Llama-3.1-8B-Instruct-riveredge-fp-hqq",
+    "output": "/workspace/vllm/RiverEdge/experiments/15_resume_20260907/quality_chat_ablation.json",
+    "trace": "/workspace/vllm/RiverEdge/experiments/15_resume_20260907/quality_smoke.jsonl",
+    "chat_template": true,
+    "arrival_patterns": "",
+    "policies": "fp,ptq,mixed",
+    "schedulers": "native",
+    "exit_layers": "1,3",
+    "head_variants": "fp,int4",
+    "arrivals": "bursty",
+    "requests": 8,
+    "batch_size": 4,
+    "rate": 2,
+    "max_tokens": 16,
+    "max_model_len": 256,
+    "memory_fraction": 0.36,
+    "kv_cache_bytes": 268435456,
+    "warmup": 1,
+    "repeats": 1,
+    "seed": 7,
+    "low_batch": 8,
+    "high_batch": 16,
+    "ttft_slo": 1,
+    "tpot_slo": 0.1,
+    "force_length": false,
+    "power_label": "VDD_GPU_SOC"
+  },
+  "cases": [
+    {
+      "summary": {
+        "requests": 6,
+        "elapsed_s": 0.8204619428142905,
+        "output_tokens": 12,
+        "ttft_s": {
+          "p50": 0.12601017793640495,
+          "p90": 0.12737573366612198,
+          "p95": 0.12737573366612198,
+          "p99": 0.12737573366612198
+        },
+        "tpot_s": {
+          "p50": 0.09322793781757355,
+          "p90": 0.09337926702573895,
+          "p95": 0.09337926702573895,
+          "p99": 0.09337926702573895
+        },
+        "e2e_s": {
+          "p50": 0.2192381157539785,
+          "p90": 0.22040043780580165,
+          "p95": 0.22040043780580165,
+          "p99": 0.22040043780580165
+        },
+        "admission_lag_s": {
+          "p50": 0.00053416788578034,
+          "p90": 0.0016339134424925017,
+          "p95": 0.0016742361709475712,
+          "p99": 0.0017064943537116266
+        },
+        "output_tps": 14.625906911463131,
+        "slo_requests_per_s": 7.312953455731566,
+        "slo_tokens_per_s": 14.625906911463131,
+        "quality": {
+          "arithmetic": {
+            "count": 2,
+            "accuracy": 1.0
+          },
+          "code": {
+            "count": 2,
+            "accuracy": 1.0
+          },
+          "knowledge": {
+            "count": 2,
+            "accuracy": 1.0
+          }
+        },
+        "quality_slo_requests_per_s": 7.312953455731566
+      },
+      "requests": [
+        {
+          "arrival_s": 0,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the number: 17 + 25 =<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "42",
+          "task": "arithmetic",
+          "allow_ptq": true,
+          "max_tokens": 16,
+          "request_id": "request-0",
+          "raw_prompt": "Answer with only the number: 17 + 25 =",
+          "token_times_s": [
+            0.12086990987882018,
+            0.21424917690455914
+          ],
+          "token_ids": [
+            2983,
+            128009
+          ],
+          "text": "42",
+          "admission_lag_s": 4.159752279520035e-06,
+          "finished_s": 0.21424917690455914,
+          "correct": true,
+          "ttft_s": 0.12086990987882018,
+          "tpot_s": 0.09337926702573895,
+          "e2e_s": 0.21424917690455914,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the city name. What is the capital of France?<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "Paris",
+          "task": "knowledge",
+          "allow_ptq": false,
+          "max_tokens": 16,
+          "request_id": "request-1",
+          "raw_prompt": "Answer with only the city name. What is the capital of France?",
+          "token_times_s": [
+            0.12086990987882018,
+            0.21424917690455914
+          ],
+          "token_ids": [
+            60704,
+            128009
+          ],
+          "text": "Paris",
+          "admission_lag_s": 0.000981637742370367,
+          "finished_s": 0.21424917690455914,
+          "correct": true,
+          "ttft_s": 0.12086990987882018,
+          "tpot_s": 0.09337926702573895,
+          "e2e_s": 0.21424917690455914,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0.3,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nWhat does Python print for len([1, 2, 3])? Answer with only the number.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "3",
+          "task": "code",
+          "allow_ptq": true,
+          "max_tokens": 16,
+          "request_id": "request-2",
+          "raw_prompt": "What does Python print for len([1, 2, 3])? Answer with only the number.",
+          "token_times_s": [
+            0.42601017793640494,
+            0.5192381157539785
+          ],
+          "token_ids": [
+            18,
+            128009
+          ],
+          "text": "3",
+          "admission_lag_s": 8.6698029190313e-05,
+          "finished_s": 0.5192381157539785,
+          "correct": true,
+          "ttft_s": 0.12601017793640495,
+          "tpot_s": 0.09322793781757355,
+          "e2e_s": 0.2192381157539785,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0.3,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the number: 9 multiplied by 7 =<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "63",
+          "task": "arithmetic",
+          "allow_ptq": false,
+          "max_tokens": 16,
+          "request_id": "request-3",
+          "raw_prompt": "Answer with only the number: 9 multiplied by 7 =",
+          "token_times_s": [
+            0.42601017793640494,
+            0.5192381157539785
+          ],
+          "token_ids": [
+            5495,
+            128009
+          ],
+          "text": "63",
+          "admission_lag_s": 0.0015532679855823628,
+          "finished_s": 0.5192381157539785,
+          "correct": true,
+          "ttft_s": 0.12601017793640495,
+          "tpot_s": 0.09322793781757355,
+          "e2e_s": 0.2192381157539785,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0.6,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the chemical symbol for oxygen.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "O",
+          "task": "knowledge",
+          "allow_ptq": true,
+          "max_tokens": 16,
+          "request_id": "request-4",
+          "raw_prompt": "Answer with only the chemical symbol for oxygen.",
+          "token_times_s": [
+            0.727375733666122,
+            0.8204004378058016
+          ],
+          "token_ids": [
+            46,
+            128009
+          ],
+          "text": "O",
+          "admission_lag_s": 8.616466075184182e-05,
+          "finished_s": 0.8204004378058016,
+          "correct": true,
+          "ttft_s": 0.12737573366612198,
+          "tpot_s": 0.09302470413967967,
+          "e2e_s": 0.22040043780580165,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0.6,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nWhat does Python print for sum([2, 3, 4])? Answer with only the number.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "9",
+          "task": "code",
+          "allow_ptq": false,
+          "max_tokens": 16,
+          "request_id": "request-5",
+          "raw_prompt": "What does Python print for sum([2, 3, 4])? Answer with only the number.",
+          "token_times_s": [
+            0.727375733666122,
+            0.8204004378058016
+          ],
+          "token_ids": [
+            24,
+            128009
+          ],
+          "text": "9",
+          "admission_lag_s": 0.0017145588994026406,
+          "finished_s": 0.8204004378058016,
+          "correct": true,
+          "ttft_s": 0.12737573366612198,
+          "tpot_s": 0.09302470413967967,
+          "e2e_s": 0.22040043780580165,
+          "slo_pass": true
+        }
+      ],
+      "steps": [
+        {
+          "step": 2,
+          "time_s": 4069699.59845599,
+          "selected_group": "native",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-0-b5a541a2": 48,
+            "request-1-87301cb6": 50
+          },
+          "service_gap_s": {
+            "request-0-b5a541a2": 0.0,
+            "request-1-87301cb6": 0.0
+          },
+          "routes": {
+            "request-0-b5a541a2": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 48
+            },
+            "request-1-87301cb6": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 50
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 3,
+          "time_s": 4069699.717841474,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-b5a541a2": 1,
+            "request-1-87301cb6": 1
+          },
+          "service_gap_s": {
+            "request-0-b5a541a2": 0.11938548367470503,
+            "request-1-87301cb6": 0.11938548367470503
+          },
+          "routes": {
+            "request-0-b5a541a2": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-87301cb6": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 4,
+          "time_s": 4069699.899406182,
+          "selected_group": "native",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-2-8cef2e23": 58,
+            "request-3-8d65c9b1": 49
+          },
+          "service_gap_s": {
+            "request-2-8cef2e23": 0.0,
+            "request-3-8d65c9b1": 0.0
+          },
+          "routes": {
+            "request-2-8cef2e23": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 58
+            },
+            "request-3-8d65c9b1": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 49
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 5,
+          "time_s": 4069700.022984334,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-8cef2e23": 1,
+            "request-3-8d65c9b1": 1
+          },
+          "service_gap_s": {
+            "request-2-8cef2e23": 0.1235781516879797,
+            "request-3-8d65c9b1": 0.1235781516879797
+          },
+          "routes": {
+            "request-2-8cef2e23": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-8d65c9b1": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 6,
+          "time_s": 4069700.199948916,
+          "selected_group": "native",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-4-bb3ce4bd": 45,
+            "request-5-820de54b": 58
+          },
+          "service_gap_s": {
+            "request-4-bb3ce4bd": 0.0,
+            "request-5-820de54b": 0.0
+          },
+          "routes": {
+            "request-4-bb3ce4bd": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 45
+            },
+            "request-5-820de54b": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 58
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 7,
+          "time_s": 4069700.324345346,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-4-bb3ce4bd": 1,
+            "request-5-820de54b": 1
+          },
+          "service_gap_s": {
+            "request-4-bb3ce4bd": 0.12439642986282706,
+            "request-5-820de54b": 0.12439642986282706
+          },
+          "routes": {
+            "request-4-bb3ce4bd": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-5-820de54b": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        }
+      ],
+      "energy": {
+        "sensor": [
+          "/sys/bus/i2c/drivers/ina3221/1-0040/hwmon/hwmon6/in1_input",
+          "/sys/bus/i2c/drivers/ina3221/1-0040/hwmon/hwmon6/curr1_input"
+        ],
+        "error": null,
+        "samples": [
+          [
+            4069699.596654986,
+            16.75296
+          ],
+          [
+            4069699.599244283,
+            16.75296
+          ],
+          [
+            4069699.70098514,
+            21.13216
+          ],
+          [
+            4069699.802807438,
+            22.34624
+          ],
+          [
+            4069699.905333869,
+            18.77744
+          ],
+          [
+            4069700.007208999,
+            23.13504
+          ],
+          [
+            4069700.109046561,
+            23.9424
+          ],
+          [
+            4069700.211535936,
+            20.37552
+          ],
+          [
+            4069700.313381594,
+            24.33168
+          ],
+          [
+            4069700.415221044,
+            24.74048
+          ],
+          [
+            4069700.418989901,
+            24.74048
+          ]
+        ],
+        "sampled_joules": 17.919850995740106,
+        "sample_coverage_fraction": 1.0,
+        "sampled_joules_per_output_token": 1.4933209163116754,
+        "scope": "whole rail, shared-device load included, no idle subtraction"
+      },
+      "exit_layer": 3,
+      "policy": "fp",
+      "scheduler": "native",
+      "repeat": 0,
+      "head": "int4",
+      "workload": "trace"
+    },
+    {
+      "summary": {
+        "requests": 6,
+        "elapsed_s": 0.8488462278619409,
+        "output_tokens": 12,
+        "ttft_s": {
+          "p50": 0.1242098920978606,
+          "p90": 0.12511491011828185,
+          "p95": 0.12511491011828185,
+          "p99": 0.12511491011828185
+        },
+        "tpot_s": {
+          "p50": 0.12447489472106099,
+          "p90": 0.12459700787439942,
+          "p95": 0.12459700787439942,
+          "p99": 0.12459700787439942
+        },
+        "e2e_s": {
+          "p50": 0.24880689997226002,
+          "p90": 0.24958980483934284,
+          "p95": 0.24958980483934284,
+          "p99": 0.24958980483934284
+        },
+        "admission_lag_s": {
+          "p50": 0.0006084888242185171,
+          "p90": 0.0016293869819492268,
+          "p95": 0.0016305440803989907,
+          "p99": 0.0016314697591588018
+        },
+        "output_tps": 14.136836103077693,
+        "slo_requests_per_s": 0.0,
+        "slo_tokens_per_s": 0.0,
+        "quality": {
+          "arithmetic": {
+            "count": 2,
+            "accuracy": 1.0
+          },
+          "code": {
+            "count": 2,
+            "accuracy": 1.0
+          },
+          "knowledge": {
+            "count": 2,
+            "accuracy": 1.0
+          }
+        },
+        "quality_slo_requests_per_s": 0.0
+      },
+      "requests": [
+        {
+          "arrival_s": 0,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the number: 17 + 25 =<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "42",
+          "task": "arithmetic",
+          "allow_ptq": true,
+          "max_tokens": 16,
+          "request_id": "request-0",
+          "raw_prompt": "Answer with only the number: 17 + 25 =",
+          "token_times_s": [
+            0.11985204787924886,
+            0.24423052603378892
+          ],
+          "token_ids": [
+            2983,
+            128009
+          ],
+          "text": "42",
+          "admission_lag_s": 4.576053470373154e-06,
+          "finished_s": 0.24423052603378892,
+          "correct": true,
+          "ttft_s": 0.11985204787924886,
+          "tpot_s": 0.12437847815454006,
+          "e2e_s": 0.24423052603378892,
+          "slo_pass": false
+        },
+        {
+          "arrival_s": 0,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the city name. What is the capital of France?<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "Paris",
+          "task": "knowledge",
+          "allow_ptq": false,
+          "max_tokens": 16,
+          "request_id": "request-1",
+          "raw_prompt": "Answer with only the city name. What is the capital of France?",
+          "token_times_s": [
+            0.11985204787924886,
+            0.24423052603378892
+          ],
+          "token_ids": [
+            60704,
+            128009
+          ],
+          "text": "Paris",
+          "admission_lag_s": 0.0011352067813277245,
+          "finished_s": 0.24423052603378892,
+          "correct": true,
+          "ttft_s": 0.11985204787924886,
+          "tpot_s": 0.12437847815454006,
+          "e2e_s": 0.24423052603378892,
+          "slo_pass": false
+        },
+        {
+          "arrival_s": 0.3,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nWhat does Python print for len([1, 2, 3])? Answer with only the number.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "3",
+          "task": "code",
+          "allow_ptq": true,
+          "max_tokens": 16,
+          "request_id": "request-2",
+          "raw_prompt": "What does Python print for len([1, 2, 3])? Answer with only the number.",
+          "token_times_s": [
+            0.42511491011828184,
+            0.5495898048393428
+          ],
+          "token_ids": [
+            18,
+            128009
+          ],
+          "text": "3",
+          "admission_lag_s": 8.177086710930981e-05,
+          "finished_s": 0.5495898048393428,
+          "correct": true,
+          "ttft_s": 0.12511491011828185,
+          "tpot_s": 0.12447489472106099,
+          "e2e_s": 0.24958980483934284,
+          "slo_pass": false
+        },
+        {
+          "arrival_s": 0.3,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the number: 9 multiplied by 7 =<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "63",
+          "task": "arithmetic",
+          "allow_ptq": false,
+          "max_tokens": 16,
+          "request_id": "request-3",
+          "raw_prompt": "Answer with only the number: 9 multiplied by 7 =",
+          "token_times_s": [
+            0.42511491011828184,
+            0.5495898048393428
+          ],
+          "token_ids": [
+            5495,
+            128009
+          ],
+          "text": "63",
+          "admission_lag_s": 0.0016317011788487545,
+          "finished_s": 0.5495898048393428,
+          "correct": true,
+          "ttft_s": 0.12511491011828185,
+          "tpot_s": 0.12447489472106099,
+          "e2e_s": 0.24958980483934284,
+          "slo_pass": false
+        },
+        {
+          "arrival_s": 0.6,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the chemical symbol for oxygen.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "O",
+          "task": "knowledge",
+          "allow_ptq": true,
+          "max_tokens": 16,
+          "request_id": "request-4",
+          "raw_prompt": "Answer with only the chemical symbol for oxygen.",
+          "token_times_s": [
+            0.7242098920978606,
+            0.84880689997226
+          ],
+          "token_ids": [
+            46,
+            128009
+          ],
+          "text": "O",
+          "admission_lag_s": 2.232715487482384e-05,
+          "finished_s": 0.84880689997226,
+          "correct": true,
+          "ttft_s": 0.1242098920978606,
+          "tpot_s": 0.12459700787439942,
+          "e2e_s": 0.24880689997226002,
+          "slo_pass": false
+        },
+        {
+          "arrival_s": 0.6,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nWhat does Python print for sum([2, 3, 4])? Answer with only the number.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "9",
+          "task": "code",
+          "allow_ptq": false,
+          "max_tokens": 16,
+          "request_id": "request-5",
+          "raw_prompt": "What does Python print for sum([2, 3, 4])? Answer with only the number.",
+          "token_times_s": [
+            0.7242098920978606,
+            0.84880689997226
+          ],
+          "token_ids": [
+            24,
+            128009
+          ],
+          "text": "9",
+          "admission_lag_s": 0.001627072785049699,
+          "finished_s": 0.84880689997226,
+          "correct": true,
+          "ttft_s": 0.1242098920978606,
+          "tpot_s": 0.12459700787439942,
+          "e2e_s": 0.24880689997226002,
+          "slo_pass": false
+        }
+      ],
+      "steps": [
+        {
+          "step": 2,
+          "time_s": 4069700.745354821,
+          "selected_group": "native",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-0-aaf6d6b8": 48,
+            "request-1-9598e5a7": 50
+          },
+          "service_gap_s": {
+            "request-0-aaf6d6b8": 0.0,
+            "request-1-9598e5a7": 0.0
+          },
+          "routes": {
+            "request-0-aaf6d6b8": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 48
+            },
+            "request-1-9598e5a7": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 50
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 3,
+          "time_s": 4069700.863425769,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-aaf6d6b8": 1,
+            "request-1-9598e5a7": 1
+          },
+          "service_gap_s": {
+            "request-0-aaf6d6b8": 0.11807094793766737,
+            "request-1-9598e5a7": 0.11807094793766737
+          },
+          "routes": {
+            "request-0-aaf6d6b8": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-9598e5a7": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 4,
+          "time_s": 4069701.046076308,
+          "selected_group": "native",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-2-93cea05b": 58,
+            "request-3-b77cd250": 49
+          },
+          "service_gap_s": {
+            "request-2-93cea05b": 0.0,
+            "request-3-b77cd250": 0.0
+          },
+          "routes": {
+            "request-2-93cea05b": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 58
+            },
+            "request-3-b77cd250": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 49
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 5,
+          "time_s": 4069701.168688375,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-93cea05b": 1,
+            "request-3-b77cd250": 1
+          },
+          "service_gap_s": {
+            "request-2-93cea05b": 0.12261206703260541,
+            "request-3-b77cd250": 0.12261206703260541
+          },
+          "routes": {
+            "request-2-93cea05b": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-b77cd250": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 6,
+          "time_s": 4069701.346249122,
+          "selected_group": "native",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-4-b88c5a81": 45,
+            "request-5-92ed6d8e": 58
+          },
+          "service_gap_s": {
+            "request-4-b88c5a81": 0.0,
+            "request-5-92ed6d8e": 0.0
+          },
+          "routes": {
+            "request-4-b88c5a81": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 45
+            },
+            "request-5-92ed6d8e": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 58
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 7,
+          "time_s": 4069701.467779997,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-4-b88c5a81": 1,
+            "request-5-92ed6d8e": 1
+          },
+          "service_gap_s": {
+            "request-4-b88c5a81": 0.12153087463229895,
+            "request-5-92ed6d8e": 0.12153087463229895
+          },
+          "routes": {
+            "request-4-b88c5a81": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-5-92ed6d8e": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        }
+      ],
+      "energy": {
+        "sensor": [
+          "/sys/bus/i2c/drivers/ina3221/1-0040/hwmon/hwmon6/in1_input",
+          "/sys/bus/i2c/drivers/ina3221/1-0040/hwmon/hwmon6/curr1_input"
+        ],
+        "error": null,
+        "samples": [
+          [
+            4069700.743223831,
+            29.1416
+          ],
+          [
+            4069700.746241354,
+            29.1416
+          ],
+          [
+            4069700.847851715,
+            30.72608
+          ],
+          [
+            4069700.949609309,
+            30.3392
+          ],
+          [
+            4069701.051997531,
+            26.76784
+          ],
+          [
+            4069701.153837366,
+            29.12992
+          ],
+          [
+            4069701.25565384,
+            29.1416
+          ],
+          [
+            4069701.357829645,
+            25.9688
+          ],
+          [
+            4069701.459656456,
+            28.73088
+          ],
+          [
+            4069701.561481987,
+            28.7424
+          ],
+          [
+            4069701.594439962,
+            28.7424
+          ]
+        ],
+        "sampled_joules": 24.378402902081127,
+        "sample_coverage_fraction": 1.0,
+        "sampled_joules_per_output_token": 2.031533575173427,
+        "scope": "whole rail, shared-device load included, no idle subtraction"
+      },
+      "exit_layer": 3,
+      "policy": "mixed",
+      "scheduler": "native",
+      "repeat": 0,
+      "head": "int4",
+      "workload": "trace"
+    },
+    {
+      "summary": {
+        "requests": 6,
+        "elapsed_s": 0.7817230080254376,
+        "output_tokens": 12,
+        "ttft_s": {
+          "p50": 0.12636398859322073,
+          "p90": 0.1272425100207329,
+          "p95": 0.1272425100207329,
+          "p99": 0.1272425100207329
+        },
+        "tpot_s": {
+          "p50": 0.055022760294377804,
+          "p90": 0.05530407419428229,
+          "p95": 0.05530407419428229,
+          "p99": 0.05530407419428229
+        },
+        "e2e_s": {
+          "p50": 0.18166806278750303,
+          "p90": 0.1820515406318009,
+          "p95": 0.1820515406318009,
+          "p99": 0.1820515406318009
+        },
+        "admission_lag_s": {
+          "p50": 0.0005039039999246708,
+          "p90": 0.0018844783306121993,
+          "p95": 0.001885659061372294,
+          "p99": 0.0018866036459803698
+        },
+        "output_tps": 15.350705910922242,
+        "slo_requests_per_s": 7.675352955461121,
+        "slo_tokens_per_s": 15.350705910922242,
+        "quality": {
+          "arithmetic": {
+            "count": 2,
+            "accuracy": 1.0
+          },
+          "code": {
+            "count": 2,
+            "accuracy": 1.0
+          },
+          "knowledge": {
+            "count": 2,
+            "accuracy": 1.0
+          }
+        },
+        "quality_slo_requests_per_s": 7.675352955461121
+      },
+      "requests": [
+        {
+          "arrival_s": 0,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the number: 17 + 25 =<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "42",
+          "task": "arithmetic",
+          "allow_ptq": true,
+          "max_tokens": 16,
+          "request_id": "request-0",
+          "raw_prompt": "Answer with only the number: 17 + 25 =",
+          "token_times_s": [
+            0.11893920972943306,
+            0.17396197002381086
+          ],
+          "token_ids": [
+            2983,
+            128009
+          ],
+          "text": "42",
+          "admission_lag_s": 3.487803041934967e-06,
+          "finished_s": 0.17396197002381086,
+          "correct": true,
+          "ttft_s": 0.11893920972943306,
+          "tpot_s": 0.055022760294377804,
+          "e2e_s": 0.17396197002381086,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the city name. What is the capital of France?<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "Paris",
+          "task": "knowledge",
+          "allow_ptq": false,
+          "max_tokens": 16,
+          "request_id": "request-1",
+          "raw_prompt": "Answer with only the city name. What is the capital of France?",
+          "token_times_s": [
+            0.11893920972943306,
+            0.17396197002381086
+          ],
+          "token_ids": [
+            60704,
+            128009
+          ],
+          "text": "Paris",
+          "admission_lag_s": 0.000929574016481638,
+          "finished_s": 0.17396197002381086,
+          "correct": true,
+          "ttft_s": 0.11893920972943306,
+          "tpot_s": 0.055022760294377804,
+          "e2e_s": 0.17396197002381086,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0.3,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nWhat does Python print for len([1, 2, 3])? Answer with only the number.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "3",
+          "task": "code",
+          "allow_ptq": true,
+          "max_tokens": 16,
+          "request_id": "request-2",
+          "raw_prompt": "What does Python print for len([1, 2, 3])? Answer with only the number.",
+          "token_times_s": [
+            0.4272425100207329,
+            0.4820515406318009
+          ],
+          "token_ids": [
+            18,
+            128009
+          ],
+          "text": "3",
+          "admission_lag_s": 6.58676028251759e-05,
+          "finished_s": 0.4820515406318009,
+          "correct": true,
+          "ttft_s": 0.1272425100207329,
+          "tpot_s": 0.05480903061106801,
+          "e2e_s": 0.1820515406318009,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0.3,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the number: 9 multiplied by 7 =<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "63",
+          "task": "arithmetic",
+          "allow_ptq": false,
+          "max_tokens": 16,
+          "request_id": "request-3",
+          "raw_prompt": "Answer with only the number: 9 multiplied by 7 =",
+          "token_times_s": [
+            0.4272425100207329,
+            0.4820515406318009
+          ],
+          "token_ids": [
+            5495,
+            128009
+          ],
+          "text": "63",
+          "admission_lag_s": 0.0018868397921323887,
+          "finished_s": 0.4820515406318009,
+          "correct": true,
+          "ttft_s": 0.1272425100207329,
+          "tpot_s": 0.05480903061106801,
+          "e2e_s": 0.1820515406318009,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0.6,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the chemical symbol for oxygen.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "O",
+          "task": "knowledge",
+          "allow_ptq": true,
+          "max_tokens": 16,
+          "request_id": "request-4",
+          "raw_prompt": "Answer with only the chemical symbol for oxygen.",
+          "token_times_s": [
+            0.7263639885932207,
+            0.781668062787503
+          ],
+          "token_ids": [
+            46,
+            128009
+          ],
+          "text": "O",
+          "admission_lag_s": 7.823398336770371e-05,
+          "finished_s": 0.781668062787503,
+          "correct": true,
+          "ttft_s": 0.12636398859322073,
+          "tpot_s": 0.05530407419428229,
+          "e2e_s": 0.18166806278750303,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0.6,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nWhat does Python print for sum([2, 3, 4])? Answer with only the number.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "9",
+          "task": "code",
+          "allow_ptq": false,
+          "max_tokens": 16,
+          "request_id": "request-5",
+          "raw_prompt": "What does Python print for sum([2, 3, 4])? Answer with only the number.",
+          "token_times_s": [
+            0.7263639885932207,
+            0.781668062787503
+          ],
+          "token_ids": [
+            24,
+            128009
+          ],
+          "text": "9",
+          "admission_lag_s": 0.0018821168690920098,
+          "finished_s": 0.781668062787503,
+          "correct": true,
+          "ttft_s": 0.12636398859322073,
+          "tpot_s": 0.05530407419428229,
+          "e2e_s": 0.18166806278750303,
+          "slo_pass": true
+        }
+      ],
+      "steps": [
+        {
+          "step": 2,
+          "time_s": 4069701.850527271,
+          "selected_group": "native",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-0-999d6160": 48,
+            "request-1-90b61c8b": 50
+          },
+          "service_gap_s": {
+            "request-0-999d6160": 0.0,
+            "request-1-90b61c8b": 0.0
+          },
+          "routes": {
+            "request-0-999d6160": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 48
+            },
+            "request-1-90b61c8b": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 50
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 3,
+          "time_s": 4069701.968065673,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-999d6160": 1,
+            "request-1-90b61c8b": 1
+          },
+          "service_gap_s": {
+            "request-0-999d6160": 0.11753840185701847,
+            "request-1-90b61c8b": 0.11753840185701847
+          },
+          "routes": {
+            "request-0-999d6160": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-90b61c8b": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 4,
+          "time_s": 4069702.152233887,
+          "selected_group": "native",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-2-ba7b45cb": 58,
+            "request-3-be8c4fc2": 49
+          },
+          "service_gap_s": {
+            "request-2-ba7b45cb": 0.0,
+            "request-3-be8c4fc2": 0.0
+          },
+          "routes": {
+            "request-2-ba7b45cb": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 58
+            },
+            "request-3-be8c4fc2": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 49
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 5,
+          "time_s": 4069702.276368076,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-ba7b45cb": 1,
+            "request-3-be8c4fc2": 1
+          },
+          "service_gap_s": {
+            "request-2-ba7b45cb": 0.12413418898358941,
+            "request-3-be8c4fc2": 0.12413418898358941
+          },
+          "routes": {
+            "request-2-ba7b45cb": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-be8c4fc2": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 6,
+          "time_s": 4069702.452279596,
+          "selected_group": "native",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-4-98ee03f7": 45,
+            "request-5-9839d91d": 58
+          },
+          "service_gap_s": {
+            "request-4-98ee03f7": 0.0,
+            "request-5-9839d91d": 0.0
+          },
+          "routes": {
+            "request-4-98ee03f7": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 45
+            },
+            "request-5-9839d91d": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 58
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 7,
+          "time_s": 4069702.575488755,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-4-98ee03f7": 1,
+            "request-5-9839d91d": 1
+          },
+          "service_gap_s": {
+            "request-4-98ee03f7": 0.12320915888994932,
+            "request-5-9839d91d": 0.12320915888994932
+          },
+          "routes": {
+            "request-4-98ee03f7": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-5-9839d91d": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        }
+      ],
+      "energy": {
+        "sensor": [
+          "/sys/bus/i2c/drivers/ina3221/1-0040/hwmon/hwmon6/in1_input",
+          "/sys/bus/i2c/drivers/ina3221/1-0040/hwmon/hwmon6/curr1_input"
+        ],
+        "error": null,
+        "samples": [
+          [
+            4069701.848764059,
+            31.54944
+          ],
+          [
+            4069701.851151979,
+            31.54944
+          ],
+          [
+            4069701.952977574,
+            32.72128
+          ],
+          [
+            4069702.054759424,
+            29.964
+          ],
+          [
+            4069702.156928253,
+            24.38048
+          ],
+          [
+            4069702.258607959,
+            27.13472
+          ],
+          [
+            4069702.360988374,
+            25.9584
+          ],
+          [
+            4069702.463309556,
+            21.17456
+          ],
+          [
+            4069702.565016655,
+            25.12944
+          ],
+          [
+            4069702.632480041,
+            25.1496
+          ]
+        ],
+        "sampled_joules": 21.060581708378443,
+        "sample_coverage_fraction": 1.0,
+        "sampled_joules_per_output_token": 1.7550484756982037,
+        "scope": "whole rail, shared-device load included, no idle subtraction"
+      },
+      "exit_layer": 1,
+      "policy": "ptq",
+      "scheduler": "native",
+      "repeat": 0,
+      "head": "int4",
+      "workload": "trace"
+    },
+    {
+      "summary": {
+        "requests": 6,
+        "elapsed_s": 0.840914024040103,
+        "output_tokens": 12,
+        "ttft_s": {
+          "p50": 0.12179967761039734,
+          "p90": 0.124071803689003,
+          "p95": 0.124071803689003,
+          "p99": 0.124071803689003
+        },
+        "tpot_s": {
+          "p50": 0.12016347516328096,
+          "p90": 0.12022152403369546,
+          "p95": 0.12022152403369546,
+          "p99": 0.12022152403369546
+        },
+        "e2e_s": {
+          "p50": 0.2420212016440928,
+          "p90": 0.2441001099534333,
+          "p95": 0.2441001099534333,
+          "p99": 0.2441001099534333
+        },
+        "admission_lag_s": {
+          "p50": 0.0005079148337245043,
+          "p90": 0.0013516302686184811,
+          "p95": 0.0014783075312152644,
+          "p99": 0.001579649341292691
+        },
+        "output_tps": 14.270186555275862,
+        "slo_requests_per_s": 0.0,
+        "slo_tokens_per_s": 0.0,
+        "quality": {
+          "arithmetic": {
+            "count": 2,
+            "accuracy": 1.0
+          },
+          "code": {
+            "count": 2,
+            "accuracy": 1.0
+          },
+          "knowledge": {
+            "count": 2,
+            "accuracy": 1.0
+          }
+        },
+        "quality_slo_requests_per_s": 0.0
+      },
+      "requests": [
+        {
+          "arrival_s": 0,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the number: 17 + 25 =<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "42",
+          "task": "arithmetic",
+          "allow_ptq": true,
+          "max_tokens": 16,
+          "request_id": "request-0",
+          "raw_prompt": "Answer with only the number: 17 + 25 =",
+          "token_times_s": [
+            0.12179967761039734,
+            0.2420212016440928
+          ],
+          "token_ids": [
+            2983,
+            128009
+          ],
+          "text": "42",
+          "admission_lag_s": 3.7439167499542236e-06,
+          "finished_s": 0.2420212016440928,
+          "correct": true,
+          "ttft_s": 0.12179967761039734,
+          "tpot_s": 0.12022152403369546,
+          "e2e_s": 0.2420212016440928,
+          "slo_pass": false
+        },
+        {
+          "arrival_s": 0,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the city name. What is the capital of France?<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "Paris",
+          "task": "knowledge",
+          "allow_ptq": false,
+          "max_tokens": 16,
+          "request_id": "request-1",
+          "raw_prompt": "Answer with only the city name. What is the capital of France?",
+          "token_times_s": [
+            0.12179967761039734,
+            0.2420212016440928
+          ],
+          "token_ids": [
+            60704,
+            128009
+          ],
+          "text": "Paris",
+          "admission_lag_s": 0.0009519746527075768,
+          "finished_s": 0.2420212016440928,
+          "correct": true,
+          "ttft_s": 0.12179967761039734,
+          "tpot_s": 0.12022152403369546,
+          "e2e_s": 0.2420212016440928,
+          "slo_pass": false
+        },
+        {
+          "arrival_s": 0.3,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nWhat does Python print for len([1, 2, 3])? Answer with only the number.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "3",
+          "task": "code",
+          "allow_ptq": true,
+          "max_tokens": 16,
+          "request_id": "request-2",
+          "raw_prompt": "What does Python print for len([1, 2, 3])? Answer with only the number.",
+          "token_times_s": [
+            0.424071803689003,
+            0.5441001099534333
+          ],
+          "token_ids": [
+            18,
+            128009
+          ],
+          "text": "3",
+          "admission_lag_s": 6.385501474143185e-05,
+          "finished_s": 0.5441001099534333,
+          "correct": true,
+          "ttft_s": 0.124071803689003,
+          "tpot_s": 0.12002830626443028,
+          "e2e_s": 0.2441001099534333,
+          "slo_pass": false
+        },
+        {
+          "arrival_s": 0.3,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the number: 9 multiplied by 7 =<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "63",
+          "task": "arithmetic",
+          "allow_ptq": false,
+          "max_tokens": 16,
+          "request_id": "request-3",
+          "raw_prompt": "Answer with only the number: 9 multiplied by 7 =",
+          "token_times_s": [
+            0.424071803689003,
+            0.5441001099534333
+          ],
+          "token_ids": [
+            5495,
+            128009
+          ],
+          "text": "63",
+          "admission_lag_s": 0.0016049847938120476,
+          "finished_s": 0.5441001099534333,
+          "correct": true,
+          "ttft_s": 0.124071803689003,
+          "tpot_s": 0.12002830626443028,
+          "e2e_s": 0.2441001099534333,
+          "slo_pass": false
+        },
+        {
+          "arrival_s": 0.6,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the chemical symbol for oxygen.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "O",
+          "task": "knowledge",
+          "allow_ptq": true,
+          "max_tokens": 16,
+          "request_id": "request-4",
+          "raw_prompt": "Answer with only the chemical symbol for oxygen.",
+          "token_times_s": [
+            0.7206983556970954,
+            0.8408618308603764
+          ],
+          "token_ids": [
+            46,
+            128009
+          ],
+          "text": "O",
+          "admission_lag_s": 6.246063858272866e-05,
+          "finished_s": 0.8408618308603764,
+          "correct": true,
+          "ttft_s": 0.12069835569709542,
+          "tpot_s": 0.12016347516328096,
+          "e2e_s": 0.24086183086037638,
+          "slo_pass": false
+        },
+        {
+          "arrival_s": 0.6,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nWhat does Python print for sum([2, 3, 4])? Answer with only the number.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "9",
+          "task": "code",
+          "allow_ptq": false,
+          "max_tokens": 16,
+          "request_id": "request-5",
+          "raw_prompt": "What does Python print for sum([2, 3, 4])? Answer with only the number.",
+          "token_times_s": [
+            0.7206983556970954,
+            0.8408618308603764
+          ],
+          "token_ids": [
+            24,
+            128009
+          ],
+          "text": "9",
+          "admission_lag_s": 0.0010982757434249146,
+          "finished_s": 0.8408618308603764,
+          "correct": true,
+          "ttft_s": 0.12069835569709542,
+          "tpot_s": 0.12016347516328096,
+          "e2e_s": 0.24086183086037638,
+          "slo_pass": false
+        }
+      ],
+      "steps": [
+        {
+          "step": 2,
+          "time_s": 4069702.964306854,
+          "selected_group": "native",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-0-901e99ac": 48,
+            "request-1-b7deb2cc": 50
+          },
+          "service_gap_s": {
+            "request-0-901e99ac": 0.0,
+            "request-1-b7deb2cc": 0.0
+          },
+          "routes": {
+            "request-0-901e99ac": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 48
+            },
+            "request-1-b7deb2cc": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 50
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 3,
+          "time_s": 4069703.084652411,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-901e99ac": 1,
+            "request-1-b7deb2cc": 1
+          },
+          "service_gap_s": {
+            "request-0-901e99ac": 0.12034555664286017,
+            "request-1-b7deb2cc": 0.12034555664286017
+          },
+          "routes": {
+            "request-0-901e99ac": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-b7deb2cc": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 4,
+          "time_s": 4069703.265398203,
+          "selected_group": "native",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-2-806388e6": 58,
+            "request-3-9f82f04a": 49
+          },
+          "service_gap_s": {
+            "request-2-806388e6": 0.0,
+            "request-3-9f82f04a": 0.0
+          },
+          "routes": {
+            "request-2-806388e6": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 58
+            },
+            "request-3-9f82f04a": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 49
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 5,
+          "time_s": 4069703.386927768,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-806388e6": 1,
+            "request-3-9f82f04a": 1
+          },
+          "service_gap_s": {
+            "request-2-806388e6": 0.12152956519275904,
+            "request-3-9f82f04a": 0.12152956519275904
+          },
+          "routes": {
+            "request-2-806388e6": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-9f82f04a": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 6,
+          "time_s": 4069703.564588932,
+          "selected_group": "native",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-4-87d13eef": 45,
+            "request-5-85a90bcc": 58
+          },
+          "service_gap_s": {
+            "request-4-87d13eef": 0.0,
+            "request-5-85a90bcc": 0.0
+          },
+          "routes": {
+            "request-4-87d13eef": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 45
+            },
+            "request-5-85a90bcc": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 58
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 7,
+          "time_s": 4069703.683554928,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-4-87d13eef": 1,
+            "request-5-85a90bcc": 1
+          },
+          "service_gap_s": {
+            "request-4-87d13eef": 0.11896599596366286,
+            "request-5-85a90bcc": 0.11896599596366286
+          },
+          "routes": {
+            "request-4-87d13eef": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-5-85a90bcc": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        }
+      ],
+      "energy": {
+        "sensor": [
+          "/sys/bus/i2c/drivers/ina3221/1-0040/hwmon/hwmon6/in1_input",
+          "/sys/bus/i2c/drivers/ina3221/1-0040/hwmon/hwmon6/curr1_input"
+        ],
+        "error": null,
+        "samples": [
+          [
+            4069702.962512506,
+            27.944
+          ],
+          [
+            4069702.965036331,
+            27.944
+          ],
+          [
+            4069703.066705349,
+            29.928
+          ],
+          [
+            4069703.168504,
+            29.5408
+          ],
+          [
+            4069703.271042816,
+            25.9688
+          ],
+          [
+            4069703.372965052,
+            28.73088
+          ],
+          [
+            4069703.47456991,
+            28.7424
+          ],
+          [
+            4069703.576575123,
+            25.9688
+          ],
+          [
+            4069703.67836331,
+            28.73088
+          ],
+          [
+            4069703.780166025,
+            28.7424
+          ],
+          [
+            4069703.80535515,
+            28.7424
+          ]
+        ],
+        "sampled_joules": 23.761202573008653,
+        "sample_coverage_fraction": 1.0,
+        "sampled_joules_per_output_token": 1.9801002144173878,
+        "scope": "whole rail, shared-device load included, no idle subtraction"
+      },
+      "exit_layer": 3,
+      "policy": "mixed",
+      "scheduler": "native",
+      "repeat": 0,
+      "head": "fp",
+      "workload": "trace"
+    },
+    {
+      "summary": {
+        "requests": 6,
+        "elapsed_s": 0.782651917077601,
+        "output_tokens": 12,
+        "ttft_s": {
+          "p50": 0.12585733607411387,
+          "p90": 0.12729352228343488,
+          "p95": 0.12729352228343488,
+          "p99": 0.12729352228343488
+        },
+        "tpot_s": {
+          "p50": 0.056587954983115196,
+          "p90": 0.05674411589279771,
+          "p95": 0.05674411589279771,
+          "p99": 0.05674411589279771
+        },
+        "e2e_s": {
+          "p50": 0.18260145196691158,
+          "p90": 0.18388147726655008,
+          "p95": 0.18388147726655008,
+          "p99": 0.18388147726655008
+        },
+        "admission_lag_s": {
+          "p50": 0.0004901946987956873,
+          "p90": 0.0018020185641944575,
+          "p95": 0.0018155828583985706,
+          "p99": 0.001826434293761861
+        },
+        "output_tps": 15.332486560318722,
+        "slo_requests_per_s": 7.666243280159361,
+        "slo_tokens_per_s": 15.332486560318722,
+        "quality": {
+          "arithmetic": {
+            "count": 2,
+            "accuracy": 1.0
+          },
+          "code": {
+            "count": 2,
+            "accuracy": 1.0
+          },
+          "knowledge": {
+            "count": 2,
+            "accuracy": 1.0
+          }
+        },
+        "quality_slo_requests_per_s": 7.666243280159361
+      },
+      "requests": [
+        {
+          "arrival_s": 0,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the number: 17 + 25 =<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "42",
+          "task": "arithmetic",
+          "allow_ptq": true,
+          "max_tokens": 16,
+          "request_id": "request-0",
+          "raw_prompt": "Answer with only the number: 17 + 25 =",
+          "token_times_s": [
+            0.11833712831139565,
+            0.17471781838685274
+          ],
+          "token_ids": [
+            2983,
+            128009
+          ],
+          "text": "42",
+          "admission_lag_s": 3.871973603963852e-06,
+          "finished_s": 0.17471781838685274,
+          "correct": true,
+          "ttft_s": 0.11833712831139565,
+          "tpot_s": 0.056380690075457096,
+          "e2e_s": 0.17471781838685274,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the city name. What is the capital of France?<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "Paris",
+          "task": "knowledge",
+          "allow_ptq": false,
+          "max_tokens": 16,
+          "request_id": "request-1",
+          "raw_prompt": "Answer with only the city name. What is the capital of France?",
+          "token_times_s": [
+            0.11833712831139565,
+            0.17471781838685274
+          ],
+          "token_ids": [
+            60704,
+            128009
+          ],
+          "text": "Paris",
+          "admission_lag_s": 0.0009122942574322224,
+          "finished_s": 0.17471781838685274,
+          "correct": true,
+          "ttft_s": 0.11833712831139565,
+          "tpot_s": 0.056380690075457096,
+          "e2e_s": 0.17471781838685274,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0.3,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nWhat does Python print for len([1, 2, 3])? Answer with only the number.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "3",
+          "task": "code",
+          "allow_ptq": true,
+          "max_tokens": 16,
+          "request_id": "request-2",
+          "raw_prompt": "What does Python print for len([1, 2, 3])? Answer with only the number.",
+          "token_times_s": [
+            0.42729352228343487,
+            0.48388147726655006
+          ],
+          "token_ids": [
+            18,
+            128009
+          ],
+          "text": "3",
+          "admission_lag_s": 6.68003223836533e-05,
+          "finished_s": 0.48388147726655006,
+          "correct": true,
+          "ttft_s": 0.12729352228343488,
+          "tpot_s": 0.056587954983115196,
+          "e2e_s": 0.18388147726655008,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0.3,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the number: 9 multiplied by 7 =<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "63",
+          "task": "arithmetic",
+          "allow_ptq": false,
+          "max_tokens": 16,
+          "request_id": "request-3",
+          "raw_prompt": "Answer with only the number: 9 multiplied by 7 =",
+          "token_times_s": [
+            0.42729352228343487,
+            0.48388147726655006
+          ],
+          "token_ids": [
+            5495,
+            128009
+          ],
+          "text": "63",
+          "admission_lag_s": 0.0018291471526026837,
+          "finished_s": 0.48388147726655006,
+          "correct": true,
+          "ttft_s": 0.12729352228343488,
+          "tpot_s": 0.056587954983115196,
+          "e2e_s": 0.18388147726655008,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0.6,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the chemical symbol for oxygen.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "O",
+          "task": "knowledge",
+          "allow_ptq": true,
+          "max_tokens": 16,
+          "request_id": "request-4",
+          "raw_prompt": "Answer with only the chemical symbol for oxygen.",
+          "token_times_s": [
+            0.7258573360741138,
+            0.7826014519669116
+          ],
+          "token_ids": [
+            46,
+            128009
+          ],
+          "text": "O",
+          "admission_lag_s": 6.80951401591523e-05,
+          "finished_s": 0.7826014519669116,
+          "correct": true,
+          "ttft_s": 0.12585733607411387,
+          "tpot_s": 0.05674411589279771,
+          "e2e_s": 0.18260145196691158,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0.6,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nWhat does Python print for sum([2, 3, 4])? Answer with only the number.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "9",
+          "task": "code",
+          "allow_ptq": false,
+          "max_tokens": 16,
+          "request_id": "request-5",
+          "raw_prompt": "What does Python print for sum([2, 3, 4])? Answer with only the number.",
+          "token_times_s": [
+            0.7258573360741138,
+            0.7826014519669116
+          ],
+          "token_ids": [
+            24,
+            128009
+          ],
+          "text": "9",
+          "admission_lag_s": 0.0017748899757862313,
+          "finished_s": 0.7826014519669116,
+          "correct": true,
+          "ttft_s": 0.12585733607411387,
+          "tpot_s": 0.05674411589279771,
+          "e2e_s": 0.18260145196691158,
+          "slo_pass": true
+        }
+      ],
+      "steps": [
+        {
+          "step": 2,
+          "time_s": 4069704.057741988,
+          "selected_group": "native",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-0-977753d8": 48,
+            "request-1-999af3d2": 50
+          },
+          "service_gap_s": {
+            "request-0-977753d8": 0.0,
+            "request-1-999af3d2": 0.0
+          },
+          "routes": {
+            "request-0-977753d8": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 48
+            },
+            "request-1-999af3d2": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 50
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 3,
+          "time_s": 4069704.174692995,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-977753d8": 1,
+            "request-1-999af3d2": 1
+          },
+          "service_gap_s": {
+            "request-0-977753d8": 0.11695100693032146,
+            "request-1-999af3d2": 0.11695100693032146
+          },
+          "routes": {
+            "request-0-977753d8": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-999af3d2": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 4,
+          "time_s": 4069704.359383039,
+          "selected_group": "native",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-2-80516782": 58,
+            "request-3-86724423": 49
+          },
+          "service_gap_s": {
+            "request-2-80516782": 0.0,
+            "request-3-86724423": 0.0
+          },
+          "routes": {
+            "request-2-80516782": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 58
+            },
+            "request-3-86724423": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 49
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 5,
+          "time_s": 4069704.483655373,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-80516782": 1,
+            "request-3-86724423": 1
+          },
+          "service_gap_s": {
+            "request-2-80516782": 0.12427233392372727,
+            "request-3-86724423": 0.12427233392372727
+          },
+          "routes": {
+            "request-2-80516782": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-86724423": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 6,
+          "time_s": 4069704.659348974,
+          "selected_group": "native",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-4-b9b1da08": 45,
+            "request-5-a813d3bb": 58
+          },
+          "service_gap_s": {
+            "request-4-b9b1da08": 0.0,
+            "request-5-a813d3bb": 0.0
+          },
+          "routes": {
+            "request-4-b9b1da08": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 45
+            },
+            "request-5-a813d3bb": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 58
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 7,
+          "time_s": 4069704.782220851,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-4-b9b1da08": 1,
+            "request-5-a813d3bb": 1
+          },
+          "service_gap_s": {
+            "request-4-b9b1da08": 0.12287187715992332,
+            "request-5-a813d3bb": 0.12287187715992332
+          },
+          "routes": {
+            "request-4-b9b1da08": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-5-a813d3bb": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        }
+      ],
+      "energy": {
+        "sensor": [
+          "/sys/bus/i2c/drivers/ina3221/1-0040/hwmon/hwmon6/in1_input",
+          "/sys/bus/i2c/drivers/ina3221/1-0040/hwmon/hwmon6/curr1_input"
+        ],
+        "error": null,
+        "samples": [
+          [
+            4069704.056046425,
+            31.936
+          ],
+          [
+            4069704.058429897,
+            31.936
+          ],
+          [
+            4069704.160088036,
+            33.12032
+          ],
+          [
+            4069704.261887999,
+            30.36352
+          ],
+          [
+            4069704.364283423,
+            24.78016
+          ],
+          [
+            4069704.466121051,
+            27.53376
+          ],
+          [
+            4069704.56792319,
+            26.35776
+          ],
+          [
+            4069704.670115956,
+            21.9736
+          ],
+          [
+            4069704.772019889,
+            25.53856
+          ],
+          [
+            4069704.841448248,
+            25.5488
+          ]
+        ],
+        "sampled_joules": 21.4361826187976,
+        "sample_coverage_fraction": 1.0,
+        "sampled_joules_per_output_token": 1.7863485515664665,
+        "scope": "whole rail, shared-device load included, no idle subtraction"
+      },
+      "exit_layer": 3,
+      "policy": "ptq",
+      "scheduler": "native",
+      "repeat": 0,
+      "head": "fp",
+      "workload": "trace"
+    },
+    {
+      "summary": {
+        "requests": 6,
+        "elapsed_s": 0.8445621817372739,
+        "output_tokens": 12,
+        "ttft_s": {
+          "p50": 0.12230328312143685,
+          "p90": 0.12266128612682226,
+          "p95": 0.12266128612682226,
+          "p99": 0.12266128612682226
+        },
+        "tpot_s": {
+          "p50": 0.12184585584327579,
+          "p90": 0.12194137601181865,
+          "p95": 0.12194137601181865,
+          "p99": 0.12194137601181865
+        },
+        "e2e_s": {
+          "p50": 0.24414913896471263,
+          "p90": 0.2445039410144091,
+          "p95": 0.2445039410144091,
+          "p99": 0.2445039410144091
+        },
+        "admission_lag_s": {
+          "p50": 0.0005077003035694472,
+          "p90": 0.0014564024284482169,
+          "p95": 0.001602415600791593,
+          "p99": 0.001719226138666294
+        },
+        "output_tps": 14.208545278828215,
+        "slo_requests_per_s": 0.0,
+        "slo_tokens_per_s": 0.0,
+        "quality": {
+          "arithmetic": {
+            "count": 2,
+            "accuracy": 1.0
+          },
+          "code": {
+            "count": 2,
+            "accuracy": 1.0
+          },
+          "knowledge": {
+            "count": 2,
+            "accuracy": 1.0
+          }
+        },
+        "quality_slo_requests_per_s": 0.0
+      },
+      "requests": [
+        {
+          "arrival_s": 0,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the number: 17 + 25 =<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "42",
+          "task": "arithmetic",
+          "allow_ptq": true,
+          "max_tokens": 16,
+          "request_id": "request-0",
+          "raw_prompt": "Answer with only the number: 17 + 25 =",
+          "token_times_s": [
+            0.118799211923033,
+            0.24074058793485165
+          ],
+          "token_ids": [
+            2983,
+            128009
+          ],
+          "text": "42",
+          "admission_lag_s": 3.6158598959445953e-06,
+          "finished_s": 0.24074058793485165,
+          "correct": true,
+          "ttft_s": 0.118799211923033,
+          "tpot_s": 0.12194137601181865,
+          "e2e_s": 0.24074058793485165,
+          "slo_pass": false
+        },
+        {
+          "arrival_s": 0,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the city name. What is the capital of France?<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "Paris",
+          "task": "knowledge",
+          "allow_ptq": false,
+          "max_tokens": 16,
+          "request_id": "request-1",
+          "raw_prompt": "Answer with only the city name. What is the capital of France?",
+          "token_times_s": [
+            0.118799211923033,
+            0.24074058793485165
+          ],
+          "token_ids": [
+            60704,
+            128009
+          ],
+          "text": "Paris",
+          "admission_lag_s": 0.0009482628665864468,
+          "finished_s": 0.24074058793485165,
+          "correct": true,
+          "ttft_s": 0.118799211923033,
+          "tpot_s": 0.12194137601181865,
+          "e2e_s": 0.24074058793485165,
+          "slo_pass": false
+        },
+        {
+          "arrival_s": 0.3,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nWhat does Python print for len([1, 2, 3])? Answer with only the number.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "3",
+          "task": "code",
+          "allow_ptq": true,
+          "max_tokens": 16,
+          "request_id": "request-2",
+          "raw_prompt": "What does Python print for len([1, 2, 3])? Answer with only the number.",
+          "token_times_s": [
+            0.42230328312143683,
+            0.5441491389647126
+          ],
+          "token_ids": [
+            18,
+            128009
+          ],
+          "text": "3",
+          "admission_lag_s": 6.616096943617977e-05,
+          "finished_s": 0.5441491389647126,
+          "correct": true,
+          "ttft_s": 0.12230328312143685,
+          "tpot_s": 0.12184585584327579,
+          "e2e_s": 0.24414913896471263,
+          "slo_pass": false
+        },
+        {
+          "arrival_s": 0.3,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the number: 9 multiplied by 7 =<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "63",
+          "task": "arithmetic",
+          "allow_ptq": false,
+          "max_tokens": 16,
+          "request_id": "request-3",
+          "raw_prompt": "Answer with only the number: 9 multiplied by 7 =",
+          "token_times_s": [
+            0.42230328312143683,
+            0.5441491389647126
+          ],
+          "token_ids": [
+            5495,
+            128009
+          ],
+          "text": "63",
+          "admission_lag_s": 0.0011643760837614647,
+          "finished_s": 0.5441491389647126,
+          "correct": true,
+          "ttft_s": 0.12230328312143685,
+          "tpot_s": 0.12184585584327579,
+          "e2e_s": 0.24414913896471263,
+          "slo_pass": false
+        },
+        {
+          "arrival_s": 0.6,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the chemical symbol for oxygen.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "O",
+          "task": "knowledge",
+          "allow_ptq": true,
+          "max_tokens": 16,
+          "request_id": "request-4",
+          "raw_prompt": "Answer with only the chemical symbol for oxygen.",
+          "token_times_s": [
+            0.7226612861268222,
+            0.8445039410144091
+          ],
+          "token_ids": [
+            46,
+            128009
+          ],
+          "text": "O",
+          "admission_lag_s": 6.713774055244759e-05,
+          "finished_s": 0.8445039410144091,
+          "correct": true,
+          "ttft_s": 0.12266128612682226,
+          "tpot_s": 0.12184265488758683,
+          "e2e_s": 0.2445039410144091,
+          "slo_pass": false
+        },
+        {
+          "arrival_s": 0.6,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nWhat does Python print for sum([2, 3, 4])? Answer with only the number.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "9",
+          "task": "code",
+          "allow_ptq": false,
+          "max_tokens": 16,
+          "request_id": "request-5",
+          "raw_prompt": "What does Python print for sum([2, 3, 4])? Answer with only the number.",
+          "token_times_s": [
+            0.7226612861268222,
+            0.8445039410144091
+          ],
+          "token_ids": [
+            24,
+            128009
+          ],
+          "text": "9",
+          "admission_lag_s": 0.001748428773134969,
+          "finished_s": 0.8445039410144091,
+          "correct": true,
+          "ttft_s": 0.12266128612682226,
+          "tpot_s": 0.12184265488758683,
+          "e2e_s": 0.2445039410144091,
+          "slo_pass": false
+        }
+      ],
+      "steps": [
+        {
+          "step": 2,
+          "time_s": 4069705.170172676,
+          "selected_group": "native",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-0-a6fe0db9": 48,
+            "request-1-bde1a195": 50
+          },
+          "service_gap_s": {
+            "request-0-a6fe0db9": 0.0,
+            "request-1-bde1a195": 0.0
+          },
+          "routes": {
+            "request-0-a6fe0db9": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 48
+            },
+            "request-1-bde1a195": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 50
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 3,
+          "time_s": 4069705.287546438,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-a6fe0db9": 1,
+            "request-1-bde1a195": 1
+          },
+          "service_gap_s": {
+            "request-0-a6fe0db9": 0.11737376218661666,
+            "request-1-bde1a195": 0.11737376218661666
+          },
+          "routes": {
+            "request-0-a6fe0db9": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-bde1a195": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 4,
+          "time_s": 4069705.47049151,
+          "selected_group": "native",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-2-81e1a719": 58,
+            "request-3-97dfee1f": 49
+          },
+          "service_gap_s": {
+            "request-2-81e1a719": 0.0,
+            "request-3-97dfee1f": 0.0
+          },
+          "routes": {
+            "request-2-81e1a719": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 58
+            },
+            "request-3-97dfee1f": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 49
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 5,
+          "time_s": 4069705.591052397,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-81e1a719": 1,
+            "request-3-97dfee1f": 1
+          },
+          "service_gap_s": {
+            "request-2-81e1a719": 0.12056088726967573,
+            "request-3-97dfee1f": 0.12056088726967573
+          },
+          "routes": {
+            "request-2-81e1a719": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-97dfee1f": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 6,
+          "time_s": 4069705.771732623,
+          "selected_group": "native",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-4-85cab52c": 45,
+            "request-5-8e2babaf": 58
+          },
+          "service_gap_s": {
+            "request-4-85cab52c": 0.0,
+            "request-5-8e2babaf": 0.0
+          },
+          "routes": {
+            "request-4-85cab52c": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 45
+            },
+            "request-5-8e2babaf": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 58
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 7,
+          "time_s": 4069705.891407872,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-4-85cab52c": 1,
+            "request-5-8e2babaf": 1
+          },
+          "service_gap_s": {
+            "request-4-85cab52c": 0.11967524886131287,
+            "request-5-8e2babaf": 0.11967524886131287
+          },
+          "routes": {
+            "request-4-85cab52c": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-5-8e2babaf": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        }
+      ],
+      "energy": {
+        "sensor": [
+          "/sys/bus/i2c/drivers/ina3221/1-0040/hwmon/hwmon6/in1_input",
+          "/sys/bus/i2c/drivers/ina3221/1-0040/hwmon/hwmon6/curr1_input"
+        ],
+        "error": null,
+        "samples": [
+          [
+            4069705.168415288,
+            29.1416
+          ],
+          [
+            4069705.170907561,
+            29.1416
+          ],
+          [
+            4069705.272594212,
+            31.12512
+          ],
+          [
+            4069705.374349568,
+            30.7384
+          ],
+          [
+            4069705.476993217,
+            26.76784
+          ],
+          [
+            4069705.578776989,
+            29.52896
+          ],
+          [
+            4069705.680642137,
+            29.1416
+          ],
+          [
+            4069705.78284028,
+            25.9688
+          ],
+          [
+            4069705.884673556,
+            28.73088
+          ],
+          [
+            4069705.986444304,
+            28.7424
+          ],
+          [
+            4069706.014915467,
+            28.7424
+          ]
+        ],
+        "sampled_joules": 24.37715225289095,
+        "sample_coverage_fraction": 1.0,
+        "sampled_joules_per_output_token": 2.0314293544075794,
+        "scope": "whole rail, shared-device load included, no idle subtraction"
+      },
+      "exit_layer": 1,
+      "policy": "mixed",
+      "scheduler": "native",
+      "repeat": 0,
+      "head": "fp",
+      "workload": "trace"
+    },
+    {
+      "summary": {
+        "requests": 6,
+        "elapsed_s": 0.780665444675833,
+        "output_tokens": 12,
+        "ttft_s": {
+          "p50": 0.12641126485541465,
+          "p90": 0.1270785157568753,
+          "p95": 0.1270785157568753,
+          "p99": 0.1270785157568753
+        },
+        "tpot_s": {
+          "p50": 0.054176002740859985,
+          "p90": 0.05434045288711786,
+          "p95": 0.05434045288711786,
+          "p99": 0.05434045288711786
+        },
+        "e2e_s": {
+          "p50": 0.18058726759627464,
+          "p90": 0.18111467761918904,
+          "p95": 0.18111467761918904,
+          "p99": 0.18111467761918904
+        },
+        "admission_lag_s": {
+          "p50": 0.0005136041902005783,
+          "p90": 0.0019571268465370106,
+          "p95": 0.0019707472762093142,
+          "p99": 0.001981643619947157
+        },
+        "output_tps": 15.371501431042505,
+        "slo_requests_per_s": 7.6857507155212526,
+        "slo_tokens_per_s": 15.371501431042505,
+        "quality": {
+          "arithmetic": {
+            "count": 2,
+            "accuracy": 1.0
+          },
+          "code": {
+            "count": 2,
+            "accuracy": 1.0
+          },
+          "knowledge": {
+            "count": 2,
+            "accuracy": 1.0
+          }
+        },
+        "quality_slo_requests_per_s": 7.6857507155212526
+      },
+      "requests": [
+        {
+          "arrival_s": 0,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the number: 17 + 25 =<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "42",
+          "task": "arithmetic",
+          "allow_ptq": true,
+          "max_tokens": 16,
+          "request_id": "request-0",
+          "raw_prompt": "Answer with only the number: 17 + 25 =",
+          "token_times_s": [
+            0.11854013800621033,
+            0.1728805908933282
+          ],
+          "token_ids": [
+            2983,
+            128009
+          ],
+          "text": "42",
+          "admission_lag_s": 3.3276155591011047e-06,
+          "finished_s": 0.1728805908933282,
+          "correct": true,
+          "ttft_s": 0.11854013800621033,
+          "tpot_s": 0.05434045288711786,
+          "e2e_s": 0.1728805908933282,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the city name. What is the capital of France?<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "Paris",
+          "task": "knowledge",
+          "allow_ptq": false,
+          "max_tokens": 16,
+          "request_id": "request-1",
+          "raw_prompt": "Answer with only the city name. What is the capital of France?",
+          "token_times_s": [
+            0.11854013800621033,
+            0.1728805908933282
+          ],
+          "token_ids": [
+            60704,
+            128009
+          ],
+          "text": "Paris",
+          "admission_lag_s": 0.0009359098039567471,
+          "finished_s": 0.1728805908933282,
+          "correct": true,
+          "ttft_s": 0.11854013800621033,
+          "tpot_s": 0.05434045288711786,
+          "e2e_s": 0.1728805908933282,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0.3,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nWhat does Python print for len([1, 2, 3])? Answer with only the number.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "3",
+          "task": "code",
+          "allow_ptq": true,
+          "max_tokens": 16,
+          "request_id": "request-2",
+          "raw_prompt": "What does Python print for len([1, 2, 3])? Answer with only the number.",
+          "token_times_s": [
+            0.4270785157568753,
+            0.481114677619189
+          ],
+          "token_ids": [
+            18,
+            128009
+          ],
+          "text": "3",
+          "admission_lag_s": 6.705783307553448e-05,
+          "finished_s": 0.481114677619189,
+          "correct": true,
+          "ttft_s": 0.1270785157568753,
+          "tpot_s": 0.05403616186231375,
+          "e2e_s": 0.18111467761918904,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0.3,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the number: 9 multiplied by 7 =<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "63",
+          "task": "arithmetic",
+          "allow_ptq": false,
+          "max_tokens": 16,
+          "request_id": "request-3",
+          "raw_prompt": "Answer with only the number: 9 multiplied by 7 =",
+          "token_times_s": [
+            0.4270785157568753,
+            0.481114677619189
+          ],
+          "token_ids": [
+            5495,
+            128009
+          ],
+          "text": "63",
+          "admission_lag_s": 0.0019298859871924035,
+          "finished_s": 0.481114677619189,
+          "correct": true,
+          "ttft_s": 0.1270785157568753,
+          "tpot_s": 0.05403616186231375,
+          "e2e_s": 0.18111467761918904,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0.6,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the chemical symbol for oxygen.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "O",
+          "task": "knowledge",
+          "allow_ptq": true,
+          "max_tokens": 16,
+          "request_id": "request-4",
+          "raw_prompt": "Answer with only the chemical symbol for oxygen.",
+          "token_times_s": [
+            0.7264112648554146,
+            0.7805872675962746
+          ],
+          "token_ids": [
+            46,
+            128009
+          ],
+          "text": "O",
+          "admission_lag_s": 9.129857644440964e-05,
+          "finished_s": 0.7805872675962746,
+          "correct": true,
+          "ttft_s": 0.12641126485541465,
+          "tpot_s": 0.054176002740859985,
+          "e2e_s": 0.18058726759627464,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0.6,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nWhat does Python print for sum([2, 3, 4])? Answer with only the number.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "9",
+          "task": "code",
+          "allow_ptq": false,
+          "max_tokens": 16,
+          "request_id": "request-5",
+          "raw_prompt": "What does Python print for sum([2, 3, 4])? Answer with only the number.",
+          "token_times_s": [
+            0.7264112648554146,
+            0.7805872675962746
+          ],
+          "token_ids": [
+            24,
+            128009
+          ],
+          "text": "9",
+          "admission_lag_s": 0.001984367705881618,
+          "finished_s": 0.7805872675962746,
+          "correct": true,
+          "ttft_s": 0.12641126485541465,
+          "tpot_s": 0.054176002740859985,
+          "e2e_s": 0.18058726759627464,
+          "slo_pass": true
+        }
+      ],
+      "steps": [
+        {
+          "step": 2,
+          "time_s": 4069706.268845902,
+          "selected_group": "native",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-0-959c4d83": 48,
+            "request-1-b2eab5f6": 50
+          },
+          "service_gap_s": {
+            "request-0-959c4d83": 0.0,
+            "request-1-b2eab5f6": 0.0
+          },
+          "routes": {
+            "request-0-959c4d83": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 48
+            },
+            "request-1-b2eab5f6": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 50
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 3,
+          "time_s": 4069706.385957038,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-959c4d83": 1,
+            "request-1-b2eab5f6": 1
+          },
+          "service_gap_s": {
+            "request-0-959c4d83": 0.1171111362054944,
+            "request-1-b2eab5f6": 0.1171111362054944
+          },
+          "routes": {
+            "request-0-959c4d83": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-b2eab5f6": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 4,
+          "time_s": 4069706.57055649,
+          "selected_group": "native",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-2-ab72b4da": 58,
+            "request-3-b877a0cd": 49
+          },
+          "service_gap_s": {
+            "request-2-ab72b4da": 0.0,
+            "request-3-b877a0cd": 0.0
+          },
+          "routes": {
+            "request-2-ab72b4da": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 58
+            },
+            "request-3-b877a0cd": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 49
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 5,
+          "time_s": 4069706.69449676,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-ab72b4da": 1,
+            "request-3-b877a0cd": 1
+          },
+          "service_gap_s": {
+            "request-2-ab72b4da": 0.12394026992842555,
+            "request-3-b877a0cd": 0.12394026992842555
+          },
+          "routes": {
+            "request-2-ab72b4da": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-b877a0cd": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 6,
+          "time_s": 4069706.870663932,
+          "selected_group": "native",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-4-bb3c7646": 45,
+            "request-5-add5e579": 58
+          },
+          "service_gap_s": {
+            "request-4-bb3c7646": 0.0,
+            "request-5-add5e579": 0.0
+          },
+          "routes": {
+            "request-4-bb3c7646": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 45
+            },
+            "request-5-add5e579": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 58
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 7,
+          "time_s": 4069706.993832901,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-4-bb3c7646": 1,
+            "request-5-add5e579": 1
+          },
+          "service_gap_s": {
+            "request-4-bb3c7646": 0.12316896906122565,
+            "request-5-add5e579": 0.12316896906122565
+          },
+          "routes": {
+            "request-4-bb3c7646": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-5-add5e579": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        }
+      ],
+      "energy": {
+        "sensor": [
+          "/sys/bus/i2c/drivers/ina3221/1-0040/hwmon/hwmon6/in1_input",
+          "/sys/bus/i2c/drivers/ina3221/1-0040/hwmon/hwmon6/curr1_input"
+        ],
+        "error": null,
+        "samples": [
+          [
+            4069706.267099394,
+            31.936
+          ],
+          [
+            4069706.26951685,
+            31.936
+          ],
+          [
+            4069706.371242766,
+            33.12032
+          ],
+          [
+            4069706.47308401,
+            30.36352
+          ],
+          [
+            4069706.57535345,
+            24.78016
+          ],
+          [
+            4069706.677273671,
+            27.53376
+          ],
+          [
+            4069706.779073123,
+            25.9584
+          ],
+          [
+            4069706.881319298,
+            21.57408
+          ],
+          [
+            4069706.983132543,
+            25.13952
+          ],
+          [
+            4069707.049875509,
+            25.5488
+          ]
+        ],
+        "sampled_joules": 21.271099062958783,
+        "sample_coverage_fraction": 1.0,
+        "sampled_joules_per_output_token": 1.7725915885798986,
+        "scope": "whole rail, shared-device load included, no idle subtraction"
+      },
+      "exit_layer": 3,
+      "policy": "ptq",
+      "scheduler": "native",
+      "repeat": 0,
+      "head": "int4",
+      "workload": "trace"
+    },
+    {
+      "summary": {
+        "requests": 6,
+        "elapsed_s": 0.81815868569538,
+        "output_tokens": 12,
+        "ttft_s": {
+          "p50": 0.12449581203982235,
+          "p90": 0.12536213975399735,
+          "p95": 0.12536213975399735,
+          "p99": 0.12536213975399735
+        },
+        "tpot_s": {
+          "p50": 0.09291785908862948,
+          "p90": 0.09317449992522597,
+          "p95": 0.09317449992522597,
+          "p99": 0.09317449992522597
+        },
+        "e2e_s": {
+          "p50": 0.21767031196504832,
+          "p90": 0.2181073577143252,
+          "p95": 0.2181073577143252,
+          "p99": 0.2181073577143252
+        },
+        "admission_lag_s": {
+          "p50": 0.0005075573455542437,
+          "p90": 0.0014697329141199755,
+          "p95": 0.001542681967839618,
+          "p99": 0.0016010412108153323
+        },
+        "output_tps": 14.667081349629388,
+        "slo_requests_per_s": 7.333540674814694,
+        "slo_tokens_per_s": 14.667081349629388,
+        "quality": {
+          "arithmetic": {
+            "count": 2,
+            "accuracy": 1.0
+          },
+          "code": {
+            "count": 2,
+            "accuracy": 1.0
+          },
+          "knowledge": {
+            "count": 2,
+            "accuracy": 1.0
+          }
+        },
+        "quality_slo_requests_per_s": 7.333540674814694
+      },
+      "requests": [
+        {
+          "arrival_s": 0,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the number: 17 + 25 =<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "42",
+          "task": "arithmetic",
+          "allow_ptq": true,
+          "max_tokens": 16,
+          "request_id": "request-0",
+          "raw_prompt": "Answer with only the number: 17 + 25 =",
+          "token_times_s": [
+            0.1190191488713026,
+            0.2119370079599321
+          ],
+          "token_ids": [
+            2983,
+            128009
+          ],
+          "text": "42",
+          "admission_lag_s": 4.0316954255104065e-06,
+          "finished_s": 0.2119370079599321,
+          "correct": true,
+          "ttft_s": 0.1190191488713026,
+          "tpot_s": 0.09291785908862948,
+          "e2e_s": 0.2119370079599321,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the city name. What is the capital of France?<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "Paris",
+          "task": "knowledge",
+          "allow_ptq": false,
+          "max_tokens": 16,
+          "request_id": "request-1",
+          "raw_prompt": "Answer with only the city name. What is the capital of France?",
+          "token_times_s": [
+            0.1190191488713026,
+            0.2119370079599321
+          ],
+          "token_ids": [
+            60704,
+            128009
+          ],
+          "text": "Paris",
+          "admission_lag_s": 0.0009477818384766579,
+          "finished_s": 0.2119370079599321,
+          "correct": true,
+          "ttft_s": 0.1190191488713026,
+          "tpot_s": 0.09291785908862948,
+          "e2e_s": 0.2119370079599321,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0.3,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nWhat does Python print for len([1, 2, 3])? Answer with only the number.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "3",
+          "task": "code",
+          "allow_ptq": true,
+          "max_tokens": 16,
+          "request_id": "request-2",
+          "raw_prompt": "What does Python print for len([1, 2, 3])? Answer with only the number.",
+          "token_times_s": [
+            0.42449581203982234,
+            0.5176703119650483
+          ],
+          "token_ids": [
+            18,
+            128009
+          ],
+          "text": "3",
+          "admission_lag_s": 6.139492616058506e-05,
+          "finished_s": 0.5176703119650483,
+          "correct": true,
+          "ttft_s": 0.12449581203982235,
+          "tpot_s": 0.09317449992522597,
+          "e2e_s": 0.21767031196504832,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0.3,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the number: 9 multiplied by 7 =<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "63",
+          "task": "arithmetic",
+          "allow_ptq": false,
+          "max_tokens": 16,
+          "request_id": "request-3",
+          "raw_prompt": "Answer with only the number: 9 multiplied by 7 =",
+          "token_times_s": [
+            0.42449581203982234,
+            0.5176703119650483
+          ],
+          "token_ids": [
+            5495,
+            128009
+          ],
+          "text": "63",
+          "admission_lag_s": 0.0013238348066806904,
+          "finished_s": 0.5176703119650483,
+          "correct": true,
+          "ttft_s": 0.12449581203982235,
+          "tpot_s": 0.09317449992522597,
+          "e2e_s": 0.21767031196504832,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0.6,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the chemical symbol for oxygen.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "O",
+          "task": "knowledge",
+          "allow_ptq": true,
+          "max_tokens": 16,
+          "request_id": "request-4",
+          "raw_prompt": "Answer with only the chemical symbol for oxygen.",
+          "token_times_s": [
+            0.7253621397539973,
+            0.8181073577143252
+          ],
+          "token_ids": [
+            46,
+            128009
+          ],
+          "text": "O",
+          "admission_lag_s": 6.733285263182953e-05,
+          "finished_s": 0.8181073577143252,
+          "correct": true,
+          "ttft_s": 0.12536213975399735,
+          "tpot_s": 0.09274521796032786,
+          "e2e_s": 0.2181073577143252,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0.6,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nWhat does Python print for sum([2, 3, 4])? Answer with only the number.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "9",
+          "task": "code",
+          "allow_ptq": false,
+          "max_tokens": 16,
+          "request_id": "request-5",
+          "raw_prompt": "What does Python print for sum([2, 3, 4])? Answer with only the number.",
+          "token_times_s": [
+            0.7253621397539973,
+            0.8181073577143252
+          ],
+          "token_ids": [
+            24,
+            128009
+          ],
+          "text": "9",
+          "admission_lag_s": 0.0016156310215592606,
+          "finished_s": 0.8181073577143252,
+          "correct": true,
+          "ttft_s": 0.12536213975399735,
+          "tpot_s": 0.09274521796032786,
+          "e2e_s": 0.2181073577143252,
+          "slo_pass": true
+        }
+      ],
+      "steps": [
+        {
+          "step": 2,
+          "time_s": 4069707.349838439,
+          "selected_group": "native",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-0-9d851c81": 48,
+            "request-1-bb63047c": 50
+          },
+          "service_gap_s": {
+            "request-0-9d851c81": 0.0,
+            "request-1-bb63047c": 0.0
+          },
+          "routes": {
+            "request-0-9d851c81": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 48
+            },
+            "request-1-bb63047c": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 50
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 3,
+          "time_s": 4069707.467425708,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-9d851c81": 1,
+            "request-1-bb63047c": 1
+          },
+          "service_gap_s": {
+            "request-0-9d851c81": 0.11758726928383112,
+            "request-1-bb63047c": 0.11758726928383112
+          },
+          "routes": {
+            "request-0-9d851c81": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-bb63047c": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 4,
+          "time_s": 4069707.65045171,
+          "selected_group": "native",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-2-96c1b1c1": 58,
+            "request-3-af6b6b82": 49
+          },
+          "service_gap_s": {
+            "request-2-96c1b1c1": 0.0,
+            "request-3-af6b6b82": 0.0
+          },
+          "routes": {
+            "request-2-96c1b1c1": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 58
+            },
+            "request-3-af6b6b82": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 49
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 5,
+          "time_s": 4069707.77290525,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-96c1b1c1": 1,
+            "request-3-af6b6b82": 1
+          },
+          "service_gap_s": {
+            "request-2-96c1b1c1": 0.12245354009792209,
+            "request-3-af6b6b82": 0.12245354009792209
+          },
+          "routes": {
+            "request-2-96c1b1c1": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-af6b6b82": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 6,
+          "time_s": 4069707.951219829,
+          "selected_group": "native",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-4-ba4b2fc0": 45,
+            "request-5-93655c75": 58
+          },
+          "service_gap_s": {
+            "request-4-ba4b2fc0": 0.0,
+            "request-5-93655c75": 0.0
+          },
+          "routes": {
+            "request-4-ba4b2fc0": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 45
+            },
+            "request-5-93655c75": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 58
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 7,
+          "time_s": 4069708.07376873,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-4-ba4b2fc0": 1,
+            "request-5-93655c75": 1
+          },
+          "service_gap_s": {
+            "request-4-ba4b2fc0": 0.12254890101030469,
+            "request-5-93655c75": 0.12254890101030469
+          },
+          "routes": {
+            "request-4-ba4b2fc0": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-5-93655c75": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        }
+      ],
+      "energy": {
+        "sensor": [
+          "/sys/bus/i2c/drivers/ina3221/1-0040/hwmon/hwmon6/in1_input",
+          "/sys/bus/i2c/drivers/ina3221/1-0040/hwmon/hwmon6/curr1_input"
+        ],
+        "error": null,
+        "samples": [
+          [
+            4069707.348054172,
+            28.7424
+          ],
+          [
+            4069707.350538892,
+            28.7424
+          ],
+          [
+            4069707.452156359,
+            30.32704
+          ],
+          [
+            4069707.553994308,
+            29.94
+          ],
+          [
+            4069707.656081507,
+            24.78016
+          ],
+          [
+            4069707.758023872,
+            27.9328
+          ],
+          [
+            4069707.859848317,
+            27.5448
+          ],
+          [
+            4069707.962207678,
+            23.17216
+          ],
+          [
+            4069708.064022778,
+            26.73568
+          ],
+          [
+            4069708.165832952,
+            26.7464
+          ],
+          [
+            4069708.168490985,
+            26.7464
+          ]
+        ],
+        "sampled_joules": 22.314246468042022,
+        "sample_coverage_fraction": 1.0,
+        "sampled_joules_per_output_token": 1.859520539003502,
+        "scope": "whole rail, shared-device load included, no idle subtraction"
+      },
+      "exit_layer": 1,
+      "policy": "fp",
+      "scheduler": "native",
+      "repeat": 0,
+      "head": "int4",
+      "workload": "trace"
+    },
+    {
+      "summary": {
+        "requests": 6,
+        "elapsed_s": 0.8183288350701332,
+        "output_tokens": 12,
+        "ttft_s": {
+          "p50": 0.124984073266387,
+          "p90": 0.12548896120861175,
+          "p95": 0.12548896120861175,
+          "p99": 0.12548896120861175
+        },
+        "tpot_s": {
+          "p50": 0.09294592309743166,
+          "p90": 0.09297958668321371,
+          "p95": 0.09297958668321371,
+          "p99": 0.09297958668321371
+        },
+        "e2e_s": {
+          "p50": 0.21792999636381866,
+          "p90": 0.21827360345050695,
+          "p95": 0.21827360345050695,
+          "p99": 0.21827360345050695
+        },
+        "admission_lag_s": {
+          "p50": 0.0005426221992820557,
+          "p90": 0.001550488360226171,
+          "p95": 0.0016082938760519222,
+          "p99": 0.0016545382887125232
+        },
+        "output_tps": 14.664031726282216,
+        "slo_requests_per_s": 7.332015863141108,
+        "slo_tokens_per_s": 14.664031726282216,
+        "quality": {
+          "arithmetic": {
+            "count": 2,
+            "accuracy": 1.0
+          },
+          "code": {
+            "count": 2,
+            "accuracy": 1.0
+          },
+          "knowledge": {
+            "count": 2,
+            "accuracy": 1.0
+          }
+        },
+        "quality_slo_requests_per_s": 7.332015863141108
+      },
+      "requests": [
+        {
+          "arrival_s": 0,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the number: 17 + 25 =<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "42",
+          "task": "arithmetic",
+          "allow_ptq": true,
+          "max_tokens": 16,
+          "request_id": "request-0",
+          "raw_prompt": "Answer with only the number: 17 + 25 =",
+          "token_times_s": [
+            0.11914523132145405,
+            0.21212481800466776
+          ],
+          "token_ids": [
+            2983,
+            128009
+          ],
+          "text": "42",
+          "admission_lag_s": 4.096422344446182e-06,
+          "finished_s": 0.21212481800466776,
+          "correct": true,
+          "ttft_s": 0.11914523132145405,
+          "tpot_s": 0.09297958668321371,
+          "e2e_s": 0.21212481800466776,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the city name. What is the capital of France?<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "Paris",
+          "task": "knowledge",
+          "allow_ptq": false,
+          "max_tokens": 16,
+          "request_id": "request-1",
+          "raw_prompt": "Answer with only the city name. What is the capital of France?",
+          "token_times_s": [
+            0.11914523132145405,
+            0.21212481800466776
+          ],
+          "token_ids": [
+            60704,
+            128009
+          ],
+          "text": "Paris",
+          "admission_lag_s": 0.0009945672936737537,
+          "finished_s": 0.21212481800466776,
+          "correct": true,
+          "ttft_s": 0.11914523132145405,
+          "tpot_s": 0.09297958668321371,
+          "e2e_s": 0.21212481800466776,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0.3,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nWhat does Python print for len([1, 2, 3])? Answer with only the number.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "3",
+          "task": "code",
+          "allow_ptq": true,
+          "max_tokens": 16,
+          "request_id": "request-2",
+          "raw_prompt": "What does Python print for len([1, 2, 3])? Answer with only the number.",
+          "token_times_s": [
+            0.424984073266387,
+            0.5179299963638186
+          ],
+          "token_ids": [
+            18,
+            128009
+          ],
+          "text": "3",
+          "admission_lag_s": 9.067710489035763e-05,
+          "finished_s": 0.5179299963638186,
+          "correct": true,
+          "ttft_s": 0.124984073266387,
+          "tpot_s": 0.09294592309743166,
+          "e2e_s": 0.21792999636381866,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0.3,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the number: 9 multiplied by 7 =<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "63",
+          "task": "arithmetic",
+          "allow_ptq": false,
+          "max_tokens": 16,
+          "request_id": "request-3",
+          "raw_prompt": "Answer with only the number: 9 multiplied by 7 =",
+          "token_times_s": [
+            0.424984073266387,
+            0.5179299963638186
+          ],
+          "token_ids": [
+            5495,
+            128009
+          ],
+          "text": "63",
+          "admission_lag_s": 0.0014348773285746685,
+          "finished_s": 0.5179299963638186,
+          "correct": true,
+          "ttft_s": 0.124984073266387,
+          "tpot_s": 0.09294592309743166,
+          "e2e_s": 0.21792999636381866,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0.6,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the chemical symbol for oxygen.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "O",
+          "task": "knowledge",
+          "allow_ptq": true,
+          "max_tokens": 16,
+          "request_id": "request-4",
+          "raw_prompt": "Answer with only the chemical symbol for oxygen.",
+          "token_times_s": [
+            0.7254889612086117,
+            0.8182736034505069
+          ],
+          "token_ids": [
+            46,
+            128009
+          ],
+          "text": "O",
+          "admission_lag_s": 7.360810413958863e-05,
+          "finished_s": 0.8182736034505069,
+          "correct": true,
+          "ttft_s": 0.12548896120861175,
+          "tpot_s": 0.0927846422418952,
+          "e2e_s": 0.21827360345050695,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0.6,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nWhat does Python print for sum([2, 3, 4])? Answer with only the number.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "9",
+          "task": "code",
+          "allow_ptq": false,
+          "max_tokens": 16,
+          "request_id": "request-5",
+          "raw_prompt": "What does Python print for sum([2, 3, 4])? Answer with only the number.",
+          "token_times_s": [
+            0.7254889612086117,
+            0.8182736034505069
+          ],
+          "token_ids": [
+            24,
+            128009
+          ],
+          "text": "9",
+          "admission_lag_s": 0.0016660993918776734,
+          "finished_s": 0.8182736034505069,
+          "correct": true,
+          "ttft_s": 0.12548896120861175,
+          "tpot_s": 0.0927846422418952,
+          "e2e_s": 0.21827360345050695,
+          "slo_pass": true
+        }
+      ],
+      "steps": [
+        {
+          "step": 2,
+          "time_s": 4069708.462500885,
+          "selected_group": "native",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-0-99566fac": 48,
+            "request-1-b6c45225": 50
+          },
+          "service_gap_s": {
+            "request-0-99566fac": 0.0,
+            "request-1-b6c45225": 0.0
+          },
+          "routes": {
+            "request-0-99566fac": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 48
+            },
+            "request-1-b6c45225": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 50
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 3,
+          "time_s": 4069708.580169691,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-99566fac": 1,
+            "request-1-b6c45225": 1
+          },
+          "service_gap_s": {
+            "request-0-99566fac": 0.11766880564391613,
+            "request-1-b6c45225": 0.11766880564391613
+          },
+          "routes": {
+            "request-0-99566fac": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-b6c45225": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 4,
+          "time_s": 4069708.763246926,
+          "selected_group": "native",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-2-9be97c83": 58,
+            "request-3-8a8bbd00": 49
+          },
+          "service_gap_s": {
+            "request-2-9be97c83": 0.0,
+            "request-3-8a8bbd00": 0.0
+          },
+          "routes": {
+            "request-2-9be97c83": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 58
+            },
+            "request-3-8a8bbd00": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 49
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 5,
+          "time_s": 4069708.886007829,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-9be97c83": 1,
+            "request-3-8a8bbd00": 1
+          },
+          "service_gap_s": {
+            "request-2-9be97c83": 0.12276090309023857,
+            "request-3-8a8bbd00": 0.12276090309023857
+          },
+          "routes": {
+            "request-2-9be97c83": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-8a8bbd00": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 6,
+          "time_s": 4069709.063793861,
+          "selected_group": "native",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-4-abe71cc5": 45,
+            "request-5-a72d73e4": 58
+          },
+          "service_gap_s": {
+            "request-4-abe71cc5": 0.0,
+            "request-5-a72d73e4": 0.0
+          },
+          "routes": {
+            "request-4-abe71cc5": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 45
+            },
+            "request-5-a72d73e4": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 58
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 7,
+          "time_s": 4069709.186512236,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-4-abe71cc5": 1,
+            "request-5-a72d73e4": 1
+          },
+          "service_gap_s": {
+            "request-4-abe71cc5": 0.12271837517619133,
+            "request-5-a72d73e4": 0.12271837517619133
+          },
+          "routes": {
+            "request-4-abe71cc5": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-5-a72d73e4": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        }
+      ],
+      "energy": {
+        "sensor": [
+          "/sys/bus/i2c/drivers/ina3221/1-0040/hwmon/hwmon6/in1_input",
+          "/sys/bus/i2c/drivers/ina3221/1-0040/hwmon/hwmon6/curr1_input"
+        ],
+        "error": null,
+        "samples": [
+          [
+            4069708.460749162,
+            30.3392
+          ],
+          [
+            4069708.463236826,
+            30.3392
+          ],
+          [
+            4069708.564804406,
+            31.9232
+          ],
+          [
+            4069708.666336689,
+            30.7384
+          ],
+          [
+            4069708.768213454,
+            25.57952
+          ],
+          [
+            4069708.869751594,
+            28.33184
+          ],
+          [
+            4069708.971317029,
+            27.944
+          ],
+          [
+            4069709.073012322,
+            23.57168
+          ],
+          [
+            4069709.174513853,
+            26.73568
+          ],
+          [
+            4069709.276053817,
+            26.7464
+          ],
+          [
+            4069709.280993785,
+            26.7464
+          ]
+        ],
+        "sampled_joules": 22.850009540398194,
+        "sample_coverage_fraction": 1.0,
+        "sampled_joules_per_output_token": 1.9041674616998494,
+        "scope": "whole rail, shared-device load included, no idle subtraction"
+      },
+      "exit_layer": 1,
+      "policy": "fp",
+      "scheduler": "native",
+      "repeat": 0,
+      "head": "fp",
+      "workload": "trace"
+    },
+    {
+      "summary": {
+        "requests": 6,
+        "elapsed_s": 0.8185673039406538,
+        "output_tokens": 12,
+        "ttft_s": {
+          "p50": 0.12407328402623535,
+          "p90": 0.12567053278908136,
+          "p95": 0.12567053278908136,
+          "p99": 0.12567053278908136
+        },
+        "tpot_s": {
+          "p50": 0.09284195397049189,
+          "p90": 0.09296509204432368,
+          "p95": 0.09296509204432368,
+          "p99": 0.09296509204432368
+        },
+        "e2e_s": {
+          "p50": 0.21703837607055904,
+          "p90": 0.21851248675957324,
+          "p95": 0.21851248675957324,
+          "p99": 0.21851248675957324
+        },
+        "admission_lag_s": {
+          "p50": 0.0005136452615261133,
+          "p90": 0.0015778333880007434,
+          "p95": 0.0016659990884363846,
+          "p99": 0.0017365316487848977
+        },
+        "output_tps": 14.65975973170558,
+        "slo_requests_per_s": 7.32987986585279,
+        "slo_tokens_per_s": 14.65975973170558,
+        "quality": {
+          "arithmetic": {
+            "count": 2,
+            "accuracy": 1.0
+          },
+          "code": {
+            "count": 2,
+            "accuracy": 1.0
+          },
+          "knowledge": {
+            "count": 2,
+            "accuracy": 1.0
+          }
+        },
+        "quality_slo_requests_per_s": 7.32987986585279
+      },
+      "requests": [
+        {
+          "arrival_s": 0,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the number: 17 + 25 =<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "42",
+          "task": "arithmetic",
+          "allow_ptq": true,
+          "max_tokens": 16,
+          "request_id": "request-0",
+          "raw_prompt": "Answer with only the number: 17 + 25 =",
+          "token_times_s": [
+            0.1185919800773263,
+            0.21140420576557517
+          ],
+          "token_ids": [
+            2983,
+            128009
+          ],
+          "text": "42",
+          "admission_lag_s": 4.0959566831588745e-06,
+          "finished_s": 0.21140420576557517,
+          "correct": true,
+          "ttft_s": 0.1185919800773263,
+          "tpot_s": 0.09281222568824887,
+          "e2e_s": 0.21140420576557517,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the city name. What is the capital of France?<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "Paris",
+          "task": "knowledge",
+          "allow_ptq": false,
+          "max_tokens": 16,
+          "request_id": "request-1",
+          "raw_prompt": "Answer with only the city name. What is the capital of France?",
+          "token_times_s": [
+            0.1185919800773263,
+            0.21140420576557517
+          ],
+          "token_ids": [
+            60704,
+            128009
+          ],
+          "text": "Paris",
+          "admission_lag_s": 0.0009516216814517975,
+          "finished_s": 0.21140420576557517,
+          "correct": true,
+          "ttft_s": 0.1185919800773263,
+          "tpot_s": 0.09281222568824887,
+          "e2e_s": 0.21140420576557517,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0.3,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nWhat does Python print for len([1, 2, 3])? Answer with only the number.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "3",
+          "task": "code",
+          "allow_ptq": true,
+          "max_tokens": 16,
+          "request_id": "request-2",
+          "raw_prompt": "What does Python print for len([1, 2, 3])? Answer with only the number.",
+          "token_times_s": [
+            0.42407328402623534,
+            0.517038376070559
+          ],
+          "token_ids": [
+            18,
+            128009
+          ],
+          "text": "3",
+          "admission_lag_s": 7.566884160042919e-05,
+          "finished_s": 0.517038376070559,
+          "correct": true,
+          "ttft_s": 0.12407328402623535,
+          "tpot_s": 0.09296509204432368,
+          "e2e_s": 0.21703837607055904,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0.3,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the number: 9 multiplied by 7 =<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "63",
+          "task": "arithmetic",
+          "allow_ptq": false,
+          "max_tokens": 16,
+          "request_id": "request-3",
+          "raw_prompt": "Answer with only the number: 9 multiplied by 7 =",
+          "token_times_s": [
+            0.42407328402623534,
+            0.517038376070559
+          ],
+          "token_ids": [
+            5495,
+            128009
+          ],
+          "text": "63",
+          "admission_lag_s": 0.001401501987129461,
+          "finished_s": 0.517038376070559,
+          "correct": true,
+          "ttft_s": 0.12407328402623535,
+          "tpot_s": 0.09296509204432368,
+          "e2e_s": 0.21703837607055904,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0.6,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the chemical symbol for oxygen.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "O",
+          "task": "knowledge",
+          "allow_ptq": true,
+          "max_tokens": 16,
+          "request_id": "request-4",
+          "raw_prompt": "Answer with only the chemical symbol for oxygen.",
+          "token_times_s": [
+            0.7256705327890813,
+            0.8185124867595732
+          ],
+          "token_ids": [
+            46,
+            128009
+          ],
+          "text": "O",
+          "admission_lag_s": 6.618592888119057e-05,
+          "finished_s": 0.8185124867595732,
+          "correct": true,
+          "ttft_s": 0.12567053278908136,
+          "tpot_s": 0.09284195397049189,
+          "e2e_s": 0.21851248675957324,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0.6,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nWhat does Python print for sum([2, 3, 4])? Answer with only the number.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "9",
+          "task": "code",
+          "allow_ptq": false,
+          "max_tokens": 16,
+          "request_id": "request-5",
+          "raw_prompt": "What does Python print for sum([2, 3, 4])? Answer with only the number.",
+          "token_times_s": [
+            0.7256705327890813,
+            0.8185124867595732
+          ],
+          "token_ids": [
+            24,
+            128009
+          ],
+          "text": "9",
+          "admission_lag_s": 0.0017541647888720258,
+          "finished_s": 0.8185124867595732,
+          "correct": true,
+          "ttft_s": 0.12567053278908136,
+          "tpot_s": 0.09284195397049189,
+          "e2e_s": 0.21851248675957324,
+          "slo_pass": true
+        }
+      ],
+      "steps": [
+        {
+          "step": 2,
+          "time_s": 4069709.575450666,
+          "selected_group": "native",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-0-965294ae": 48,
+            "request-1-ae46c26e": 50
+          },
+          "service_gap_s": {
+            "request-0-965294ae": 0.0,
+            "request-1-ae46c26e": 0.0
+          },
+          "routes": {
+            "request-0-965294ae": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 48
+            },
+            "request-1-ae46c26e": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 50
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 3,
+          "time_s": 4069709.692610988,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-965294ae": 1,
+            "request-1-ae46c26e": 1
+          },
+          "service_gap_s": {
+            "request-0-965294ae": 0.11716032214462757,
+            "request-1-ae46c26e": 0.11716032214462757
+          },
+          "routes": {
+            "request-0-965294ae": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-ae46c26e": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 4,
+          "time_s": 4069709.876078402,
+          "selected_group": "native",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-2-a48c3f2e": 58,
+            "request-3-ac784138": 49
+          },
+          "service_gap_s": {
+            "request-2-a48c3f2e": 0.0,
+            "request-3-ac784138": 0.0
+          },
+          "routes": {
+            "request-2-a48c3f2e": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 58
+            },
+            "request-3-ac784138": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 49
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 5,
+          "time_s": 4069709.998095525,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-a48c3f2e": 1,
+            "request-3-ac784138": 1
+          },
+          "service_gap_s": {
+            "request-2-a48c3f2e": 0.12201712280511856,
+            "request-3-ac784138": 0.12201712280511856
+          },
+          "routes": {
+            "request-2-a48c3f2e": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-ac784138": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 6,
+          "time_s": 4069710.177032638,
+          "selected_group": "native",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-4-b72d56c9": 45,
+            "request-5-98e77397": 58
+          },
+          "service_gap_s": {
+            "request-4-b72d56c9": 0.0,
+            "request-5-98e77397": 0.0
+          },
+          "routes": {
+            "request-4-b72d56c9": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 45
+            },
+            "request-5-98e77397": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 58
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 7,
+          "time_s": 4069710.299689829,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-4-b72d56c9": 1,
+            "request-5-98e77397": 1
+          },
+          "service_gap_s": {
+            "request-4-b72d56c9": 0.12265719100832939,
+            "request-5-98e77397": 0.12265719100832939
+          },
+          "routes": {
+            "request-4-b72d56c9": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-5-98e77397": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        }
+      ],
+      "energy": {
+        "sensor": [
+          "/sys/bus/i2c/drivers/ina3221/1-0040/hwmon/hwmon6/in1_input",
+          "/sys/bus/i2c/drivers/ina3221/1-0040/hwmon/hwmon6/curr1_input"
+        ],
+        "error": null,
+        "samples": [
+          [
+            4069709.573693054,
+            30.3392
+          ],
+          [
+            4069709.576166894,
+            30.3392
+          ],
+          [
+            4069709.677936683,
+            31.9232
+          ],
+          [
+            4069709.779775753,
+            31.1376
+          ],
+          [
+            4069709.882134122,
+            25.56928
+          ],
+          [
+            4069709.983953192,
+            28.33184
+          ],
+          [
+            4069710.085752965,
+            28.3432
+          ],
+          [
+            4069710.188049382,
+            23.57168
+          ],
+          [
+            4069710.289857444,
+            26.72496
+          ],
+          [
+            4069710.391666498,
+            26.73568
+          ],
+          [
+            4069710.394121906,
+            26.7464
+          ]
+        ],
+        "sampled_joules": 22.93722534616416,
+        "sample_coverage_fraction": 1.0,
+        "sampled_joules_per_output_token": 1.91143544551368,
+        "scope": "whole rail, shared-device load included, no idle subtraction"
+      },
+      "exit_layer": 3,
+      "policy": "fp",
+      "scheduler": "native",
+      "repeat": 0,
+      "head": "fp",
+      "workload": "trace"
+    },
+    {
+      "summary": {
+        "requests": 6,
+        "elapsed_s": 0.7838346939533949,
+        "output_tokens": 12,
+        "ttft_s": {
+          "p50": 0.12620977088809016,
+          "p90": 0.12729388270527126,
+          "p95": 0.12729388270527126,
+          "p99": 0.12729388270527126
+        },
+        "tpot_s": {
+          "p50": 0.057529082987457514,
+          "p90": 0.05756927467882633,
+          "p95": 0.05756927467882633,
+          "p99": 0.05756927467882633
+        },
+        "e2e_s": {
+          "p50": 0.1837790455669165,
+          "p90": 0.18482296569272877,
+          "p95": 0.18482296569272877,
+          "p99": 0.18482296569272877
+        },
+        "admission_lag_s": {
+          "p50": 0.0005169898737222012,
+          "p90": 0.0019064768683165478,
+          "p95": 0.0019262953428551693,
+          "p99": 0.0019421501224860666
+        },
+        "output_tps": 15.309350418614532,
+        "slo_requests_per_s": 7.654675209307266,
+        "slo_tokens_per_s": 15.309350418614532,
+        "quality": {
+          "arithmetic": {
+            "count": 2,
+            "accuracy": 1.0
+          },
+          "code": {
+            "count": 2,
+            "accuracy": 1.0
+          },
+          "knowledge": {
+            "count": 2,
+            "accuracy": 1.0
+          }
+        },
+        "quality_slo_requests_per_s": 7.654675209307266
+      },
+      "requests": [
+        {
+          "arrival_s": 0,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the number: 17 + 25 =<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "42",
+          "task": "arithmetic",
+          "allow_ptq": true,
+          "max_tokens": 16,
+          "request_id": "request-0",
+          "raw_prompt": "Answer with only the number: 17 + 25 =",
+          "token_times_s": [
+            0.11849169060587883,
+            0.17596630891785026
+          ],
+          "token_ids": [
+            2983,
+            128009
+          ],
+          "text": "42",
+          "admission_lag_s": 3.5837292671203613e-06,
+          "finished_s": 0.17596630891785026,
+          "correct": true,
+          "ttft_s": 0.11849169060587883,
+          "tpot_s": 0.057474618311971426,
+          "e2e_s": 0.17596630891785026,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the city name. What is the capital of France?<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "Paris",
+          "task": "knowledge",
+          "allow_ptq": false,
+          "max_tokens": 16,
+          "request_id": "request-1",
+          "raw_prompt": "Answer with only the city name. What is the capital of France?",
+          "token_times_s": [
+            0.11849169060587883,
+            0.17596630891785026
+          ],
+          "token_ids": [
+            60704,
+            128009
+          ],
+          "text": "Paris",
+          "admission_lag_s": 0.0009437180124223232,
+          "finished_s": 0.17596630891785026,
+          "correct": true,
+          "ttft_s": 0.11849169060587883,
+          "tpot_s": 0.057474618311971426,
+          "e2e_s": 0.17596630891785026,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0.3,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nWhat does Python print for len([1, 2, 3])? Answer with only the number.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "3",
+          "task": "code",
+          "allow_ptq": true,
+          "max_tokens": 16,
+          "request_id": "request-2",
+          "raw_prompt": "What does Python print for len([1, 2, 3])? Answer with only the number.",
+          "token_times_s": [
+            0.42729388270527124,
+            0.48482296569272876
+          ],
+          "token_ids": [
+            18,
+            128009
+          ],
+          "text": "3",
+          "admission_lag_s": 9.026173502207913e-05,
+          "finished_s": 0.48482296569272876,
+          "correct": true,
+          "ttft_s": 0.12729388270527126,
+          "tpot_s": 0.057529082987457514,
+          "e2e_s": 0.18482296569272877,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0.3,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the number: 9 multiplied by 7 =<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "63",
+          "task": "arithmetic",
+          "allow_ptq": false,
+          "max_tokens": 16,
+          "request_id": "request-3",
+          "raw_prompt": "Answer with only the number: 9 multiplied by 7 =",
+          "token_times_s": [
+            0.42729388270527124,
+            0.48482296569272876
+          ],
+          "token_ids": [
+            5495,
+            128009
+          ],
+          "text": "63",
+          "admission_lag_s": 0.0019461138173937909,
+          "finished_s": 0.48482296569272876,
+          "correct": true,
+          "ttft_s": 0.12729388270527126,
+          "tpot_s": 0.057529082987457514,
+          "e2e_s": 0.18482296569272877,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0.6,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the chemical symbol for oxygen.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "O",
+          "task": "knowledge",
+          "allow_ptq": true,
+          "max_tokens": 16,
+          "request_id": "request-4",
+          "raw_prompt": "Answer with only the chemical symbol for oxygen.",
+          "token_times_s": [
+            0.7262097708880901,
+            0.7837790455669165
+          ],
+          "token_ids": [
+            46,
+            128009
+          ],
+          "text": "O",
+          "admission_lag_s": 8.785175159575775e-05,
+          "finished_s": 0.7837790455669165,
+          "correct": true,
+          "ttft_s": 0.12620977088809016,
+          "tpot_s": 0.05756927467882633,
+          "e2e_s": 0.1837790455669165,
+          "slo_pass": true
+        },
+        {
+          "arrival_s": 0.6,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nWhat does Python print for sum([2, 3, 4])? Answer with only the number.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "9",
+          "task": "code",
+          "allow_ptq": false,
+          "max_tokens": 16,
+          "request_id": "request-5",
+          "raw_prompt": "What does Python print for sum([2, 3, 4])? Answer with only the number.",
+          "token_times_s": [
+            0.7262097708880901,
+            0.7837790455669165
+          ],
+          "token_ids": [
+            24,
+            128009
+          ],
+          "text": "9",
+          "admission_lag_s": 0.0018668399192393048,
+          "finished_s": 0.7837790455669165,
+          "correct": true,
+          "ttft_s": 0.12620977088809016,
+          "tpot_s": 0.05756927467882633,
+          "e2e_s": 0.1837790455669165,
+          "slo_pass": true
+        }
+      ],
+      "steps": [
+        {
+          "step": 2,
+          "time_s": 4069710.653744606,
+          "selected_group": "native",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-0-9a1eef1d": 48,
+            "request-1-8c3278b0": 50
+          },
+          "service_gap_s": {
+            "request-0-9a1eef1d": 0.0,
+            "request-1-8c3278b0": 0.0
+          },
+          "routes": {
+            "request-0-9a1eef1d": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 48
+            },
+            "request-1-8c3278b0": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 50
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 3,
+          "time_s": 4069710.77081168,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-9a1eef1d": 1,
+            "request-1-8c3278b0": 1
+          },
+          "service_gap_s": {
+            "request-0-9a1eef1d": 0.11706707393750548,
+            "request-1-8c3278b0": 0.11706707393750548
+          },
+          "routes": {
+            "request-0-9a1eef1d": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-8c3278b0": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 4,
+          "time_s": 4069710.955441343,
+          "selected_group": "native",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-2-9cc0dae3": 58,
+            "request-3-bb566c2a": 49
+          },
+          "service_gap_s": {
+            "request-2-9cc0dae3": 0.0,
+            "request-3-bb566c2a": 0.0
+          },
+          "routes": {
+            "request-2-9cc0dae3": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 58
+            },
+            "request-3-bb566c2a": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 49
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 5,
+          "time_s": 4069711.079615216,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-9cc0dae3": 1,
+            "request-3-bb566c2a": 1
+          },
+          "service_gap_s": {
+            "request-2-9cc0dae3": 0.12417387263849378,
+            "request-3-bb566c2a": 0.12417387263849378
+          },
+          "routes": {
+            "request-2-9cc0dae3": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-bb566c2a": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 6,
+          "time_s": 4069711.255413877,
+          "selected_group": "native",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-4-bfcc6b47": 45,
+            "request-5-96e99ec9": 58
+          },
+          "service_gap_s": {
+            "request-4-bfcc6b47": 0.0,
+            "request-5-96e99ec9": 0.0
+          },
+          "routes": {
+            "request-4-bfcc6b47": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 45
+            },
+            "request-5-96e99ec9": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 58
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 7,
+          "time_s": 4069711.378528352,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-4-bfcc6b47": 1,
+            "request-5-96e99ec9": 1
+          },
+          "service_gap_s": {
+            "request-4-bfcc6b47": 0.12311447504907846,
+            "request-5-96e99ec9": 0.12311447504907846
+          },
+          "routes": {
+            "request-4-bfcc6b47": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-5-96e99ec9": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        }
+      ],
+      "energy": {
+        "sensor": [
+          "/sys/bus/i2c/drivers/ina3221/1-0040/hwmon/hwmon6/in1_input",
+          "/sys/bus/i2c/drivers/ina3221/1-0040/hwmon/hwmon6/curr1_input"
+        ],
+        "error": null,
+        "samples": [
+          [
+            4069710.651966482,
+            30.7384
+          ],
+          [
+            4069710.654430179,
+            30.7384
+          ],
+          [
+            4069710.756057791,
+            32.32224
+          ],
+          [
+            4069710.857919261,
+            29.55264
+          ],
+          [
+            4069710.959816316,
+            23.9712
+          ],
+          [
+            4069711.061655546,
+            27.12384
+          ],
+          [
+            4069711.16347644,
+            25.9584
+          ],
+          [
+            4069711.265391255,
+            21.57408
+          ],
+          [
+            4069711.367169365,
+            25.12944
+          ],
+          [
+            4069711.437780774,
+            25.13952
+          ]
+        ],
+        "sampled_joules": 20.984646708783004,
+        "sample_coverage_fraction": 1.0,
+        "sampled_joules_per_output_token": 1.7487205590652504,
+        "scope": "whole rail, shared-device load included, no idle subtraction"
+      },
+      "exit_layer": 1,
+      "policy": "ptq",
+      "scheduler": "native",
+      "repeat": 0,
+      "head": "fp",
+      "workload": "trace"
+    },
+    {
+      "summary": {
+        "requests": 6,
+        "elapsed_s": 0.8504039677791297,
+        "output_tokens": 12,
+        "ttft_s": {
+          "p50": 0.123868221975863,
+          "p90": 0.12483316501602532,
+          "p95": 0.12483316501602532,
+          "p99": 0.12483316501602532
+        },
+        "tpot_s": {
+          "p50": 0.12647718470543623,
+          "p90": 0.12681542662903666,
+          "p95": 0.12681542662903666,
+          "p99": 0.12681542662903666
+        },
+        "e2e_s": {
+          "p50": 0.25034540668129923,
+          "p90": 0.251648591645062,
+          "p95": 0.251648591645062,
+          "p99": 0.251648591645062
+        },
+        "admission_lag_s": {
+          "p50": 0.0005888947285711821,
+          "p90": 0.0015532448422163891,
+          "p95": 0.001560474769212325,
+          "p99": 0.0015662587108090736
+        },
+        "output_tps": 14.110940746594315,
+        "slo_requests_per_s": 0.0,
+        "slo_tokens_per_s": 0.0,
+        "quality": {
+          "arithmetic": {
+            "count": 2,
+            "accuracy": 1.0
+          },
+          "code": {
+            "count": 2,
+            "accuracy": 1.0
+          },
+          "knowledge": {
+            "count": 2,
+            "accuracy": 1.0
+          }
+        },
+        "quality_slo_requests_per_s": 0.0
+      },
+      "requests": [
+        {
+          "arrival_s": 0,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the number: 17 + 25 =<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "42",
+          "task": "arithmetic",
+          "allow_ptq": true,
+          "max_tokens": 16,
+          "request_id": "request-0",
+          "raw_prompt": "Answer with only the number: 17 + 25 =",
+          "token_times_s": [
+            0.12030402384698391,
+            0.24639029381796718
+          ],
+          "token_ids": [
+            2983,
+            128009
+          ],
+          "text": "42",
+          "admission_lag_s": 4.415865987539291e-06,
+          "finished_s": 0.24639029381796718,
+          "correct": true,
+          "ttft_s": 0.12030402384698391,
+          "tpot_s": 0.12608626997098327,
+          "e2e_s": 0.24639029381796718,
+          "slo_pass": false
+        },
+        {
+          "arrival_s": 0,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the city name. What is the capital of France?<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "Paris",
+          "task": "knowledge",
+          "allow_ptq": false,
+          "max_tokens": 16,
+          "request_id": "request-1",
+          "raw_prompt": "Answer with only the city name. What is the capital of France?",
+          "token_times_s": [
+            0.12030402384698391,
+            0.24639029381796718
+          ],
+          "token_ids": [
+            60704,
+            128009
+          ],
+          "text": "Paris",
+          "admission_lag_s": 0.0010997187346220016,
+          "finished_s": 0.24639029381796718,
+          "correct": true,
+          "ttft_s": 0.12030402384698391,
+          "tpot_s": 0.12608626997098327,
+          "e2e_s": 0.24639029381796718,
+          "slo_pass": false
+        },
+        {
+          "arrival_s": 0.3,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nWhat does Python print for len([1, 2, 3])? Answer with only the number.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "3",
+          "task": "code",
+          "allow_ptq": true,
+          "max_tokens": 16,
+          "request_id": "request-2",
+          "raw_prompt": "What does Python print for len([1, 2, 3])? Answer with only the number.",
+          "token_times_s": [
+            0.4248331650160253,
+            0.551648591645062
+          ],
+          "token_ids": [
+            18,
+            128009
+          ],
+          "text": "3",
+          "admission_lag_s": 7.807072252036251e-05,
+          "finished_s": 0.551648591645062,
+          "correct": true,
+          "ttft_s": 0.12483316501602532,
+          "tpot_s": 0.12681542662903666,
+          "e2e_s": 0.251648591645062,
+          "slo_pass": false
+        },
+        {
+          "arrival_s": 0.3,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the number: 9 multiplied by 7 =<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "63",
+          "task": "arithmetic",
+          "allow_ptq": false,
+          "max_tokens": 16,
+          "request_id": "request-3",
+          "raw_prompt": "Answer with only the number: 9 multiplied by 7 =",
+          "token_times_s": [
+            0.4248331650160253,
+            0.551648591645062
+          ],
+          "token_ids": [
+            5495,
+            128009
+          ],
+          "text": "63",
+          "admission_lag_s": 0.0015387849882245175,
+          "finished_s": 0.551648591645062,
+          "correct": true,
+          "ttft_s": 0.12483316501602532,
+          "tpot_s": 0.12681542662903666,
+          "e2e_s": 0.251648591645062,
+          "slo_pass": false
+        },
+        {
+          "arrival_s": 0.6,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nAnswer with only the chemical symbol for oxygen.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "O",
+          "task": "knowledge",
+          "allow_ptq": true,
+          "max_tokens": 16,
+          "request_id": "request-4",
+          "raw_prompt": "Answer with only the chemical symbol for oxygen.",
+          "token_times_s": [
+            0.723868221975863,
+            0.8503454066812992
+          ],
+          "token_ids": [
+            46,
+            128009
+          ],
+          "text": "O",
+          "admission_lag_s": 6.94548711180909e-05,
+          "finished_s": 0.8503454066812992,
+          "correct": true,
+          "ttft_s": 0.123868221975863,
+          "tpot_s": 0.12647718470543623,
+          "e2e_s": 0.25034540668129923,
+          "slo_pass": false
+        },
+        {
+          "arrival_s": 0.6,
+          "prompt": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\nWhat does Python print for sum([2, 3, 4])? Answer with only the number.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n",
+          "answer": "9",
+          "task": "code",
+          "allow_ptq": false,
+          "max_tokens": 16,
+          "request_id": "request-5",
+          "raw_prompt": "What does Python print for sum([2, 3, 4])? Answer with only the number.",
+          "token_times_s": [
+            0.723868221975863,
+            0.8503454066812992
+          ],
+          "token_ids": [
+            24,
+            128009
+          ],
+          "text": "9",
+          "admission_lag_s": 0.0015677046962082608,
+          "finished_s": 0.8503454066812992,
+          "correct": true,
+          "ttft_s": 0.123868221975863,
+          "tpot_s": 0.12647718470543623,
+          "e2e_s": 0.25034540668129923,
+          "slo_pass": false
+        }
+      ],
+      "steps": [
+        {
+          "step": 2,
+          "time_s": 4069711.775069938,
+          "selected_group": "native",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-0-b9f16d17": 48,
+            "request-1-a60d36d3": 50
+          },
+          "service_gap_s": {
+            "request-0-b9f16d17": 0.0,
+            "request-1-a60d36d3": 0.0
+          },
+          "routes": {
+            "request-0-b9f16d17": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 48
+            },
+            "request-1-a60d36d3": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 50
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 3,
+          "time_s": 4069711.893652095,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-0-b9f16d17": 1,
+            "request-1-a60d36d3": 1
+          },
+          "service_gap_s": {
+            "request-0-b9f16d17": 0.11858215695247054,
+            "request-1-a60d36d3": 0.11858215695247054
+          },
+          "routes": {
+            "request-0-b9f16d17": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-1-a60d36d3": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 4,
+          "time_s": 4069712.075769582,
+          "selected_group": "native",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-2-8fea68ed": 58,
+            "request-3-be66fcb9": 49
+          },
+          "service_gap_s": {
+            "request-2-8fea68ed": 0.0,
+            "request-3-be66fcb9": 0.0
+          },
+          "routes": {
+            "request-2-8fea68ed": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 58
+            },
+            "request-3-be66fcb9": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 49
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 5,
+          "time_s": 4069712.19818178,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-2-8fea68ed": 1,
+            "request-3-be66fcb9": 1
+          },
+          "service_gap_s": {
+            "request-2-8fea68ed": 0.12241219822317362,
+            "request-3-be66fcb9": 0.12241219822317362
+          },
+          "routes": {
+            "request-2-8fea68ed": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-3-be66fcb9": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 6,
+          "time_s": 4069712.376056615,
+          "selected_group": "native",
+          "active_decode": 0,
+          "scheduled_tokens": {
+            "request-4-a9a5bcb9": 45,
+            "request-5-8eddbba1": 58
+          },
+          "service_gap_s": {
+            "request-4-a9a5bcb9": 0.0,
+            "request-5-8eddbba1": 0.0
+          },
+          "routes": {
+            "request-4-a9a5bcb9": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 45
+            },
+            "request-5-8eddbba1": {
+              "route": "fp",
+              "phase": "prefill",
+              "tokens": 58
+            }
+          },
+          "graph": "eager"
+        },
+        {
+          "step": 7,
+          "time_s": 4069712.497216741,
+          "selected_group": "native",
+          "active_decode": 2,
+          "scheduled_tokens": {
+            "request-4-a9a5bcb9": 1,
+            "request-5-8eddbba1": 1
+          },
+          "service_gap_s": {
+            "request-4-a9a5bcb9": 0.12116012629121542,
+            "request-5-8eddbba1": 0.12116012629121542
+          },
+          "routes": {
+            "request-4-a9a5bcb9": {
+              "route": "ptq",
+              "phase": "decode",
+              "tokens": 1
+            },
+            "request-5-8eddbba1": {
+              "route": "fp",
+              "phase": "decode",
+              "tokens": 1
+            }
+          },
+          "graph": "eager"
+        }
+      ],
+      "energy": {
+        "sensor": [
+          "/sys/bus/i2c/drivers/ina3221/1-0040/hwmon/hwmon6/in1_input",
+          "/sys/bus/i2c/drivers/ina3221/1-0040/hwmon/hwmon6/curr1_input"
+        ],
+        "error": null,
+        "samples": [
+          [
+            4069711.773119301,
+            28.7424
+          ],
+          [
+            4069711.775806903,
+            28.3432
+          ],
+          [
+            4069711.877348019,
+            30.32704
+          ],
+          [
+            4069711.979662069,
+            30.3392
+          ],
+          [
+            4069712.08243721,
+            26.76784
+          ],
+          [
+            4069712.183975158,
+            29.12992
+          ],
+          [
+            4069712.285584084,
+            29.52896
+          ],
+          [
+            4069712.388315032,
+            26.36832
+          ],
+          [
+            4069712.489878997,
+            29.12992
+          ],
+          [
+            4069712.591555251,
+            29.12992
+          ],
+          [
+            4069712.625565811,
+            28.7424
+          ]
+        ],
+        "sampled_joules": 24.48826647178984,
+        "sample_coverage_fraction": 1.0,
+        "sampled_joules_per_output_token": 2.040688872649153,
+        "scope": "whole rail, shared-device load included, no idle subtraction"
+      },
+      "exit_layer": 1,
+      "policy": "mixed",
+      "scheduler": "native",
+      "repeat": 0,
+      "head": "int4",
+      "workload": "trace"
+    }
+  ],
+  "timing_scope": "in-process delivery; excludes HTTP/SSE"
+}

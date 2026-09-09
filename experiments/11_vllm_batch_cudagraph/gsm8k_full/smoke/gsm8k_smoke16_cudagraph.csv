@@ -1,0 +1,3 @@
+mode,num_samples,batch_size,benchmark_s,total_input_tokens,total_output_tokens,output_tps,total_token_tps,requests_per_s,strict_accuracy,flexible_accuracy,max_tokens_cap_hits,prompt_tokens_mean,prompt_tokens_p90,output_tokens_mean,output_tokens_p90,phase_trace
+full_fp,16,16,49.505189810995944,18691,2346,47.388970913084215,424.94534573680846,0.32319843759989236,0.6875,0.6875,0,1168.1875,1202.5,146.625,267.0,all_fp
+static_ptq_tail,16,16,43.86988280492369,18691,2683,61.15813009874,487.21351946718926,0.36471490181879984,0.6875,0.6875,2,1168.1875,1202.5,167.6875,357.5,"decode_ptq,prefill_fp"

@@ -1,0 +1,6 @@
+Range,Style,Total Proj Time (ns),Total Range Time (ns),Range Instances,Proj Avg (ns),Proj Med (ns),Proj Min (ns),Proj Max (ns),Proj StdDev (ns),Total GPU Ops,Avg GPU Ops,Avg Range Lvl,Avg Num Child
+:riveredge_full_fp_cudagraph,PushPop,8535388352,26429563456,1,8535388352.0,8535388352.0,8535388352,8535388352,0.0,3855,3855.0,0.0,1.0
+:riveredge_full_fp_cudagraph_batch1,PushPop,8535388352,8540558496,1,8535388352.0,8535388352.0,8535388352,8535388352,0.0,3855,3855.0,1.0,3.0
+:riveredge_full_fp_cudagraph_batch1_iter0,PushPop,2856057024,2861365056,1,2856057024.0,2856057024.0,2856057024,2856057024,0.0,1285,1285.0,2.0,0.0
+:riveredge_full_fp_cudagraph_batch1_iter2,PushPop,2837886784,2839941024,1,2837886784.0,2837886784.0,2837886784,2837886784,0.0,1285,1285.0,2.0,0.0
+:riveredge_full_fp_cudagraph_batch1_iter1,PushPop,2836952768,2839148960,1,2836952768.0,2836952768.0,2836952768,2836952768,0.0,1285,1285.0,2.0,0.0

@@ -1,5 +1,9 @@
 # River-style Early-Exit LLM Serving on Edge vLLM
 
+当前实现的统一优化开关与原生 vLLM 对照入口见
+[river-vllm-edge/README.md](river-vllm-edge/README.md)。新入口默认关闭全部
+RiverEdge 优化，使用原生模型类和 FP checkpoint；历史 profiling 脚本仍保留原模式参数。
+
 ## 0. 项目定位
 
 本项目的核心目标不是重新提出一种新的提前退出算法，而是将 **River-style Transformer early-exit 模型**高效部署到端侧 vLLM serving 框架中，并围绕 **TPS / TPOT** 进行系统优化。

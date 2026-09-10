@@ -5,3 +5,23 @@ __pycache__/
 # Local model adapters contain machine-specific symlinks to /media model weights.
 experiments/**/model_adapters/
 experiments/**/model_adapters_container/
+
+# Generated Python package metadata.
+*.egg-info/
+
+# Local raw profiling artifacts; keep source scripts and CSV/JSON summaries.
+/experiments/**/*.log
+/experiments/**/*.ncu-rep
+/experiments/**/*.nsys-rep
+/experiments/**/*.qdstrm
+/experiments/**/*.sqlite
+/experiments/**/*.sqlite-shm
+/experiments/**/*.sqlite-wal
+/experiments/**/available_metrics.txt
+
+# Drafts and local reports excluded from the current research milestone.
+# Already tracked reports remain versioned; unignore drafts when publishing them.
+/0907.md
+/paper/
+/reports/
+/experiments/15_resume_20260907/autoresearch_proposal.md
